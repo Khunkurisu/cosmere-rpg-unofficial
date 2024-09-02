@@ -1,0 +1,108 @@
+{
+	"Actor": {
+		"types": [
+			"Player",
+			"Adversary"
+		],
+		"templates": {
+			"resources": {
+				"health": {
+					"value": 10,
+					"max": 10
+				},
+				"focus": {
+					"value": 2,
+					"max": 2
+				},
+				"investiture": {
+					"value": 0,
+					"max": 0
+				},
+				"movement": [
+					{
+						"name": "ground",
+						"value": 25
+					}
+				]
+			},
+			"defenses": {
+				"deflect": 0,
+				"physical": 10,
+				"cognitive": 10,
+				"spiritual": 10
+			},
+			"statistics": {
+				"size": {
+					"value": 0
+				},
+				"attributes": {
+					"strength": {
+						"value": 1
+					},
+					"speed": {
+						"value": 3
+					},
+					"intellect": {
+						"value": 0
+					},
+					"willpower": {
+						"value": 2
+					},
+					"awareness": {
+						"value": 1
+					},
+					"presence": {
+						"value": 3
+					}
+				},
+				"skills": [],
+				"expertises": [],
+				"senses": []
+			}
+		},
+		"Player": {
+			"templates": [
+				"resources",
+				"defenses",
+				"statistics"
+			],
+			"level": 1,
+			"biography": {},
+			"ancestry": ""
+		},
+		"adversary": {
+			"templates": [
+				"resources",
+				"defenses",
+				"statistics"
+			],
+			"tier": 1,
+			"role": "",
+			"type": "",
+			"notes": {}
+		}
+	},
+	"Item": {
+		"types": [
+			"item",
+			"feature"
+		],
+		"templates": {
+			"base": {
+				"description": ""
+			}
+		},
+		"item": {
+			"templates": [
+				"base"
+			],
+			"quantity": 1,
+			"weight": 0
+		},
+		"feature": {
+			"templates": [
+				"base"
+			]
+		}
+	}
+}

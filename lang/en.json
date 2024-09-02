@@ -1,0 +1,66 @@
+{
+	"COSMERE_UNOFFICIAL": {
+		"Attribute": {
+			"Strength": {
+				"long": "Strength",
+				"abbr": "str"
+			},
+			"Speed": {
+				"long": "Speed",
+				"abbr": "spd"
+			},
+			"Intellect": {
+				"long": "Intellect",
+				"abbr": "int"
+			},
+			"Willpower": {
+				"long": "Willpower",
+				"abbr": "wil"
+			},
+			"Awareness": {
+				"long": "Awareness",
+				"abbr": "awa"
+			},
+			"Presence": {
+				"long": "Presence",
+				"abbr": "pre"
+			}
+		},
+		"Defense": {
+			"Deflect": {
+				"long": "Deflect"
+			},
+			"Physical": {
+				"long": "Physical"
+			},
+			"Cognitive": {
+				"long": "Cognitive"
+			},
+			"Spiritual": {
+				"long": "Spiritual"
+			}
+		},
+		"SheetLabels": {
+			"Actor": "CosmereRPG Actor Sheet",
+			"Item": "CosmereRPG Item Sheet"
+		},
+		"Item": {},
+		"Effect": {
+			"Source": "Source",
+			"Toggle": "Toggle Effect",
+			"Temporary": "Temporary Effects",
+			"Passive": "Passive Effects",
+			"Inactive": "Inactive Effects"
+		}
+	},
+	"TYPES": {
+		"Actor": {
+			"player": "Player",
+			"adversary": "Adversary"
+		},
+		"Item": {
+			"item": "Item",
+			"feature": "Feature"
+		}
+	}
+}

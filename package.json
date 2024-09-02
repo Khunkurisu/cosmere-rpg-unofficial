@@ -1,0 +1,19 @@
+{
+  "name": "cosmere-rpg-unofficial",
+  "version": "2.0.0",
+  "description": "CSS compiler for the CosmereUnofficial system",
+  "scripts": {
+    "build": "sass src/scss/cosmere-unofficial.scss css/cosmere-unofficial.css --style=expanded --no-source-map",
+    "watch": "sass src/scss/cosmere-unofficial.scss css/cosmere-unofficial.css --style=expanded --source-map --watch"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "author": "Asacolips",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
+    "sass": "^1.53.0"
+  }
+}
