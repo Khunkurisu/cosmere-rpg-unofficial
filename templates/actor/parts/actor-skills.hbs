@@ -6,12 +6,12 @@
 		</label>
 		<ol class='physical-skills-list'>
 			{{#each system.skills.physical as |skill key|}}
-				<li class="grid grid-4col">
+				<li class="grid grid-5col">
 					<div class="skill flexcol flex-group-center">
 						<input type="text" name="system.skills.physical.{{key}}.value" value="{{skill.value}}"
 							disabled="true" data-dtype="Number" />
 					</div>
-					<div class="skill grid-span-2 flex-group-center">
+					<div class="skill grid-span-3 flex-group-center">
 						<label for="system.skills.physical.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.physical.{{key}}.value"
@@ -35,12 +35,12 @@
 		</label>
 		<ol class='cognitive-skills-list'>
 			{{#each system.skills.cognitive as |skill key|}}
-				<li class="grid grid-4col">
+				<li class="grid grid-5col">
 					<div class="skill flexcol flex-group-center">
 						<input type="text" name="system.skills.cognitive.{{key}}.value" value="{{skill.value}}"
 							disabled="true" data-dtype="Number" />
 					</div>
-					<div class="skill grid-span-2 flex-group-center">
+					<div class="skill grid-span-3 flex-group-center">
 						<label for="system.skills.cognitive.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.cognitive.{{key}}.value"
@@ -64,12 +64,12 @@
 		</label>
 		<ol class='spiritual-skills-list'>
 			{{#each system.skills.spiritual as |skill key|}}
-				<li class="grid grid-4col">
+				<li class="grid grid-5col">
 					<div class="skill flexcol flex-group-center">
 						<input type="text" name="system.skills.spiritual.{{key}}.value" value="{{skill.value}}"
 							disabled="true" data-dtype="Number" />
 					</div>
-					<div class="skill grid-span-2 flex-group-center">
+					<div class="skill grid-span-3 flex-group-center">
 						<label for="system.skills.spiritual.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.spiritual.{{key}}.value"
