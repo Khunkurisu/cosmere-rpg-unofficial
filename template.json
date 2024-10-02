@@ -50,9 +50,102 @@
 					}
 				},
 				"skills": {
-					"physical": {},
-					"cognitive": {},
-					"spiritual": {}
+					"physical": {
+						"athletics": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "strength"
+						},
+						"agility": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "speed"
+						},
+						"heavy_weapons": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "strength"
+						},
+						"light_weapons": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "speed"
+						},
+						"stealth": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "speed"
+						},
+						"thievery": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "speed"
+						}
+					},
+					"cognitive": {
+						"crafting": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "intellect"
+						},
+						"deduction": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "intellect"
+						},
+						"discipline": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "willpower"
+						},
+						"intimidation": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "willpower"
+						},
+						"lore": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "intellect"
+						},
+						"medicine": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "intellect"
+						}
+					},
+					"spiritual": {
+						"deception": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "presence"
+						},
+						"insight": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "awareness"
+						},
+						"leadership": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "presence"
+						},
+						"perception": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "awareness"
+						},
+						"persuasion": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "presence"
+						},
+						"survival": {
+							"value": 0,
+							"bonus": 0,
+							"attribute": "awareness"
+						}
+					}
 				},
 				"expertises": {},
 				"movement": {

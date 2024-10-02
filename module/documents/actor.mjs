@@ -16,104 +16,6 @@ export class CosmereUnofficialActor extends Actor {
 	prepareBaseData() {
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
-		const systemData = this.system;
-
-		systemData.skills.physical = {
-			"athletics": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "strength"
-			},
-			"agility": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "speed"
-			},
-			"heavy_weapons": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "strength"
-			},
-			"light_weapons": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "speed"
-			},
-			"stealth": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "speed"
-			},
-			"thievery": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "speed"
-			}
-		};
-		systemData.skills.cognitive = {
-			"crafting": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "intellect"
-			},
-			"deduction": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "intellect"
-			},
-			"discipline": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "willpower"
-			},
-			"intimidation": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "willpower"
-			},
-			"lore": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "intellect"
-			},
-			"medicine": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "intellect"
-			}
-		};
-		systemData.skills.spiritual = {
-			"deception": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "presence"
-			},
-			"insight": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "awareness"
-			},
-			"leadership": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "presence"
-			},
-			"perception": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "awareness"
-			},
-			"persuasion": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "presence"
-			},
-			"survival": {
-				"value": 0,
-				"bonus": 0,
-				"attribute": "awareness"
-			}
-		};
 	}
 
 	/**
@@ -173,6 +75,7 @@ export class CosmereUnofficialActor extends Actor {
 			for (var key in skills[category]) {
 				const attribute = attributes[skills[category][key].attribute].value;
 				const bonus = skills[category][key].bonus;
+				console.log(key + ": " + bonus);
 				skills[category][key].value = bonus + attribute;
 			}
 		}
