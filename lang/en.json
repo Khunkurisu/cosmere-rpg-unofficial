@@ -26,18 +26,108 @@
 				"abbr": "pre"
 			}
 		},
+		"Skill": {
+			"Athletics": {
+				"long": "Athletics",
+				"abbr": "ath"
+			},
+			"Agility": {
+				"long": "Agility",
+				"abbr": "agi"
+			},
+			"HeavyWeapons": {
+				"long": "Heavy Weapons",
+				"abbr": "hew"
+			},
+			"LightWeapons": {
+				"long": "Light Weapons",
+				"abbr": "liw"
+			},
+			"Stealth": {
+				"long": "Stealth",
+				"abbr": "ste"
+			},
+			"Thievery": {
+				"long": "Thievery",
+				"abbr": "thi"
+			},
+			"Crafting": {
+				"long": "Crafting",
+				"abbr": "cra"
+			},
+			"Deduction": {
+				"long": "Deduction",
+				"abbr": "ded"
+			},
+			"Discipline": {
+				"long": "Discipline",
+				"abbr": "dis"
+			},
+			"Intimidation": {
+				"long": "Intimidation",
+				"abbr": "imd"
+			},
+			"Lore": {
+				"long": "Lore",
+				"abbr": "lre"
+			},
+			"Medicine": {
+				"long": "Medicine",
+				"abbr": "med"
+			},
+			"Deception": {
+				"long": "Deception",
+				"abbr": "dec"
+			},
+			"Insight": {
+				"long": "Insight",
+				"abbr": "ins"
+			},
+			"Leadership": {
+				"long": "Leadership",
+				"abbr": "led"
+			},
+			"Perception": {
+				"long": "Perception",
+				"abbr": "pcp"
+			},
+			"Persuasion": {
+				"long": "Persuasion",
+				"abbr": "per"
+			},
+			"Survival": {
+				"long": "Survival",
+				"abbr": "svl"
+			}
+		},
 		"Defense": {
 			"Deflect": {
-				"long": "Deflect"
+				"long": "Deflect",
+				"abbr": "dfl"
 			},
 			"Physical": {
-				"long": "Physical"
+				"long": "Physical",
+				"abbr": "phy"
 			},
 			"Cognitive": {
-				"long": "Cognitive"
+				"long": "Cognitive",
+				"abbr": "cog"
 			},
 			"Spiritual": {
-				"long": "Spiritual"
+				"long": "Spiritual",
+				"abbr": "spi"
+			}
+		},
+		"Sense": {
+			"range": {
+				"long": "Sense Range",
+				"abbr": "sr"
+			}
+		},
+		"Movement": {
+			"ground": {
+				"long": "Ground Speed",
+				"abbr": "gs"
 			}
 		},
 		"SheetLabels": {
