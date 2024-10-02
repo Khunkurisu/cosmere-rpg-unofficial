@@ -1,54 +1,89 @@
-<section class="grid grid-3col">
+<div class="grid grid-3col">
 	<div class="physical-skills flexcol">
 		<label for="physical-skills-list" class="resource-label flexlarge align-center"
-			data-label="{{localize (lookup @root.config.defenses physical)}}">{{localize (lookup @root.config.defenses "physical")}}</label>
+			data-label="{{localize (lookup @root.config.defenses physical)}}">
+			{{localize (lookup @root.config.defenses "physical")}}
+		</label>
 		<ol class='physical-skills-list'>
 			{{#each system.skills.physical as |skill key|}}
-				<hr />
-				<div class="skill flexrow flex-group-center">
-					<label for="system.skills.physical.{{key}}.value"
-						class="resource-label rollable flexlarge align-left"
-						data-roll="d20+@skills.physical.{{key}}.value"
-						data-label="{{localize (lookup @root.config.skills key)}}">{{localize (lookup @root.config.skills key)}}</label>
-					<input type="text" name="system.skills.physical.{{key}}.value" value="{{skill.value}}"
-						disabled="true" data-dtype="Number" />
-				</div>
+				<li class="grid grid-4col">
+					<div class="skill flexcol align-left">
+						<input type="text" name="system.skills.physical.{{key}}.value" value="{{skill.value}}"
+							disabled="true" data-dtype="Number" />
+					</div>
+					<div class="skill grid-span-2 align-left">
+						<label for="system.skills.physical.{{key}}.value"
+							class="resource-label rollable flexlarge align-left"
+							data-roll="d20+@skills.physical.{{key}}.value"
+							data-label="{{localize (lookup @root.config.skills key)}}">
+							{{localize (lookup @root.config.skills key)}}
+							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
+						</label>
+					</div>
+					<div class="skill flexcol align-left">
+						<input type="text" name="system.skills.physical.{{key}}.bonus" value="{{skill.bonus}}"
+							data-dtype="Number" />
+					</div>
+				</li>
 			{{/each}}
 		</ol>
 	</div>
 	<div class="cognitive-skills flexcol">
-		<label for="physical-skills-list" class="resource-label flexlarge align-center"
-			data-label="{{localize (lookup @root.config.defenses cognitive)}}">{{localize (lookup @root.config.defenses "cognitive")}}</label>
+		<label for="cognitive-skills-list" class="resource-label flexlarge align-center"
+			data-label="{{localize (lookup @root.config.defenses cognitive)}}">
+			{{localize (lookup @root.config.defenses "cognitive")}}
+		</label>
 		<ol class='cognitive-skills-list'>
 			{{#each system.skills.cognitive as |skill key|}}
-				<hr />
-				<div class="skill flexrow flex-group-center">
-					<label for="system.skills.cognitive.{{key}}.value"
-						class="resource-label rollable flexlarge align-left"
-						data-roll="d20+@skills.cognitive.{{key}}.value"
-						data-label="{{localize (lookup @root.config.skills key)}}">{{localize (lookup @root.config.skills key)}}</label>
-					<input type="text" name="system.skills.cognitive.{{key}}.value" value="{{skill.value}}"
-						disabled="true" data-dtype="Number" />
-				</div>
+				<li class="grid grid-4col">
+					<div class="skill flexcol align-left">
+						<input type="text" name="system.skills.cognitive.{{key}}.value" value="{{skill.value}}"
+							disabled="true" data-dtype="Number" />
+					</div>
+					<div class="skill grid-span-2 align-left">
+						<label for="system.skills.cognitive.{{key}}.value"
+							class="resource-label rollable flexlarge align-left"
+							data-roll="d20+@skills.cognitive.{{key}}.value"
+							data-label="{{localize (lookup @root.config.skills key)}}">
+							{{localize (lookup @root.config.skills key)}}
+							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
+						</label>
+					</div>
+					<div class="skill flexcol align-left">
+						<input type="text" name="system.skills.cognitive.{{key}}.bonus" value="{{skill.bonus}}"
+							data-dtype="Number" />
+					</div>
+				</li>
 			{{/each}}
 		</ol>
 	</div>
-
 	<div class="spiritual-skills flexcol">
-		<label for="physical-skills-list" class="resource-label flexlarge align-center"
-			data-label="{{localize (lookup @root.config.defenses spiritual)}}">{{localize (lookup @root.config.defenses "spiritual")}}</label>
+		<label for="spiritual-skills-list" class="resource-label flexlarge align-center"
+			data-label="{{localize (lookup @root.config.defenses spiritual)}}">
+			{{localize (lookup @root.config.defenses "spiritual")}}
+		</label>
 		<ol class='spiritual-skills-list'>
 			{{#each system.skills.spiritual as |skill key|}}
-				<hr />
-				<div class="skill flexrow flex-group-center">
-					<label for="system.skills.spiritual.{{key}}.value"
-						class="resource-label rollable flexlarge align-left"
-						data-roll="d20+@skills.spiritual.{{key}}.value"
-						data-label="{{localize (lookup @root.config.skills key)}}">{{localize (lookup @root.config.skills key)}}</label>
-					<input type="text" name="system.skills.spiritual.{{key}}.value" value="{{skill.value}}"
-						disabled="true" data-dtype="Number" />
-				</div>
+				<li class="grid grid-4col">
+					<div class="skill flexcol align-left">
+						<input type="text" name="system.skills.spiritual.{{key}}.value" value="{{skill.value}}"
+							disabled="true" data-dtype="Number" />
+					</div>
+					<div class="skill grid-span-2 align-left">
+						<label for="system.skills.spiritual.{{key}}.value"
+							class="resource-label rollable flexlarge align-left"
+							data-roll="d20+@skills.spiritual.{{key}}.value"
+							data-label="{{localize (lookup @root.config.skills key)}}">
+							{{localize (lookup @root.config.skills key)}}
+							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
+						</label>
+					</div>
+					<div class="skill flexcol align-left">
+						<input type="text" name="system.skills.spiritual.{{key}}.bonus" value="{{skill.bonus}}"
+							data-dtype="Number" />
+					</div>
+				</li>
 			{{/each}}
 		</ol>
 	</div>
-</section>
+</div>
