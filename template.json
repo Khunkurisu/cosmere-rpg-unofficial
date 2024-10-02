@@ -17,13 +17,7 @@
 				"investiture": {
 					"value": 0,
 					"max": 0
-				},
-				"movement": [
-					{
-						"name": "ground",
-						"value": 25
-					}
-				]
+				}
 			},
 			"defenses": {
 				"deflect": 0,
@@ -37,27 +31,36 @@
 				},
 				"attributes": {
 					"strength": {
-						"value": 1
+						"value": 0
 					},
 					"speed": {
-						"value": 3
+						"value": 0
 					},
 					"intellect": {
 						"value": 0
 					},
 					"willpower": {
-						"value": 2
+						"value": 0
 					},
 					"awareness": {
-						"value": 1
+						"value": 0
 					},
 					"presence": {
-						"value": 3
+						"value": 0
 					}
 				},
-				"skills": [],
-				"expertises": [],
-				"senses": []
+				"skills": {
+					"physical": {},
+					"mental": {},
+					"spiritual": {}
+				},
+				"expertises": {},
+				"movement": {
+					"ground": {
+						"value": 25
+					}
+				},
+				"senses": 5
 			}
 		},
 		"Player": {
@@ -68,7 +71,8 @@
 			],
 			"level": 1,
 			"biography": {},
-			"ancestry": ""
+			"ancestry": "",
+			"path": ""
 		},
 		"adversary": {
 			"templates": [
@@ -84,20 +88,69 @@
 	},
 	"Item": {
 		"types": [
-			"item",
+			"equipment",
+			"weapon",
+			"armor",
+			"action",
+			"effect",
 			"feature"
 		],
 		"templates": {
 			"base": {
 				"description": ""
+			},
+			"item": {
+				"price": 0,
+				"weight": 0,
+				"quantity": 1
+			},
+			"usable": {
+				"traits": [],
+				"expert": []
 			}
 		},
-		"item": {
+		"equipment": {
+			"templates": [
+				"base",
+				"item"
+			]
+		},
+		"weapon": {
+			"templates": [
+				"base",
+				"item",
+				"usable"
+			],
+			"damage": {
+				"die": 6,
+				"type": "keen"
+			},
+			"skill": "heavy",
+			"range": "melee"
+		},
+		"armor": {
+			"templates": [
+				"base",
+				"item",
+				"usable"
+			],
+			"deflect": 0
+		},
+		"action": {
 			"templates": [
 				"base"
 			],
-			"quantity": 1,
-			"weight": 0
+			"cost": 0
+		},
+		"effect": {
+			"templates": [
+				"base"
+			],
+			"type": "disabled",
+			"duration": {
+				"value": 0,
+				"unit": "round"
+			}
 		},
 		"feature": {
 			"templates": [
