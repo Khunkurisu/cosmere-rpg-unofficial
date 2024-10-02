@@ -12,8 +12,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['cosmere-rpg-unofficial', 'sheet', 'actor'],
-			width: 600,
-			height: 600,
+			width: 720,
+			height: 720,
 			tabs: [
 				{
 					navSelector: '.sheet-tabs',
