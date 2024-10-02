@@ -170,17 +170,13 @@ export class CosmereUnofficialActor extends Actor {
 		const attributes = systemData.attributes;
 		const skills = systemData.skills;
 		for (var category in skills) {
-			console.log("category: " + category);
 			for (var key in skills[category]) {
-				console.log("key: " + key);
 				const attribute = attributes[skills[category][key].attribute].value;
-				console.log("attribute: " +attribute);
 				const bonus = skills[category][key].bonus;
-				console.log("bonus: " + bonus);
 				skills[category][key].value = bonus + attribute;
-				console.log("value: " + (bonus + attribute));
 			}
 		}
+		console.log(skills)
 	}
 
 	setResources(systemData) {
