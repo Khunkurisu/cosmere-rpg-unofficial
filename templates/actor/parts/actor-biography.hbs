@@ -11,15 +11,15 @@
 		</div>
 	</div>
 	<hr />
-	<div class="grid grid-5col">
-		<div class="goals grid-span-2">
+	<div class="grid grid-2col">
+		<div class="goals flexcol">
 			<label for="goals" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "goals")}}
 			</label>
 			<ol class="goals-list">
 				{{#each system.biography.goals as |goal key|}}
-					<li class="grid grid-2col">
-						<div class="flexcol">
+					<li class="grid grid-4col">
+						<div class="grid-span-3">
 							<input type="text" name="system.biography.goals.{{key}}" value="{{goal}}"
 								data-dtype="String" />
 						</div>
@@ -43,16 +43,14 @@
 				</a>
 			</div>
 		</div>
-		<div class="dummy flexcol"><label></label>
-		</div>
-		<div class="connections grid-span-2">
+		<div class="connections flexcol">
 			<label for="connections" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "connections")}}
 			</label>
 			<ol class="connections-list">
 				{{#each system.biography.connections as |connection key|}}
-					<li class="grid grid-2col">
-						<div class="flexcol">
+					<li class="grid grid-4col">
+						<div class="grid-span-3">
 							<input type="text" name="system.biography.connections.{{key}}" value="{{connection}}"
 								data-dtype="String" />
 						</div>
@@ -78,18 +76,15 @@
 		</div>
 	</div>
 	<hr />
-	<div class="grid grid-5col">
-		<div class="purpose grid-span-2">
+	<div class="grid grid-2col">
+		<div class="purpose flexcol">
 			<label for="purpose" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "purpose")}}
 			</label>
 			<input type="text" name="system.biography.purpose" value="{{system.biography.purpose}}"
 				data-dtype="String" />
 		</div>
-		<div class="dummy flexcol">
-			<label></label>
-		</div>
-		<div class="obstacle grid-span-2">
+		<div class="obstacle flexcol">
 			<label for="obstacle" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "obstacle")}}
 			</label>
