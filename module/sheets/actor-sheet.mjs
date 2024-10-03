@@ -208,6 +208,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Remove the type from the dataset since it's in the itemData.type prop.
 		delete itemData.system['type'];
 
+
+		console.log("made it to the item create");
 		// Finally, create the item!
 		return await Item.create(itemData, { parent: this.actor });
 	}
@@ -254,10 +256,11 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const system = this.actor.system;
 		const connections = system.biography.connections
 
-		console.log(system.biography);
-
 		const count = Object.keys(connections).length;
-		connections["entry-" + (count + 1)] = { "text": "", "index": count + 1 };
+		connections["entry-" + (count + 1)] = "New Connection";
+
+		console.log(system.biography);
+		this.render(false);
 	}
 
 	/**
@@ -274,6 +277,15 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const connections = system.biography.connections
 
 		console.log("key: " + dataset.key);
+
+		const index = [];
+		for (var x in connections) {
+			index.push(x);
+		}
+		delete connections[index[dataset.key]];
+
+		console.log(system.biography);
+		this.render(false);
 	}
 
 	/**
@@ -286,10 +298,11 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const system = this.actor.system;
 		const goals = system.biography.goals
 
-		console.log(system.biography);
-
 		const count = Object.keys(goals).length;
-		goals["entry-" + (count + 1)] = { "text": "", "index": count + 1 };
+		goals["entry-" + (count + 1)] = "New Goal";
+
+		console.log(system.biography);
+		this.render(false);
 	}
 
 	/**
@@ -306,5 +319,14 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const goals = system.biography.goals
 
 		console.log("key: " + dataset.key);
+
+		const index = [];
+		for (var x in goals) {
+			index.push(x);
+		}
+		delete goals[index[dataset.key]];
+
+		console.log(system.biography);
+		this.render(false);
 	}
 }
