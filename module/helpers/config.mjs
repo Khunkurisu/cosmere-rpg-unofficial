@@ -11,12 +11,14 @@ COSMERE_UNOFFICIAL.biography = {
 	backstory: 'COSMERE_UNOFFICIAL.Biography.Backstory',
 	goals: 'COSMERE_UNOFFICIAL.Biography.Goals.label',
 	connections: 'COSMERE_UNOFFICIAL.Biography.Connections.label',
-	purpose: 'COSMERE_UNOFFICIAL.Biography.Purpose.label',
-	obstacles: 'COSMERE_UNOFFICIAL.Biography.Obstacles.label',
+	purpose: 'COSMERE_UNOFFICIAL.Biography.Purpose',
+	obstacle: 'COSMERE_UNOFFICIAL.Biography.Obstacle',
 	goals_new: 'COSMERE_UNOFFICIAL.Biography.Goals.create',
 	connections_new: 'COSMERE_UNOFFICIAL.Biography.Connections.create',
-	purpose_new: 'COSMERE_UNOFFICIAL.Biography.Purpose.create',
-	obstacles_new: 'COSMERE_UNOFFICIAL.Biography.Obstacles.create'
+	goals_remove: 'COSMERE_UNOFFICIAL.Biography.Goals.delete',
+	connections_remove: 'COSMERE_UNOFFICIAL.Biography.Connections.delete',
+	goals_empty: 'COSMERE_UNOFFICIAL.Biography.Goals.missing',
+	connections_empty: 'COSMERE_UNOFFICIAL.Biography.Connections.missing'
 };
 
 COSMERE_UNOFFICIAL.attributes = {

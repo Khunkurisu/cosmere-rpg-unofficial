@@ -165,8 +165,8 @@
 			"level": 1,
 			"biography": {
 				"backstory": "",
-				"goals": [],
-				"connections": [],
+				"goals": {},
+				"connections": {},
 				"purpose": "",
 				"obstacle": ""
 			},

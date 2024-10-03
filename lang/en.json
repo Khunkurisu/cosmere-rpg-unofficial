@@ -2,21 +2,19 @@
 	"COSMERE_UNOFFICIAL": {
 		"Biography": {
 			"Backstory": "Backstory",
+			"Purpose": "Purpose",
+			"Obstacle": "Obstacle",
 			"Goals": {
 				"label": "Goal",
-				"create": "New Goal"
+				"create": "New Goal",
+				"delete": "Remove Goal",
+				"missing": "No Goals"
 			},
 			"Connections": {
 				"label": "Connections",
-				"create": "New Connection"
-			},
-			"Purpose": {
-				"label": "Purpose",
-				"create": "New Purpose"
-			},
-			"Obstacles": {
-				"label": "Obstacle",
-				"create": "New Obstacle"
+				"create": "New Connection",
+				"delete": "Remove Connection",
+				"missing": "No Connections"
 			}
 		},
 		"Attribute": {

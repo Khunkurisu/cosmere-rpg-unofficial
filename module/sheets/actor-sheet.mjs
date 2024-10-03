@@ -63,7 +63,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Enrich biography info for display
 		// Enrichment turns text like `[[/r 1d20]]` into buttons
 		context.enrichedBiography = await TextEditor.enrichHTML(
-			this.actor.system.biography,
+			this.actor.system.biography.backstory,
 			{
 				// Whether to show secret blocks in the finished html
 				secrets: this.document.isOwner,
@@ -166,6 +166,14 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Rollable abilities.
 		html.on('click', '.rollable', this._onRoll.bind(this));
 
+		// Add/Remove Biography Goal
+		html.on('click', '.goal-create', this._onGoalCreate.bind(this));
+		html.on('click', '.goal-remove', this._onGoalRemove.bind(this));
+
+		// Add/Remove Biography Connection
+		html.on('click', '.connection-create', this._onConnectionCreate.bind(this));
+		html.on('click', '.connection-remove', this._onConnectionRemove.bind(this));
+
 		// Drag events for macros.
 		if (this.actor.isOwner) {
 			let handler = (ev) => this._onDragStart(ev);
@@ -234,5 +242,69 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			});
 			return roll;
 		}
+	}
+
+	/**
+	 * Handle adding connections.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onConnectionCreate(event) {
+		event.preventDefault();
+		const system = this.actor.system;
+		const connections = system.biography.connections
+
+		console.log(system.biography);
+
+		const count = Object.keys(connections).length;
+		connections["entry-" + (count + 1)] = { "text": "", "index": count + 1 };
+	}
+
+	/**
+	 * Handle removing connections.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onConnectionRemove(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const dataset = element.dataset;
+
+		const system = this.actor.system;
+		const connections = system.biography.connections
+
+		console.log("key: " + dataset.key);
+	}
+
+	/**
+	 * Handle adding goals.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onGoalCreate(event) {
+		event.preventDefault();
+		const system = this.actor.system;
+		const goals = system.biography.goals
+
+		console.log(system.biography);
+
+		const count = Object.keys(goals).length;
+		goals["entry-" + (count + 1)] = { "text": "", "index": count + 1 };
+	}
+
+	/**
+	 * Handle removing goals.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onGoalRemove(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const dataset = element.dataset;
+
+		const system = this.actor.system;
+		const goals = system.biography.goals
+
+		console.log("key: " + dataset.key);
 	}
 }
