@@ -163,7 +163,13 @@
 				"statistics"
 			],
 			"level": 1,
-			"biography": {},
+			"biography": {
+				"backstory": "",
+				"goals": [],
+				"connections": [],
+				"purpose": "",
+				"obstacle": ""
+			},
 			"ancestry": "",
 			"path": ""
 		},
