@@ -6,6 +6,19 @@ export const COSMERE_UNOFFICIAL = {};
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
+
+COSMERE_UNOFFICIAL.biography = {
+	backstory: 'COSMERE_UNOFFICIAL.Biography.Backstory',
+	goals: 'COSMERE_UNOFFICIAL.Biography.Goals.label',
+	connections: 'COSMERE_UNOFFICIAL.Biography.Connections.label',
+	purpose: 'COSMERE_UNOFFICIAL.Biography.Purpose.label',
+	obstacles: 'COSMERE_UNOFFICIAL.Biography.Obstacles.label',
+	goals_new: 'COSMERE_UNOFFICIAL.Biography.Goals.create',
+	connections_new: 'COSMERE_UNOFFICIAL.Biography.Connections.create',
+	purpose_new: 'COSMERE_UNOFFICIAL.Biography.Purpose.create',
+	obstacles_new: 'COSMERE_UNOFFICIAL.Biography.Obstacles.create'
+};
+
 COSMERE_UNOFFICIAL.attributes = {
 	strength: 'COSMERE_UNOFFICIAL.Attribute.Strength.long',
 	speed: 'COSMERE_UNOFFICIAL.Attribute.Speed.long',

@@ -1,5 +1,24 @@
 {
 	"COSMERE_UNOFFICIAL": {
+		"Biography": {
+			"Backstory": "Backstory",
+			"Goals": {
+				"label": "Goal",
+				"create": "New Goal"
+			},
+			"Connections": {
+				"label": "Connections",
+				"create": "New Connection"
+			},
+			"Purpose": {
+				"label": "Purpose",
+				"create": "New Purpose"
+			},
+			"Obstacles": {
+				"label": "Obstacle",
+				"create": "New Obstacle"
+			}
+		},
 		"Attribute": {
 			"Strength": {
 				"long": "Strength",
