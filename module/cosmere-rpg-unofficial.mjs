@@ -71,6 +71,10 @@ Handlebars.registerHelper('capacityPct', function (capacityObj) {
 Handlebars.registerHelper('isSelected', function (arg1, arg2) {
 	return (arg1 == arg2) ? "selected" : "";
 });
+Handlebars.registerHelper('objToLog', function (objToLog) {
+	console.log(objToLog)
+	return "";
+});
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
