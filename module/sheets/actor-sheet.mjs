@@ -76,28 +76,44 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		if (actorData.type == 'Player') {
 			this._prepareItems(context);
 			this._prepareCharacterData(context);
+
+			// Enrich biography info for display
+			// Enrichment turns text like `[[/r 1d20]]` into buttons
+			context.enrichedBiography = await TextEditor.enrichHTML(
+				this.actor.system.biography.backstory,
+				{
+					// Whether to show secret blocks in the finished html
+					secrets: this.document.isOwner,
+					// Necessary in v11, can be removed in v12
+					async: true,
+					// Data to fill in for inline rolls
+					rollData: this.actor.getRollData(),
+					// Relative UUID resolution
+					relativeTo: this.actor,
+				}
+			);
 		}
 
 		// Prepare NPC data and items.
 		if (actorData.type == 'Adversary') {
 			this._prepareItems(context);
-		}
 
-		// Enrich biography info for display
-		// Enrichment turns text like `[[/r 1d20]]` into buttons
-		context.enrichedBiography = await TextEditor.enrichHTML(
-			this.actor.system.biography.backstory,
-			{
-				// Whether to show secret blocks in the finished html
-				secrets: this.document.isOwner,
-				// Necessary in v11, can be removed in v12
-				async: true,
-				// Data to fill in for inline rolls
-				rollData: this.actor.getRollData(),
-				// Relative UUID resolution
-				relativeTo: this.actor,
-			}
-		);
+			// Enrich biography info for display
+			// Enrichment turns text like `[[/r 1d20]]` into buttons
+			context.enrichedBiography = await TextEditor.enrichHTML(
+				this.actor.system.notes,
+				{
+					// Whether to show secret blocks in the finished html
+					secrets: this.document.isOwner,
+					// Necessary in v11, can be removed in v12
+					async: true,
+					// Data to fill in for inline rolls
+					rollData: this.actor.getRollData(),
+					// Relative UUID resolution
+					relativeTo: this.actor,
+				}
+			);
+		}
 
 		// Prepare active effects
 		context.effects = prepareActiveEffectCategories(

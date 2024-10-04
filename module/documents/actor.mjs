@@ -55,8 +55,6 @@ export class CosmereUnofficialActor extends Actor {
 			"carrying": 0
 		}
 
-		this.checkItems(actorData);
-
 		systemData.senses = this.getSensesRange(attributes);
 
 		systemData.movement.ground.value = this.getMovementRate(attributes);
@@ -64,6 +62,8 @@ export class CosmereUnofficialActor extends Actor {
 		systemData.recovery = this.getRecoveryDie(attributes)
 
 		systemData.bonusExpertises = attributes.intellect.value;
+
+		this.checkItems(actorData);
 
 
 		for (let index in items) {
@@ -270,6 +270,30 @@ export class CosmereUnofficialActor extends Actor {
 
 		// Make modifications to data here. For example:
 		const systemData = actorData.system;
+		const attributes = actorData.system.attributes;
+		const items = actorData.items._source;
+
+		systemData.capacity = {
+			"maxLift": this.getCarryCapacity(attributes),
+			"maxCarry": this.getCarryCapacity(attributes) / 2,
+			"carrying": 0
+		}
+
+		systemData.senses = this.getSensesRange(attributes);
+
+		systemData.movement.ground.value = this.getMovementRate(attributes);
+
+		systemData.recovery = this.getRecoveryDie(attributes)
+
+		systemData.bonusExpertises = attributes.intellect.value;
+
+		this.checkItems(actorData);
+
+		this.setDefenses(systemData);
+		this.setResources(systemData);
+		this.setDeflect(actorData);
+
+		this.setSkills(systemData);
 	}
 
 	/**
