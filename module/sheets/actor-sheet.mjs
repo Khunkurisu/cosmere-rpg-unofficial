@@ -50,13 +50,13 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.config = CONFIG.COSMERE_UNOFFICIAL;
 
 		// Prepare character data and items.
-		if (actorData.type == 'character') {
+		if (actorData.type == 'Player') {
 			this._prepareItems(context);
 			this._prepareCharacterData(context);
 		}
 
 		// Prepare NPC data and items.
-		if (actorData.type == 'npc') {
+		if (actorData.type == 'Adversary') {
 			this._prepareItems(context);
 		}
 
@@ -141,8 +141,18 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// Assign and return
 		context.gear = gear;
+		context.weapons = weapons;
+		context.armor = armor;
+		context.effects = effects;
 		context.features = features;
-		context.abilities = abilities;
+		context.actions = actions;
+
+		console.log("weapons:");
+		console.log(context.weapons);
+		console.log("armor:");
+		console.log(context.armor);
+		console.log("gear:");
+		console.log(context.gear);
 	}
 
 	/* -------------------------------------------- */
@@ -292,8 +302,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		const system = this.actor.system;
 		const connections = system.biography.connections
-
-		console.log("key: " + dataset.key);
 
 		const index = [];
 		for (var x in connections) {
