@@ -2,6 +2,14 @@ import {
 	onManageActiveEffect,
 	prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
+import {
+	onGoalCreate,
+	onGoalRemove
+} from '../helpers/goals.mjs';
+import {
+	onConnectionCreate,
+	onConnectionRemove
+} from '../helpers/connections.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -190,12 +198,12 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		html.on('click', '.rollable', this._onRoll.bind(this));
 
 		// Add/Remove Biography Goal
-		html.on('click', '.goal-create', this._onGoalCreate.bind(this));
-		html.on('click', '.goal-remove', this._onGoalRemove.bind(this));
+		html.on('click', '.goal-create', onGoalCreate.bind(this));
+		html.on('click', '.goal-remove', onGoalRemove.bind(this));
 
 		// Add/Remove Biography Connection
-		html.on('click', '.connection-create', this._onConnectionCreate.bind(this));
-		html.on('click', '.connection-remove', this._onConnectionRemove.bind(this));
+		html.on('click', '.connection-create', onConnectionCreate.bind(this));
+		html.on('click', '.connection-remove', onConnectionRemove.bind(this));
 
 		// Drag events for macros.
 		if (this.actor.isOwner) {
@@ -267,79 +275,5 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		}
 	}
 
-	/**
-	 * Handle adding connections.
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	_onConnectionCreate(event) {
-		event.preventDefault();
-		const system = this.actor.system;
-		const connections = system.biography.connections
 
-		const count = Object.keys(connections).length;
-		connections["entry-" + (count + 1)] = "New Connection";
-
-		this.render(false);
-	}
-
-	/**
-	 * Handle removing connections.
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	_onConnectionRemove(event) {
-		event.preventDefault();
-		const element = event.currentTarget;
-		const dataset = element.dataset;
-
-		const system = this.actor.system;
-		const connections = system.biography.connections
-
-		const index = [];
-		for (var x in connections) {
-			index.push(x);
-		}
-		delete connections[index[dataset.key]];
-
-		this.render(false);
-	}
-
-	/**
-	 * Handle adding goals.
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	_onGoalCreate(event) {
-		event.preventDefault();
-		const system = this.actor.system;
-		const goals = system.biography.goals
-
-		const count = Object.keys(goals).length;
-		goals["entry-" + (count + 1)] = "New Goal";
-
-		this.render(false);
-	}
-
-	/**
-	 * Handle removing goals.
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	_onGoalRemove(event) {
-		event.preventDefault();
-		const element = event.currentTarget;
-		const dataset = element.dataset;
-
-		const system = this.actor.system;
-		const goals = system.biography.goals
-
-		const index = [];
-		for (var x in goals) {
-			index.push(x);
-		}
-		delete goals[index[dataset.key]];
-
-		this.render(false);
-	}
 }
