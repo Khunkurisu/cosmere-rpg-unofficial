@@ -59,13 +59,18 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 Handlebars.registerHelper('toUpperCase', function (str) {
 	return str.toUpperCase();
 });
-Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
-	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-});
-
 /* {{#ifEquals sampleString "This is a string"}}*/
 /*   Your HTML here								*/
 /* {{/ifEquals}}								*/
+Handlebars.registerHelper('ifEquals', function (arg1, arg2) {
+	return (arg1 == arg2);
+});
+Handlebars.registerHelper('capacityPct', function (capacityObj) {
+	return (capacityObj.carrying / capacityObj.maxCarry) * 100;
+});
+Handlebars.registerHelper('isSelected', function (arg1, arg2) {
+	return (arg1 == arg2) ? "selected" : "";
+});
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
