@@ -48,22 +48,24 @@ export class CosmereUnofficialActor extends Actor {
 		const systemData = actorData.system;
 		const attributes = actorData.system.attributes;
 
-		systemData.Capacity = {
-			"MaxLift": this.getCarryCapacity(attributes),
-			"MaxCarry": this.getCarryCapacity(attributes) / 2,
-			"Carrying": 0
+		systemData.capacity = {
+			"maxLift": this.getCarryCapacity(attributes),
+			"maxCarry": this.getCarryCapacity(attributes) / 2,
+			"carrying": 0
 		}
+
+		this.checkItems(actorData);
+
 		systemData.senses = this.getSensesRange(attributes);
+
 		systemData.movement.ground.value = this.getMovementRate(attributes);
+
 		systemData.recovery = this.getRecoveryDie(attributes)
-		systemData.bonus_expertises = attributes.intellect.value;
-		/* if (systemData.ancestry == "human") {
-			systemData.bonus_expertises++;
-		} */
+
+		systemData.bonusExpertises = attributes.intellect.value;
 
 		this.setDefenses(systemData);
 		this.setResources(systemData);
-		this.checkItems(actorData);
 		this.setDeflect(systemData);
 
 		this.setSkills(systemData);
@@ -76,12 +78,15 @@ export class CosmereUnofficialActor extends Actor {
 		const activeEffects = [];
 
 		for (let i of actorData.items) {
-			if (i.type === 'equipment' || i.type === 'weapon' || i.type === 'armor') {
+			if (i.type === 'Equipment' || i.type === 'Weapon' || i.type === 'Armor') {
 				if (i.system.equipped === true) {
 					gear.push(i);
 				}
+				if (i.system.quantity > 0) {
+					systemData.capacity.carrying += i.system.weight
+				}
 			}
-			else if (i.type === 'effect') {
+			else if (i.type === 'Effect') {
 				if (i.system.status !== "disabled") {
 					activeEffects.push(i);
 				}
