@@ -8,7 +8,6 @@
 				data-dtype="Number" />
 		</div>
 	</div>
-
 	<div class="resource flex-group-center">
 		<label for="system.focus.value" class="resource-label">Focus</label>
 		<div class="resource-content flexrow flex-center flex-between">
@@ -18,7 +17,6 @@
 				data-dtype="Number" />
 		</div>
 	</div>
-
 	<div class="resource flex-group-center">
 		<label for="system.investiture.value" class="resource-label">Investiture</label>
 		<div class="resource-content flexrow flex-center flex-between">
@@ -34,22 +32,30 @@
 <div class="defenses flexcol">
 	<div class="deflect flexrow flex-group-center">
 		<label for="system.deflect" class="resource-label flexlarge align-left"
-			data-label="{{localize (lookup @root.config.defenses deflect)}}">{{localize (lookup @root.config.defenses "deflect")}}</label>
+			data-label="{{localize (lookup @root.config.defenses deflect)}}">
+			{{localize (lookup @root.config.defenses "deflect")}}
+		</label>
 		<input type="text" name="system.deflect" disabled="true" value="{{system.deflect}}" data-dtype="Number" />
 	</div>
 	<div class="physical flexrow flex-group-center">
 		<label for="system.physical" class="resource-label flexlarge align-left"
-			data-label="{{localize (lookup @root.config.defenses physical)}}">{{localize (lookup @root.config.defenses "physical")}}</label>
+			data-label="{{localize (lookup @root.config.defenses physical)}}">
+			{{localize (lookup @root.config.defenses "physical")}}
+		</label>
 		<input type="text" name="system.physical" disabled="true" value="{{system.physical}}" data-dtype="Number" />
 	</div>
 	<div class="cognitive flexrow flex-group-center">
 		<label for="system.cognitive" class="resource-label flexlarge align-left"
-			data-label="{{localize (lookup @root.config.defenses cognitive)}}">{{localize (lookup @root.config.defenses "cognitive")}}</label>
+			data-label="{{localize (lookup @root.config.defenses cognitive)}}">
+			{{localize (lookup @root.config.defenses "cognitive")}}
+		</label>
 		<input type="text" name="system.cognitive" disabled="true" value="{{system.cognitive}}" data-dtype="Number" />
 	</div>
 	<div class="spiritual flexrow flex-group-center">
 		<label for="system.spiritual" class="resource-label flexlarge align-left"
-			data-label="{{localize (lookup @root.config.defenses spiritual)}}">{{localize (lookup @root.config.defenses "spiritual")}}</label>
+			data-label="{{localize (lookup @root.config.defenses spiritual)}}">
+			{{localize (lookup @root.config.defenses "spiritual")}}
+		</label>
 		<input type="text" name="system.spiritual" disabled="true" value="{{system.spiritual}}" data-dtype="Number" />
 	</div>
 </div>
@@ -58,8 +64,11 @@
 	{{#each system.attributes as |attribute key|}}
 		<div class="attribute flexrow flex-group-center">
 			<label for="system.attributes.{{key}}.value" class="resource-label flexlarge align-left"
-				data-label="{{localize (lookup @root.config.attributes key)}}">{{localize (lookup @root.config.attributes key)}}</label>
-			<input type="number" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number" />
+				data-label="{{localize (lookup @root.config.attributes key)}}">
+				{{localize (lookup @root.config.attributes key)}}
+			</label>
+			<input type="number" name="system.attributes.{{key}}.value" value="{{attribute.value}}"
+				data-dtype="Number" />
 		</div>
 	{{/each}}
 </div>
@@ -67,13 +76,17 @@
 <div class="senses-and-movement flexcol">
 	<div class="sense-range flexrow flex-group-center">
 		<label for="system.senses" class="resource-label flexlarge align-left"
-			data-label="{{localize (lookup @root.config.senses range)}}">{{localize (lookup @root.config.senses "range")}}</label>
+			data-label="{{localize (lookup @root.config.senses range)}}">
+			{{localize (lookup @root.config.senses "range")}}
+		</label>
 		<input type="text" name="system.senses" disabled="true" value="{{system.senses}}ft" />
 	</div>
 	{{#each system.movement as |movement key|}}
 		<div class="movement flexrow flex-group-center">
 			<label for="system.movement.{{key}}.value" class="resource-label flexlarge align-left"
-				data-label="{{localize (lookup @root.config.movement key)}}">{{localize (lookup @root.config.movement key)}}</label>
+				data-label="{{localize (lookup @root.config.movement key)}}">
+				{{localize (lookup @root.config.movement key)}}
+			</label>
 			<input type="text" name="system.movement.{{key}}.value" disabled="true" value="{{movement.value}}ft" />
 		</div>
 	{{/each}}
