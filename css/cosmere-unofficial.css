@@ -2,8 +2,6 @@
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
-  background-color: rgb(50, 50, 50);
-  color: rgb(200, 200, 200);
 }
 
 .rollable:hover, .rollable:focus {
