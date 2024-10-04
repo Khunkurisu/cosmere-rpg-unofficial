@@ -87,11 +87,12 @@
 		</ol>
 	</div>
 </div>
-<div class="expertise flexcol">
+<hr />
+<div class="expertise flexcol flex-group-center">
 	<label for="expertise-list" class="resource-label flexlarge flex-group-left">
 		{{localize (lookup @root.config.biography "expertise")}}
 	</label>
-	<ol class="expertise-list">
+	<ol class="expertise-list flexlarge">
 		{{#each system.expertise as |expertise key|}}
 			<li class="grid grid-4col">
 				<div class="grid-span-3">
