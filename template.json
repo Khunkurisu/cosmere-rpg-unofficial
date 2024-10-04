@@ -173,7 +173,7 @@
 			"ancestry": "",
 			"path": ""
 		},
-		"adversary": {
+		"Adversary": {
 			"templates": [
 				"resources",
 				"defenses",
@@ -187,14 +187,14 @@
 	},
 	"Item": {
 		"types": [
-			"equipment",
-			"weapon",
-			"armor",
-			"action",
-			"effect",
-			"feature",
-			"path",
-			"ancestry"
+			"Equipment",
+			"Weapon",
+			"Armor",
+			"Action",
+			"Effect",
+			"Feature",
+			"Path",
+			"Ancestry"
 		],
 		"templates": {
 			"base": {
@@ -211,7 +211,7 @@
 				"expert": []
 			}
 		},
-		"path": {
+		"Path": {
 			"templates": [
 				"base"
 			],
@@ -221,18 +221,18 @@
 			"skill": "",
 			"keyTalent": {}
 		},
-		"ancestry": {
+		"Ancestry": {
 			"templates": [
 				"base"
 			]
 		},
-		"equipment": {
+		"Equipment": {
 			"templates": [
 				"base",
 				"item"
 			]
 		},
-		"weapon": {
+		"Weapon": {
 			"templates": [
 				"base",
 				"item",
@@ -240,12 +240,13 @@
 			],
 			"damage": {
 				"die": 6,
+				"count": 1,
 				"type": "keen"
 			},
 			"skill": "heavy",
 			"range": "melee"
 		},
-		"armor": {
+		"Armor": {
 			"templates": [
 				"base",
 				"item",
@@ -253,13 +254,13 @@
 			],
 			"deflect": 0
 		},
-		"action": {
+		"Action": {
 			"templates": [
 				"base"
 			],
 			"cost": 0
 		},
-		"effect": {
+		"Effect": {
 			"templates": [
 				"base"
 			],
@@ -269,7 +270,7 @@
 				"unit": "round"
 			}
 		},
-		"feature": {
+		"Feature": {
 			"templates": [
 				"base"
 			],
