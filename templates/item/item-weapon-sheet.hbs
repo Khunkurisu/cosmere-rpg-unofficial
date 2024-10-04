@@ -50,8 +50,14 @@
 							data-dtype='Number' />
 					</div>
 					<div class='grid-span-1'>
-						<label class='resource-label'>Die Size</label>
-						<input type='text' name='system.damage.die' value='{{system.damage.die}}' data-dtype='String' />
+						<label class='resource-label' for='system.damage.die'>Damage Die</label><br />
+						<select name='system.damage.die' class='weapon-die-select'>
+							<option value="4" {{isSelected '4' system.damage.die}}>d4</option>
+							<option value="6" {{isSelected '6' system.damage.die}}>d6</option>
+							<option value="8" {{isSelected '8' system.damage.die}}>d8</option>
+							<option value="10" {{isSelected '10' system.damage.die}}>d10</option>
+							<option value="12" {{isSelected '12' system.damage.die}}>d12</option>
+						</select>
 					</div>
 					<div class='grid-span-1'>
 						<label class='resource-label' for='system.damage.type'>Damage Type</label><br />
