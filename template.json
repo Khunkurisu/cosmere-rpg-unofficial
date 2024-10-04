@@ -192,7 +192,9 @@
 			"armor",
 			"action",
 			"effect",
-			"feature"
+			"feature",
+			"path",
+			"ancestry"
 		],
 		"templates": {
 			"base": {
@@ -208,6 +210,21 @@
 				"traits": [],
 				"expert": []
 			}
+		},
+		"path": {
+			"templates": [
+				"base"
+			],
+			"isHeroic": false,
+			"specialties": [],
+			"talents": [],
+			"skill": "",
+			"keyTalent": {}
+		},
+		"ancestry": {
+			"templates": [
+				"base"
+			]
 		},
 		"equipment": {
 			"templates": [
@@ -255,7 +272,8 @@
 		"feature": {
 			"templates": [
 				"base"
-			]
+			],
+			"level": 1
 		}
 	}
 }
