@@ -10,6 +10,12 @@ import {
 	onConnectionCreate,
 	onConnectionRemove
 } from '../helpers/connections.mjs';
+import {
+	onItemIncrease,
+	onItemDecrease,
+	onItemEquip,
+	onItemUnequip
+} from '../helpers/item-handling.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -184,6 +190,18 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			li.slideUp(200, () => this.render(false));
 		});
 
+		// Increase Item Quantity
+		html.on('click', '.item-quantity-inc', onItemIncrease.bind(this));
+
+		// Decrease Item Quantity
+		html.on('click', '.item-quantity-dec', onItemDecrease.bind(this));
+
+		// Equip an Item
+		html.on('click', '.item-equip', onItemEquip.bind(this));
+
+		// Unequip an Item
+		html.on('click', '.item-unequip', onItemUnequip.bind(this));
+
 		// Active Effect management
 		html.on('click', '.effect-control', (ev) => {
 			const row = ev.currentTarget.closest('li');
@@ -227,7 +245,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Get the type of item to create.
 		const type = header.dataset.type;
 		// Grab any data associated with this control.
-		const data = duplicate(header.dataset);
+		const data = foundry.utils.duplicate(header.dataset);
 		// Initialize a default name.
 		const name = `New ${type.capitalize()}`;
 		// Prepare the item object.
