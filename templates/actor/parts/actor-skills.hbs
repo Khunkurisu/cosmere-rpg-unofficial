@@ -87,3 +87,33 @@
 		</ol>
 	</div>
 </div>
+<div class="expertise flexcol">
+	<label for="expertise-list" class="resource-label flexlarge flex-group-left">
+		{{localize (lookup @root.config.biography "expertise")}}
+	</label>
+	<ol class="expertise-list">
+		{{#each system.expertise as |expertise key|}}
+			<li class="grid grid-4col">
+				<div class="grid-span-3">
+					<input type="text" name="system.expertise.{{key}}" value="{{expertise}}" data-dtype="String" />
+				</div>
+				<div class="flexcol">
+					<a class='expertise-remove' data-key="{{@index}}"
+						title='{{localize (lookup @root.config.skills expertise_remove)}}'>
+						<i class='fas fa-trash'>
+							{{localize (lookup @root.config.skills expertise_remove)}}
+						</i>
+					</a>
+				</div>
+			</li>
+		{{else}}
+			<li class="flexcol">{{localize (lookup @root.config.skills expertise_empty)}}</li>
+		{{/each}}
+	</ol>
+	<div class='create-expertise flexlarge'>
+		<a class='expertise-create' title='{{localize (lookup @root.config.skills expertises_new)}}'>
+			<i class='fas fa-plus'></i>
+			{{localize (lookup @root.config.skills "expertises_new")}}
+		</a>
+	</div>
+</div>
