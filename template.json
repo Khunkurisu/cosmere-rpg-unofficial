@@ -274,7 +274,8 @@
 			"templates": [
 				"base"
 			],
-			"level": 1
+			"level": 1,
+			"type": "talent"
 		}
 	}
 }
