@@ -10,6 +10,14 @@ export class CosmereUnofficialItem extends Item {
 		// As with the actor class, items are documents that can have their data
 		// preparation methods overridden (such as prepareBaseData()).
 		super.prepareData();
+		if (this.type === "Weapon") {
+			const system = this.system;
+
+			system.formula = "" + system.damage.count;
+			system.formula += "d" + system.damage.die;
+			system.formula += "[" + system.damage.type + "]";
+			system.formula += " + @modifier";
+		}
 	}
 
 	/**
@@ -25,6 +33,21 @@ export class CosmereUnofficialItem extends Item {
 
 		// If present, add the actor's roll data
 		rollData.actor = this.actor.getRollData();
+
+		if (this.type === "Weapon") {
+			const skills = rollData.actor.skills.physical;
+			console.log(skills);
+			if (rollData.skill === "heavy") {
+				rollData.modifier = skills.heavy_weapons.value;
+			} else {
+				rollData.modifier = skills.light_weapons.value;
+			}
+
+			rollData.formula = "" + rollData.damage.count;
+			rollData.formula += "d" + rollData.damage.die;
+			rollData.formula += "[" + rollData.damage.type + "]";
+			rollData.formula += " + @modifier";
+		}
 
 		return rollData;
 	}
