@@ -66,7 +66,7 @@ export class CosmereUnofficialActor extends Actor {
 
 		this.setDefenses(systemData);
 		this.setResources(systemData);
-		this.setDeflect(systemData);
+		this.setDeflect(actorData);
 
 		this.setSkills(systemData);
 	}
@@ -74,14 +74,10 @@ export class CosmereUnofficialActor extends Actor {
 	checkItems(actorData) {
 		const systemData = actorData.system;
 
-		const equipped = [];
 		const activeEffects = [];
 
 		for (let i of actorData.items) {
 			if (i.type === 'Equipment' || i.type === 'Weapon' || i.type === 'Armor') {
-				if (i.system.equipped === true) {
-					gear.push(i);
-				}
 				if (i.system.quantity > 0) {
 					systemData.capacity.carrying += i.system.weight
 				}
@@ -93,7 +89,6 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		}
 
-		systemData.equipped = equipped;
 		systemData.activeEffects = activeEffects;
 	}
 
@@ -141,9 +136,17 @@ export class CosmereUnofficialActor extends Actor {
 		return 0;
 	}
 
-	setDeflect(systemData) {
-		const armor = systemData.equipped.find(obj => { obj.type === 'armor' });
-		systemData.deflect = armor !== undefined ? armor.system.deflect : 0;
+	setDeflect(actorData) {
+		const items = actorData.items._source;
+		var armor;
+		for (let index in items) {
+			const obj = items[index];
+			if (obj.type === "Armor"/*  && obj.system.equipped */) {
+				armor = obj;
+				break;
+			}
+		}
+		actorData.system.deflect = armor !== undefined ? armor.system.deflect : 0;
 	}
 
 	setDefenses(systemData) {
