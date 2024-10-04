@@ -1,0 +1,70 @@
+<form class='{{cssClass}}' autocomplete='off'>
+	<header class='sheet-header'>
+		<img class='profile-img' src='{{item.img}}' data-edit='img' title='{{item.name}}' />
+		<div class='header-fields'>
+			<h1 class='charname'><input name='name' type='text' value='{{item.name}}' placeholder='Name' /></h1>
+			<div class='grid grid-2col'>
+				<div class='resource'>
+					<label class='resource-label'>Weight</label>
+					<input type='text' name='system.weight' value='{{system.weight}}' data-dtype='Number' />
+				</div>
+				<div class='resource'>
+					<label class='resource-label'>Price</label>
+					<input type='text' name='system.price' value='{{system.price}}' data-dtype='Number' />
+				</div>
+			</div>
+		</div>
+	</header>
+
+	{{! Sheet Tab Navigation }}
+	<nav class='sheet-tabs tabs' data-group='primary'>
+		<a class='item' data-tab='description'>Description</a>
+		<a class='item' data-tab='attributes'>Attributes</a>
+	</nav>
+
+	{{! Sheet Body }}
+	<section class='sheet-body'>
+
+		{{! Description Tab }}
+		<div class='tab' data-group='primary' data-tab='description'>
+			{{! Editors must receive enriched text data from getData to properly handle rolls }}
+			{{editor
+        enrichedDescription
+        target='system.description'
+        engine='prosemirror'
+        button=true
+        editable=editable
+      }}
+		</div>
+
+		{{! Attributes Tab }}
+		<div class='tab attributes' data-group='primary' data-tab='attributes'>
+			{{! As you add new fields, add them in here! }}
+			<div class='resource'>
+				<label class='resource-label'>Roll Formula:</label>
+				<span>{{system.formula}}</span>
+				<div class='grid grid-3col'>
+					<div class='grid-span-1'>
+						<label class='resource-label'>Die Count</label>
+						<input type='text' name='system.damage.count' value='{{system.damage.count}}'
+							data-dtype='Number' />
+					</div>
+					<div class='grid-span-1'>
+						<label class='resource-label'>Die Size</label>
+						<input type='text' name='system.damage.die' value='{{system.damage.die}}' data-dtype='String' />
+					</div>
+					<div class='grid-span-1'>
+						<label class='resource-label' for='system.damage.type'>Damage Type</label><br />
+						<select name='system.damage.type' class='damage-select'>
+							<option value="energy" {{isSelected 'energy' system.damage.type}}>Energy</option>
+							<option value="impact" {{isSelected 'impact' system.damage.type}}>Impact</option>
+							<option value="keen" {{isSelected 'keen' system.damage.type}}>Keen</option>
+							<option value="spirit" {{isSelected 'spirit' system.damage.type}}>Spirit</option>
+							<option value="vital" {{isSelected 'vital' system.damage.type}}>Vital</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</form>
