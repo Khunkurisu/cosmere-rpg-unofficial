@@ -147,7 +147,7 @@
 						}
 					}
 				},
-				"expertises": {},
+				"expertise": {},
 				"movement": {
 					"ground": {
 						"value": 25
