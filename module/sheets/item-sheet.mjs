@@ -91,7 +91,10 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		);
 
 		// Select Damage Type
-		html.on('change', '.damage-select', this._onDamageSelect.bind(this));
+		html.on('change', '.weapon-damage-select', this._onDamageSelect.bind(this));
+
+		// Select Skill Modifier
+		html.on('change', '.weapon-skill-select', this._onSkillSelect.bind(this));
 	}
 
 	/**
@@ -105,6 +108,21 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const system = this.item.system;
 
 		system.damage.type = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle selecting skill.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onSkillSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const system = this.item.system;
+
+		system.skill = element.value;
 
 		this.render(false);
 	}
