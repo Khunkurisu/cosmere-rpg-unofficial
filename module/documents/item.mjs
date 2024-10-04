@@ -36,7 +36,6 @@ export class CosmereUnofficialItem extends Item {
 
 		if (this.type === "Weapon") {
 			const skills = rollData.actor.skills.physical;
-			console.log(skills);
 			if (rollData.skill === "heavy") {
 				rollData.modifier = skills.heavy_weapons.value;
 			} else {
@@ -46,6 +45,7 @@ export class CosmereUnofficialItem extends Item {
 			rollData.formula = "" + rollData.damage.count;
 			rollData.formula += "d" + rollData.damage.die;
 			rollData.formula += "[" + rollData.damage.type + "]";
+
 			rollData.formula += " + @modifier";
 		}
 
@@ -87,6 +87,7 @@ export class CosmereUnofficialItem extends Item {
 				speaker: speaker,
 				rollMode: rollMode,
 				flavor: label,
+				content: item.system.description ?? '',
 			});
 			return roll;
 		}

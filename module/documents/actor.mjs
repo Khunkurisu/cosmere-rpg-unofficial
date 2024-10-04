@@ -47,6 +47,7 @@ export class CosmereUnofficialActor extends Actor {
 		// Make modifications to data here. For example:
 		const systemData = actorData.system;
 		const attributes = actorData.system.attributes;
+		const items = actorData.items._source;
 
 		systemData.capacity = {
 			"maxLift": this.getCarryCapacity(attributes),
@@ -63,6 +64,16 @@ export class CosmereUnofficialActor extends Actor {
 		systemData.recovery = this.getRecoveryDie(attributes)
 
 		systemData.bonusExpertises = attributes.intellect.value;
+
+
+		for (let index in items) {
+			const obj = items[index];
+			if (obj.type === "Ancestry") {
+				systemData.ancestry = obj;
+			} else if (obj.type === "Path") {
+				systemData.path = obj;
+			}
+		}
 
 		this.setDefenses(systemData);
 		this.setResources(systemData);

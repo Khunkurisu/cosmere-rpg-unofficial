@@ -75,6 +75,15 @@ Handlebars.registerHelper('objToLog', function (objToLog) {
 	console.log(objToLog)
 	return "";
 });
+Handlebars.registerHelper('getWeaponSkill', function (skill) {
+	return skill === "heavy" ? "heavy_weapons" : "light_weapons";
+});
+Handlebars.registerHelper('getModifier', function (strike, data) {
+	let skill = strike.skill === "heavy" ? "heavy_weapons" : "light_weapons";
+	let mod = data.skills.physical[skill].value;
+
+	return mod >= 0 ? "+" + mod : "-" + mod;
+});
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

@@ -4,10 +4,6 @@
 	 * @private
 	 */
 export function onPlotDiceToggle(shouldEnable, event) {
-	console.log("event:");
-	console.log(event);
-	console.log("shouldEnable:");
-	console.log(shouldEnable);
 	event.preventDefault();
 	const system = this.actor.system;
 
@@ -23,10 +19,6 @@ export function onPlotDiceToggle(shouldEnable, event) {
 * @private
 */
 export function onAdvantageToggle(shouldEnable, event) {
-	console.log("event:");
-	console.log(event);
-	console.log("shouldEnable:");
-	console.log(shouldEnable);
 	event.preventDefault();
 	const system = this.actor.system;
 
@@ -42,10 +34,6 @@ export function onAdvantageToggle(shouldEnable, event) {
 * @private
 */
 export function onDisadvantageToggle(shouldEnable, event) {
-	console.log("event:");
-	console.log(event);
-	console.log("shouldEnable:");
-	console.log(shouldEnable);
 	event.preventDefault();
 	const system = this.actor.system;
 

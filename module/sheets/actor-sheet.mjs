@@ -11,6 +11,15 @@ import {
 	onConnectionRemove
 } from '../helpers/connections.mjs';
 import {
+	onExpertiseCreate,
+	onExpertiseRemove
+} from '../helpers/expertise.mjs';
+import {
+	onPlotDiceToggle,
+	onAdvantageToggle,
+	onDisadvantageToggle
+} from '../helpers/dice-handling.mjs';
+import {
 	onItemIncrease,
 	onItemDecrease,
 	onItemEquip,
@@ -121,6 +130,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const weapons = [];
 		const armor = [];
 		const actions = [];
+		const strikes = [];
 		const effects = [];
 		const features = [];
 
@@ -138,6 +148,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			// Append to weapons.
 			else if (i.type === 'Weapon') {
 				weapons.push(i);
+				strikes.push(this._strikeFromWeapon(i, context));
 			}
 			// Append to armor.
 			else if (i.type === 'Armor') {
@@ -160,6 +171,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.effects = effects;
 		context.features = features;
 		context.actions = actions;
+		context.strikes = strikes;
 	}
 
 	/* -------------------------------------------- */
@@ -223,6 +235,22 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		html.on('click', '.connection-create', onConnectionCreate.bind(this));
 		html.on('click', '.connection-remove', onConnectionRemove.bind(this));
 
+		// Add/Remove Expertise
+		html.on('click', '.expertise-create', onExpertiseCreate.bind(this));
+		html.on('click', '.expertise-remove', onExpertiseRemove.bind(this));
+
+		// Enable/Disable Plot Dice
+		html.on('click', '.plot-dice-on', onPlotDiceToggle.bind(this, true));
+		html.on('click', '.plot-dice-off', onPlotDiceToggle.bind(this, false));
+
+		// Enable/Disable Advantage
+		html.on('click', '.advantage-on', onAdvantageToggle.bind(this, true));
+		html.on('click', '.advantage-off', onAdvantageToggle.bind(this, false));
+
+		// Enable/Disable Disadvantage
+		html.on('click', '.disadvantage-on', onDisadvantageToggle.bind(this, true));
+		html.on('click', '.disadvantage-off', onDisadvantageToggle.bind(this, false));
+
 		// Drag events for macros.
 		if (this.actor.isOwner) {
 			let handler = (ev) => this._onDragStart(ev);
@@ -270,6 +298,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const dataset = element.dataset;
+		const system = this.actor.system;
 
 		// Handle item rolls.
 		if (dataset.rollType) {
@@ -283,7 +312,24 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
 			let label = dataset.label ? `Skill Check: ${dataset.label}` : '';
-			let roll = new Roll(dataset.roll, this.actor.getRollData());
+			let rollData = dataset.roll;
+
+			if (system.hasAdvantage) {
+				if (!system.hasDisadvantage) {
+					rollData = "{" + rollData + ", " + rollData + "}kh";
+				}
+			}
+			if (system.hasDisadvantage) {
+				if (!system.hasAdvantage) {
+					rollData = "{" + rollData + ", " + rollData + "}kl";
+				}
+			}
+
+			if (system.usePlotDice) {
+				rollData += " + 1d6[plot]";
+			}
+
+			let roll = new Roll(rollData, this.actor.getRollData());
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
@@ -293,5 +339,23 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		}
 	}
 
+	/**
+	 * Handle weapon actions.
+	 * @param {Item} weapon   The weapon to create the action from
+	 * @private
+	 */
+	_strikeFromWeapon(weapon, context) {
+		const system = context.actor.system;
+		console.log("system: ");
+		console.log(system);
+		let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : "light_weapons";
+		let mod = system.skills.physical[skill].value;
 
+		return {
+			"name": weapon.name,
+			"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
+			"damageType": "[" + weapon.system.damage.type + "]",
+			"modifier": (mod >= 0) ? ("+" + mod) : ("-" + mod)
+		};
+	}
 }
