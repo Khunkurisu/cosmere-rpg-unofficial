@@ -2,6 +2,8 @@
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
+  background-color: rgb(50, 50, 50);
+  color: rgb(200, 200, 200);
 }
 
 .rollable:hover, .rollable:focus {
@@ -271,6 +273,32 @@
   text-align: left;
   display: flex;
 }
+.cosmere-rpg-unofficial .encumbrance-bar {
+  position: absolute;
+  align-items: center;
+  margin-top: auto;
+  margin-left: 5%;
+  bottom: 0;
+  width: 70%;
+  background-color: rgb(30, 30, 30);
+}
+.cosmere-rpg-unofficial .encumbrance-bar-fill {
+  height: 16px;
+  background-color: purple;
+  position: relative;
+}
+.cosmere-rpg-unofficial .encumbrance-bar-label {
+  align-items: center;
+  color: #c9c7b8;
+  grid-area: bar;
+  justify-content: space-between;
+  padding: 2 8 0;
+  position: relative;
+  text-shadow: 0 0 2px black;
+  width: 100%;
+  z-index: 3;
+  margin-left: 2%;
+}
 .cosmere-rpg-unofficial .items-list {
   list-style: none;
   margin: 0;
@@ -293,7 +321,8 @@
   align-items: center;
   display: flex;
 }
-.cosmere-rpg-unofficial .items-list .item-name h3, .cosmere-rpg-unofficial .items-list .item-name h4 {
+.cosmere-rpg-unofficial .items-list .item-name h3,
+.cosmere-rpg-unofficial .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
