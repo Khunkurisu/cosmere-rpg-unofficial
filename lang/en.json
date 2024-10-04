@@ -17,6 +17,12 @@
 				"missing": "No Connections"
 			}
 		},
+		"Expertise": {
+			"label": "Expertise",
+			"create": "New Expertise",
+			"delete": "Remove Expertise",
+			"missing": "No Expertise"
+		},
 		"Attribute": {
 			"Strength": {
 				"long": "Strength",

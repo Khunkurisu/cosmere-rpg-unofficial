@@ -56,7 +56,11 @@ COSMERE_UNOFFICIAL.skills = {
 	leadership: 'COSMERE_UNOFFICIAL.Skill.Leadership.long',
 	perception: 'COSMERE_UNOFFICIAL.Skill.Perception.long',
 	persuasion: 'COSMERE_UNOFFICIAL.Skill.Persuasion.long',
-	survival: 'COSMERE_UNOFFICIAL.Skill.Survival.long'
+	survival: 'COSMERE_UNOFFICIAL.Skill.Survival.long',
+	expertise: 'COSMERE_UNOFFICIAL.Expertise.label',
+	expertises_new: 'COSMERE_UNOFFICIAL.Expertise.create',
+	expertises_remove: 'COSMERE_UNOFFICIAL.Expertise.delete',
+	expertises_empty: 'COSMERE_UNOFFICIAL.Expertise.missing',
 };
 
 COSMERE_UNOFFICIAL.skillAbbreviations = {
