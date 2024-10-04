@@ -201,7 +201,8 @@
 			"item": {
 				"price": 0,
 				"weight": 0,
-				"quantity": 1
+				"quantity": 1,
+				"equipped": false
 			},
 			"usable": {
 				"traits": [],
@@ -245,7 +246,7 @@
 			"templates": [
 				"base"
 			],
-			"type": "disabled",
+			"status": "disabled",
 			"duration": {
 				"value": 0,
 				"unit": "round"
