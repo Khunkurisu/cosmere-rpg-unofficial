@@ -104,18 +104,38 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	_prepareItems(context) {
 		// Initialize containers.
 		const gear = [];
+		const weapons = [];
+		const armor = [];
+		const actions = [];
+		const effects = [];
 		const features = [];
 
 		// Iterate through items, allocating to containers
 		for (let i of context.items) {
 			i.img = i.img || Item.DEFAULT_ICON;
 			// Append to gear.
-			if (i.type === 'item') {
+			if (i.type === 'equipment') {
 				gear.push(i);
 			}
 			// Append to features.
 			else if (i.type === 'feature') {
 				features.push(i);
+			}
+			// Append to weapons.
+			else if (i.type === 'weapon') {
+				weapons.push(i);
+			}
+			// Append to armor.
+			else if (i.type === 'armor') {
+				armor.push(i);
+			}
+			// Append to actions.
+			else if (i.type === 'action') {
+				actions.push(i);
+			}
+			// Append to effects.
+			else if (i.type === 'effect') {
+				effects.push(i);
 			}
 		}
 
@@ -208,8 +228,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Remove the type from the dataset since it's in the itemData.type prop.
 		delete itemData.system['type'];
 
-
-		console.log("made it to the item create");
 		// Finally, create the item!
 		return await Item.create(itemData, { parent: this.actor });
 	}
@@ -259,7 +277,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const count = Object.keys(connections).length;
 		connections["entry-" + (count + 1)] = "New Connection";
 
-		console.log(system.biography);
 		this.render(false);
 	}
 
@@ -284,7 +301,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		}
 		delete connections[index[dataset.key]];
 
-		console.log(system.biography);
 		this.render(false);
 	}
 
@@ -301,7 +317,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const count = Object.keys(goals).length;
 		goals["entry-" + (count + 1)] = "New Goal";
 
-		console.log(system.biography);
 		this.render(false);
 	}
 
@@ -318,15 +333,12 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const system = this.actor.system;
 		const goals = system.biography.goals
 
-		console.log("key: " + dataset.key);
-
 		const index = [];
 		for (var x in goals) {
 			index.push(x);
 		}
 		delete goals[index[dataset.key]];
 
-		console.log(system.biography);
 		this.render(false);
 	}
 }
