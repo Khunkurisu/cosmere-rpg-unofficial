@@ -114,27 +114,27 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		for (let i of context.items) {
 			i.img = i.img || Item.DEFAULT_ICON;
 			// Append to gear.
-			if (i.type === 'equipment') {
+			if (i.type === 'Equipment') {
 				gear.push(i);
 			}
 			// Append to features.
-			else if (i.type === 'feature') {
+			else if (i.type === 'Feature') {
 				features.push(i);
 			}
 			// Append to weapons.
-			else if (i.type === 'weapon') {
+			else if (i.type === 'Weapon') {
 				weapons.push(i);
 			}
 			// Append to armor.
-			else if (i.type === 'armor') {
+			else if (i.type === 'Armor') {
 				armor.push(i);
 			}
 			// Append to actions.
-			else if (i.type === 'action') {
+			else if (i.type === 'Action') {
 				actions.push(i);
 			}
 			// Append to effects.
-			else if (i.type === 'effect') {
+			else if (i.type === 'Effect') {
 				effects.push(i);
 			}
 		}
@@ -146,13 +146,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.effects = effects;
 		context.features = features;
 		context.actions = actions;
-
-		console.log("weapons:");
-		console.log(context.weapons);
-		console.log("armor:");
-		console.log(context.armor);
-		console.log("gear:");
-		console.log(context.gear);
 	}
 
 	/* -------------------------------------------- */
