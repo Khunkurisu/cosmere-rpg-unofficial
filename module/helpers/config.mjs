@@ -3,7 +3,7 @@ import { CosmereUnofficialActor } from "../documents/actor.mjs";
 export const COSMERE_UNOFFICIAL = {};
 
 /**
- * The set of Ability Scores used within the system.
+ * The set of statistics and variables used within the system.
  * @type {Object}
  */
 
