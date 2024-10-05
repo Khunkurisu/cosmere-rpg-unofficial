@@ -15,8 +15,8 @@
 						<label for="system.skills.physical.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.physical.{{key}}.value" data-roll-type="skill"
-							data-label="{{localize (lookup @root.config.skills key)}}">
-							{{localize (lookup @root.config.skills key)}}
+							data-label="{{localize (lookup @root.config.skills.physical key)}}">
+							{{localize (lookup @root.config.skills.physical key)}}
 							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
 						</label>
 					</div>
@@ -44,8 +44,8 @@
 						<label for="system.skills.cognitive.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.cognitive.{{key}}.value" data-roll-type="skill"
-							data-label="{{localize (lookup @root.config.skills key)}}">
-							{{localize (lookup @root.config.skills key)}}
+							data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
+							{{localize (lookup @root.config.skills.cognitive key)}}
 							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
 						</label>
 					</div>
@@ -73,8 +73,8 @@
 						<label for="system.skills.spiritual.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.spiritual.{{key}}.value" data-roll-type="skill"
-							data-label="{{localize (lookup @root.config.skills key)}}">
-							{{localize (lookup @root.config.skills key)}}
+							data-label="{{localize (lookup @root.config.skills.spiritual key)}}">
+							{{localize (lookup @root.config.skills.spiritual key)}}
 							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
 						</label>
 					</div>
@@ -100,19 +100,19 @@
 				</div>
 				<div class="flexcol">
 					<a class='expertise-remove' data-key="{{@index}}"
-						title='{{localize (lookup @root.config.skills expertise_remove)}}'>
+						title='{{localize (lookup @root.config.skills "expertise_remove")}}'>
 						<i class='fas fa-trash'>
-							{{localize (lookup @root.config.skills expertise_remove)}}
+							{{localize (lookup @root.config.skills "expertise_remove")}}
 						</i>
 					</a>
 				</div>
 			</li>
 		{{else}}
-			<li class="flexcol">{{localize (lookup @root.config.skills expertise_empty)}}</li>
+			<li class="flexcol">{{localize (lookup @root.config.skills "expertise_empty")}}</li>
 		{{/each}}
 	</ol>
 	<div class='create-expertise flexlarge'>
-		<a class='expertise-create' title='{{localize (lookup @root.config.skills expertises_new)}}'>
+		<a class='expertise-create' title='{{localize (lookup @root.config.skills "expertises_new")}}'>
 			<i class='fas fa-plus'></i>
 			{{localize (lookup @root.config.skills "expertises_new")}}
 		</a>
