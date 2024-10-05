@@ -1,187 +1,91 @@
 {
-	"COSMERE_UNOFFICIAL": {
-		"members": "Members",
-		"Biography": {
-			"Backstory": "Backstory",
-			"Purpose": "Purpose",
-			"Obstacle": "Obstacle",
-			"Goals": {
-				"label": "Goal",
-				"create": "New Goal",
-				"delete": "Remove Goal",
-				"missing": "No Goals"
-			},
-			"Connections": {
-				"label": "Connections",
-				"create": "New Connection",
-				"delete": "Remove Connection",
-				"missing": "No Connections"
-			}
-		},
-		"Expertise": {
-			"label": "Expertise",
-			"create": "New Expertise",
-			"delete": "Remove Expertise",
-			"missing": "No Expertise"
-		},
-		"Attribute": {
-			"Strength": {
-				"long": "Strength",
-				"abbr": "str"
-			},
-			"Speed": {
-				"long": "Speed",
-				"abbr": "spd"
-			},
-			"Intellect": {
-				"long": "Intellect",
-				"abbr": "int"
-			},
-			"Willpower": {
-				"long": "Willpower",
-				"abbr": "wil"
-			},
-			"Awareness": {
-				"long": "Awareness",
-				"abbr": "awa"
-			},
-			"Presence": {
-				"long": "Presence",
-				"abbr": "pre"
-			}
-		},
-		"Skill": {
-			"Athletics": {
-				"long": "Athletics",
-				"abbr": "ath"
-			},
-			"Agility": {
-				"long": "Agility",
-				"abbr": "agi"
-			},
-			"HeavyWeapons": {
-				"long": "Heavy Weapons",
-				"abbr": "hew"
-			},
-			"LightWeapons": {
-				"long": "Light Weapons",
-				"abbr": "liw"
-			},
-			"Stealth": {
-				"long": "Stealth",
-				"abbr": "ste"
-			},
-			"Thievery": {
-				"long": "Thievery",
-				"abbr": "thi"
-			},
-			"Crafting": {
-				"long": "Crafting",
-				"abbr": "cra"
-			},
-			"Deduction": {
-				"long": "Deduction",
-				"abbr": "ded"
-			},
-			"Discipline": {
-				"long": "Discipline",
-				"abbr": "dis"
-			},
-			"Intimidation": {
-				"long": "Intimidation",
-				"abbr": "imd"
-			},
-			"Lore": {
-				"long": "Lore",
-				"abbr": "lre"
-			},
-			"Medicine": {
-				"long": "Medicine",
-				"abbr": "med"
-			},
-			"Deception": {
-				"long": "Deception",
-				"abbr": "dec"
-			},
-			"Insight": {
-				"long": "Insight",
-				"abbr": "ins"
-			},
-			"Leadership": {
-				"long": "Leadership",
-				"abbr": "led"
-			},
-			"Perception": {
-				"long": "Perception",
-				"abbr": "pcp"
-			},
-			"Persuasion": {
-				"long": "Persuasion",
-				"abbr": "per"
-			},
-			"Survival": {
-				"long": "Survival",
-				"abbr": "svl"
-			}
-		},
-		"Defense": {
-			"Deflect": {
-				"long": "Deflect",
-				"abbr": "dfl"
-			},
-			"Physical": {
-				"long": "Physical",
-				"abbr": "phy"
-			},
-			"Cognitive": {
-				"long": "Cognitive",
-				"abbr": "cog"
-			},
-			"Spiritual": {
-				"long": "Spiritual",
-				"abbr": "spi"
-			}
-		},
-		"Sense": {
-			"range": {
-				"long": "Sense Range",
-				"abbr": "sr"
-			}
-		},
-		"Movement": {
-			"ground": {
-				"long": "Ground Speed",
-				"abbr": "gs"
-			}
-		},
-		"SheetLabels": {
-			"Actor": "CosmereRPG Actor Sheet",
-			"Item": "CosmereRPG Item Sheet"
-		},
-		"Item": {},
-		"Effect": {
-			"Source": "Source",
-			"Toggle": "Toggle Effect",
-			"Temporary": "Temporary Effects",
-			"Passive": "Passive Effects",
-			"Inactive": "Inactive Effects"
-		}
-	},
-	"TYPES": {
-		"Actor": {
-			"Player": "Player",
-			"Adversary": "Adversary",
-			"Party": "Party"
-		},
-		"Item": {
-			"Action": "Action",
-			"Ancestry": "Ancestry",
-			"Armor": "Armor",
-			"Effect": "Effect",
-			"Equipment": "Equipment",
-			"Feature": "Feature",
-			"Path": "Path",
-			"Weapon": "Weapon"
-		}
-	}
+  "COSMERE_UNOFFICIAL": {
+    "Ability": {
+      "Str": { "long": "Strength", "abbr": "str" },
+      "Con": { "long": "Constitution", "abbr": "con" },
+      "Dex": { "long": "Dexterity", "abbr": "dex" },
+      "Int": { "long": "Intelligence", "abbr": "int" },
+      "Wis": { "long": "Wisdom", "abbr": "wis" },
+      "Cha": { "long": "Charisma", "abbr": "cha" }
+    },
+    "SheetLabels": {
+      "Actor": "CosmereUnofficial Actor Sheet",
+      "Item": "CosmereUnofficial Item Sheet"
+    },
+    "Actor": {
+      "Tabs": {
+        "Biography": "Biography",
+        "Features": "Features",
+        "Gear": "Gear",
+        "Spells": "Spells",
+        "Effects": "Effects"
+      },
+      "base": {
+        "FIELDS": {
+          "biography": {"label": "Biography"},
+          "health": {
+            "value": {"label": "Health"},
+            "max": {"label": "Maximum Health"}
+          },
+          "power": {
+            "value": {"label": "Power"},
+            "max": {"label": "Maximum Power"}
+          }
+        }
+      },
+      "Character": {
+        "FIELDS": {
+          "attributes.level.value": {"label": "Level"}
+        }
+      },
+      "NPC": {
+        "FIELDS": {
+          "cr": {"label": "CR"}
+        },
+        "xp": {"label": "XP"}
+      }
+    },
+    "Item": {
+      "Tabs": {
+        "Attributes": "Attributes",
+        "Description": "Description",
+        "Effects": "Effects"
+      },
+      "Gear": {
+        "FIELDS": {
+          "rollFormula": {"label": "Roll Formula"},
+          "numDice": {"label": "Number of Dice"},
+          "dieSize": {"label": "Die Size"},
+          "rollMod": {"label": "Roll Modifier"},
+          "quantity": {"label": "Quantity"},
+          "weight": {"label": "Weight"}
+        }
+      },
+      "Spell": {
+        "FIELDS": {
+          "level": {"label": "Spell Level"}
+        },
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "gear": "Gear",
+      "feature": "Feature",
+      "spell": "Spell"
+    }
+  }
 }

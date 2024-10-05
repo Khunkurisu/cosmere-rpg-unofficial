@@ -1,7 +1,29 @@
-$c-white: #fff;
-$c-black: #000;
+:root {
+  --cosmere-rpg-unofficial-c-dark: #191813;
+  --cosmere-rpg-unofficial-c-faint: #c9c7b8;
+  --cosmere-rpg-unofficial-c-beige: #b5b3a4;
+  --cosmere-rpg-unofficial-c-tan: #444444;
+  --cosmere-rpg-unofficial-c-white: #ffffff;
+  --cosmere-rpg-unofficial-c-black: #000000;
+  --cosmere-rpg-unofficial-c-groove: #eeede0;
+}
 
-$c-dark: #191813;
-$c-faint: #c9c7b8;
-$c-beige: #b5b3a4;
-$c-tan: #444;
+.theme-dark {
+  --cosmere-rpg-unofficial-c-dark: #c9c7b8;
+  --cosmere-rpg-unofficial-c-faint: #191813;
+  --cosmere-rpg-unofficial-c-beige: #444444;
+  --cosmere-rpg-unofficial-c-tan: #b5b3a4;
+  --cosmere-rpg-unofficial-c-white: #000000;
+  --cosmere-rpg-unofficial-c-black: #ffffff;
+  --cosmere-rpg-unofficial-c-groove: #11121f;
+}
+
+$c-white: var(--cosmere-rpg-unofficial-c-white);
+$c-black: var(--cosmere-rpg-unofficial-c-black);
+
+$c-dark: var(--cosmere-rpg-unofficial-c-dark);
+$c-faint: var(--cosmere-rpg-unofficial-c-faint);
+$c-beige: var(--cosmere-rpg-unofficial-c-beige);
+$c-tan: var(--cosmere-rpg-unofficial-c-tan);
+
+$c-groove: var(--cosmere-rpg-unofficial-c-groove);
