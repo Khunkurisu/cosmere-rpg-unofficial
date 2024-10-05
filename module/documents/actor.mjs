@@ -57,7 +57,7 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.senses = this.getSensesRange(attributes);
 
-		systemData.movement.ground.value = this.getMovementRate(attributes);
+		systemData.movement.ground = this.getMovementRate(attributes);
 
 		systemData.recovery = this.getRecoveryDie(attributes)
 

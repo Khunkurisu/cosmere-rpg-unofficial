@@ -28,7 +28,12 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 				"ground": new fields.NumberField({ ...requiredInteger, initial: 25, min: 5 })
 			}),
 			"senses": new fields.NumberField({ ...requiredInteger, initial: 5, min: 5 }),
-			"marks": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+			"marks": new fields.NumberField({ required: true, nullable: false, initial: 0, min: 0 }),
+			"capacity": new fields.SchemaField({
+				"maxLift": new fields.NumberField({ ...requiredInteger, initial: 5, min: 5 }),
+				"maxCarry": new fields.NumberField({ ...requiredInteger, initial: 5, min: 5 }),
+				"carrying": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+			})
 		}
 
 		// Iterate over attribute names and create a new SchemaField for each.
