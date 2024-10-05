@@ -8,7 +8,7 @@ import { CosmereUnofficialItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { COSMERE_UNOFFICIAL } from './helpers/config.mjs';
 // Import DataModel classes
-import * as models from 'data-models.mjs';
+import * as models from './data-models.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */

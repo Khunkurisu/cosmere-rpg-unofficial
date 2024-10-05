@@ -2,6 +2,7 @@ import CosmereUnofficialActorBase from "../base-actor.mjs";
 
 export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase {
 	static defineSchema() {
+		console.log("player");
 		const fields = foundry.data.fields;
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = super.defineSchema();
@@ -12,12 +13,12 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 			backstory: new fields.StringField({ required: true, blank: true }),
 			purpose: new fields.StringField({ required: true, blank: true }),
 			obstacle: new fields.StringField({ required: true, blank: true }),
-			goals: new fields.SchemaField({}),
-			connections: new fields.SchemaField({})
+			goals: new fields.ObjectField(),
+			connections: new fields.ObjectField()
 		});
 
-		schema.ancestry = new fields.SchemaField({});
-		schema.path = new fields.SchemaField({});
+		schema.ancestry = new fields.ObjectField();
+		schema.path = new fields.ObjectField();
 
 		return schema;
 	}

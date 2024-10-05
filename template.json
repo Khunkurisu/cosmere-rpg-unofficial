@@ -173,103 +173,15 @@
 			"ancestry": null,
 			"path": null,
 			"marks": 0
-		},
-		"Adversary": {
-			"templates": [
-				"resources",
-				"defenses",
-				"statistics"
-			],
-			"tier": 1,
-			"role": "",
-			"type": "",
-			"notes": ""
 		}
 	},
 	"Item": {
 		"types": [
-			"Equipment",
-			"Weapon",
-			"Armor",
-			"Action",
-			"Effect",
-			"Feature",
-			"Path",
-			"Ancestry"
+			"Feature"
 		],
 		"templates": {
 			"base": {
 				"description": ""
-			},
-			"item": {
-				"price": 0,
-				"weight": 0,
-				"quantity": 1,
-				"equipped": false
-			},
-			"usable": {
-				"traits": [],
-				"expert": []
-			}
-		},
-		"Path": {
-			"templates": [
-				"base"
-			],
-			"isHeroic": false,
-			"specialties": [],
-			"talents": [],
-			"skill": "",
-			"keyTalent": {}
-		},
-		"Ancestry": {
-			"templates": [
-				"base"
-			],
-			"talents": []
-		},
-		"Equipment": {
-			"templates": [
-				"base",
-				"item"
-			]
-		},
-		"Weapon": {
-			"templates": [
-				"base",
-				"item",
-				"usable"
-			],
-			"damage": {
-				"die": 6,
-				"count": 1,
-				"type": "keen"
-			},
-			"skill": "heavy",
-			"range": "melee"
-		},
-		"Armor": {
-			"templates": [
-				"base",
-				"item",
-				"usable"
-			],
-			"deflect": 0
-		},
-		"Action": {
-			"templates": [
-				"base"
-			],
-			"cost": 0
-		},
-		"Effect": {
-			"templates": [
-				"base"
-			],
-			"status": "disabled",
-			"duration": {
-				"value": 0,
-				"unit": "round"
 			}
 		},
 		"Feature": {

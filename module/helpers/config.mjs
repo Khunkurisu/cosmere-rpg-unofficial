@@ -7,6 +7,8 @@ export const COSMERE_UNOFFICIAL = {};
  * @type {Object}
  */
 
+COSMERE_UNOFFICIAL.members = 'COSMERE_UNOFFICIAL.Members';
+
 COSMERE_UNOFFICIAL.biography = {
 	backstory: 'COSMERE_UNOFFICIAL.Biography.Backstory',
 	goals: 'COSMERE_UNOFFICIAL.Biography.Goals.label',

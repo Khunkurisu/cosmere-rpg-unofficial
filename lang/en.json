@@ -1,5 +1,6 @@
 {
 	"COSMERE_UNOFFICIAL": {
+		"members": "Members",
 		"Biography": {
 			"Backstory": "Backstory",
 			"Purpose": "Purpose",
@@ -168,12 +169,19 @@
 	},
 	"TYPES": {
 		"Actor": {
-			"player": "Player",
-			"adversary": "Adversary"
+			"Player": "Player",
+			"Adversary": "Adversary",
+			"Party": "Party"
 		},
 		"Item": {
-			"item": "Item",
-			"feature": "Feature"
+			"Action": "Action",
+			"Ancestry": "Ancestry",
+			"Armor": "Armor",
+			"Effect": "Effect",
+			"Equipment": "Equipment",
+			"Feature": "Feature",
+			"Path": "Path",
+			"Weapon": "Weapon"
 		}
 	}
 }

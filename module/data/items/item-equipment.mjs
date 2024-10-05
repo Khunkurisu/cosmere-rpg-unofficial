@@ -1,4 +1,4 @@
-import CosmereUnofficialItemBase from "./base-item.mjs";
+import CosmereUnofficialItemBase from "../base-item.mjs";
 
 export default class CosmereUnofficialEquipment extends CosmereUnofficialItemBase {
 	static defineSchema() {

@@ -5,8 +5,8 @@ export default class CosmereUnofficialGear extends CosmereUnofficialEquipment {
 		const fields = foundry.data.fields;
 		const schema = super.defineSchema();
 
-		schema.traits = new fields.SchemaField({});
-		schema.expert = new fields.SchemaField({});
+		schema.traits = new fields.ObjectField();
+		schema.expert = new fields.ObjectField();
 
 		return schema;
 	}

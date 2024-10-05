@@ -11,4 +11,5 @@ export default class CosmereUnofficialDataModel extends foundry.abstract.TypeDat
 	toPlainObject() {
 		return { ...this };
 	}
+	static LOCALIZATION_PREFIXES = ["COSMERE_UNOFFICIAL"];
 }
