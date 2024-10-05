@@ -9,14 +9,14 @@
 			</div>
 			<div class='strike-attack flex-group-left'>
 				<label for="strike-attack" class="strike-label rollable" data-roll="1d20{{item.modifier}}"
-					data-roll-type="weapon" data-label="{{localize '{{item.name}}'}}">
+					data-roll-type="weapon" data-label="{{item.name}}">
 					{{localize 'Attack'}} (1d20{{item.modifier}})
 				</label>
 			</div>
 			<div class='strike-damage flex-group-left'>
 				<label for="strike-damage" class="strike-label rollable"
 					data-roll="{{item.formula}}{{item.modifier}}{{item.damageType}}" data-roll-type="weapon"
-					data-label="{{localize '{{item.name}}'}}">
+					data-label="{{item.name}}">
 					{{localize 'Damage'}} ({{item.formula}}{{item.modifier}}{{item.damageType}})
 				</label>
 			</div>
