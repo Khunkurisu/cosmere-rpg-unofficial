@@ -7,6 +7,8 @@ import { CosmereUnofficialItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { COSMERE_UNOFFICIAL } from './helpers/config.mjs';
+// Import DataModel classes
+import * as models from 'data-models.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -24,9 +26,27 @@ Hooks.once('init', function () {
 	// Add custom constants for configuration.
 	CONFIG.COSMERE_UNOFFICIAL = COSMERE_UNOFFICIAL;
 
-	// Define custom Document classes
+	// Define custom Document and DataModel classes
 	CONFIG.Actor.documentClass = CosmereUnofficialActor;
+
+	// Note that you don't need to declare a DataModel
+	// for the base actor/item classes - they are included
+	// with the Character/NPC as part of super.defineSchema()
+	CONFIG.Actor.dataModels = {
+		Player: models.CosmereUnofficialPlayer,
+		adversary: models.CosmereUnofficialAdversary
+	}
 	CONFIG.Item.documentClass = CosmereUnofficialItem;
+	CONFIG.Item.dataModels = {
+		Equipment: models.CosmereUnofficialEquipment,
+		Weapon: models.CosmereUnofficialWeapon,
+		Armor: models.CosmereUnofficialArmor,
+		Action: models.CosmereUnofficialAction,
+		Effect: models.CosmereUnofficialEffect,
+		Feature: models.CosmereUnofficialFeature,
+		Path: models.CosmereUnofficialPath,
+		Ancestry: models.CosmereUnofficialAncestry
+	}
 
 	// Active Effects are never copied to the Actor,
 	// but will still apply to the Actor from within the Item

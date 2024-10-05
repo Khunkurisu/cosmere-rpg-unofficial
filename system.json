@@ -38,8 +38,6 @@
 			"path": "lang/en.json"
 		}
 	],
-	"packs": [],
-	"packFolders": [],
 	"socket": false,
 	"manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
 	"download": "This must link to a .zip file of the current version",
@@ -49,5 +47,31 @@
 		"units": "ft"
 	},
 	"primaryTokenAttribute": "health",
-	"secondaryTokenAttribute": "focus"
+	"secondaryTokenAttribute": "focus",
+	"packs": [],
+	"packFolders": [],
+	"documentTypes": {
+		"Actor": {
+			"Player": {
+				"htmlFields": [
+					"biography.background"
+				]
+			},
+			"Adversary": {
+				"htmlFields": [
+					"notes"
+				]
+			}
+		},
+		"Item": {
+			"Equipment": {},
+			"Weapon": {},
+			"Armor": {},
+			"Action": {},
+			"Effect": {},
+			"Feature": {},
+			"Path": {},
+			"Ancestry": {}
+		}
+	}
 }
