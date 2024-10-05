@@ -61,7 +61,8 @@
 				"htmlFields": [
 					"notes"
 				]
-			}
+			},
+			"Party": {}
 		},
 		"Item": {
 			"Equipment": {},

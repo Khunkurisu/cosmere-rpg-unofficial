@@ -34,7 +34,8 @@ Hooks.once('init', function () {
 	// with the Character/NPC as part of super.defineSchema()
 	CONFIG.Actor.dataModels = {
 		Player: models.CosmereUnofficialPlayer,
-		adversary: models.CosmereUnofficialAdversary
+		Adversary: models.CosmereUnofficialAdversary,
+		Party: models.CosmereUnofficialParty
 	}
 	CONFIG.Item.documentClass = CosmereUnofficialItem;
 	CONFIG.Item.dataModels = {
