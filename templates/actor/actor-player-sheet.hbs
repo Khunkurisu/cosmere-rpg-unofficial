@@ -23,7 +23,7 @@
 							<input name="system.level" type="text" value="{{system.level}}" data-dtype="Number" />
 						</section>
 					</div>
-					<div class="resources grid grid-4col">
+					<div class="resources grid grid-3col">
 						<div class="resource align-left">
 							<label for="system.ancestry.name" class="resource-label">Ancestry</label>
 							{{#if system.ancestry}}
@@ -33,8 +33,8 @@
 								</div>
 							{{else}}
 								<div class="resource-content flexrow flex-right flex-between">
-									<input type="text" name="system.ancestry.name" value=""
-										data-dtype="string" disabled="true" />
+									<input type="text" name="system.ancestry.name" value="" data-dtype="string"
+										disabled="true" />
 								</div>
 							{{/if}}
 						</div>
@@ -47,59 +47,59 @@
 								</div>
 							{{else}}
 								<div class="resource-content flexrow flex-right flex-between">
-									<input type="text" name="system.path" value=""
-										data-dtype="string" disabled="true" />
+									<input type="text" name="system.path" value="" data-dtype="string"
+										disabled="true" />
 								</div>
 							{{/if}}
 						</div>
-						<div class="flexrow grid-span-2 flexlarge flex-between flex-group-center">
-							<div class="resource">
-								<label for="system.usePlotDice" class="resource-label">Plot Dice</label>
-								<div class="resource-content flexrow flex-right flex-between">
-									{{#if system.usePlotDice}}
-										<a class='dice-control plot-dice-off' title='{{localize 'Disable Plot Dice'}}'
-											data-type='Equipment'>
-											<i class="fa-solid fa-toggle-on fa-xl"></i>
-										</a>
-									{{else}}
-										<a class='dice-control plot-dice-on' title='{{localize 'Enable Plot Dice'}}'
-											data-type='Equipment'>
-											<i class="fa-solid fa-toggle-off fa-xl"></i>
-										</a>
-									{{/if}}
-								</div>
+					</div>
+					<div class="resources flexrow flexlarge flex-between flex-group-center">
+						<div class="resource">
+							<label for="system.usePlotDice" class="resource-label">Plot Dice</label>
+							<div class="resource-content flexrow flex-right flex-between">
+								{{#if system.usePlotDice}}
+									<a class='dice-control plot-dice-off' title='{{localize 'Disable Plot Dice'}}'
+										data-type='Equipment'>
+										<i class="fa-solid fa-toggle-on fa-xl"></i>
+									</a>
+								{{else}}
+									<a class='dice-control plot-dice-on' title='{{localize 'Enable Plot Dice'}}'
+										data-type='Equipment'>
+										<i class="fa-solid fa-toggle-off fa-xl"></i>
+									</a>
+								{{/if}}
 							</div>
-							<div class="resource">
-								<label for="system.hasAdvantage" class="resource-label">Advantage</label>
-								<div class="resource-content flexrow flex-right flex-between">
-									{{#if system.hasAdvantage}}
-										<a class='dice-control advantage-off' title='{{localize 'Disable Advantage'}}'
-											data-type='Equipment'>
-											<i class="fa-solid fa-toggle-on fa-xl"></i>
-										</a>
-									{{else}}
-										<a class='dice-control advantage-on' title='{{localize 'Enable Advantage'}}'
-											data-type='Equipment'>
-											<i class="fa-solid fa-toggle-off fa-xl"></i>
-										</a>
-									{{/if}}
-								</div>
+						</div>
+						<div class="resource">
+							<label for="system.hasAdvantage" class="resource-label">Advantage</label>
+							<div class="resource-content flexrow flex-right flex-between">
+								{{#if system.hasAdvantage}}
+									<a class='dice-control advantage-off' title='{{localize 'Disable Advantage'}}'
+										data-type='Equipment'>
+										<i class="fa-solid fa-toggle-on fa-xl"></i>
+									</a>
+								{{else}}
+									<a class='dice-control advantage-on' title='{{localize 'Enable Advantage'}}'
+										data-type='Equipment'>
+										<i class="fa-solid fa-toggle-off fa-xl"></i>
+									</a>
+								{{/if}}
 							</div>
-							<div class="resource">
-								<label for="system.hasDisadvantage" class="resource-label">Disadvantage</label>
-								<div class="resource-content flexrow flex-right flex-between">
-									{{#if system.hasDisadvantage}}
-										<a class='dice-control disadvantage-off'
-											title='{{localize 'Disable Disadvantage'}}' data-type='Equipment'>
-											<i class="fa-solid fa-toggle-on fa-xl"></i>
-										</a>
-									{{else}}
-										<a class='dice-control disadvantage-on'
-											title='{{localize 'Enable Disadvantage'}}' data-type='Equipment'>
-											<i class="fa-solid fa-toggle-off fa-xl"></i>
-										</a>
-									{{/if}}
-								</div>
+						</div>
+						<div class="resource">
+							<label for="system.hasDisadvantage" class="resource-label">Disadvantage</label>
+							<div class="resource-content flexrow flex-right flex-between">
+								{{#if system.hasDisadvantage}}
+									<a class='dice-control disadvantage-off' title='{{localize 'Disable Disadvantage'}}'
+										data-type='Equipment'>
+										<i class="fa-solid fa-toggle-on fa-xl"></i>
+									</a>
+								{{else}}
+									<a class='dice-control disadvantage-on' title='{{localize 'Enable Disadvantage'}}'
+										data-type='Equipment'>
+										<i class="fa-solid fa-toggle-off fa-xl"></i>
+									</a>
+								{{/if}}
 							</div>
 						</div>
 					</div>

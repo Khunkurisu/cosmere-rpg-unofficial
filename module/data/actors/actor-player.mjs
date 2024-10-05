@@ -20,6 +20,10 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 		schema.ancestry = new fields.ObjectField();
 		schema.path = new fields.ObjectField();
 
+		schema.usePlotDice = new fields.BooleanField({initial: false});
+		schema.hasAdvantage = new fields.BooleanField({initial: false});
+		schema.hasDisadvantage = new fields.BooleanField({initial: false});
+
 		return schema;
 	}
 }
