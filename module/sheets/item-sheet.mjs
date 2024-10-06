@@ -98,6 +98,9 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 
 		// Select Skill Modifier
 		html.on('change', '.weapon-skill-select', this._onSkillSelect.bind(this));
+
+		// Select Range Modifier
+		html.on('change', '.weapon-range-select', this._onRangeSelect.bind(this));
 	}
 
 	/**
@@ -141,6 +144,24 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const system = this.item.system;
 
 		system.skill = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle selecting range.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRangeSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const system = this.item.system;
+
+		console.log(system);
+
+		system.range.type = element.value;
+		console.log(system.range.type);
 
 		this.render(false);
 	}

@@ -76,6 +76,25 @@
 							<option value="heavy" {{isSelected 'heavy' system.skill}}>Heavy</option>
 						</select>
 					</div>
+					<div class='grid-span-1'>
+						<label class='resource-label' for='system.range.type'>Range</label><br />
+						<select name='system.range.type' class='weapon-range-select'>
+							<option value="melee" {{isSelected 'melee' system.range.type}}>Melee</option>
+							<option value="ranged" {{isSelected 'ranged' system.range.type}}>Ranged</option>
+						</select>
+					</div>
+					{{#if (ifEquals system.range.type "ranged")}}
+						<div class='grid-span-1'>
+							<label class='resource-label'>Short Range</label>
+							<input type='text' name='system.range.short' value='{{system.range.short}}'
+								data-dtype='Number' />
+						</div>
+						<div class='grid-span-1'>
+							<label class='resource-label'>Long Range</label>
+							<input type='text' name='system.range.long' value='{{system.range.long}}'
+								data-dtype='Number' />
+						</div>
+					{{/if}}
 				</div>
 			</div>
 		</div>
