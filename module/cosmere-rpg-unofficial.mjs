@@ -105,6 +105,25 @@ Handlebars.registerHelper('getModifier', function (strike, data) {
 
 	return mod >= 0 ? "+" + mod : "-" + mod;
 });
+Handlebars.registerHelper('damageIcon', function (damageType) {
+	switch (damageType) {
+		case "[keen]": {
+			return 'fa-regular fa-sword';
+		}
+		case "[impact]": {
+			return 'fa-regular fa-hammer';
+		}
+		case "[energy]": {
+			return 'fa-regular fa-fire-flame-curved';
+		}
+		case "[spirit]": {
+			return 'fa-regular fa-ghost';
+		}
+		case "[vital]": {
+			return 'fa-regular fa-heart-crack';
+		}
+	}
+});
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
