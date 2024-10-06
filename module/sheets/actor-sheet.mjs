@@ -362,8 +362,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 */
 	_strikeFromWeapon(weapon, context) {
 		const system = context.actor.system;
-		console.log("system: ");
-		console.log(system);
 		let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : "light_weapons";
 		let mod = system.skills.physical[skill].value;
 
