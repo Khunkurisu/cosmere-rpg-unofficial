@@ -180,6 +180,15 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 		}
 
+		const system = context.actor.system;
+		const mod = system.skills.physical.athletics.value;
+		strikes.push({
+			"name": "Unarmed Strike",
+			"formula": "1d4",
+			"damageType": "[impact]",
+			"modifier": (mod >= 0) ? ("+" + mod) : ("-" + mod)
+		});
+
 		// Assign and return
 		context.gear = gear;
 		context.weapons = weapons;
