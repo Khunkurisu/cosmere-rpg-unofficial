@@ -109,7 +109,7 @@
 			{{!-- Sheet Tab Navigation --}}
 			<nav class="sheet-tabs tabs" data-group="primary">
 				{{!-- Default tab is specified in actor-sheet.mjs --}}
-				<a class="item" data-tab="features">Actions</a>
+				<a class="item" data-tab="actions">Actions</a>
 				<a class="item" data-tab="items">Equipment</a>
 				<a class="item" data-tab="skills">Skills</a>
 				{{!-- <a class="item" data-tab="effects">Effects</a> --}}
@@ -119,10 +119,10 @@
 			{{!-- Sheet Body --}}
 			<section class="sheet-body">
 
-				{{!-- Owned Features Tab --}}
-				<div class="tab features" data-group="primary" data-tab="features">
+				{{!-- Owned Actions Tab --}}
+				<div class="tab actions" data-group="primary" data-tab="actions">
 					{{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-features.hbs"}}
+					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-actions.hbs"}}
 				</div>
 
 				{{!-- Biography Tab --}}
