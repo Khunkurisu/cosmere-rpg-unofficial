@@ -8,17 +8,39 @@
 				{{item.name}}
 			</div>
 			<div class='strike-attack flex-group-left'>
-				<label for="strike-attack" class="strike-label rollable" data-roll="1d20{{item.modifier}}"
-					data-roll-type="weapon" data-label="{{item.name}}">
-					{{localize 'Attack'}} (1d20{{item.modifier}})
-				</label>
+				<div class="tooltip">
+					<label for="strike-attack" class="strike-label rollable" data-roll="1d20{{item.modifier}}"
+						data-roll-type="weapon" data-label="{{item.name}}">
+						{{localize 'Attack'}}
+					</label>
+					<span class="tooltiptext">
+						1d20{{item.modifier}}
+					</span>
+				</div>
 			</div>
 			<div class='strike-damage flex-group-left'>
-				<label for="strike-damage" class="strike-label rollable"
-					data-roll="{{item.formula}}{{item.modifier}}{{item.damageType}}" data-roll-type="weapon"
-					data-label="{{item.name}}">
-					{{localize 'Damage'}} ({{item.formula}}{{item.modifier}}{{item.damageType}})
-				</label>
+				<div class="tooltip">
+					<label for="strike-damage" class="strike-label rollable"
+						data-roll="{{item.formula}}{{item.modifier}}{{item.damageType}}" data-roll-type="weapon"
+						data-label="{{item.name}}">
+						{{localize 'Damage'}}
+					</label>
+					<span class="tooltiptext">
+						{{item.formula}}{{item.modifier}}{{item.damageType}}
+					</span>
+				</div>
+			</div>
+			<div class='strike-graze flex-group-left'>
+				<div class="tooltip">
+					<label for="strike-graze" class="strike-label rollable"
+						data-roll="{{item.formula}}{{item.damageType}}" data-roll-type="weapon"
+						data-label="{{item.name}}">
+						{{localize 'Graze'}}
+					</label>
+					<span class="tooltiptext">
+						{{item.formula}}{{item.damageType}}
+					</span>
+				</div>
 			</div>
 		</li>
 	{{/each}}
