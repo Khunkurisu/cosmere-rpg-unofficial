@@ -311,7 +311,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		delete itemData.system['type'];
 
 		// Finally, create the item!
-		return await Item.create(itemData, { parent: this.actor });
+		return await this.actor.createEmbeddedDocuments("Item", [itemData]);
 	}
 
 	/**
