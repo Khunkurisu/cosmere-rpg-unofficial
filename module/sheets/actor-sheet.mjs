@@ -333,7 +333,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			if (item) return item.roll();
 		}
 
-		const rollInfo = this.getRollInfo(dataset);
+		/* const rollInfo = this.getRollInfo(dataset);
 		const li = $(event.currentTarget).parents('.item');
 		const item = this.actor.items.get(li.data('itemId'));
 
@@ -345,7 +345,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			item: item ?? null,
 			target: game.user.targets.first()?.document.actor ?? null
 		}
-		CheckCosmere.roll(context, event);
+		CheckCosmere.roll(context, event); */
 
 		return this.handleRoll(dataset);
 	}
