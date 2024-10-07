@@ -107,20 +107,20 @@ Handlebars.registerHelper('getModifier', function (strike, data) {
 });
 Handlebars.registerHelper('damageIcon', function (damageType) {
 	switch (damageType) {
-		case "[keen]": {
-			return 'fa-regular fa-sword';
+		case "[keen]": case "keen": {
+			return 'sword';
 		}
-		case "[impact]": {
-			return 'fa-regular fa-hammer';
+		case "[impact]": case "impact": {
+			return 'hammer';
 		}
-		case "[energy]": {
-			return 'fa-regular fa-fire-flame-curved';
+		case "[energy]": case "energy": {
+			return 'fire-flame-curved';
 		}
-		case "[spirit]": {
-			return 'fa-regular fa-ghost';
+		case "[spirit]": case "spirit": {
+			return 'ghost';
 		}
-		case "[vital]": {
-			return 'fa-regular fa-heart-crack';
+		case "[vital]": case "vital": {
+			return 'heart-crack';
 		}
 	}
 });
