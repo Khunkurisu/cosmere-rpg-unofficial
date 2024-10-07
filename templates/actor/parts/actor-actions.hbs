@@ -3,7 +3,7 @@
 		<div class='item-name'>{{localize 'Strikes'}}</div>
 	</li>
 	{{#each strikes as |item id|}}
-		<li class='item flexrow' data-item-id='{{item._id}}'>
+		<li class='item flexrow' data-item-id='{{item._id}}' data-strike-index="{{id}}">
 			<div class='strike-name'>
 				{{item.name}}
 			</div>
