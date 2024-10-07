@@ -185,6 +185,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		strikes.push({
 			"name": "Unarmed Strike",
 			"formula": "1d4",
+			"crit": 4,
 			"damageType": "[impact]",
 			"modifier": (mod >= 0) ? ("+" + mod) : ("-" + mod)
 		});
@@ -323,44 +324,74 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const dataset = element.dataset;
+
+		if (dataset.rollType == 'item') {
+			const itemId = element.closest('.item').dataset.itemId;
+			const item = this.actor.items.get(itemId);
+			dataset.label = `Item: ${dataset.label}`;
+			if (item) return item.roll();
+		}
+
+		return this.handleRoll(dataset);
+	}
+
+	handleRoll(dataset) {
 		const system = this.actor.system;
 
-		// Handle item rolls.
-		if (dataset.rollType) {
-			if (dataset.rollType == 'item') {
-				const itemId = element.closest('.item').dataset.itemId;
-				const item = this.actor.items.get(itemId);
-				if (item) return item.roll();
-			}
-		}
+		const rollInfo = this.getRollInfo(dataset);
+		const label = rollInfo[0];
+		const type = rollInfo[1];
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-			let label = dataset.label ? `Skill Check: ${dataset.label}` : '';
 			let rollData = dataset.roll;
 
 			if (system.hasAdvantage) {
 				if (!system.hasDisadvantage) {
-					rollData = "{" + rollData + ", " + rollData + "}kh";
+					rollData = `{${rollData}, ${rollData}}kh`;
 				}
 			}
 			if (system.hasDisadvantage) {
 				if (!system.hasAdvantage) {
-					rollData = "{" + rollData + ", " + rollData + "}kl";
+					rollData = `{${rollData}, ${rollData}}kl`;
 				}
 			}
 
-			if (system.usePlotDice) {
+			if (type === 'check' && system.usePlotDice) {
 				rollData += " + 1d6[plot]";
 			}
 
 			let roll = new Roll(rollData, this.actor.getRollData());
-			roll.toMessage({
+			if (Hooks.call("system.preRoll", roll) === false) return;
+
+			let message = roll.toMessage({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
 				rollMode: game.settings.get('core', 'rollMode'),
 			});
+
+			console.log(message);
 			return roll;
+		}
+	}
+
+	getRollInfo(dataset) {
+		switch (dataset.rollType) {
+			case 'skill': {
+				return [`Skill: ${dataset.label}`, "check"];
+			}
+			case 'strike': {
+				return [`Strike: ${dataset.label}`, "check"];
+			}
+			case 'critical': {
+				return [`Critical Damage: ${dataset.label}`, "damage"];
+			}
+			case 'damage': {
+				return [`Damage: ${dataset.label}`, "damage"];
+			}
+			case 'graze': {
+				return [`Graze: ${dataset.label}`, "damage"];
+			}
 		}
 	}
 
@@ -376,9 +407,11 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		return {
 			"name": weapon.name,
+			"_id": weapon._id,
 			"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
+			"crit": weapon.system.damage.die,
 			"damageType": "[" + weapon.system.damage.type + "]",
-			"modifier": (mod >= 0) ? ("+" + mod) : ("-" + mod)
+			"modifier": (mod >= 0) ? (`+${mod}`) : (`-${mod}`)
 		};
 	}
 }
