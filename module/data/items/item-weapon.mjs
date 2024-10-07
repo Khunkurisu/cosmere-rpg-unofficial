@@ -11,8 +11,9 @@ export default class CosmereUnofficialWeapon extends CosmereUnofficialGear {
 			count: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1 }),
 			die: new fields.NumberField({ ...requiredInteger, initial: 4, min: 4, max: 12 }),
 			type: new fields.StringField({ initial: "keen" }),
-			bonus: new fields.StringField({ initial: "+@skill" })
+			bonus: new fields.StringField({ initial: "+@modifier" })
 		});
+		schema.formula = new fields.StringField({ blank: true });
 
 		schema.skill = new fields.StringField({ initial: "heavy" });
 		schema.range = new fields.SchemaField({
@@ -21,7 +22,11 @@ export default class CosmereUnofficialWeapon extends CosmereUnofficialGear {
 			long: new fields.NumberField({ ...requiredInteger, initial: 5, min: 5 })
 		});
 
-		schema.formula = new fields.StringField({ blank: true });
+		schema.equipped = new fields.SchemaField({
+			isEquipped: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+			slot: new fields.StringField({ initial: "hands" }),
+			hands: new fields.NumberField({ ...requiredInteger, initial: 1, min: 0 })
+		});
 
 		return schema;
 	}
