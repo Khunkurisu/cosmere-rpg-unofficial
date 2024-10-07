@@ -284,7 +284,7 @@
   margin-left: 5%;
   bottom: 0;
   width: 70%;
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(90, 90, 90);
 }
 .cosmere-rpg-unofficial .encumbrance-bar-fill {
   height: 16px;
@@ -294,10 +294,8 @@
 .cosmere-rpg-unofficial .encumbrance-bar-label {
   align-items: center;
   color: #c9c7b8;
-  grid-area: bar;
-  justify-content: space-between;
   padding: 2 8 0;
-  position: relative;
+  position: fixed;
   text-shadow: 0 0 2px black;
   width: 100%;
   z-index: 3;
@@ -337,6 +335,16 @@
   justify-content: flex-end;
 }
 .cosmere-rpg-unofficial .items-list .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.cosmere-rpg-unofficial .items-list .item-info {
+  display: flex;
+  flex: 0 0 130px;
+  justify-content: flex-end;
+}
+.cosmere-rpg-unofficial .items-list .item-info a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
