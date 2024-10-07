@@ -15,7 +15,7 @@
 						<label for="system.skills.physical.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.physical.{{key}}.value" data-roll-type="skill"
-							data-label="{{localize (lookup @root.config.skills.physical key)}}">
+							data-defense="physical" data-label="{{localize (lookup @root.config.skills.physical key)}}">
 							{{localize (lookup @root.config.skills.physical key)}}
 							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
 						</label>
@@ -44,6 +44,7 @@
 						<label for="system.skills.cognitive.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.cognitive.{{key}}.value" data-roll-type="skill"
+							data-defense="cognitive"
 							data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
 							{{localize (lookup @root.config.skills.cognitive key)}}
 							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
@@ -73,6 +74,7 @@
 						<label for="system.skills.spiritual.{{key}}.value"
 							class="resource-label rollable flexlarge flex-group-center"
 							data-roll="d20+@skills.spiritual.{{key}}.value" data-roll-type="skill"
+							data-defense="spiritual"
 							data-label="{{localize (lookup @root.config.skills.spiritual key)}}">
 							{{localize (lookup @root.config.skills.spiritual key)}}
 							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
