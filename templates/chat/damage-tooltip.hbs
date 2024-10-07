@@ -1,0 +1,26 @@
+<div class="dice-tooltip" style="display: none">
+	{{#each instances as |instance|}}
+		<section class="tooltip-part damage instance color {{instance.type}}">
+			<header>
+				{{instance.typeLabel}} <i class="fa-solid fa-{{instance.iconClass}}"></i>
+			</header>
+			{{#each instance.dice as |dice|}}
+				<div class="dice">
+					<header class="part-header flexrow">
+						{{#if dice.icon}}
+							<span class="part-method" data-tooltip="{{dice.method}}"
+								aria-label="{{localize dice.method}}">{{{dice.icon}}}</span>
+						{{/if}}
+						<span class="part-formula">{{dice.formula}}</span>
+						<span class="part-total">{{dice.total}}</span>
+					</header>
+					<ol class="dice-rolls">
+						{{#each dice.rolls as |roll|}}
+							<li class="roll {{roll.classes}}">{{{roll.result}}}</li>
+						{{/each}}
+					</ol>
+				</div>
+			{{/each}}
+		</section>
+	{{/each}}
+</div>

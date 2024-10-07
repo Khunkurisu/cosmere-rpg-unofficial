@@ -25,7 +25,7 @@ import {
 	onItemEquip,
 	onItemUnequip
 } from '../helpers/item-handling.mjs';
-import { CheckCosmere } from "../documents/check.mjs";
+import { CheckCosmere } from "../system/dice/check.mjs";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -347,7 +347,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		}
 		CheckCosmere.roll(context, event);
 
-		//return this.handleRoll(dataset);
+		return this.handleRoll(dataset);
 	}
 
 	handleRoll(dataset) {
