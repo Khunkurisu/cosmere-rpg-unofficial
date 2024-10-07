@@ -25,6 +25,7 @@ import {
 	onItemEquip,
 	onItemUnequip
 } from '../helpers/item-handling.mjs';
+import { CheckCosmere } from "../documents/check.mjs";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -332,7 +333,21 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			if (item) return item.roll();
 		}
 
-		return this.handleRoll(dataset);
+		const rollInfo = this.getRollInfo(dataset);
+		const li = $(event.currentTarget).parents('.item');
+		const item = this.actor.items.get(li.data('itemId'));
+
+		const context = {
+			actor: this.actor,
+			label: rollInfo[0],
+			type: rollInfo[1],
+			defense: rollInfo[2] ?? null,
+			item: item ?? null,
+			target: game.user.targets.first()?.document.actor ?? null
+		}
+		CheckCosmere.roll(context, event);
+
+		//return this.handleRoll(dataset);
 	}
 
 	handleRoll(dataset) {
@@ -342,6 +357,17 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const label = rollInfo[0];
 		const type = rollInfo[1];
 		const defense = rollInfo[2];
+
+		const context = {
+			actor: this.actor,
+			label: rollInfo[0],
+			type: rollInfo[0],
+			defense: rollInfo[2] ?? null,
+			flags: {
+				type: type,
+				target: game.user.targets.first()?.document ?? null
+			}
+		}
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
@@ -381,7 +407,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				rollMode: game.settings.get('core', 'rollMode'),
 			});
 
-			console.log(message);
 			return roll;
 		}
 	}
