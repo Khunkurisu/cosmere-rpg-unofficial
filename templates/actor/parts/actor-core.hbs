@@ -83,11 +83,11 @@
 	</div>
 	{{#each system.movement as |movement key|}}
 		<div class="movement flexrow flex-group-center">
-			<label for="system.movement.{{key}}.value" class="resource-label flexlarge align-left"
+			<label for="system.movement.{{key}}" class="resource-label flexlarge align-left"
 				data-label="{{localize (lookup @root.config.movement key)}}">
 				{{localize (lookup @root.config.movement key)}}
 			</label>
-			<input type="text" name="system.movement.{{key}}.value" disabled="true" value="{{movement.value}}ft" />
+			<input type="text" name="system.movement.{{key}}" disabled="true" value="{{movement}}ft" />
 		</div>
 	{{/each}}
 </div>
