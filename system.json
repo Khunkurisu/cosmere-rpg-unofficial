@@ -16,8 +16,8 @@
 	"media": [
 		{
 			"type": "setup",
-			"url": "systems/cosmere-unofficial/assets/anvil-impact.png",
-			"thumbnail": "systems/cosmere-unofficial/assets/anvil-impact.png"
+			"url": "systems/cosmere-rpg-unofficial/assets/anvil-impact.png",
+			"thumbnail": "systems/cosmere-rpg-unofficial/assets/anvil-impact.png"
 		}
 	],
 	"version": "0.2.1",
@@ -41,7 +41,7 @@
 	"socket": false,
 	"manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
 	"download": "This must link to a .zip file of the current version",
-	"background": "systems/cosmere-unofficial/assets/anvil-impact.png",
+	"background": "systems/cosmere-rpg-unofficial/assets/anvil-impact.png",
 	"grid": {
 		"distance": 5,
 		"units": "ft"
