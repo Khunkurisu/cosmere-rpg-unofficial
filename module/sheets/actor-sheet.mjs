@@ -18,7 +18,7 @@ import {
 	onPlotDiceToggle,
 	onAdvantageToggle,
 	onDisadvantageToggle
-} from '../helpers/dice-handling.mjs';
+} from '../helpers/dice-state-handling.mjs';
 import {
 	onItemIncrease,
 	onItemDecrease,
