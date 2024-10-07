@@ -341,10 +341,16 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const rollInfo = this.getRollInfo(dataset);
 		const label = rollInfo[0];
 		const type = rollInfo[1];
+		const defense = rollInfo[2];
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
 			let rollData = dataset.roll;
+			let plot = '';
+			let flags = {
+				type: type,
+				target: game.user.targets.first()?.document ?? null
+			};
 
 			if (system.hasAdvantage) {
 				if (!system.hasDisadvantage) {
@@ -357,14 +363,19 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				}
 			}
 
-			if (type === 'check' && system.usePlotDice) {
-				rollData += " + 1d6[plot]";
+			if (type === 'check') {
+				if (system.usePlotDice) {
+					rollData += " + 1d6[plot]";
+					plot = " + 1d6";
+				}
 			}
 
 			let roll = new Roll(rollData, this.actor.getRollData());
+			roll._formula = dataset.roll + plot;
 			if (Hooks.call("system.preRoll", roll) === false) return;
 
 			let message = roll.toMessage({
+				flags: { cosmere: flags },
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
 				rollMode: game.settings.get('core', 'rollMode'),
@@ -378,10 +389,10 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	getRollInfo(dataset) {
 		switch (dataset.rollType) {
 			case 'skill': {
-				return [`Skill: ${dataset.label}`, "check"];
+				return [`Skill: ${dataset.label}`, "check", dataset.defense];
 			}
 			case 'strike': {
-				return [`Strike: ${dataset.label}`, "check"];
+				return [`Strike: ${dataset.label}`, "check", dataset.defense];
 			}
 			case 'critical': {
 				return [`Critical Damage: ${dataset.label}`, "damage"];
@@ -410,6 +421,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			"_id": weapon._id,
 			"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
 			"crit": weapon.system.damage.die,
+			"defense": "physical",
 			"damageType": "[" + weapon.system.damage.type + "]",
 			"modifier": (mod >= 0) ? (`+${mod}`) : (`-${mod}`)
 		};
