@@ -6,9 +6,12 @@
 export function onItemIncrease(event) {
 	event.preventDefault();
 	const li = $(event.currentTarget).parents('.item');
-	const item = this.actor.items.get(li.data('itemId'));
+	const actor = game.actors.get(this.actor._id);
+	const item = actor.items.get(li.data('itemId'));
 
-	item.system.quantity++;
+	const addend = event.ctrlKey ? 10 : event.shiftKey ? 5 : 1;
+	const newVal = item.system.quantity + addend;
+	item.update({ "system.quantity": newVal });
 
 	this.render(false);
 };
@@ -22,8 +25,11 @@ export function onItemDecrease(event) {
 	const li = $(event.currentTarget).parents('.item');
 	const item = this.actor.items.get(li.data('itemId'));
 
-	item.system.quantity--;
-	if (item.system.quanity < 0) item.system.quanity = 0;
+	if (item.system.quantity > 0) {
+		const subtrahend = Math.min(item.system.quantity, event.ctrlKey ? 10 : event.shiftKey ? 5 : 1);
+		const newVal = item.system.quantity - subtrahend;
+		return item.update({ "system.quantity": newVal });
+	}
 
 	this.render(false);
 };
@@ -38,7 +44,17 @@ export function onItemEquip(event) {
 	const li = $(event.currentTarget).parents('.item');
 	const item = this.actor.items.get(li.data('itemId'));
 
-	item.system.equipped = true;
+	if (item.type === "Armor") {
+		const items = Array.from(this.actor.items);
+		for (let index in items) {
+			const i = items[index];
+			if (i.type === "Armor") {
+				i.update({ "system.equipped.isEquipped": false });
+			}
+		}
+	}
+
+	item.update({ "system.equipped.isEquipped": true });
 
 	this.render(false);
 };
@@ -53,7 +69,7 @@ export function onItemUnequip(event) {
 	const li = $(event.currentTarget).parents('.item');
 	const item = this.actor.items.get(li.data('itemId'));
 
-	item.system.equipped = false;
+	item.update({ "system.equipped.isEquipped": false });
 
 	this.render(false);
 };
