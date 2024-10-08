@@ -10,3 +10,5 @@ An unofficial implementation of The Cosmere TTRPG by Brotherwise Games for Found
 ![Gear](http://khunkurisu.com/cosmere/gear.webp)
 ![Skills](http://khunkurisu.com/cosmere/skills.webp)
 ![Bio](http://khunkurisu.com/cosmere/bio.webp)
+
+Talents/Feats tab is still a work in progress.
