@@ -1,45 +1,46 @@
-<ol class='items-list'>
-	<li class='item flexrow items-header'>
-		<div class='item-name'>{{localize 'Strikes'}}</div>
+<ol class='actions-list'>
+	<li class='action flexrow actions-header'>
+		<div class='action-name'>{{localize 'Strikes'}}</div>
 	</li>
-	{{#each strikes as |item id|}}
-		<li class='item flexrow' data-item-id='{{item._id}}' data-strike-index="{{id}}">
-			<div class='strike-name'>
-				{{item.name}}
+	{{#each strikes as |action id|}}
+		<li class='action flexrow' data-action-id='{{action._id}}' data-strike-index="{{id}}">
+			<div class='strike-name flex-group-left flexlarge'>
+				{{action.name}}
 			</div>
 			<div class='strike-attack flex-group-left'>
 				<div class="tooltip">
-					<label for="strike-attack" class="strike-label rollable" data-roll="1d20{{item.modifier}}"
-						data-roll-type="strike" data-defense="physical" data-label="{{item.name}}">
+					<label for="strike-attack" class="strike-label rollable" data-roll="1d20{{action.modifier}}"
+						data-roll-type="strike" data-defense="physical" data-label="{{action.name}}">
 						{{localize 'Attack'}}
 					</label>
 					<span class="tooltiptext">
-						1d20{{item.modifier}}
+						1d20{{action.modifier}}
 					</span>
 				</div>
 			</div>
 			<div class='strike-damage flex-group-left'>
 				<div class="tooltip">
 					<label for="strike-damage" class="strike-label rollable"
-						data-roll="{{item.formula}}{{item.modifier}}{{item.damageType}}" data-roll-type="damage"
-						data-label="{{item.name}}">
+						data-roll="{{action.formula}}{{action.modifier}}{{action.damageType}}" data-roll-type="damage"
+						data-label="{{action.name}}">
 						{{localize 'Damage'}}
 					</label>
 					<span class="tooltiptext">
-						{{item.formula}}{{item.modifier}} <i class="fa-regular fa-{{damageIcon item.damageType}}"></i>
+						{{action.formula}}{{action.modifier}} <i
+							class="fa-regular fa-{{damageIcon action.damageType}}"></i>
 					</span>
 				</div>
 			</div>
 			<div class='strike-damage-crit flex-group-left'>
 				<div class="tooltip">
 					<label for="strike-damage-crit" class="strike-label rollable"
-						data-roll="{{item.formula}}min{{item.crit}}{{item.modifier}}{{item.damageType}}"
-						data-roll-type="critical" data-label="{{item.name}}">
+						data-roll="{{action.formula}}min{{action.crit}}{{action.modifier}}{{action.damageType}}"
+						data-roll-type="critical" data-label="{{action.name}}">
 						{{localize 'Critical'}}
 					</label>
 					<span class="tooltiptext">
-						{{item.formula}}{{item.modifier}}
-						<i class="fa-regular fa-{{damageIcon item.damageType}}"></i>
+						{{action.formula}}{{action.modifier}}
+						<i class="fa-regular fa-{{damageIcon action.damageType}}"></i>
 						(max)
 					</span>
 				</div>
@@ -47,14 +48,30 @@
 			<div class='strike-graze flex-group-left'>
 				<div class="tooltip">
 					<label for="strike-graze" class="strike-label rollable"
-						data-roll="{{item.formula}}{{item.damageType}}" data-roll-type="graze"
-						data-label="{{item.name}}">
+						data-roll="{{action.formula}}{{action.damageType}}" data-roll-type="graze"
+						data-label="{{action.name}}">
 						{{localize 'Graze'}}
 					</label>
 					<span class="tooltiptext">
-						{{item.formula}} <i class="fa-regular fa-{{damageIcon item.damageType}}"></i> (1 focus)
+						{{action.formula}} <i class="fa-regular fa-{{damageIcon action.damageType}}"></i> (1 focus)
 					</span>
 				</div>
+			</div>
+		</li>
+	{{/each}}
+</ol>
+<hr />
+<ol class='actions-list'>
+	{{#each potentialStrikes as |action id|}}
+		<li class='item flexrow' data-item-id='{{action._id}}'>
+			<div class='strike-name flex-group-left'>
+				{{action.name}}
+			</div>
+			<div class='equip-strike-weapon flex-group-left flexlarge'>
+				<a class='action-control item-equip' title='{{localize "Equip"}}'>
+					{{localize "Equip"}}
+					<i class='fa-regular fa-hand-back-fist'></i>
+				</a>
 			</div>
 		</li>
 	{{/each}}
