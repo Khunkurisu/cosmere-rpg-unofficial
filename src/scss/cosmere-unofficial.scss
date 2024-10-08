@@ -14,8 +14,9 @@
 
 /* Styles limited to cosmere-rpg-unofficial sheets */
 .cosmere-rpg-unofficial {
-  @import 'components/forms';
-  @import 'components/resource';
-  @import 'components/items';
-  @import 'components/effects';
+	@import 'components/forms';
+	@import 'components/resource';
+	@import 'components/items';
+	@import 'components/actions';
+	@import 'components/effects';
 }
