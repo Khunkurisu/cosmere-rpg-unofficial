@@ -24,7 +24,8 @@ import {
 	onItemDecrease,
 	onItemEquip,
 	onItemUnequip,
-	onItemDetails
+	onItemDetails,
+	onContainerToggle
 } from '../helpers/item-handling.mjs';
 import { CheckCosmere } from "../system/dice/check.mjs";
 
@@ -306,6 +307,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// View Item Details
 		html.on('click', '.detail-item', onItemDetails.bind(this));
+
+		// View Container Items
+		html.on('click', '.container-toggle', onContainerToggle.bind(this));
 
 		// Drag events for macros.
 		if (this.actor.isOwner) {

@@ -219,13 +219,13 @@
 			{{#each containers as |container id|}}
 				<li class='item flexrow' data-item-id='{{container._id}}'>
 					<div class='item-name'>
-						<h4 class='container-toggle'>
+						<div class='item-image container-toggle'>
 							{{#if container.system.showStored}}
 								<i class="fa-solid fa-box-open fa-lg"></i>
 							{{else}}
 								<i class="fa-solid fa-box fa-lg"></i>
 							{{/if}}
-						</h4>
+						</div>
 						<h4 class='resource-label detail-item'>{{container.name}}</h4>
 					</div>
 					<div class='item-weight flex-group-right'>
@@ -250,13 +250,14 @@
 					</div>
 				</li>
 				<li class='item flexrow' data-item-id='{{item._id}}'
-					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
+					{{#unless container.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{item.system.description}}}
+						{{{container.system.description}}}
 					</div>
 				</li>
-				<ol class='item-list' {{#unless item.system.showStored}}style='display: none' {{/unless}}>
-					{{#each item.system.stored as |item id|}}
+				<ol class='item-list container-inventory' {{#unless container.system.showStored}} style='display: none'
+					{{/unless}}>
+					{{#each container.system.stored as |item id|}}
 						<li class='item flexrow' data-item-id='{{item._id}}'>
 							<div class='item-name'>
 								<div class='item-image'>

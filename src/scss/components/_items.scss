@@ -163,7 +163,6 @@
 	}
 
 	.container-toggle {
-		padding-right: 3px;
 		&:hover,
 		&:focus {
 			color: #000;
@@ -181,8 +180,8 @@
 	}
 
 	.container-inventory {
-		padding: 8px;
-		margin: 5px;
+		padding-left: 8px;
+		margin: 3px;
 		text-align: left;
 		border: 1px solid rgb(125, 125, 125);
 	}

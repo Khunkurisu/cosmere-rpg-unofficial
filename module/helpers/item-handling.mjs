@@ -89,3 +89,19 @@ export function onItemDetails(event) {
 
 	this.render(false);
 };
+
+/**
+	 * Handle showing container items.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+export function onContainerToggle(event) {
+	event.preventDefault();
+	const li = $(event.currentTarget).parents('.item');
+	const item = this.actor.items.get(li.data('itemId'));
+	const showStored = !item.system.showStored;
+
+	item.update({ "system.showStored": showStored });
+
+	this.render(false);
+};
