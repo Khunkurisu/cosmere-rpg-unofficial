@@ -143,10 +143,13 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 * @param {object} context The context object to mutate
 	 */
 	_prepareItems(context) {
+		const system = context.actor.system;
+
 		// Initialize containers.
 		const gear = [];
 		const weapons = [];
 		const armor = [];
+		const containers = [];
 		const actions = [];
 		const strikes = [];
 		const potentialStrikes = [];
@@ -154,40 +157,53 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const features = [];
 
 		// Iterate through items, allocating to containers
-		for (let i of context.items) {
-			i.img = i.img || Item.DEFAULT_ICON;
+		context.items.forEach(function (item) {
+			let isStored = false;
+			system.containers.forEach(function (container) {
+				const storage = container.system.stored;
+				storage.forEach(function (obj) {
+					isStored = obj === s;
+				});
+			});
+			item.img = item.img || Item.DEFAULT_ICON;
+			// Skip if stored.
+			if (isStored) return;
+
 			// Append to gear.
-			if (i.type === 'Equipment') {
-				gear.push(i);
+			if (item.type === 'Equipment') {
+				gear.push(item);
 			}
 			// Append to features.
-			else if (i.type === 'Feature') {
-				features.push(i);
+			else if (item.type === 'Feature') {
+				features.push(item);
 			}
 			// Append to weapons.
-			else if (i.type === 'Weapon') {
-				weapons.push(i);
-				if (i.system.equipped.isEquipped) {
-					strikes.push(this._strikeFromWeapon(i, context));
+			else if (item.type === 'Weapon') {
+				weapons.push(item);
+				if (item.system.equipped.isEquipped) {
+					strikes.push(this._strikeFromWeapon(item, context));
 				} else {
-					potentialStrikes.push(this._strikeFromWeapon(i, context));
+					potentialStrikes.push(this._strikeFromWeapon(item, context));
 				}
 			}
 			// Append to armor.
-			else if (i.type === 'Armor') {
-				armor.push(i);
+			else if (item.type === 'Armor') {
+				armor.push(item);
+			}
+			// Append to containers.
+			else if (item.type === 'Container') {
+				containers.push(item);
 			}
 			// Append to actions.
-			else if (i.type === 'Action') {
-				actions.push(i);
+			else if (item.type === 'Action') {
+				actions.push(item);
 			}
 			// Append to effects.
-			else if (i.type === 'Effect') {
-				effects.push(i);
+			else if (item.type === 'Effect') {
+				effects.push(item);
 			}
-		}
+		});
 
-		const system = context.actor.system;
 		const mod = system.skills.physical.athletics.value;
 		strikes.push({
 			"name": "Unarmed Strike",
@@ -201,6 +217,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.gear = gear;
 		context.weapons = weapons;
 		context.armor = armor;
+		context.containers = containers;
 		context.effects = effects;
 		context.features = features;
 		context.actions = actions;

@@ -87,23 +87,51 @@ export class CosmereUnofficialActor extends Actor {
 
 		const activeEffects = [];
 		const equipped = [];
+		const containers = [];
+		const stored = [];
 
-		for (let i of actorData.items) {
-			if (i.type === 'Equipment' || i.type === 'Weapon' || i.type === 'Armor') {
-				systemData.capacity.carrying += i.system.totalWeight;
-				if (i.system.quantity > 0 && i.system.isEquipped) {
-					equipped.push(i);
+		console.log("actor.mjs 1");
+		actorData.items.forEach(function (item) {
+			if (item.type === 'Equipment' || item.type === 'Weapon' || item.type === 'Armor') {
+				systemData.capacity.carrying += item.system.totalWeight;
+				if (item.system.quantity > 0 && item.system.isEquipped) {
+					equipped.push(item);
 				}
 			}
-			else if (i.type === 'Effect') {
-				if (i.system.status !== "disabled") {
-					activeEffects.push(i);
+			else if (item.type === 'Effect') {
+				if (item.system.status !== "disabled") {
+					activeEffects.push(item);
 				}
 			}
+			else if (item.type === 'Container') {
+				systemData.capacity.carrying += item.system.totalWeight;
+				const containerItems = item.system.stored;
+				containerItems.forEach(function (storedItem) {
+					stored.push(storedItem);
+				})
+				containers.push(item);
+			}
+		});
+
+		console.log("actor.mjs 2");
+		if (containers.length > 0) {
+			let container = containers[0];
+			actorData.items.forEach(function (item) {
+				if (item.type === 'Equipment' || item.type === 'Weapon' || item.type === 'Armor') {
+					if (!item.system.isEquipped && Math.random() >= 0.5) {
+						container.system.stored.push(item);
+						stored.push(item);
+						console.log(item);
+					}
+				}
+			});
+			console.log(container.system.totalWeight);
 		}
 
 		systemData.activeEffects = activeEffects;
 		systemData.equipped = equipped;
+		systemData.containers = containers;
+		systemData.stored = stored;
 	}
 
 	setSkills(systemData) {

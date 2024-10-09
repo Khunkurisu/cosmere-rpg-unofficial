@@ -42,6 +42,7 @@ Hooks.once('init', function () {
 		Equipment: models.CosmereUnofficialEquipment,
 		Weapon: models.CosmereUnofficialWeapon,
 		Armor: models.CosmereUnofficialArmor,
+		Container: models.CosmereUnofficialContainer,
 		Action: models.CosmereUnofficialAction,
 		Effect: models.CosmereUnofficialEffect,
 		Feature: models.CosmereUnofficialFeature,

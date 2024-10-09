@@ -12,3 +12,4 @@ export { default as CosmereUnofficialEquipment } from "./data/items/item-equipme
 export { default as CosmereUnofficialFeature } from "./data/items/item-feature.mjs";
 export { default as CosmereUnofficialPath } from "./data/items/item-path.mjs";
 export { default as CosmereUnofficialWeapon } from "./data/items/item-weapon.mjs";
+export { default as CosmereUnofficialContainer } from "./data/items/item-container.mjs";
