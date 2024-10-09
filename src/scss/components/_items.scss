@@ -162,10 +162,28 @@
 		}
 	}
 
+	.container-toggle {
+		padding-right: 3px;
+		&:hover,
+		&:focus {
+			color: #000;
+			text-shadow: 0 0 10px red;
+			cursor: pointer;
+		}
+	}
+
 	.item-details {
 		padding: 5px;
+		margin: 5px;
 		text-align: left;
 		border: 1px solid rgb(150, 150, 150);
 		min-height: 30px;
+	}
+
+	.container-inventory {
+		padding: 8px;
+		margin: 5px;
+		text-align: left;
+		border: 1px solid rgb(125, 125, 125);
 	}
 }

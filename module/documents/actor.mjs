@@ -90,7 +90,6 @@ export class CosmereUnofficialActor extends Actor {
 		const containers = [];
 		const stored = [];
 
-		console.log("actor.mjs 1");
 		actorData.items.forEach(function (item) {
 			if (item.type === 'Equipment' || item.type === 'Weapon' || item.type === 'Armor') {
 				systemData.capacity.carrying += item.system.totalWeight;
@@ -113,7 +112,6 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		});
 
-		console.log("actor.mjs 2");
 		if (containers.length > 0) {
 			let container = containers[0];
 			actorData.items.forEach(function (item) {
@@ -125,7 +123,6 @@ export class CosmereUnofficialActor extends Actor {
 					}
 				}
 			});
-			console.log(container.system.totalWeight);
 		}
 
 		systemData.activeEffects = activeEffects;

@@ -395,11 +395,26 @@
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
+.cosmere-rpg-unofficial .items-list .container-toggle {
+  padding-right: 3px;
+}
+.cosmere-rpg-unofficial .items-list .container-toggle:hover, .cosmere-rpg-unofficial .items-list .container-toggle:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
 .cosmere-rpg-unofficial .items-list .item-details {
   padding: 5px;
+  margin: 5px;
   text-align: left;
   border: 1px solid rgb(150, 150, 150);
   min-height: 30px;
+}
+.cosmere-rpg-unofficial .items-list .container-inventory {
+  padding: 8px;
+  margin: 5px;
+  text-align: left;
+  border: 1px solid rgb(125, 125, 125);
 }
 .cosmere-rpg-unofficial .actions-list {
   list-style: none;

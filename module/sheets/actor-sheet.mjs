@@ -156,13 +156,15 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const effects = [];
 		const features = [];
 
+		const sheet = this;
+
 		// Iterate through items, allocating to containers
 		context.items.forEach(function (item) {
 			let isStored = false;
 			system.containers.forEach(function (container) {
 				const storage = container.system.stored;
 				storage.forEach(function (obj) {
-					isStored = obj === s;
+					isStored = obj === item;
 				});
 			});
 			item.img = item.img || Item.DEFAULT_ICON;
@@ -181,9 +183,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			else if (item.type === 'Weapon') {
 				weapons.push(item);
 				if (item.system.equipped.isEquipped) {
-					strikes.push(this._strikeFromWeapon(item, context));
+					strikes.push(sheet._strikeFromWeapon(item, context));
 				} else {
-					potentialStrikes.push(this._strikeFromWeapon(item, context));
+					potentialStrikes.push(sheet._strikeFromWeapon(item, context));
 				}
 			}
 			// Append to armor.
