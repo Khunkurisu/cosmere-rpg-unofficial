@@ -2,7 +2,6 @@ import CosmereUnofficialActorBase from "../base-actor.mjs";
 
 export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase {
 	static defineSchema() {
-		console.log("player");
 		const fields = foundry.data.fields;
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = super.defineSchema();

@@ -158,10 +158,7 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const element = event.currentTarget;
 		const system = this.item.system;
 
-		console.log(system);
-
 		system.range.type = element.value;
-		console.log(system.range.type);
 
 		this.render(false);
 	}

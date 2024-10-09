@@ -73,3 +73,21 @@ export function onItemUnequip(event) {
 
 	this.render(false);
 };
+
+/**
+	 * Handle showing item details.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+export function onItemDetails(event) {
+	event.preventDefault();
+	const li = $(event.currentTarget).parents('.item');
+	const item = this.actor.items.get(li.data('itemId'));
+	const showDetails = !item.system.showDetails;
+
+	item.update({ "system.showDetails": showDetails });
+	console.log(item.system.showDetails);
+	console.log(item.system.description);
+
+	this.render(false);
+};

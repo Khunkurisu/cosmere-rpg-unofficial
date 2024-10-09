@@ -23,7 +23,8 @@ import {
 	onItemIncrease,
 	onItemDecrease,
 	onItemEquip,
-	onItemUnequip
+	onItemUnequip,
+	onItemDetails
 } from '../helpers/item-handling.mjs';
 import { CheckCosmere } from "../system/dice/check.mjs";
 
@@ -283,6 +284,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Enable/Disable Disadvantage
 		html.on('click', '.disadvantage-on', onDisadvantageToggle.bind(this, true));
 		html.on('click', '.disadvantage-off', onDisadvantageToggle.bind(this, false));
+
+		// View Item Details
+		html.on('click', '.detail-item', onItemDetails.bind(this));
 
 		// Drag events for macros.
 		if (this.actor.isOwner) {

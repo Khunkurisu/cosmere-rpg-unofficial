@@ -4,7 +4,6 @@ export default class CosmereUnofficialParty extends CosmereUnofficialDataModel {
 	static LOCALIZATION_PREFIXES = ["COSMERE_UNOFFICIAL"];
 
 	static defineSchema() {
-		console.log("party");
 		const fields = foundry.data.fields;
 		const schema = {};
 

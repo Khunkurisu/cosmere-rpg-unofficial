@@ -30,22 +30,19 @@
 								<img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
 							</a>
 						</div>
-						<h4>{{item.name}}</h4>
+						<h4 class='resource-label detail-item'>{{item.name}}</label>
 					</div>
 					<div class='item-quantity flex-group-center'>
-						<h4>
-							<a class='item-control item-quantity-dec' title='{{localize 'Decrease Quantity'}}'
-								data-type='Equipment'>
-								<i class='fas fa-minus'></i>
-							</a> {{item.system.quantity}}
-							<a class='item-control item-quantity-inc' title='{{localize 'Increase Quantity'}}'
-								data-type='Equipment'>
-								<i class='fas fa-plus'></i>
-							</a>
-						</h4>
+						<a class='item-control item-quantity-dec' title='{{localize 'Decrease Quantity'}}'
+							data-type='Equipment'>
+							<i class='fas fa-minus'></i>
+						</a> {{item.system.quantity}}
+						<a class='item-control item-quantity-inc' title='{{localize 'Increase Quantity'}}'
+							data-type='Equipment'>
+							<i class='fas fa-plus'></i>
+						</a>
 					</div>
-					<div class='item-weight flex-group-right'>
-						<h4>{{item.system.weight}} lbs</h4>
+					<div class='item-weight flex-group-right'>{{item.system.weight}} lbs
 					</div>
 					<div class='item-controls'>
 						{{#if item.system.equipped.isEquipped}}
@@ -63,6 +60,12 @@
 						<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete"}}'>
 							<i class='fas fa-trash'></i>
 						</a>
+					</div>
+				</li>
+				<li class='item flexrow' data-item-id='{{item._id}}'
+					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
+					<div class='item-details flex-group-center'>
+						{{{item.system.description}}}
 					</div>
 				</li>
 			{{/each}}
@@ -91,22 +94,19 @@
 								<img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
 							</a>
 						</div>
-						<h4>{{item.name}}</h4>
+						<h4 class='resource-label detail-item'>{{item.name}}</label>
 					</div>
 					<div class='item-quantity flex-group-center'>
-						<h4>
-							<a class='item-control item-quantity-dec' title='{{localize 'Decrease Quantity'}}'
-								data-type='Equipment'>
-								<i class='fas fa-minus'></i>
-							</a> {{item.system.quantity}}
-							<a class='item-control item-quantity-inc' title='{{localize 'Increase Quantity'}}'
-								data-type='Equipment'>
-								<i class='fas fa-plus'></i>
-							</a>
-						</h4>
+						<a class='item-control item-quantity-dec' title='{{localize 'Decrease Quantity'}}'
+							data-type='Equipment'>
+							<i class='fas fa-minus'></i>
+						</a> {{item.system.quantity}}
+						<a class='item-control item-quantity-inc' title='{{localize 'Increase Quantity'}}'
+							data-type='Equipment'>
+							<i class='fas fa-plus'></i>
+						</a>
 					</div>
-					<div class='item-weight flex-group-right'>
-						<h4>{{item.system.weight}} lbs</h4>
+					<div class='item-weight flex-group-right'>{{item.system.weight}} lbs
 					</div>
 					<div class='item-controls'>
 						{{#if item.system.equipped.isEquipped}}
@@ -124,6 +124,12 @@
 						<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete"}}'>
 							<i class='fas fa-trash'></i>
 						</a>
+					</div>
+				</li>
+				<li class='item flexrow' data-item-id='{{item._id}}'
+					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
+					<div class='item-details flex-group-center'>
+						{{{item.system.description}}}
 					</div>
 				</li>
 			{{/each}}
@@ -152,22 +158,19 @@
 								<img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
 							</a>
 						</div>
-						<h4>{{item.name}}</h4>
+						<h4 class='resource-label detail-item'>{{item.name}}</h4>
 					</div>
 					<div class='item-quantity flex-group-center'>
-						<h4>
-							<a class='item-control item-quantity-dec' title='{{localize 'Decrease Quantity'}}'
-								data-type='Equipment'>
-								<i class='fas fa-minus'></i>
-							</a> {{item.system.quantity}}
-							<a class='item-control item-quantity-inc' title='{{localize 'Increase Quantity'}}'
-								data-type='Equipment'>
-								<i class='fas fa-plus'></i>
-							</a>
-						</h4>
+						<a class='item-control item-quantity-dec' title='{{localize 'Decrease Quantity'}}'
+							data-type='Equipment'>
+							<i class='fas fa-minus'></i>
+						</a> {{item.system.quantity}}
+						<a class='item-control item-quantity-inc' title='{{localize 'Increase Quantity'}}'
+							data-type='Equipment'>
+							<i class='fas fa-plus'></i>
+						</a>
 					</div>
-					<div class='item-weight flex-group-right'>
-						<h4>{{item.system.weight}} lbs</h4>
+					<div class='item-weight flex-group-right'>{{item.system.weight}} lbs
 					</div>
 					<div class='item-controls'>
 						{{#if item.system.equipped.isEquipped}}
@@ -185,6 +188,12 @@
 						<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete"}}'>
 							<i class='fas fa-trash'></i>
 						</a>
+					</div>
+				</li>
+				<li class='item flexrow' data-item-id='{{item._id}}'
+					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
+					<div class='item-details flex-group-center'>
+						{{{item.system.description}}}
 					</div>
 				</li>
 			{{/each}}

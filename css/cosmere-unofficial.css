@@ -390,6 +390,17 @@
   padding-left: 5px;
   text-align: left;
 }
+.cosmere-rpg-unofficial .items-list .detail-item:hover, .cosmere-rpg-unofficial .items-list .detail-item:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.cosmere-rpg-unofficial .items-list .item-details {
+  padding: 5px;
+  text-align: left;
+  border: 1px solid rgb(150, 150, 150);
+  min-height: 30px;
+}
 .cosmere-rpg-unofficial .actions-list {
   list-style: none;
   margin: 0;
