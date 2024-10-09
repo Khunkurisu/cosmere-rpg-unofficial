@@ -158,6 +158,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const potentialStrikes = [];
 		const effects = [];
 		const features = [];
+		const ancestryFeatures = [];
+		const pathFeatures = [];
 
 		const sheet = this;
 
@@ -189,7 +191,19 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 			// Append to features.
 			else if (item.type === 'Feature') {
-				features.push(item);
+				switch (item.system.type) {
+					case 'Ancestry': {
+						ancestryFeatures.push(item);
+						break;
+					}
+					case 'Path': {
+						pathFeatures.push(item);
+						break;
+					}
+					default: {
+						features.push(item);
+					}
+				}
 			}
 			// Append to weapons.
 			else if (item.type === 'Weapon') {
@@ -229,6 +243,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.armor = armor;
 		context.containers = containers;
 		context.effects = effects;
+		context.ancestryFeatures = ancestryFeatures;
+		context.pathFeatures = pathFeatures;
 		context.features = features;
 		context.actions = actions;
 		context.strikes = strikes;
@@ -355,6 +371,10 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		};
 		// Remove the type from the dataset since it's in the itemData.type prop.
 		delete itemData.system['type'];
+
+		if (type === 'Feature') {
+			itemData.system.type = header.dataset.featType;
+		}
 
 		// Finally, create the item!
 		return await this.actor.createEmbeddedDocuments("Item", [itemData]);
