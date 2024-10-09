@@ -112,19 +112,6 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		});
 
-		if (containers.length > 0) {
-			let container = containers[0];
-			actorData.items.forEach(function (item) {
-				if (item.type === 'Equipment' || item.type === 'Weapon' || item.type === 'Armor') {
-					if (!item.system.isEquipped && Math.random() >= 0.5) {
-						container.system.stored.push(item);
-						stored.push(item);
-						console.log(item);
-					}
-				}
-			});
-		}
-
 		systemData.activeEffects = activeEffects;
 		systemData.equipped = equipped;
 		systemData.containers = containers;
