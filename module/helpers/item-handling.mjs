@@ -91,6 +91,52 @@ export function onItemDetails(event) {
 };
 
 /**
+	 * Handle item dragging.
+	 * @param {Event} event   The originating drag event
+	 * @private
+	 */
+export function onItemDrag(event) {
+	const li = $(event.currentTarget);
+	const item = this.actor.items.get(li.data('itemId'));
+	if (item.type !== 'Container') {
+		this.lastDragged = item._id;
+	}
+};
+
+/**
+	 * Handle dropping items on containers.
+	 * @param {Event} event   The originating drop event
+	 * @private
+	 */
+export function onItemDrop(event) {
+	const li = $(event.currentTarget);
+	const items = this.actor.items;
+	const itemId = this.lastDragged;
+	const container = items.get(li.data('itemId'));
+	if (container.type === 'Container') {
+		event.preventDefault();
+
+		const containerItems = container.system.stored;
+		containerItems.push(itemId);
+		container.update({ "system.stored": containerItems });
+		console.log(containerItems);
+
+		this.render(false);
+		return;
+	}
+	items.forEach(function (item) {
+		if (item.type === 'Container') {
+			const storedItems = [];
+			item.system.stored.forEach(function (id) {
+				if (itemId === id) return;
+				storedItems.push(id);
+			});
+			item.update({ "system.stored": storedItems });
+		}
+	});
+};
+
+/**
 	 * Handle showing container items.
 	 * @param {Event} event   The originating click event
 	 * @private

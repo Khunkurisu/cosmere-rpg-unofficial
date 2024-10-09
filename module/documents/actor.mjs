@@ -87,8 +87,8 @@ export class CosmereUnofficialActor extends Actor {
 
 		const activeEffects = [];
 		const equipped = [];
-		const containers = [];
 		const stored = [];
+		const containers = [];
 
 		actorData.items.forEach(function (item) {
 			if (item.type === 'Equipment' || item.type === 'Weapon' || item.type === 'Armor') {
@@ -103,19 +103,29 @@ export class CosmereUnofficialActor extends Actor {
 				}
 			}
 			else if (item.type === 'Container') {
-				systemData.capacity.carrying += item.system.totalWeight;
-				const containerItems = item.system.stored;
-				containerItems.forEach(function (storedItem) {
-					stored.push(storedItem);
-				})
 				containers.push(item);
 			}
 		});
 
+		containers.forEach(function (container) {
+			const containerItems = [];
+			container.system.stored.forEach(function (id) {
+				actorData.items.forEach(function (obj) {
+					if (obj._id === id) {
+						containerItems.push(obj);
+						stored.push(obj);
+						systemData.capacity.carrying -= obj.system.totalWeight;
+					}
+				});
+			});
+			container.system.items = containerItems;
+			systemData.capacity.carrying += container.system.totalWeight;
+		});
+
 		systemData.activeEffects = activeEffects;
 		systemData.equipped = equipped;
-		systemData.containers = containers;
 		systemData.stored = stored;
+		systemData.containers = containers;
 	}
 
 	setSkills(systemData) {

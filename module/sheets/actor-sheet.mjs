@@ -25,6 +25,8 @@ import {
 	onItemEquip,
 	onItemUnequip,
 	onItemDetails,
+	onItemDrag,
+	onItemDrop,
 	onContainerToggle
 } from '../helpers/item-handling.mjs';
 import { CheckCosmere } from "../system/dice/check.mjs";
@@ -161,14 +163,23 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// Iterate through items, allocating to containers
 		context.items.forEach(function (item) {
-			let isStored = false;
-			system.containers.forEach(function (container) {
-				const storage = container.system.stored;
-				storage.forEach(function (obj) {
-					isStored = obj === item;
-				});
-			});
 			item.img = item.img || Item.DEFAULT_ICON;
+
+			// Append to container.
+			if (item.type === 'Container') {
+				containers.push(item);
+				// move on;
+				return;
+			}
+
+			let isStored = false;
+			system.stored.every(function (obj) {
+				if (obj._id === item._id) {
+					isStored = true;
+					return false;
+				}
+				return true;
+			});
 			// Skip if stored.
 			if (isStored) return;
 
@@ -192,10 +203,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			// Append to armor.
 			else if (item.type === 'Armor') {
 				armor.push(item);
-			}
-			// Append to containers.
-			else if (item.type === 'Container') {
-				containers.push(item);
 			}
 			// Append to actions.
 			else if (item.type === 'Action') {
@@ -308,8 +315,12 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// View Item Details
 		html.on('click', '.detail-item', onItemDetails.bind(this));
 
-		// View Container Items
+		// Handle Container Items
 		html.on('click', '.container-toggle', onContainerToggle.bind(this));
+		html.on('dragstart', '.item', onItemDrag.bind(this));
+		html.on('dragover', '.item', (ev) => { ev.preventDefault(); });
+		html.on('drop', '.item', onItemDrop.bind(this));
+		html.on('drop', '.container-inventory', onItemDrop.bind(this));
 
 		// Drag events for macros.
 		if (this.actor.isOwner) {

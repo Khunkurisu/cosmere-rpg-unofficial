@@ -43,7 +43,7 @@
 						</a>
 					</div>
 					<div class='item-weight flex-group-right'>
-						{{item.system.weight}} lbs
+						{{item.system.displayWeight}}
 					</div>
 					<div class='item-controls'>
 						{{#if item.system.equipped.isEquipped}}
@@ -108,7 +108,7 @@
 						</a>
 					</div>
 					<div class='item-weight flex-group-right'>
-						{{item.system.weight}} lbs
+						{{item.system.displayWeight}}
 					</div>
 					<div class='item-controls'>
 						{{#if item.system.equipped.isEquipped}}
@@ -173,7 +173,7 @@
 						</a>
 					</div>
 					<div class='item-weight flex-group-right'>
-						{{item.system.weight}} lbs
+						{{item.system.displayWeight}}
 					</div>
 					<div class='item-controls'>
 						{{#if item.system.equipped.isEquipped}}
@@ -229,16 +229,16 @@
 						<h4 class='resource-label detail-item'>{{container.name}}</h4>
 					</div>
 					<div class='item-weight flex-group-right'>
-						{{container.system.weight}} lbs
+						{{container.system.displayWeight}}
 					</div>
 					<div class='item-controls'>
 						{{#if container.system.equipped.isEquipped}}
 							<a class='item-control item-unequip' title='{{localize "Unequip"}}'>
-								<i class='fa-solid fa-hand-back-fist'></i>
+								<i class="fa-solid fa-shirt"></i>
 							</a>
 						{{else}}
 							<a class='item-control item-equip' title='{{localize "Equip"}}'>
-								<i class='fa-regular fa-hand-back-fist'></i>
+								<i class="fa-regular fa-shirt"></i>
 							</a>
 						{{/if}}
 						<a class='item-control item-edit' title='{{localize "DOCUMENT.Update"}}'>
@@ -249,15 +249,15 @@
 						</a>
 					</div>
 				</li>
-				<li class='item flexrow' data-item-id='{{item._id}}'
+				<li class='item flexrow' data-item-id='{{container._id}}'
 					{{#unless container.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
 						{{{container.system.description}}}
 					</div>
 				</li>
 				<ol class='item-list container-inventory' {{#unless container.system.showStored}} style='display: none'
-					{{/unless}}>
-					{{#each container.system.stored as |item id|}}
+					{{/unless}} data-item-id='{{container._id}}'>
+					{{#each container.system.items as |item id|}}
 						<li class='item flexrow' data-item-id='{{item._id}}'>
 							<div class='item-name'>
 								<div class='item-image'>
@@ -278,7 +278,7 @@
 								</a>
 							</div>
 							<div class='item-weight flex-group-right'>
-								{{item.system.weight}} lbs
+								{{item.system.displayWeight}}
 							</div>
 							<div class='item-controls'>
 								{{#if item.system.equipped.isEquipped}}
