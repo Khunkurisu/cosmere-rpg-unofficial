@@ -48,18 +48,18 @@ export function onSkillIncrease(event) {
 	const system = this.actor.system;
 	const skills = system.skills[data.skillBranch];
 	const skill = skills[data.skill];
-	let bonus = skill.bonus
+	let rank = skill.rank
 
-	if (bonus < 5) {
-		bonus++;
+	if (rank < 5) {
+		rank++;
 	}
-	const path = `system.skills.${data.skillBranch}.${data.skill}.bonus`
+	const path = `system.skills.${data.skillBranch}.${data.skill}.rank`
 	const updateObject = {};
-	updateObject[path] = bonus;
+	updateObject[path] = rank;
 
 	this.actor.update(updateObject);
 
-	console.log(skill.bonus);
+	console.log(skill.rank);
 
 	this.render(false);
 };
@@ -76,18 +76,18 @@ export function onSkillDecrease(event) {
 	const system = this.actor.system;
 	const skills = system.skills[data.skillBranch];
 	const skill = skills[data.skill];
-	let bonus = skill.bonus
+	let rank = skill.rank
 
-	if (bonus > 0) {
-		bonus--;
+	if (rank > 0) {
+		rank--;
 	}
-	const path = `system.skills.${data.skillBranch}.${data.skill}.bonus`
+	const path = `system.skills.${data.skillBranch}.${data.skill}.rank`
 	const updateObject = {};
-	updateObject[path] = bonus;
+	updateObject[path] = rank;
 
 	this.actor.update(updateObject);
 
-	console.log(skill.bonus);
+	console.log(skill.rank);
 
 	this.render(false);
 };
