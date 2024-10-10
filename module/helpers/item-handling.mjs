@@ -119,7 +119,6 @@ export function onItemDrop(event) {
 		const containerItems = container.system.stored;
 		containerItems.push(itemId);
 		container.update({ "system.stored": containerItems });
-		console.log(containerItems);
 
 		this.render(false);
 		return;
