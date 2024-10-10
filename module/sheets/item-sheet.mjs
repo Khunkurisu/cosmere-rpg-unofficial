@@ -68,9 +68,6 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
 		context.config = CONFIG.COSMERE_UNOFFICIAL;
 
-		// Prepare active effects for easier access
-		context.effects = prepareActiveEffectCategories(this.item.effects);
-
 		return context;
 	}
 
