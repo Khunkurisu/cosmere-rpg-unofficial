@@ -101,6 +101,16 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 
 		// Select Range Modifier
 		html.on('change', '.weapon-range-select', this._onRangeSelect.bind(this));
+
+		// Select Starting Skill
+		html.on('change', '.path-skill-select', this._onSkillSelect.bind(this));
+
+		// Select Path Type
+		html.on('change', '.path-type-select', this._onTypeSelect.bind(this));
+
+		// Add/Remove Specialties
+		html.on('click', '.specialty-create', this._onSpecialtyCreate.bind(this));
+		html.on('click', '.specialty-remove', this._onSpecialtyRemove.bind(this));
 	}
 
 	/**
@@ -159,6 +169,61 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const system = this.item.system;
 
 		system.range.type = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle selecting path type.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onTypeSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const system = this.item.system;
+
+		system.isRadiant = element.value === 'radiant';
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle adding specialties.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onSpecialtyCreate(event) {
+		event.preventDefault();
+		const system = this.item.system;
+		const specialties = system.specialties
+		console.log(specialties);
+
+		const count = Object.keys(specialties).length;
+		console.log(count);
+		specialties["entry-" + (count + 1)] = "New Specialty";
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle removing specialties.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onSpecialtyRemove(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const dataset = element.dataset;
+
+		const system = this.item.system;
+		const specialties = system.specialties
+
+		const index = [];
+		for (var x in specialties) {
+			index.push(x);
+		}
+		delete specialties[index[dataset.key]];
 
 		this.render(false);
 	}

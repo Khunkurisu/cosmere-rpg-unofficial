@@ -183,6 +183,26 @@
 		padding-left: 8px;
 		margin: 3px;
 		text-align: left;
-		border: 1px solid rgb(125, 125, 125);
+		border: 1px solid rgb(100, 100, 100);
 	}
+}
+
+.item-talents {
+	width: 75%;
+	border-left: 3px solid rgb(100, 100, 100);
+	border-right: 3px solid rgb(100, 100, 100);
+	border-bottom: 3px solid rgb(100, 100, 100);
+	padding: 24px;
+	min-height: 50px;
+}
+.item-key-talent {
+	width: 75%;
+	border-left: 3px solid rgb(100, 100, 100);
+	border-right: 3px solid rgb(100, 100, 100);
+	border-top: 3px solid rgb(100, 100, 100);
+	padding: 24px;
+}
+.key-talent-block {
+	border: 2px dashed rgb(175, 175, 175);
+	padding: 4px;
 }

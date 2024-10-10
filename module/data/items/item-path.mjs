@@ -5,7 +5,7 @@ export default class CosmereUnofficialPath extends CosmereUnofficialItemBase {
 		const fields = foundry.data.fields;
 		const schema = super.defineSchema();
 
-		schema.specialties = new fields.ArrayField(new fields.ObjectField());
+		schema.specialties = new fields.ArrayField(new fields.StringField());
 		schema.talents = new fields.ArrayField(new fields.ObjectField());
 
 		schema.skill = new fields.StringField({ initial: "talent" });

@@ -6,6 +6,7 @@ export default class CosmereUnofficialAncestry extends CosmereUnofficialItemBase
 		const schema = super.defineSchema();
 
 		schema.talents = new fields.ArrayField(new fields.StringField());
+		schema.keyTalent = new fields.ObjectField();
 
 		return schema;
 	}
