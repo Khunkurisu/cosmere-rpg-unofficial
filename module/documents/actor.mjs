@@ -82,6 +82,8 @@ export class CosmereUnofficialActor extends Actor {
 		this.setSkills(systemData);
 	}
 
+	isRadiant(systemData) { return false; }
+
 	checkItems(actorData) {
 		const systemData = actorData.system;
 
@@ -147,7 +149,8 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.health.max = 10 + attributes.strength.value + this.getHealthBonuses(systemData);
 		systemData.focus.max = 2 + attributes.willpower.value + this.getFocusBonuses(systemData);
-		systemData.investiture.max = 0;//2+attributes.presence.value+this.getInvestitureBonuses(systemData);
+		const investitureBonus = Math.max(attributes.presense.value, attributes.awareness.value);
+		systemData.investiture.max = this.isRadiant(systemData) ? 2 + investitureBonus + this.getInvestitureBonuses() : 0;
 	}
 
 	getHealthBonuses(systemData) {
