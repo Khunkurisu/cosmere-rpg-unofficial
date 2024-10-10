@@ -8,7 +8,7 @@ export default class CosmereUnofficialPath extends CosmereUnofficialItemBase {
 		schema.specialties = new fields.ArrayField(new fields.StringField());
 		schema.talents = new fields.ArrayField(new fields.ObjectField());
 
-		schema.skill = new fields.StringField({ initial: "talent" });
+		schema.skill = new fields.StringField({ initial: "athletics" });
 		schema.keyTalent = new fields.ObjectField();
 		schema.isRadiant = new fields.BooleanField({ initial: false });
 
