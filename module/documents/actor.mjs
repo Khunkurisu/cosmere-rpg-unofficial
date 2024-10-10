@@ -74,8 +74,8 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		}
 
-		this.setDefenses(systemData);
-		this.setResources(systemData);
+		this.setDefenses(actorData);
+		this.setResources(actorData);
 		this.setDeflect(actorData);
 
 		this.setSkills(systemData);
@@ -89,6 +89,7 @@ export class CosmereUnofficialActor extends Actor {
 		const systemData = actorData.system;
 
 		const activeEffects = [];
+		const effects = [];
 		const equipped = [];
 		const stored = [];
 		const containers = [];
@@ -104,7 +105,9 @@ export class CosmereUnofficialActor extends Actor {
 			else if (item.type === 'Effect') {
 				if (item.system.status !== "disabled") {
 					activeEffects.push(item);
+					return;
 				}
+				effects.push(item);
 			}
 			else if (item.type === 'Container') {
 				containers.push(item);
@@ -128,6 +131,7 @@ export class CosmereUnofficialActor extends Actor {
 		});
 
 		systemData.activeEffects = activeEffects;
+		systemData.effects = effects;
 		systemData.equipped = equipped;
 		systemData.stored = stored;
 		systemData.containers = containers;
@@ -156,37 +160,97 @@ export class CosmereUnofficialActor extends Actor {
 		}
 	}
 
-	setResources(systemData) {
+	setResources(actorData) {
+		const systemData = actorData.system;
 		const attributes = systemData.attributes;
 
-		systemData.health.max = 10 + attributes.strength.value + this.getHealthBonuses(systemData);
-		systemData.focus.max = 2 + attributes.willpower.value + this.getFocusBonuses(systemData);
+		systemData.health.max = 10 + attributes.strength.value + this.getHealthBonuses(actorData);
+		systemData.health.value = Math.min(
+			Math.max(systemData.health.value, 0), systemData.health.max
+		);
+		systemData.focus.max = 2 + attributes.willpower.value + this.getFocusBonuses(actorData);
+		systemData.focus.value = Math.min(
+			Math.max(systemData.focus.value, 0), systemData.focus.max
+		);
 		const investitureBonus = Math.max(attributes.presence.value, attributes.awareness.value);
-		systemData.investiture.max = this.isRadiant(systemData) ? 2 + investitureBonus + this.getInvestitureBonuses() : 0;
+		systemData.investiture.max = this.isRadiant(systemData) ? 2 + investitureBonus + this.getInvestitureBonuses(actorData) : 0;
+		systemData.investiture.value = Math.min(
+			Math.max(systemData.investiture.value, 0), systemData.investiture.max
+		);
 	}
 
-	getHealthBonuses(systemData) {
-		return 0;
+	getEffectModifiers(actorData, data) {
+		const system = actorData.system;
+		system.activeEffects.forEach(function (activeEffect) {
+			const effects = activeEffect.system.effects;
+			effects.forEach(function (effect) {
+				data = effect.TryApplyEffect('load', data);
+			});
+		});
+		return data;
 	}
 
-	getFocusBonuses(systemData) {
-		return 0;
+	getHealthBonuses(actorData) {
+		let data = {
+			circumstances: [],
+			value: actorData.system.health.max
+		};
+		data = this.getEffectModifiers(actorData, data);
+		return data ? data.value : 0;
 	}
 
-	getInvestitureBonuses(systemData) {
-		return 0;
+	getFocusBonuses(actorData) {
+		let data = {
+			circumstances: [],
+			value: actorData.system.focus.max
+		};
+		data = this.getEffectModifiers(actorData, data);
+		return data ? data.value : 0;
 	}
 
-	getPhysicalDefenseBonuses(systemData) {
-		return 0;
+	getInvestitureBonuses(actorData) {
+		let data = {
+			circumstances: [],
+			value: actorData.system.investiture.max
+		};
+		data = this.getEffectModifiers(actorData, data);
+		return data ? data.value : 0;
 	}
 
-	getCognitiveDefenseBonuses(systemData) {
-		return 0;
+	getPhysicalDefenseBonuses(actorData) {
+		let data = {
+			circumstances: [],
+			value: actorData.system.physical
+		};
+		data = this.getEffectModifiers(actorData, data);
+		return data ? data.value : 0;
 	}
 
-	getSpiritualDefenseBonuses(systemData) {
-		return 0;
+	getCognitiveDefenseBonuses(actorData) {
+		let data = {
+			circumstances: [],
+			value: actorData.system.cognitive
+		};
+		data = this.getEffectModifiers(actorData, data);
+		return data ? data.value : 0;
+	}
+
+	getSpiritualDefenseBonuses(actorData) {
+		let data = {
+			circumstances: [],
+			value: actorData.system.spiritual
+		};
+		data = this.getEffectModifiers(actorData, data);
+		return data ? data.value : 0;
+	}
+
+	getDeflectBonuses(actorData) {
+		let data = {
+			circumstances: [],
+			value: actorData.system.deflect
+		};
+		data = this.getEffectModifiers(actorData, data);
+		return data ? data.value : 0;
 	}
 
 	setDeflect(actorData) {
@@ -201,18 +265,20 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		}
 		system.deflect = armor !== undefined ? armor.system.deflect : 0;
+		system.deflect += this.getDeflectBonuses(actorData);
 	}
 
-	setDefenses(systemData) {
+	setDefenses(actorData) {
+		const systemData = actorData.system;
 		const attributes = systemData.attributes;
 		systemData.physical = 10 + attributes.strength.value + attributes.speed.value;
-		systemData.physical += this.getPhysicalDefenseBonuses(systemData);
+		systemData.physical += this.getPhysicalDefenseBonuses(actorData);
 
 		systemData.cognitive = 10 + attributes.intellect.value + attributes.willpower.value;
-		systemData.cognitive += this.getCognitiveDefenseBonuses(systemData);
+		systemData.cognitive += this.getCognitiveDefenseBonuses(actorData);
 
 		systemData.spiritual = 10 + attributes.awareness.value + attributes.presence.value;
-		systemData.spiritual += this.getSpiritualDefenseBonuses(systemData);
+		systemData.spiritual += this.getSpiritualDefenseBonuses(actorData);
 	}
 
 	getCarryCapacity(attributes) {

@@ -13,6 +13,9 @@ export default class CosmereUnofficialEffect extends CosmereUnofficialItemBase {
 			unit: new fields.StringField({ initial: "round" })
 		});
 
+		schema.hide = new fields.BooleanField({ initial: false });
+		schema.effects = new fields.ArrayField(new fields.ObjectField());
+
 		return schema;
 	}
 }
