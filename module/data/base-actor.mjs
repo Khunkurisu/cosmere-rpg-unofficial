@@ -32,7 +32,8 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 				"maxLift": new fields.NumberField({ ...requiredInteger, initial: 5, min: 5 }),
 				"maxCarry": new fields.NumberField({ ...requiredInteger, initial: 5, min: 5 }),
 				"carrying": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
-			})
+			}),
+			"recovery": new fields.NumberField({ ...requiredInteger, initial: 4, min: 4 })
 		}
 
 		// Iterate over attribute names and create a new SchemaField for each.

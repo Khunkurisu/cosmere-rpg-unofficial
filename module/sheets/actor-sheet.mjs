@@ -476,6 +476,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	}
 
 	getRollInfo(dataset) {
+		let type = 'damage';
 		switch (dataset.rollType) {
 			case 'skill': {
 				return [`Skill: ${dataset.label}`, "check", dataset.defense];
@@ -491,6 +492,12 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 			case 'graze': {
 				return [`Graze: ${dataset.label}`, "damage"];
+			}
+			case 'recovery': {
+				type = 'healing'
+			}
+			default: {
+				return [dataset.label, type]
 			}
 		}
 	}
