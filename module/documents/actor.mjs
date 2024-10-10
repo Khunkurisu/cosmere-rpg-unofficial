@@ -151,7 +151,7 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.health.max = 10 + attributes.strength.value + this.getHealthBonuses(systemData);
 		systemData.focus.max = 2 + attributes.willpower.value + this.getFocusBonuses(systemData);
-		const investitureBonus = Math.max(attributes.presense.value, attributes.awareness.value);
+		const investitureBonus = Math.max(attributes.presence.value, attributes.awareness.value);
 		systemData.investiture.max = this.isRadiant(systemData) ? 2 + investitureBonus + this.getInvestitureBonuses() : 0;
 	}
 
