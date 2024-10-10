@@ -12,8 +12,10 @@ import {
 } from '../helpers/connections.mjs';
 import {
 	onExpertiseCreate,
-	onExpertiseRemove
-} from '../helpers/expertise.mjs';
+	onExpertiseRemove,
+	onSkillIncrease,
+	onSkillDecrease
+} from '../helpers/skills-and-expertise.mjs';
 import {
 	onPlotDiceToggle,
 	onAdvantageToggle,
@@ -315,6 +317,10 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Add/Remove Expertise
 		html.on('click', '.expertise-create', onExpertiseCreate.bind(this));
 		html.on('click', '.expertise-remove', onExpertiseRemove.bind(this));
+
+		// Increase/Decrease Skill
+		html.on('click', '.skill-pip', onSkillIncrease.bind(this));
+		html.on('contextmenu', '.skill-pip', onSkillDecrease.bind(this));
 
 		// Enable/Disable Plot Dice
 		html.on('click', '.plot-dice-on', onPlotDiceToggle.bind(this, true));
