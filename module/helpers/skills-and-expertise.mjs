@@ -59,8 +59,6 @@ export function onSkillIncrease(event) {
 
 	this.actor.update(updateObject);
 
-	console.log(skill.rank);
-
 	this.render(false);
 };
 
@@ -86,8 +84,6 @@ export function onSkillDecrease(event) {
 	updateObject[path] = rank;
 
 	this.actor.update(updateObject);
-
-	console.log(skill.rank);
 
 	this.render(false);
 };

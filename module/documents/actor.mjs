@@ -139,7 +139,6 @@ export class CosmereUnofficialActor extends Actor {
 		const skills = systemData.skills;
 		for (var category in skills) {
 			for (var key in skills[category]) {
-				console.log(skills[category]);
 				const attribute = attributes[skills[category][key].attribute].value;
 				const rank = skills[category][key].rank;
 				skills[category][key].value = rank + attribute;

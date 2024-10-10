@@ -151,7 +151,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 */
 	_prepareItems(context) {
 		const system = context.actor.system;
-		console.log(system.biography.goals);
 
 		// Initialize containers.
 		const gear = [];
