@@ -80,6 +80,8 @@ export class CosmereUnofficialActor extends Actor {
 		this.setDeflect(actorData);
 
 		this.setSkills(systemData);
+
+		systemData.isRadiant = this.isRadiant(systemData);
 	}
 
 	isRadiant(systemData) { return false; }
