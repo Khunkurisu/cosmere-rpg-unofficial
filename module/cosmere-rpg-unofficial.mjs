@@ -129,6 +129,22 @@ Handlebars.registerHelper('damageIcon', function (damageType) {
 		}
 	}
 });
+Handlebars.registerHelper('actionIcon', function (actionType) {
+	switch (actionType) {
+		case "action-free": {
+			return 'fa-sharp fa-regular fa-triangle fa-rotate-90 actions-1';
+		}
+		case "action-1": {
+			return 'fa-sharp fa-solid fa-triangle fa-rotate-90 actions-1';
+		}
+		case "action-2": {
+			return 'fa-sharp fa-solid fa-triangle fa-rotate-90 actions-2';
+		}
+		case "action-3": {
+			return 'fa-sharp fa-solid fa-triangle fa-rotate-90 actions-3';
+		}
+	}
+});
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
