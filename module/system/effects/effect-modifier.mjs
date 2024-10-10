@@ -1,6 +1,7 @@
-import Effect from "../base-effects.mjs";
+import Effect from "./base-effects.mjs";
 
-export class ModifierEffect extends Effect {
+export default class ModifierEffect extends Effect {
+	type = 'modifier';
 	func = 'add';
 	value = 0;
 
@@ -8,13 +9,14 @@ export class ModifierEffect extends Effect {
 		super(trigger, target, predicate);
 		this.func = func ?? this.func;
 		this.value = value ?? this.value;
+		this.value = Number.parseInt(this.value, 10);
 	}
 
 	ApplyEffect(data) {
 		data = super.ApplyEffect(data);
 		if (!data) return null;
 
-		switch (func) {
+		switch (this.func) {
 			case 'add': {
 				data.value += this.value;
 				break;
@@ -40,5 +42,6 @@ export class ModifierEffect extends Effect {
 				break;
 			}
 		}
+		return data;
 	}
 }

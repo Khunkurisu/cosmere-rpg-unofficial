@@ -538,6 +538,13 @@
 .cosmere-rpg-unofficial .effects .item .effect-controls {
   border: none;
 }
+.cosmere-rpg-unofficial .effect-create-select {
+  align-content: flex-end;
+  padding-right: 5px;
+  width: 30%;
+  left: auto;
+  right: 0;
+}
 .cosmere-rpg-unofficial .tooltip {
   position: relative;
   display: inline-block;

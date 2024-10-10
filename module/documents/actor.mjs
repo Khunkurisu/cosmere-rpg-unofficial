@@ -1,3 +1,5 @@
+import * as Effects from '../system/effects.mjs';
+import { getByString, setByString } from "../helpers/objects.mjs";
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the system.
  * @extends {Actor}
@@ -36,6 +38,14 @@ export class CosmereUnofficialActor extends Actor {
 		// things organized.
 		this._preparePlayerData(actorData);
 		this._prepareAdversaryData(actorData);
+	}
+
+	_getValueByString(s) {
+		return getByString(this, s);
+	}
+
+	_setValueByString(s, v) {
+		return setByString(this, s, v);
 	}
 
 	/**
@@ -81,6 +91,18 @@ export class CosmereUnofficialActor extends Actor {
 		this.setSkills(systemData);
 
 		systemData.isRadiant = this.isRadiant(systemData);
+
+		this.getEffectBonuses(actorData);
+
+		systemData.health.value = Math.min(
+			Math.max(systemData.health.value, 0), systemData.health.max
+		);
+		systemData.focus.value = Math.min(
+			Math.max(systemData.focus.value, 0), systemData.focus.max
+		);
+		systemData.investiture.value = Math.min(
+			Math.max(systemData.investiture.value, 0), systemData.investiture.max
+		);
 	}
 
 	isRadiant(systemData) { return false; }
@@ -164,93 +186,10 @@ export class CosmereUnofficialActor extends Actor {
 		const systemData = actorData.system;
 		const attributes = systemData.attributes;
 
-		systemData.health.max = 10 + attributes.strength.value + this.getHealthBonuses(actorData);
-		systemData.health.value = Math.min(
-			Math.max(systemData.health.value, 0), systemData.health.max
-		);
-		systemData.focus.max = 2 + attributes.willpower.value + this.getFocusBonuses(actorData);
-		systemData.focus.value = Math.min(
-			Math.max(systemData.focus.value, 0), systemData.focus.max
-		);
+		systemData.health.max = 10 + attributes.strength.value;
+		systemData.focus.max = 2 + attributes.willpower.value;
 		const investitureBonus = Math.max(attributes.presence.value, attributes.awareness.value);
-		systemData.investiture.max = this.isRadiant(systemData) ? 2 + investitureBonus + this.getInvestitureBonuses(actorData) : 0;
-		systemData.investiture.value = Math.min(
-			Math.max(systemData.investiture.value, 0), systemData.investiture.max
-		);
-	}
-
-	getEffectModifiers(actorData, data) {
-		const system = actorData.system;
-		system.activeEffects.forEach(function (activeEffect) {
-			const effects = activeEffect.system.effects;
-			effects.forEach(function (effect) {
-				data = effect.TryApplyEffect('load', data);
-			});
-		});
-		return data;
-	}
-
-	getHealthBonuses(actorData) {
-		let data = {
-			circumstances: [],
-			value: actorData.system.health.max
-		};
-		data = this.getEffectModifiers(actorData, data);
-		return data ? data.value : 0;
-	}
-
-	getFocusBonuses(actorData) {
-		let data = {
-			circumstances: [],
-			value: actorData.system.focus.max
-		};
-		data = this.getEffectModifiers(actorData, data);
-		return data ? data.value : 0;
-	}
-
-	getInvestitureBonuses(actorData) {
-		let data = {
-			circumstances: [],
-			value: actorData.system.investiture.max
-		};
-		data = this.getEffectModifiers(actorData, data);
-		return data ? data.value : 0;
-	}
-
-	getPhysicalDefenseBonuses(actorData) {
-		let data = {
-			circumstances: [],
-			value: actorData.system.physical
-		};
-		data = this.getEffectModifiers(actorData, data);
-		return data ? data.value : 0;
-	}
-
-	getCognitiveDefenseBonuses(actorData) {
-		let data = {
-			circumstances: [],
-			value: actorData.system.cognitive
-		};
-		data = this.getEffectModifiers(actorData, data);
-		return data ? data.value : 0;
-	}
-
-	getSpiritualDefenseBonuses(actorData) {
-		let data = {
-			circumstances: [],
-			value: actorData.system.spiritual
-		};
-		data = this.getEffectModifiers(actorData, data);
-		return data ? data.value : 0;
-	}
-
-	getDeflectBonuses(actorData) {
-		let data = {
-			circumstances: [],
-			value: actorData.system.deflect
-		};
-		data = this.getEffectModifiers(actorData, data);
-		return data ? data.value : 0;
+		systemData.investiture.max = this.isRadiant(systemData) ? 2 + investitureBonus : 0;
 	}
 
 	setDeflect(actorData) {
@@ -265,20 +204,16 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		}
 		system.deflect = armor !== undefined ? armor.system.deflect : 0;
-		system.deflect += this.getDeflectBonuses(actorData);
 	}
 
 	setDefenses(actorData) {
 		const systemData = actorData.system;
 		const attributes = systemData.attributes;
 		systemData.physical = 10 + attributes.strength.value + attributes.speed.value;
-		systemData.physical += this.getPhysicalDefenseBonuses(actorData);
 
 		systemData.cognitive = 10 + attributes.intellect.value + attributes.willpower.value;
-		systemData.cognitive += this.getCognitiveDefenseBonuses(actorData);
 
 		systemData.spiritual = 10 + attributes.awareness.value + attributes.presence.value;
-		systemData.spiritual += this.getSpiritualDefenseBonuses(actorData);
 	}
 
 	getCarryCapacity(attributes) {
@@ -369,6 +304,29 @@ export class CosmereUnofficialActor extends Actor {
 				return 10000;
 			}
 		}
+	}
+
+	getEffectBonuses(actorData) {
+		const system = actorData.system;
+		system.activeEffects.forEach(activeEffect => {
+			activeEffect.system.effects.forEach(e => {
+				if (e.type === 'modifier') {
+					const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);
+					let targetVal = this._getValueByString(effect.target);
+					if (targetVal) {
+						let data = {
+							circumstances: [],
+							value: targetVal
+						}
+						data = effect.TryApplyEffect('load', data);
+						if (data) {
+							this._setValueByString(effect.target, data.value);
+							console.log(this._getValueByString(effect.target));
+						}
+					}
+				}
+			});
+		});
 	}
 
 	/**

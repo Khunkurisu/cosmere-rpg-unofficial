@@ -2,6 +2,7 @@ import {
 	onManageActiveEffect,
 	prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
+import * as effects from '../system/effects.mjs';
 
 /**
  * Extend the basic ItemSheet with some very simple modifications
@@ -105,9 +106,118 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		// Select Path Type
 		html.on('change', '.path-type-select', this._onTypeSelect.bind(this));
 
+		// Select Created Effect Type
+		html.on('change', '.effect-create-select', this._onEffectSelect.bind(this));
+
+		// Select Modifier Effect Type
+		html.on('change', '.effect-modifier-func', this._onEffectModifierSelect.bind(this));
+
+		// Update Effect Values
+		html.on('change', '.effect-input', this._onEffectChange.bind(this));
+
+		// Create/Delete Selected Effect Type
+		html.on('click', '.effect-create', this._onEffectCreate.bind(this));
+		html.on('click', '.effect-remove', this._onEffectRemove.bind(this));
+
 		// Add/Remove Specialties
 		html.on('click', '.specialty-create', this._onSpecialtyCreate.bind(this));
 		html.on('click', '.specialty-remove', this._onSpecialtyRemove.bind(this));
+	}
+
+	/**
+	 * Handle created selected effect type.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onEffectCreate(event) {
+		event.preventDefault();
+		const system = this.item.system;
+		const type = this.item.system.effectCreateType;
+		const modEffects = system.effects;
+		let effect = null;
+
+		if (type === 'modifier') {
+			effect = new effects.ModifierEffect('load', '', [], 'add', 0);
+		}
+		if (effect) {
+			modEffects.push(effect);
+		}
+
+		this.item.update({ "system.effects": modEffects });
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle removing an effect.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onEffectRemove(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const dataset = element.dataset;
+		const modEffects = this.item.system.effects;
+
+		modEffects.splice(dataset.key, 1);
+		this.item.update({ "system.effects": modEffects });
+
+		this.render(false);
+	};
+
+	/**
+	 * Handle selecting effect creation type.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onEffectSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+
+		this.item.system.effectCreateType = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle selecting effect modifier type.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onEffectModifierSelect(event) {
+		event.preventDefault();
+		const li = $(event.currentTarget).parents('.item');
+		const modEffects = this.item.system.effects;
+		const effect = modEffects[li.data('itemId')];
+		const element = event.currentTarget;
+
+		if (effect) {
+			effect.func = element.value;
+			this.item.update({ "system.effects": modEffects });
+		}
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle changing effect value.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onEffectChange(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const li = $(element).parents('.item');
+		const modEffects = this.item.system.effects;
+		const effect = modEffects[li.data('itemId')];
+		const target = element.dataset.target;
+
+		if (effect && target) {
+			effect[target] = element.value;
+			this.item.update({ "system.effects": modEffects });
+		}
+
+		this.render(false);
 	}
 
 	/**
