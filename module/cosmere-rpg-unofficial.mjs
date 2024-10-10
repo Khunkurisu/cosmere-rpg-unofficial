@@ -93,9 +93,9 @@ Handlebars.registerHelper('capacityPct', function (capacityObj) {
 Handlebars.registerHelper('isSelected', function (arg1, arg2) {
 	return (arg1 == arg2) ? "selected" : "";
 });
-Handlebars.registerHelper('skillRank', function (skillBonus, pip) {
+Handlebars.registerHelper('pipRank', function (rank, pip) {
 	const pipValue = Number.parseInt(pip, 10);
-	return skillBonus >= pipValue ? 'solid' : 'regular';
+	return rank >= pipValue ? 'solid' : 'regular';
 });
 Handlebars.registerHelper('objToLog', function (objToLog) {
 	console.log(objToLog)
