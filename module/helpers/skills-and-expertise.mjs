@@ -48,12 +48,12 @@ export function onSkillIncrease(event) {
 	const system = this.actor.system;
 	const skills = system.skills[data.skillBranch];
 	const skill = skills[data.skill];
-	let rank = skill.rank
+	let rank = skill.initialRank
 
 	if (rank < 5) {
 		rank++;
 	}
-	const path = `system.skills.${data.skillBranch}.${data.skill}.rank`
+	const path = `system.skills.${data.skillBranch}.${data.skill}.initialRank`
 	const updateObject = {};
 	updateObject[path] = rank;
 
@@ -74,12 +74,12 @@ export function onSkillDecrease(event) {
 	const system = this.actor.system;
 	const skills = system.skills[data.skillBranch];
 	const skill = skills[data.skill];
-	let rank = skill.rank
+	let rank = skill.initialRank
 
 	if (rank > 0) {
 		rank--;
 	}
-	const path = `system.skills.${data.skillBranch}.${data.skill}.rank`
+	const path = `system.skills.${data.skillBranch}.${data.skill}.initialRank`
 	const updateObject = {};
 	updateObject[path] = rank;
 

@@ -49,96 +49,132 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 			"physical": new fields.SchemaField({
 				"athletics": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "strength" })
 				}),
 				"agility": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "speed" })
 				}),
 				"heavy_weapons": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "strength" })
 				}),
 				"light_weapons": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "speed" })
 				}),
 				"stealth": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "speed" })
 				}),
 				"thievery": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "speed" })
 				})
 			}),
 			"cognitive": new fields.SchemaField({
 				"crafting": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "intellect" })
 				}),
 				"deduction": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "intellect" })
 				}),
 				"discipline": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "willpower" })
 				}),
 				"intimidation": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "willpower" })
 				}),
 				"lore": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "intellect" })
 				}),
 				"medicine": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "intellect" })
 				})
 			}),
 			"spiritual": new fields.SchemaField({
 				"deception": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "presence" })
 				}),
 				"insight": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "awareness" })
 				}),
 				"leadership": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "presence" })
 				}),
 				"perception": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "awareness" })
 				}),
 				"persuasion": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "presence" })
 				}),
 				"survival": new fields.SchemaField({
 					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
-					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "awareness" })
 				})
 			})

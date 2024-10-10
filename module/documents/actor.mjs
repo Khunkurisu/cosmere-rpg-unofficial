@@ -136,9 +136,20 @@ export class CosmereUnofficialActor extends Actor {
 	setSkills(systemData) {
 		const attributes = systemData.attributes;
 		const skills = systemData.skills;
+		const path = systemData.path[0];
+		if (path) {
+			for (let c in systemData.skills) {
+				const category = systemData.skills[c];
+				const pathSkill = path.system.skill;
+				if (pathSkill in category) {
+					category[pathSkill].bonusRank = 1;
+				}
+			}
+		}
 		for (var category in skills) {
 			for (var key in skills[category]) {
 				const attribute = attributes[skills[category][key].attribute].value;
+				skills[category][key].rank = skills[category][key].initialRank + skills[category][key].bonusRank;
 				const rank = skills[category][key].rank;
 				skills[category][key].value = rank + attribute;
 			}
