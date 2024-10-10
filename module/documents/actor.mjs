@@ -71,7 +71,8 @@ export class CosmereUnofficialActor extends Actor {
 			if (obj.type === "Ancestry") {
 				systemData.ancestry = obj;
 			} else if (obj.type === "Path") {
-				systemData.path = obj;
+				systemData.path.push(obj);
+				console.log(systemData.path);
 			}
 		}
 

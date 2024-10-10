@@ -39,10 +39,10 @@
 							{{/if}}
 						</div>
 						<div class="resource align-left">
-							<label for="system.path.name" class="resource-label">Path</label>
-							{{#if system.path}}
+							<label for="system.path.name" class="resource-label">Initial Path</label>
+							{{#if system.path.[0]}}
 								<div class="resource-content flexrow flex-right flex-between">
-									<input type="text" name="system.path.name" value="{{system.path.name}}"
+									<input type="text" name="system.path.0.name" value="{{system.path.0.name}}"
 										data-dtype="string" disabled="true" />
 								</div>
 							{{else}}

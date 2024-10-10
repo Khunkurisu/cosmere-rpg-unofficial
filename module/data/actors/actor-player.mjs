@@ -17,12 +17,20 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 		});
 
 		schema.ancestry = new fields.ObjectField();
-		schema.path = new fields.ObjectField();
+		schema.path = new fields.ArrayField(new fields.ObjectField());
 
-		schema.usePlotDice = new fields.BooleanField({initial: false});
-		schema.hasAdvantage = new fields.BooleanField({initial: false});
-		schema.hasDisadvantage = new fields.BooleanField({initial: false});
+		schema.usePlotDice = new fields.BooleanField({ initial: false });
+		schema.hasAdvantage = new fields.BooleanField({ initial: false });
+		schema.hasDisadvantage = new fields.BooleanField({ initial: false });
 
 		return schema;
+	}
+
+	static migrateData(source) {
+		const originalPath = { ...(source.path) };
+		console.log(originalPath);
+		source.path = originalPath.hasOwnProperty('talents') ? [originalPath] : [];
+
+		return super.migrateData(source);
 	}
 }
