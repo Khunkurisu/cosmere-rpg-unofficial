@@ -4,7 +4,9 @@ import {
 } from '../helpers/effects.mjs';
 import {
 	onGoalCreate,
-	onGoalRemove
+	onGoalRemove,
+	onGoalIncrease,
+	onGoalDecrease
 } from '../helpers/goals.mjs';
 import {
 	onConnectionCreate,
@@ -149,6 +151,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 */
 	_prepareItems(context) {
 		const system = context.actor.system;
+		console.log(system.biography.goals);
 
 		// Initialize containers.
 		const gear = [];
@@ -309,6 +312,10 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Add/Remove Biography Goal
 		html.on('click', '.goal-create', onGoalCreate.bind(this));
 		html.on('click', '.goal-remove', onGoalRemove.bind(this));
+
+		// Increase/Decrease Biography Goal Progress
+		html.on('click', '.goal-pip', onGoalIncrease.bind(this));
+		html.on('contextmenu', '.goal-pip', onGoalDecrease.bind(this));
 
 		// Add/Remove Biography Connection
 		html.on('click', '.connection-create', onConnectionCreate.bind(this));

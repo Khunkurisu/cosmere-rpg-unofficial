@@ -18,22 +18,21 @@
 			</label>
 			<ol class="goals-list">
 				{{#each system.biography.goals as |goal key|}}
-					<li class="grid grid-4col">
-						<div class="grid-span-3">
-							<input type="text" name="system.biography.goals.{{key}}" value="{{goal}}"
-								data-dtype="String" />
-						</div>
-						<div class="flexcol">
-							<a class='goal-remove' data-key="{{@index}}"
-								title='{{localize (lookup @root.config.biography goals_remove)}}'>
-								<i class='fas fa-trash'>
-									{{localize (lookup @root.config.biography goals_remove)}}
-								</i>
-							</a>
+					<li class="goal-item flexrow flex-group-left">
+						<a class='goal-remove' data-key="{{@index}}"
+							title='{{localize (lookup @root.config.biography goals_remove)}}'>
+							<i class='fas fa-trash'>
+								{{localize (lookup @root.config.biography goals_remove)}}
+							</i>
+						</a>
+						<input class="goal-input" type="text" name="system.biography.goals.{{key}}.text"
+							value="{{goal.text}}" data-dtype="String" />
+						<div class="goal-pip" data-goal="{{key}}">
+							<i class="fa-{{pipRank goal.progress 1}} fa-circle"></i>
+							<i class="fa-{{pipRank goal.progress 2}} fa-circle"></i>
+							<i class="fa-{{pipRank goal.progress 3}} fa-circle"></i>
 						</div>
 					</li>
-				{{else}}
-					<li class="flexcol">{{localize (lookup @root.config.biography goals_empty)}}</li>
 				{{/each}}
 			</ol>
 			<div class='create-goal'>

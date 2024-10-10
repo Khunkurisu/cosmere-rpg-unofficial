@@ -591,3 +591,26 @@
   border: 2px ridge rgb(100, 100, 100);
   background-color: rgb(215, 215, 215);
 }
+.cosmere-rpg-unofficial .goal-pip {
+  margin-left: 3%;
+  min-width: fit-content;
+  align-content: flex-end;
+}
+.cosmere-rpg-unofficial .goal-pip:hover, .cosmere-rpg-unofficial .goal-pip:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.cosmere-rpg-unofficial .goal-item {
+  margin-right: 15%;
+  margin-left: 5%;
+}
+.cosmere-rpg-unofficial .goal-input {
+  max-width: 50%;
+  margin: auto;
+}
+.cosmere-rpg-unofficial .goal-remove {
+  margin: auto;
+  margin-right: 3px;
+  max-width: fit-content;
+}
