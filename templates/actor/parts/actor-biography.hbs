@@ -5,7 +5,7 @@
 				{{localize (lookup @root.config.biography "backstory")}}
 			</label>
 		</div>
-		<div class="backstory flexcol" style="min-height: 100px;">
+		<div class="backstory flexcol" style="min-height: 250px;">
 			{{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
 			{{editor enrichedBiography target="system.biography.backstory" engine="prosemirror" button=true editable=editable}}
 		</div>
