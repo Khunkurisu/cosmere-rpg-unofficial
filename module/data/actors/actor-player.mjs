@@ -28,7 +28,6 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 
 	static migrateData(source) {
 		const originalPath = { ...(source.path) };
-		console.log(originalPath);
 		source.path = originalPath.hasOwnProperty('talents') ? [originalPath] : [];
 
 		return super.migrateData(source);

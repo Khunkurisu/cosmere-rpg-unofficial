@@ -65,14 +65,12 @@ export class CosmereUnofficialActor extends Actor {
 
 		this.checkItems(actorData);
 
-
 		for (let index in items) {
 			const obj = items[index];
 			if (obj.type === "Ancestry") {
 				systemData.ancestry = obj;
 			} else if (obj.type === "Path") {
 				systemData.path.push(obj);
-				console.log(systemData.path);
 			}
 		}
 
