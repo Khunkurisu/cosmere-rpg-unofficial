@@ -11,8 +11,8 @@
 		<div class="resource-content flexrow flex-center flex-between">
 			<input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
 			<span>/</span>
-			<input type="text" name="system.health.max" value="{{system.health.max}}" disabled="true"
-				data-dtype="Number" />
+			<input type="text" name="system.health.max" value="{{system.health.max}}"
+				{{#unless (ifEquals actor.type 'Adversary')}}disabled="true" {{/unless}} data-dtype="Number" />
 		</div>
 	</div>
 	<div class="resource flex-group-center">
@@ -20,8 +20,8 @@
 		<div class="resource-content flexrow flex-center flex-between">
 			<input type="text" name="system.focus.value" value="{{system.focus.value}}" data-dtype="Number" />
 			<span>/</span>
-			<input type="text" name="system.focus.max" value="{{system.focus.max}}" disabled="true"
-				data-dtype="Number" />
+			<input type="text" name="system.focus.max" value="{{system.focus.max}}"
+				{{#unless (ifEquals actor.type 'Adversary')}}disabled="true" {{/unless}} data-dtype="Number" />
 		</div>
 	</div>
 	<div class="resource flex-group-center">
@@ -30,8 +30,8 @@
 			<input type="text" name="system.investiture.value" value="{{system.investiture.value}}"
 				data-dtype="Number" />
 			<span>/</span>
-			<input type="text" name="system.investiture.max" value="{{system.investiture.max}}" disabled="true"
-				data-dtype="Number" />
+			<input type="text" name="system.investiture.max" value="{{system.investiture.max}}"
+				{{#unless (ifEquals actor.type 'Adversary')}}disabled="true" {{/unless}} data-dtype="Number" />
 		</div>
 	</div>
 </div>
@@ -42,28 +42,32 @@
 			data-label="{{localize (lookup @root.config.defenses deflect)}}">
 			{{localize (lookup @root.config.defenses "deflect")}}
 		</label>
-		<input type="text" name="system.deflect" disabled="true" value="{{system.deflect}}" data-dtype="Number" />
+		<input type="text" name="system.deflect" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+			{{/unless}} value="{{system.deflect}}" data-dtype="Number" />
 	</div>
 	<div class="physical flexrow flex-group-center">
 		<label for="system.physical" class="resource-label flexlarge align-left"
 			data-label="{{localize (lookup @root.config.defenses physical)}}">
 			{{localize (lookup @root.config.defenses "physical")}}
 		</label>
-		<input type="text" name="system.physical" disabled="true" value="{{system.physical}}" data-dtype="Number" />
+		<input type="text" name="system.physical" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+			{{/unless}} value="{{system.physical}}" data-dtype="Number" />
 	</div>
 	<div class="cognitive flexrow flex-group-center">
 		<label for="system.cognitive" class="resource-label flexlarge align-left"
 			data-label="{{localize (lookup @root.config.defenses cognitive)}}">
 			{{localize (lookup @root.config.defenses "cognitive")}}
 		</label>
-		<input type="text" name="system.cognitive" disabled="true" value="{{system.cognitive}}" data-dtype="Number" />
+		<input type="text" name="system.cognitive" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+			{{/unless}} value="{{system.cognitive}}" data-dtype="Number" />
 	</div>
 	<div class="spiritual flexrow flex-group-center">
 		<label for="system.spiritual" class="resource-label flexlarge align-left"
 			data-label="{{localize (lookup @root.config.defenses spiritual)}}">
 			{{localize (lookup @root.config.defenses "spiritual")}}
 		</label>
-		<input type="text" name="system.spiritual" disabled="true" value="{{system.spiritual}}" data-dtype="Number" />
+		<input type="text" name="system.spiritual" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+			{{/unless}} value="{{system.spiritual}}" data-dtype="Number" />
 	</div>
 </div>
 <hr />
