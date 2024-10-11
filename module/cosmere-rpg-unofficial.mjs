@@ -131,6 +131,9 @@ Handlebars.registerHelper('damageIcon', function (damageType) {
 });
 Handlebars.registerHelper('actionIcon', function (actionCost) {
 	switch (actionCost) {
+		case -1: case "-1": {
+			return "fa-regular fa-arrow-turn-left actions-1 actions-r";
+		}
 		case 0: case "0": {
 			return 'fa-sharp fa-regular fa-triangle fa-rotate-90 actions-1';
 		}
