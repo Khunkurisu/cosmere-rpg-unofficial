@@ -219,8 +219,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 			// Append to actions.
 			else if (item.type === 'Action') {
-				if (item.unit === 'actions') {
-					switch (item.cost) {
+				if (item.system.unit === 'actions') {
+					switch (item.system.cost) {
 						case -1: {
 							reactions.push(item);
 							break;
