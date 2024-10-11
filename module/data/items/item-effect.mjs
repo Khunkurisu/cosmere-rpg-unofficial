@@ -14,6 +14,7 @@ export default class CosmereUnofficialEffect extends CosmereUnofficialItemBase {
 		});
 
 		schema.hide = new fields.BooleanField({ initial: false });
+		schema.toggle = new fields.BooleanField({ initial: false });
 		schema.effects = new fields.ArrayField(new fields.ObjectField());
 		schema.effectCreateType = new fields.StringField({ initial: "modifier" });
 

@@ -37,15 +37,29 @@
 	</ol>
 </div>
 <hr />
-<div class="flexrow flex-group-right" style="width:40%; align-self:end;">
-	<select name='effectCreateType' class='effect-create-select'>
-		<option value="base" {{isSelected 'base' system.effectCreateType}}>Base</option>
-		<option value="modifier" {{isSelected 'modifier' system.effectCreateType}}>Modifier</option>
-	</select>
-	<span class="hoverable" style="width:100%;" data-effect-type="{{system.effectCreateType}}">
-		<a class='effect-create' title='Add Effect'>
-			<i class='fas fa-plus'></i>
-			Add Effect
-		</a>
-	</span>
+<div class="flexrow">
+	<div class="grid grid-5col flex-group-right">
+		<div class="grid-span-3"><span></span></div>
+		<select name='effectCreateType' class='effect-create-select'>
+			<option value="base" {{isSelected 'base' system.effectCreateType}}>Base</option>
+			<option value="modifier" {{isSelected 'modifier' system.effectCreateType}}>Modifier</option>
+		</select>
+		<span class="hoverable" style="width:100%;" data-effect-type="{{system.effectCreateType}}">
+			<a class='effect-create' title='Add Effect'>
+				<i class='fas fa-plus'></i>
+				Add Effect
+			</a>
+		</span>
+	</div>
+</div>
+<div class="grid grid-3col flex-group-right">
+	<div class="grid-span-1"><span></span></div>
+	<div class="flexrow">
+		<label for="hide-on-sheet" class="resource-label">Hide On Sheet </label><br>
+		<input type="checkbox" id="hide-on-sheet" name="hide-on-sheet" value="{{system.hide}}">
+	</div>
+	<div class="flexrow">
+		<label for="action-toggle" class="resource-label">Has Action Toggle </label><br>
+		<input type="checkbox" id="action-toggle" name="action-toggle" value="{{system.toggle}}">
+	</div>
 </div>
