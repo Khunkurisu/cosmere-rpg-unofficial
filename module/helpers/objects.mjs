@@ -29,3 +29,5 @@ export function setByString(o, s, v) {
 		o[f] = v;
 	}
 }
+
+export function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) };

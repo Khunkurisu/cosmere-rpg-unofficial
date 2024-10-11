@@ -1,3 +1,4 @@
+import { isNumber } from "../helpers/objects.mjs";
 import CosmereUnofficialDataModel from "./base-model.mjs";
 
 export default class CosmereUnofficialActorBase extends CosmereUnofficialDataModel {
@@ -184,6 +185,30 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 	}
 
 	static migrateData(source) {
+		const resources = ["health", "focus", "investiture"];
+		const defenses = ["deflect", "physical", "cognitive", "spiritual"];
+		for (let r in resources) {
+			const resource = resources[r];
+			if (!isNumber(source[resource].value)) {
+				source[resource].value = 0;
+			}
+			if (!isNumber(source[resource].max)) {
+				source[resource].max = 0;
+			}
+		}
+		for (let d in defenses) {
+			const defense = defenses[d];
+			if (!isNumber(source[defense])) {
+				source[defense] = 0;
+			}
+		}
+		const movement = source.movement ?? {};
+		for (let m in movement) {
+			const speed = movement[m];
+			if (typeof speed === 'object') {
+				movement[m] = speed.value;
+			}
+		}
 		const skills = source.skills ?? {};
 		for (let c in skills) {
 			const category = skills[c];
@@ -197,4 +222,5 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 		}
 		return super.migrateData(source);
 	}
+
 }
