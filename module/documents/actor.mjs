@@ -162,8 +162,8 @@ export class CosmereUnofficialActor extends Actor {
 	setSkills(systemData) {
 		const attributes = systemData.attributes;
 		const skills = systemData.skills;
-		const path = systemData.path[0];
-		if (path) {
+		if (systemData.path && systemData.path.length > 0) {
+			const path = systemData.path[0];
 			for (let c in systemData.skills) {
 				const category = systemData.skills[c];
 				const pathSkill = path.system.skill;
@@ -356,8 +356,8 @@ export class CosmereUnofficialActor extends Actor {
 
 		this.checkItems(actorData);
 
-		this.setDefenses(systemData);
-		this.setResources(systemData);
+		this.setDefenses(actorData);
+		this.setResources(actorData);
 		this.setDeflect(actorData);
 
 		this.setSkills(systemData);
