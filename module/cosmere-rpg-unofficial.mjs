@@ -129,18 +129,18 @@ Handlebars.registerHelper('damageIcon', function (damageType) {
 		}
 	}
 });
-Handlebars.registerHelper('actionIcon', function (actionType) {
-	switch (actionType) {
-		case "action-free": {
+Handlebars.registerHelper('actionIcon', function (actionCost) {
+	switch (actionCost) {
+		case 0: case "0": {
 			return 'fa-sharp fa-regular fa-triangle fa-rotate-90 actions-1';
 		}
-		case "action-1": {
+		case 1: case "1": {
 			return 'fa-sharp fa-solid fa-triangle fa-rotate-90 actions-1';
 		}
-		case "action-2": {
+		case 2: case "2": {
 			return 'fa-sharp fa-solid fa-triangle fa-rotate-90 actions-2';
 		}
-		case "action-3": {
+		case 3: case "3": {
 			return 'fa-sharp fa-solid fa-triangle fa-rotate-90 actions-3';
 		}
 	}

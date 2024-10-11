@@ -76,3 +76,98 @@
 		</li>
 	{{/each}}
 </ol>
+<hr />
+<ol class='actions-list'>
+	{{#each actions as |action id|}}
+		<li class='item flexrow' data-item-id='{{action._id}}'>
+			<div class='item-name'>
+				<div class='item-image'>
+					<a class='rollable' data-roll-type='item'>
+						<img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
+					</a>
+				</div>
+				<h4 class='resource-label detail-item'>
+					{{item.name}}
+					<i class="{{actionIcon action.cost}}"></i>
+				</h4>
+			</div>
+		</li>
+		<li class='item flexrow' data-item-id='{{action._id}}'
+			{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
+			<div class='item-details flex-group-center'>
+				{{{action.system.description}}}
+			</div>
+		</li>
+	{{/each}}
+</ol>
+<hr />
+<ol class='actions-list'>
+	{{#each reactions as |action id|}}
+		<li class='item flexrow' data-item-id='{{action._id}}'>
+			<div class='item-name'>
+				<div class='item-image'>
+					<a class='rollable' data-roll-type='item'>
+						<img src='{{item.img}}' title='{{action.name}}' width='24' height='24' />
+					</a>
+				</div>
+				<h4 class='resource-label detail-item'>
+					{{action.name}}
+					<i class="{{actionIcon action.cost}}"></i>
+				</h4>
+			</div>
+		</li>
+		<li class='item flexrow' data-item-id='{{action._id}}'
+			{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
+			<div class='item-details flex-group-center'>
+				{{{action.system.description}}}
+			</div>
+		</li>
+	{{/each}}
+</ol>
+<hr />
+<ol class='actions-list'>
+	{{#each freeActions as |action id|}}
+		<li class='item flexrow' data-item-id='{{action._id}}'>
+			<div class='item-name'>
+				<div class='item-image'>
+					<a class='rollable' data-roll-type='item'>
+						<img src='{{item.img}}' title='{{action.name}}' width='24' height='24' />
+					</a>
+				</div>
+				<h4 class='resource-label detail-item'>
+					{{action.name}}
+					<i class="{{actionIcon action.cost}}"></i>
+				</h4>
+			</div>
+		</li>
+		<li class='item flexrow' data-item-id='{{action._id}}'
+			{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
+			<div class='item-details flex-group-center'>
+				{{{action.system.description}}}
+			</div>
+		</li>
+	{{/each}}
+</ol>
+<hr />
+<ol class='actions-list'>
+	{{#each activities as |action id|}}
+		<li class='item flexrow' data-item-id='{{action._id}}'>
+			<div class='item-name'>
+				<div class='item-image'>
+					<a class='rollable' data-roll-type='item'>
+						<img src='{{item.img}}' title='{{action.name}}' width='24' height='24' />
+					</a>
+				</div>
+				<h4 class='resource-label detail-item'>
+					{{action.name}}
+				</h4>
+			</div>
+		</li>
+		<li class='item flexrow' data-item-id='{{action._id}}'
+			{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
+			<div class='item-details flex-group-center'>
+				{{{action.system.description}}}
+			</div>
+		</li>
+	{{/each}}
+</ol>

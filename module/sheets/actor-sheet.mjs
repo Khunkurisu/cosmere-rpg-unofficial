@@ -151,6 +151,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const armor = [];
 		const containers = [];
 		const actions = [];
+		const reactions = [];
+		const freeActions = [];
+		const activities = [];
 		const strikes = [];
 		const potentialStrikes = [];
 		const features = [];
@@ -216,7 +219,25 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 			// Append to actions.
 			else if (item.type === 'Action') {
-				actions.push(item);
+				if (item.unit === 'actions') {
+					switch (item.cost) {
+						case -1: {
+							reactions.push(item);
+							break;
+						}
+						case 0: {
+							freeActions.push(item);
+							break;
+						}
+						case 1: case 2: case 3: {
+							actions.push(item);
+							break;
+						}
+						default: {
+							activities.push(item);
+						}
+					}
+				} else { activities.push(item); }
 			}
 		});
 
@@ -238,11 +259,13 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.pathFeatures = pathFeatures;
 		context.features = features;
 		context.actions = actions;
+		context.reactions = reactions;
+		context.freeActions = freeActions;
+		context.activities = activities;
 		context.strikes = strikes;
 		context.potentialStrikes = potentialStrikes;
 		context.activeEffects = system.activeEffects;
 		context.effects = system.effects;
-		console.log(context.activeEffects);
 	}
 
 	/* -------------------------------------------- */
