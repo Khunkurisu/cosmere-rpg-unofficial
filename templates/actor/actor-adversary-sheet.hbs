@@ -58,10 +58,11 @@
 
 			{{!-- Sheet Body --}}
 			<section class="sheet-body">
-				{{!-- Owned Features Tab --}}
-				<div class="tab features" data-group="primary" data-tab="features">
+
+				{{!-- Owned Actions Tab --}}
+				<div class="tab actions" data-group="primary" data-tab="actions">
 					{{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-features.hbs"}}
+					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-actions.hbs"}}
 				</div>
 				{{!-- Biography Tab --}}
 				<div class="tab notes" data-group="primary" data-tab="notes">
@@ -79,7 +80,7 @@
 					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-skills.hbs"}}
 				</div>
 
-				{{!-- Active Effects Tab --}}
+				{{!-- Effects Tab --}}
 				<div class="tab effects flexcol" data-group="primary" data-tab="effects">
 					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-effects.hbs"}}
 				</div>
