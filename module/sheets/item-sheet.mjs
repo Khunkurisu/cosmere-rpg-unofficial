@@ -120,6 +120,9 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		html.on('click', '.effect-create', this._onEffectCreate.bind(this));
 		html.on('click', '.effect-remove', this._onEffectRemove.bind(this));
 
+		// Select Action Cost
+		html.on('change', '.action-cost-selection', this._onActionCostSelect.bind(this));
+
 		// Add/Remove Specialties
 		html.on('click', '.specialty-create', this._onSpecialtyCreate.bind(this));
 		html.on('click', '.specialty-remove', this._onSpecialtyRemove.bind(this));
@@ -269,6 +272,21 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const system = this.item.system;
 
 		system.damage.die = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle selecting action cost.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onActionCostSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const system = this.item.system;
+
+		system.cost = Number.parseInt(element.value, 10);
 
 		this.render(false);
 	}
