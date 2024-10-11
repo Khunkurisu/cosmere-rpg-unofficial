@@ -356,9 +356,9 @@ export class CosmereUnofficialActor extends Actor {
 
 		this.checkItems(actorData);
 
-		this.setDefenses(actorData);
+		/* this.setDefenses(actorData);
 		this.setResources(actorData);
-		this.setDeflect(actorData);
+		this.setDeflect(actorData); */
 
 		this.setSkills(systemData);
 
