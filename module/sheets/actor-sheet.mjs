@@ -124,13 +124,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			);
 		}
 
-		// Prepare active effects
-		context.effects = prepareActiveEffectCategories(
-			// A generator that returns all effects stored on the actor
-			// as well as any items
-			this.actor.allApplicableEffects()
-		);
-
 		return context;
 	}
 
@@ -160,7 +153,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const actions = [];
 		const strikes = [];
 		const potentialStrikes = [];
-		const effects = [];
 		const features = [];
 		const ancestryFeatures = [];
 		const pathFeatures = [];
@@ -226,10 +218,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			else if (item.type === 'Action') {
 				actions.push(item);
 			}
-			// Append to effects.
-			else if (item.type === 'Effect') {
-				effects.push(item);
-			}
 		});
 
 		const mod = system.skills.physical.athletics.value;
@@ -246,13 +234,15 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.weapons = weapons;
 		context.armor = armor;
 		context.containers = containers;
-		context.effects = effects;
 		context.ancestryFeatures = ancestryFeatures;
 		context.pathFeatures = pathFeatures;
 		context.features = features;
 		context.actions = actions;
 		context.strikes = strikes;
 		context.potentialStrikes = potentialStrikes;
+		context.activeEffects = system.activeEffects;
+		context.effects = system.effects;
+		console.log(context.activeEffects);
 	}
 
 	/* -------------------------------------------- */
@@ -294,16 +284,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// Unequip an Item
 		html.on('click', '.item-unequip', onItemUnequip.bind(this));
-
-		// Active Effect management
-		html.on('click', '.effect-control', (ev) => {
-			const row = ev.currentTarget.closest('li');
-			const document =
-				row.dataset.parentId === this.actor.id
-					? this.actor
-					: this.actor.items.get(row.dataset.parentId);
-			onManageActiveEffect(ev, document);
-		});
 
 		// Rollable abilities.
 		html.on('click', '.rollable', this._onRoll.bind(this));
