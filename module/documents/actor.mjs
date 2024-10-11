@@ -69,7 +69,7 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.movement.ground = this.getMovementRate(attributes);
 
-		systemData.recovery = this.getRecoveryDie(attributes)
+		systemData.recovery = this.getRecoveryDie(attributes);
 
 		systemData.bonusExpertises = attributes.intellect.value;
 
@@ -348,9 +348,9 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.senses = this.getSensesRange(attributes);
 
-		systemData.movement.ground.value = this.getMovementRate(attributes);
+		systemData.movement.ground = this.getMovementRate(attributes);
 
-		systemData.recovery = this.getRecoveryDie(attributes)
+		systemData.recovery = this.getRecoveryDie(attributes);
 
 		systemData.bonusExpertises = attributes.intellect.value;
 
@@ -361,6 +361,18 @@ export class CosmereUnofficialActor extends Actor {
 		this.setDeflect(actorData);
 
 		this.setSkills(systemData);
+
+		this.getEffectBonuses(actorData);
+
+		systemData.health.value = Math.min(
+			Math.max(systemData.health.value, 0), systemData.health.max
+		);
+		systemData.focus.value = Math.min(
+			Math.max(systemData.focus.value, 0), systemData.focus.max
+		);
+		systemData.investiture.value = Math.min(
+			Math.max(systemData.investiture.value, 0), systemData.investiture.max
+		);
 	}
 
 	/**
