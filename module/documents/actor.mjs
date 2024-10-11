@@ -309,6 +309,7 @@ export class CosmereUnofficialActor extends Actor {
 	getEffectBonuses(actorData) {
 		const system = actorData.system;
 		system.activeEffects.forEach(activeEffect => {
+			if (activeEffect.system.status !== 'active') return;
 			activeEffect.system.effects.forEach(e => {
 				if (e.type === 'modifier') {
 					const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);
