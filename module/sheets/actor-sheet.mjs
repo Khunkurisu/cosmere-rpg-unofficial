@@ -326,6 +326,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Rollable abilities.
 		html.on('click', '.rollable', this._onRoll.bind(this));
 
+		// Effect toggle.
+		html.on('click', '.effect-toggle-checkbox', this._onEffectToggle.bind(this));
+
 		// Add/Remove Biography Goal
 		html.on('click', '.goal-create', onGoalCreate.bind(this));
 		html.on('click', '.goal-remove', onGoalRemove.bind(this));
@@ -377,6 +380,22 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				li.addEventListener('dragstart', handler, false);
 			});
 		}
+	}
+
+	/**
+	 * Handle changing effect toggles.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onEffectToggle(event) {
+		event.preventDefault();
+		const li = $(event.currentTarget).parents('.effect-toggle');
+		const effect = this.actor.items.get(li.data('effectId'));
+		const toggle = effect.system.status === 'active' ? 'inactive' : 'active';
+
+		effect.update({ 'system.status': toggle });
+
+		this.render(false);
 	}
 
 	/**

@@ -1,4 +1,18 @@
 <div class="flexcol">
+	<div style="width:66%;">
+		<ol class='effect-toggle-list grid grid-3col flex-group-left'>
+			{{#each toggleable as |effect id|}}
+				<li class='effect-toggle flexrow flex-group-left' data-effect-id='{{effect._id}}'>
+					<input class="effect-toggle-checkbox" type="checkbox" id="effect-toggle" name="effect-toggle"
+						value="{{effect.system.status}}" {{#if (ifEquals effect.system.status 'active')}} checked="true"
+						{{/if}}>
+					<label for="effect-toggle" class="resource-label" style="min-width:fit-content">
+						{{effect.name}}
+					</label>
+				</li>
+			{{/each}}
+		</ol>
+	</div>
 	<div>
 		<ol class='actions-list'>
 			<li class='action flexrow actions-header'>
