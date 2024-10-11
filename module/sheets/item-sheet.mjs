@@ -114,6 +114,7 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 
 		// Update Effect Values
 		html.on('change', '.effect-input', this._onEffectChange.bind(this));
+		html.on('change', '.effect-toggle-checkbox', this._onEffectCheckboxToggle.bind(this));
 
 		// Create/Delete Selected Effect Type
 		html.on('click', '.effect-create', this._onEffectCreate.bind(this));
@@ -215,6 +216,28 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		if (effect && target) {
 			effect[target] = element.value;
 			this.item.update({ "system.effects": modEffects });
+		}
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle changing effect toggles.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onEffectCheckboxToggle(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const item = this.item;
+		const target = element.dataset.toggle;
+
+		if (target === 'action-toggle') {
+			const toggle = !item.system.toggle;
+			item.update({ 'system.toggle': toggle });
+		} else if (target === 'hide-on-sheet') {
+			const hide = !item.system.hide;
+			item.update({ 'system.hide': hide });
 		}
 
 		this.render(false);
