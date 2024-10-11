@@ -250,6 +250,20 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			"modifier": (mod >= 0) ? ("+" + mod) : ("-" + mod)
 		});
 
+		const activeEffects = [];
+		const effects = [];
+		const toggleable = [];
+		system.activeEffects.forEach(effect => {
+			if (effect.system.hide) return;
+			if (effect.system.toggle) toggleable.push(effect);
+			activeEffects.push(effect);
+		});
+		system.effects.forEach(effect => {
+			if (effect.system.hide) return;
+			if (effect.system.toggle) toggleable.push(effect);
+			effects.push(effect);
+		});
+
 		// Assign and return
 		context.gear = gear;
 		context.weapons = weapons;
@@ -264,8 +278,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.activities = activities;
 		context.strikes = strikes;
 		context.potentialStrikes = potentialStrikes;
-		context.activeEffects = system.activeEffects;
-		context.effects = system.effects;
+		context.activeEffects = activeEffects;
+		context.effects = effects;
+		context.toggleable = toggleable;
 	}
 
 	/* -------------------------------------------- */
