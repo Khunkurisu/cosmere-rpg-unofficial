@@ -541,10 +541,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 
 			let roll = new Roll(rollData, this.actor.getRollData());
-			roll._formula = dataset.roll + plot;
 			if (Hooks.call("system.preRoll", roll) === false) return;
 
-			let message = roll.toMessage({
+			roll.toMessage({
 				flags: { cosmere: flags },
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
