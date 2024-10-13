@@ -1,3 +1,4 @@
+import * as Effects from '../system/effects.mjs';
 import {
 	onManageActiveEffect,
 	prepareActiveEffectCategories,
@@ -491,19 +492,49 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				target: game.user.targets.first()?.document ?? null
 			};
 
-			if (system.hasAdvantage) {
+			let hasAdvantage = false;
+			let hasDisadvantage = false;
+			let usePlotDice = false;
+			const rollType = dataset.rollType === 'skill' ? dataset.key : dataset.rollType;
+			console.log(system.activeEffects);
+
+			system.activeEffects.forEach(activeEffect => {
+				if (activeEffect.system.status !== 'active') return;
+				activeEffect.system.effects.forEach(e => {
+					if (e.type === 'dice') {
+						const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);
+						let data = effect.TryApplyEffect('roll', { circumstances: [rollType] });
+						if (data) {
+							switch (data.key) {
+								case 'hasAdvantage': {
+									hasAdvantage = data.value;
+									break;
+								}
+								case 'hasDisadvantage': {
+									hasDisadvantage = data.value;
+								}
+								case 'usePlotDice': {
+									usePlotDice = data.value;
+								}
+							}
+						}
+					}
+				});
+			});
+
+			if (system.hasAdvantage || hasAdvantage) {
 				if (!system.hasDisadvantage) {
 					rollData = `{${rollData}, ${rollData}}kh`;
 				}
 			}
-			if (system.hasDisadvantage) {
+			if (system.hasDisadvantage || hasDisadvantage) {
 				if (!system.hasAdvantage) {
 					rollData = `{${rollData}, ${rollData}}kl`;
 				}
 			}
 
 			if (type === 'check') {
-				if (system.usePlotDice) {
+				if (system.usePlotDice || usePlotDice) {
 					rollData += " + 1d6[plot]";
 					plot = " + 1d6";
 				}

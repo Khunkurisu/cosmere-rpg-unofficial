@@ -109,8 +109,8 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		// Select Created Effect Type
 		html.on('change', '.effect-create-select', this._onEffectSelect.bind(this));
 
-		// Select Modifier Effect Type
-		html.on('change', '.effect-modifier-func', this._onEffectModifierSelect.bind(this));
+		// Select Effect Function
+		html.on('change', '.effect-func', this._onEffectFuncSelect.bind(this));
 
 		// Update Effect Values
 		html.on('change', '.effect-input', this._onEffectChange.bind(this));
@@ -188,7 +188,7 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-	_onEffectModifierSelect(event) {
+	_onEffectFuncSelect(event) {
 		event.preventDefault();
 		const li = $(event.currentTarget).parents('.item');
 		const modEffects = this.item.system.effects;

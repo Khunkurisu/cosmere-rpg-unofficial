@@ -12,7 +12,7 @@
 						</div>
 						<div class="flexcol flex-group-left">
 							<label class='resource-label'>Function</label>
-							<select name='effect.func' class='effect-modifier-func'>
+							<select name='effect.func' class='effect-func'>
 								<option value="add" {{isSelected 'add' effect.func}}>Add</option>
 								<option value="subtract" {{isSelected 'subtract' effect.func}}>Subtract</option>
 								<option value="increase" {{isSelected 'increase' effect.func}}>Increase</option>
@@ -24,6 +24,34 @@
 							<label class='resource-label'>Value</label>
 							<input class='effect-input' type='text' name='effect.value' value='{{effect.value}}'
 								data-dtype='Number' data-target="value" />
+						</div>
+					</div>
+					<div class="flexcol" style="max-width:min-content; padding-left:5px">
+						<a class='effect-remove' data-key="{{id}}" title='Delete Effect'>
+							<i class='fas fa-trash'></i>
+						</a>
+					</div>
+				{{/if}}
+				{{#if (ifEquals effect.type 'dice')}}
+					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
+					<div class="grid grid-5col">
+						<div class="flexcol grid-span-3 flex-group-left">
+							<label class='resource-label'>Target Path</label>
+							<input class='effect-input' type='text' name='target' value='{{effect.target}}'
+								data-dtype='String' data-target="target" />
+						</div>
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Function</label>
+							<select name='effect.func' class='effect-func'>
+								<option value="advantage" {{isSelected 'advantage' effect.func}}>Advantage</option>
+								<option value="disadvantage" {{isSelected 'disadvantage' effect.func}}>Disadvantage
+								</option>
+							</select>
+						</div>
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Value</label>
+							<input class='effect-input' type='checkbox' name='effect.value' value='{{effect.value}}'
+								{{#if effect.value}} checked="true" {{/if}} data-target="value" />
 						</div>
 					</div>
 					<div class="flexcol" style="max-width:min-content; padding-left:5px">
