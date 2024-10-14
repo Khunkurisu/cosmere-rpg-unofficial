@@ -65,8 +65,10 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			quantityChange: this._onQuantityChange,
 			itemEquip: this._onItemEquip,
 			bioProgress: this._onBiographyChange,
-			bioFunctions: this._onBiographyFunction,
-
+			bioFunction: this._onBiographyFunction,
+			detailsToggle: this._onDetailsToggle,
+			skillProgress: this._onSkillChange,
+			skillFunction: this._onSkillFunction,
 		},
 		// Custom property that's merged into `this.options`
 		dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
@@ -117,6 +119,10 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 		// Offloading context prep to a helper function
 		this._prepareItems(context);
+
+		if (!this.tabGroups['primary']) {
+			this.tabGroups['primary'] = 'actions';
+		}
 
 		return context;
 	}
