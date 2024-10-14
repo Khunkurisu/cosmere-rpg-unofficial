@@ -12,25 +12,27 @@
 				</a>
 			</div>
 		</li>
-		<li class='item flexrow' data-item-id='{{system.ancestry._id}}'>
-			<div class='item-name' style='padding-left: 8px; margin: 3px;'>
-				<h4 class='resource-label detail-item'>{{system.ancestry.name}}</h4>
-			</div>
-			<div class='item-controls'>
-				<a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type='feature'}}'>
-					<i class='fas fa-edit'></i>
-				</a>
-				<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='feature'}}'>
-					<i class='fas fa-trash'></i>
-				</a>
-			</div>
-		</li>
-		<li class='item flexrow' data-item-id='{{item._id}}'
-			{{#unless system.ancestry.system.showDetails}}style='display: none' {{/unless}}>
-			<div class='item-details flex-group-center'>
-				{{{system.ancestry.system.description}}}
-			</div>
-		</li>
+		{{#if system.ancestry._id}}
+			<li class='item flexrow' data-item-id='{{system.ancestry._id}}'>
+				<div class='item-name' style='padding-left: 8px; margin: 3px;'>
+					<h4 class='resource-label detail-item'>{{system.ancestry.name}}</h4>
+				</div>
+				<div class='item-controls'>
+					<a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type='feature'}}'>
+						<i class='fas fa-edit'></i>
+					</a>
+					<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='feature'}}'>
+						<i class='fas fa-trash'></i>
+					</a>
+				</div>
+			</li>
+			<li class='item flexrow' data-item-id='{{item._id}}'
+				{{#unless system.ancestry.system.showDetails}}style='display: none' {{/unless}}>
+				<div class='item-details flex-group-center'>
+					{{{system.ancestry.system.description}}}
+				</div>
+			</li>
+		{{/if}}
 		{{#each ancestryFeatures as |item id|}}
 			<li class='item flexrow' data-item-id='{{item._id}}'>
 				<div class='item-name'>
@@ -73,25 +75,27 @@
 				</a>
 			</div>
 		</li>
-		<li class='item flexrow' data-item-id='{{system.path._id}}'>
-			<div class='item-name' style='padding-left: 8px; margin: 3px;'>
-				<h4 class='resource-label detail-item'>{{system.path.name}}</h4>
-			</div>
-			<div class='item-controls'>
-				<a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type='feature'}}'>
-					<i class='fas fa-edit'></i>
-				</a>
-				<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='feature'}}'>
-					<i class='fas fa-trash'></i>
-				</a>
-			</div>
-		</li>
-		<li class='item flexrow' data-item-id='{{item._id}}'
-			{{#unless system.path.system.showDetails}}style='display: none' {{/unless}}>
-			<div class='item-details flex-group-center'>
-				{{{system.path.system.description}}}
-			</div>
-		</li>
+		{{#each system.path as |path id|}}
+			<li class='item flexrow' data-item-id='{{path._id}}'>
+				<div class='item-name' style='padding-left: 8px; margin: 3px;'>
+					<h4 class='resource-label detail-item'>{{path.name}}</h4>
+				</div>
+				<div class='item-controls'>
+					<a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type='feature'}}'>
+						<i class='fas fa-edit'></i>
+					</a>
+					<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='feature'}}'>
+						<i class='fas fa-trash'></i>
+					</a>
+				</div>
+			</li>
+			<li class='item flexrow' data-item-id='{{item._id}}'
+				{{#unless path.system.showDetails}}style='display: none' {{/unless}}>
+				<div class='item-details flex-group-center'>
+					{{{path.system.description}}}
+				</div>
+			</li>
+		{{/each}}
 		{{#each pathFeatures as |item id|}}
 			<li class='item flexrow' data-item-id='{{item._id}}'>
 				<div class='item-name'>
