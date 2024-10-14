@@ -84,13 +84,13 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		}
 
+		systemData.isRadiant = this.isRadiant(systemData);
+
 		this.setDefenses(actorData);
 		this.setResources(actorData);
 		this.setDeflect(actorData);
 
 		this.setSkills(systemData);
-
-		systemData.isRadiant = this.isRadiant(systemData);
 
 		this.getEffectBonuses(actorData);
 
@@ -105,7 +105,17 @@ export class CosmereUnofficialActor extends Actor {
 		);
 	}
 
-	isRadiant(systemData) { return false; }
+	isRadiant(systemData) {
+		let isRadiant = false;
+		systemData.path.every(path => {
+			if (path.system.isRadiant) {
+				isRadiant = true;
+				return false;
+			}
+			return true;
+		});
+		return isRadiant;
+	}
 
 	checkItems(actorData) {
 		const systemData = actorData.system;
@@ -189,7 +199,7 @@ export class CosmereUnofficialActor extends Actor {
 		systemData.health.max = 10 + attributes.strength.value;
 		systemData.focus.max = 2 + attributes.willpower.value;
 		const investitureBonus = Math.max(attributes.presence.value, attributes.awareness.value);
-		systemData.investiture.max = this.isRadiant(systemData) ? 2 + investitureBonus : 0;
+		systemData.investiture.max = systemData.isRadiant ? 2 + investitureBonus : 0;
 	}
 
 	setDeflect(actorData) {
