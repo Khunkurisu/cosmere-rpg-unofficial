@@ -5,7 +5,7 @@
 				<div class='item-name'>{{localize 'Active Effects'}}</div>
 				<div class='item-controls'>
 					<a class='item-control item-create' title='{{localize "DOCUMENT.Create" type="Effect"}}'
-						data-type='Effect'>
+						data-type='Effect' data-action="createDoc" data-document-class="Item">
 						<i class='fas fa-plus'></i>
 					</a>
 					<a class='item-control item-search' title='{{localize "DOCUMENT.Search" type="Effect"}}'
@@ -20,10 +20,11 @@
 						<h4 class='resource-label detail-item'>{{effect.name}}</h4>
 					</div>
 					<div class='item-controls'>
-						<a class='item-control item-edit' title='{{localize "DOCUMENT.Update"}}'>
+						<a class='item-control item-edit' title='{{localize "DOCUMENT.Update"}}' data-action="viewDoc">
 							<i class='fas fa-edit'></i>
 						</a>
-						<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete"}}'>
+						<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete"}}'
+							data-action="deleteDoc">
 							<i class='fas fa-trash'></i>
 						</a>
 					</div>
@@ -42,7 +43,7 @@
 				<div class='item-name'>{{localize 'Inactive Effects'}}</div>
 				<div class='item-controls'>
 					<a class='item-control item-create' title='{{localize "DOCUMENT.Create" type="Effect"}}'
-						data-type='Effect'>
+						data-type='Effect' data-action="createDoc" data-document-class="Item">
 						<i class='fas fa-plus'></i>
 					</a>
 					<a class='item-control item-search' title='{{localize "DOCUMENT.Search" type="Effect"}}'
@@ -57,10 +58,11 @@
 						<h4 class='resource-label detail-item'>{{effect.name}}</h4>
 					</div>
 					<div class='item-controls'>
-						<a class='item-control item-edit' title='{{localize "DOCUMENT.Update"}}'>
+						<a class='item-control item-edit' title='{{localize "DOCUMENT.Update"}}' data-action="viewDoc">
 							<i class='fas fa-edit'></i>
 						</a>
-						<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete"}}'>
+						<a class='item-control item-delete' title='{{localize "DOCUMENT.Delete"}}'
+							data-action="deleteDoc">
 							<i class='fas fa-trash'></i>
 						</a>
 					</div>

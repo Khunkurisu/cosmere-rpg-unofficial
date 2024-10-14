@@ -10,13 +10,13 @@
 						<input type="text" name="system.skills.physical.{{key}}.value" value="+{{skill.value}}"
 							disabled="true" data-dtype="Number" />
 						<label for="system.skills.physical.{{key}}.value"
-							class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
+							class="resource-label rollable flexlarge flex-group-left" data-action="roll" style="margin-left:5%;"
 							data-key="{{key}}" data-roll="d20+@skills.physical.{{key}}.value" data-roll-type="skill"
 							data-defense="physical" data-label="{{localize (lookup @root.config.skills.physical key)}}">
 							{{localize (lookup @root.config.skills.physical key)}}
 						</label>
 						<label for="system.skills.physical.{{key}}.value"
-							class="resource-label rollable flex-group-right" style="max-width:min-content;"
+							class="resource-label rollable flex-group-right" data-action="roll" style="max-width:min-content;"
 							data-roll="d20+@skills.physical.{{key}}.value" data-key="{{key}}" data-roll-type="skill"
 							data-defense="physical" data-label="{{localize (lookup @root.config.skills.physical key)}}">
 							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
@@ -46,14 +46,14 @@
 						<input type="text" name="system.skills.cognitive.{{key}}.value" value="+{{skill.value}}"
 							disabled="true" data-dtype="Number" />
 						<label for="system.skills.cognitive.{{key}}.value"
-							class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
+							class="resource-label rollable flexlarge flex-group-left" data-action="roll" style="margin-left:5%;"
 							data-key="{{key}}" data-roll="d20+@skills.cognitive.{{key}}.value" data-roll-type="skill"
 							data-defense="cognitive"
 							data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
 							{{localize (lookup @root.config.skills.cognitive key)}}
 						</label>
 						<label for="system.skills.cognitive.{{key}}.value"
-							class="resource-label rollable flex-group-right" style="max-width:min-content;"
+							class="resource-label rollable flex-group-right" data-action="roll" style="max-width:min-content;"
 							data-roll="d20+@skills.cognitive.{{key}}.value" data-key="{{key}}" data-roll-type="skill"
 							data-defense="cognitive"
 							data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
@@ -84,14 +84,14 @@
 						<input type="text" name="system.skills.spiritual.{{key}}.value" value="+{{skill.value}}"
 							disabled="true" data-dtype="Number" />
 						<label for="system.skills.spiritual.{{key}}.value"
-							class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
+							class="resource-label rollable flexlarge flex-group-left" data-action="roll" style="margin-left:5%;"
 							data-key="{{key}}" data-roll="d20+@skills.spiritual.{{key}}.value" data-roll-type="skill"
 							data-defense="spiritual"
 							data-label="{{localize (lookup @root.config.skills.spiritual key)}}">
 							{{localize (lookup @root.config.skills.spiritual key)}}
 						</label>
 						<label for="system.skills.spiritual.{{key}}.value"
-							class="resource-label rollable flex-group-right" style="max-width:min-content;"
+							class="resource-label rollable flex-group-right" data-action="roll" style="max-width:min-content;"
 							data-roll="d20+@skills.spiritual.{{key}}.value" data-key="{{key}}" data-roll-type="skill"
 							data-defense="spiritual"
 							data-label="{{localize (lookup @root.config.skills.spiritual key)}}">

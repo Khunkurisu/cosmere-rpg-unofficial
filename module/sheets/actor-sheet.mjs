@@ -61,11 +61,18 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			deleteDoc: this._deleteDoc,
 			toggleEffect: this._onEffectToggle,
 			roll: this._onRoll,
+			diceModToggle: this._onDiceModifierToggle,
+			quantityChange: this._onQuantityChange,
+			itemEquip: this._onItemEquip,
+			bioProgress: this._onBiographyChange,
+			bioFunctions: this._onBiographyFunction,
+
 		},
 		// Custom property that's merged into `this.options`
 		dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
 		form: {
 			submitOnChange: true,
+			handler: CosmereUnofficialActorSheet._handleForm,
 		},
 	};
 
@@ -153,9 +160,10 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	_getTabs(actorTabs) {
 		// If you have sub-tabs this is necessary to change
 		const tabGroup = 'primary';
+
 		// Default tab for first time it's rendered this session
 		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = 'actions';
-		const reducedTags = actorTabs.reduce((tabs, partId) => {
+		const reducedTags = actorTabs.reduce((tabs, id) => {
 			const tab = {
 				cssClass: '',
 				group: tabGroup,
@@ -166,7 +174,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 				// Run through localization
 				label: 'COSMERE_UNOFFICIAL.Actor.Tabs.',
 			};
-			switch (partId) {
+			switch (id) {
 				case 'main':
 					return tabs;
 				case 'biography':
@@ -195,10 +203,9 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 					break;
 			}
 			if (this.tabGroups[tabGroup] === tab.id) tab.cssClass = 'active';
-			tabs[partId] = tab;
+			tabs[id] = tab;
 			return tabs;
 		}, {});
-		console.log(reducedTags);
 		return reducedTags;
 	}
 
@@ -366,6 +373,42 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		// -------------------------------------------------------------
 		// Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
+
+		const html = $(this.element);
+
+		// Decrease Biography Goal Progress
+		html.on('contextmenu', '.goal-pip', onGoalDecrease.bind(this));
+
+		// Decrease Skill
+		html.on('contextmenu', '.skill-pip', onSkillDecrease.bind(this));
+
+		html.on('dragstart', '.item', onItemDrag.bind(this));
+		html.on('dragover', '.item', (ev) => { ev.preventDefault(); });
+		html.on('drop', '.item', onItemDrop.bind(this));
+		html.on('drop', '.container-inventory', onItemDrop.bind(this));
+
+		// Drag events for macros.
+		if (this.actor.isOwner) {
+			let handler = (ev) => this._onDragStart(ev);
+			html.find('li.item').each((i, li) => {
+				if (li.classList.contains('inventory-header')) return;
+				li.setAttribute('draggable', true);
+				li.addEventListener('dragstart', handler, false);
+			});
+		}
+	}
+	/**
+	 * Process form submission for the sheet
+	 * @this {MyApplication}                      The handler is called with the application as its bound scope
+	 * @param {SubmitEvent} event                   The originating form submission event
+	 * @param {HTMLFormElement} form                The form element that was submitted
+	 * @param {FormDataExtended} formData           Processed data for the submitted form
+	 * @returns {Promise<void>}
+	 */
+	static async _handleForm(event, form, formData) {
+		// Do things with the returned FormData
+		console.log(form);
+		console.log(formData);
 	}
 
 	/**************
@@ -727,8 +770,6 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 		// Handle different data types
 		switch (data.type) {
-			case 'ActiveEffect':
-				return this._onDropActiveEffect(event, data);
 			case 'Actor':
 				return this._onDropActor(event, data);
 			case 'Item':

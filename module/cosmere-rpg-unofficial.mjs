@@ -27,11 +27,11 @@ Hooks.once('init', function () {
 	CONFIG.COSMERE_UNOFFICIAL = COSMERE_UNOFFICIAL;
 
 	// Define custom Document and DataModel classes
-	CONFIG.Actor.documentClass = CosmereUnofficialActor;
 
 	// Note that you don't need to declare a DataModel
 	// for the base actor/item classes - they are included
 	// with the Character/NPC as part of super.defineSchema()
+	CONFIG.Actor.documentClass = CosmereUnofficialActor;
 	CONFIG.Actor.dataModels = {
 		Player: models.CosmereUnofficialPlayer,
 		Adversary: models.CosmereUnofficialAdversary,
