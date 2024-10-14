@@ -95,16 +95,16 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		html.on('change', '.weapon-die-select', this._onDieSelect.bind(this));
 
 		// Select Skill Modifier
-		html.on('change', '.weapon-skill-select', this._onSkillSelect.bind(this));
+		html.on('change', '.weapon-skill-select', this._onWeaponSkillSelect.bind(this));
 
 		// Select Range Modifier
 		html.on('change', '.weapon-range-select', this._onRangeSelect.bind(this));
 
 		// Select Starting Skill
-		html.on('change', '.path-skill-select', this._onSkillSelect.bind(this));
+		html.on('change', '.path-skill-select', this._onPathSkillSelect.bind(this));
 
 		// Select Path Type
-		html.on('change', '.path-type-select', this._onTypeSelect.bind(this));
+		html.on('change', '.radiant-toggle-checkbox', this._onRadiantCheckboxToggle.bind(this));
 
 		// Select Created Effect Type
 		html.on('change', '.effect-create-select', this._onEffectSelect.bind(this));
@@ -292,11 +292,11 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 	}
 
 	/**
-	 * Handle selecting skill.
+	 * Handle selecting weapon skill.
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-	_onSkillSelect(event) {
+	_onWeaponSkillSelect(event) {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const system = this.item.system;
@@ -322,16 +322,31 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 	}
 
 	/**
-	 * Handle selecting path type.
+	 * Handle selecting path starting skill.
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-	_onTypeSelect(event) {
+	_onPathSkillSelect(event) {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const system = this.item.system;
 
-		system.isRadiant = element.value === 'radiant';
+		system.skill = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle toggle a path's radiance.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRadiantCheckboxToggle(event) {
+		event.preventDefault();
+		const item = this.item;
+
+		const toggle = !item.system.isRadiant;
+		item.update({ 'system.isRadiant': toggle });
 
 		this.render(false);
 	}

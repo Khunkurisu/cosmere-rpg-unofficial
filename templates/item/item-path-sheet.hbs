@@ -30,15 +30,15 @@
 		{{! Attributes Tab }}
 		<div class='tab attributes' data-group='primary' data-tab='attributes'>
 			{{! As you add new fields, add them in here! }}
-			<div class='grid grid-2col flex-group-center'>
-				<div class='grid-span-1 flexrow' style="width:60%">
-					<label class='resource-label' for='system.isRadiant'>Path Type</label><br />
-					<select name='system.isRadiant' class='path-type-select'>
-						<option value="heroic" {{#unless system.isRadiant}} selected{{/unless}}>Heroic</option>
-						<option value="radiant" {{#if system.isRadiant}} selected{{/if}}>Radiant</option>
-					</select>
-				</div>
+			<div class='grid grid-4col flex-group-center'>
 				<div class='grid-span-1 flexrow'>
+					<label for="radiant-toggle" class="resource-label" style="min-width:fit-content">
+						Radiant?
+					</label>
+					<input class="radiant-toggle-checkbox" type="checkbox" id="radiant-toggle" name="radiant-toggle"
+						value="{{system.isRadiant}}" {{#if system.isRadiant}} checked="true" {{/if}}>
+				</div>
+				<div class='grid-span-2 flexrow'>
 					<label class='resource-label' for='system.skill'>Starting Skill</label><br />
 					<select name='system.skill' class='path-skill-select'>
 						<option value="athletics" {{isSelected 'athletics' system.skill}}>Athletics</option>
@@ -61,6 +61,7 @@
 						<option value="survival" {{isSelected 'survival' system.skill}}>Survival</option>
 					</select>
 				</div>
+				<div class="grid-span-1 flexrow"><span></span></div>
 			</div>
 			<hr />
 			<div class="specialty flexcol flex-group-center">
