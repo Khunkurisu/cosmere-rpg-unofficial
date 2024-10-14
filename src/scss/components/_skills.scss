@@ -1,0 +1,26 @@
+.skill-pip {
+	margin-left: 3%;
+	min-width: fit-content;
+	&:hover,
+	&:focus {
+		color: #000;
+		text-shadow: 0 0 10px red;
+		cursor: pointer;
+	}
+}
+
+.skill-column-header {
+	font-weight: bold;
+	font-size: large;
+	padding: 3px 45% 3px 45%;
+	border: 2px solid rgb(80, 80, 80);
+	background-color: rgb(100, 100, 100);
+	color: rgb(200, 200, 200);
+}
+
+.skills-list {
+	padding: 5%;
+	width: 95%;
+	border: 2px ridge rgb(100, 100, 100);
+	background-color: rgb(215, 215, 215);
+}
