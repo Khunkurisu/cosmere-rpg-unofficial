@@ -52,9 +52,6 @@ export class CosmereUnofficialItemSheet extends api.HandlebarsApplicationMixin(
 		attributesGear: {
 			template: 'systems/cosmere-rpg-unofficial/templates/item/attribute-parts/gear.hbs',
 		},
-		attributesSpell: {
-			template: 'systems/cosmere-rpg-unofficial/templates/item/attribute-parts/spell.hbs',
-		},
 		effects: {
 			template: 'systems/cosmere-rpg-unofficial/templates/item/effects.hbs',
 		},

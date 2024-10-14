@@ -1,4 +1,37 @@
 import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
+import * as Effects from '../system/effects.mjs';
+import {
+	onGoalCreate,
+	onGoalRemove,
+	onGoalIncrease,
+	onGoalDecrease
+} from '../helpers/goals.mjs';
+import {
+	onConnectionCreate,
+	onConnectionRemove
+} from '../helpers/connections.mjs';
+import {
+	onExpertiseCreate,
+	onExpertiseRemove,
+	onSkillIncrease,
+	onSkillDecrease
+} from '../helpers/skills-and-expertise.mjs';
+import {
+	onPlotDiceToggle,
+	onAdvantageToggle,
+	onDisadvantageToggle
+} from '../helpers/dice-state-handling.mjs';
+import {
+	onItemIncrease,
+	onItemDecrease,
+	onItemEquip,
+	onItemUnequip,
+	onItemDetails,
+	onItemDrag,
+	onItemDrop,
+	onContainerToggle
+} from '../helpers/item-handling.mjs';
+import { CheckCosmere } from "../system/dice/check.mjs";
 
 const { api, sheets } = foundry.applications;
 
@@ -16,17 +49,17 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 	/** @override */
 	static DEFAULT_OPTIONS = {
-		classes: ['CosmereUnofficial', 'actor'],
+		classes: ['cosmere-rpg-unofficial', 'sheet', 'actor'],
 		position: {
-			width: 600,
-			height: 600,
+			width: 720,
+			height: 720,
 		},
 		actions: {
 			onEditImage: this._onEditImage,
 			viewDoc: this._viewDoc,
 			createDoc: this._createDoc,
 			deleteDoc: this._deleteDoc,
-			toggleEffect: this._toggleEffect,
+			toggleEffect: this._onEffectToggle,
 			roll: this._onRoll,
 		},
 		// Custom property that's merged into `this.options`
@@ -38,27 +71,26 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 	/** @override */
 	static PARTS = {
-		header: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/header.hbs',
+		main: {
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/actor-sheet.hbs',
 		},
-		tabs: {
-			// Foundry-provided generic template
-			template: 'templates/generic/tab-navigation.hbs',
+		actions: {
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-actions.hbs',
 		},
 		features: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/features.hbs',
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-feats.hbs',
 		},
 		biography: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/biography.hbs',
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-biography.hbs',
 		},
-		gear: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/gear.hbs',
+		items: {
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-items.hbs',
 		},
-		spells: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/spells.hbs',
+		skills: {
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-skills.hbs',
 		},
 		effects: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/effects.hbs',
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-effects.hbs',
 		},
 	};
 
@@ -66,18 +98,9 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	_configureRenderOptions(options) {
 		super._configureRenderOptions(options);
 		// Not all parts always render
-		options.parts = ['header', 'tabs', 'biography'];
+		options.parts = ['main', 'actions', 'features', 'items', 'skills', 'effects', 'biography'];
 		// Don't show the other tabs if only limited view
 		if (this.document.limited) return;
-		// Control which parts show based on document subtype
-		switch (this.document.type) {
-			case 'character':
-				options.parts.push('features', 'gear', 'spells', 'effects');
-				break;
-			case 'npc':
-				options.parts.push('gear', 'effects');
-				break;
-		}
 	}
 
 	/* -------------------------------------------- */
@@ -112,9 +135,11 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	/** @override */
 	async _preparePartContext(partId, context) {
 		switch (partId) {
+			case 'actions':
+			case 'items':
+			case 'skills':
 			case 'features':
-			case 'spells':
-			case 'gear':
+			case 'effects':
 				context.tab = context.tabs[partId];
 				break;
 			case 'biography':
@@ -133,15 +158,6 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 					}
 				);
 				break;
-			case 'effects':
-				context.tab = context.tabs[partId];
-				// Prepare active effects
-				context.effects = prepareActiveEffectCategories(
-					// A generator that returns all effects stored on the actor
-					// as well as any items
-					this.actor.allApplicableEffects()
-				);
-				break;
 		}
 		return context;
 	}
@@ -156,7 +172,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		// If you have sub-tabs this is necessary to change
 		const tabGroup = 'primary';
 		// Default tab for first time it's rendered this session
-		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = 'biography';
+		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = 'actions';
 		return parts.reduce((tabs, partId) => {
 			const tab = {
 				cssClass: '',
@@ -169,8 +185,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 				label: 'COSMERE_UNOFFICIAL.Actor.Tabs.',
 			};
 			switch (partId) {
-				case 'header':
-				case 'tabs':
+				case 'main':
 					return tabs;
 				case 'biography':
 					tab.id = 'biography';
@@ -180,13 +195,17 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 					tab.id = 'features';
 					tab.label += 'Features';
 					break;
-				case 'gear':
-					tab.id = 'gear';
-					tab.label += 'Gear';
+				case 'actions':
+					tab.id = 'actions';
+					tab.label += 'Actions';
 					break;
-				case 'spells':
-					tab.id = 'spells';
-					tab.label += 'Spells';
+				case 'items':
+					tab.id = 'items';
+					tab.label += 'Items';
+					break;
+				case 'skills':
+					tab.id = 'skills';
+					tab.label += 'Skills';
 					break;
 				case 'effects':
 					tab.id = 'effects';
@@ -205,51 +224,144 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	 * @param {object} context The context object to mutate
 	 */
 	_prepareItems(context) {
+		const system = context.actor.system;
+
 		// Initialize containers.
-		// You can just use `this.document.itemTypes` instead
-		// if you don't need to subdivide a given type like
-		// this sheet does with spells
 		const gear = [];
+		const weapons = [];
+		const armor = [];
+		const containers = [];
+		const actions = [];
+		const reactions = [];
+		const freeActions = [];
+		const activities = [];
+		const strikes = [];
+		const potentialStrikes = [];
 		const features = [];
-		const spells = {
-			0: [],
-			1: [],
-			2: [],
-			3: [],
-			4: [],
-			5: [],
-			6: [],
-			7: [],
-			8: [],
-			9: [],
-		};
+		const ancestryFeatures = [];
+		const pathFeatures = [];
+
+		const sheet = this;
 
 		// Iterate through items, allocating to containers
-		for (let i of this.document.items) {
+		this.document.items.forEach(function (item) {
+			item.img = item.img || Item.DEFAULT_ICON;
+
+			// Append to container.
+			if (item.type === 'Container') {
+				containers.push(item);
+				// move on;
+				return;
+			}
+
+			let isStored = false;
+			system.stored.every(function (obj) {
+				if (obj._id === item._id) {
+					isStored = true;
+					return false;
+				}
+				return true;
+			});
+			// Skip if stored.
+			if (isStored) return;
+
 			// Append to gear.
-			if (i.type === 'gear') {
-				gear.push(i);
+			if (item.type === 'Equipment') {
+				gear.push(item);
 			}
 			// Append to features.
-			else if (i.type === 'feature') {
-				features.push(i);
-			}
-			// Append to spells.
-			else if (i.type === 'spell') {
-				if (i.system.spellLevel != undefined) {
-					spells[i.system.spellLevel].push(i);
+			else if (item.type === 'Feature') {
+				switch (item.system.type) {
+					case 'Ancestry': {
+						ancestryFeatures.push(item);
+						break;
+					}
+					case 'Path': {
+						pathFeatures.push(item);
+						break;
+					}
+					default: {
+						features.push(item);
+					}
 				}
 			}
-		}
+			// Append to weapons.
+			else if (item.type === 'Weapon') {
+				weapons.push(item);
+				if (item.system.equipped.isEquipped) {
+					strikes.push(sheet._strikeFromWeapon(item, context));
+				} else {
+					potentialStrikes.push(sheet._strikeFromWeapon(item, context));
+				}
+			}
+			// Append to armor.
+			else if (item.type === 'Armor') {
+				armor.push(item);
+			}
+			// Append to actions.
+			else if (item.type === 'Action') {
+				if (item.system.unit === 'actions') {
+					switch (item.system.cost) {
+						case -1: {
+							reactions.push(item);
+							break;
+						}
+						case 0: {
+							freeActions.push(item);
+							break;
+						}
+						case 1: case 2: case 3: {
+							actions.push(item);
+							break;
+						}
+						default: {
+							activities.push(item);
+						}
+					}
+				} else { activities.push(item); }
+			}
+		});
 
-		for (const s of Object.values(spells)) {
-			s.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		}
+		const mod = system.skills.physical.athletics.value;
+		strikes.push({
+			"name": "Unarmed Strike",
+			"formula": "1d4",
+			"crit": 4,
+			"damageType": "[impact]",
+			"modifier": (mod >= 0) ? ("+" + mod) : ("-" + mod)
+		});
 
-		// Sort then assign
-		context.gear = gear.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		context.features = features.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		context.spells = spells;
+		const activeEffects = [];
+		const effects = [];
+		const toggleable = [];
+		system.activeEffects.forEach(effect => {
+			if (effect.system.hide) return;
+			if (effect.system.toggle) toggleable.push(effect);
+			activeEffects.push(effect);
+		});
+		system.effects.forEach(effect => {
+			if (effect.system.hide) return;
+			if (effect.system.toggle) toggleable.push(effect);
+			effects.push(effect);
+		});
+
+		// Assign and return
+		context.gear = gear;
+		context.weapons = weapons;
+		context.armor = armor;
+		context.containers = containers;
+		context.ancestryFeatures = ancestryFeatures;
+		context.pathFeatures = pathFeatures;
+		context.features = features;
+		context.actions = actions;
+		context.reactions = reactions;
+		context.freeActions = freeActions;
+		context.activities = activities;
+		context.strikes = strikes;
+		context.potentialStrikes = potentialStrikes;
+		context.activeEffects = activeEffects;
+		context.effects = effects;
+		context.toggleable = toggleable;
 	}
 
 	/**
@@ -266,6 +378,66 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		// You may want to add other special handling here
 		// Foundry comes with a large number of utility classes, e.g. SearchFilter
 		// That you may want to implement yourself.
+
+
+		// -------------------------------------------------------------
+		// Everything below here is only needed if the sheet is editable
+		if (!this.isEditable) return;
+		const html = this.element;
+
+		// Increase Item Quantity
+		html.querySelector('.item-quantity-inc').addEventListener('click', onItemIncrease.bind(this));
+
+		// Decrease Item Quantity
+		html.querySelector('.item-quantity-dec').addEventListener('click', onItemDecrease.bind(this));
+
+		// Equip an Item
+		html.querySelector('.item-equip').addEventListener('click', onItemEquip.bind(this));
+
+		// Unequip an Item
+		html.querySelector('.item-unequip').addEventListener('click', onItemUnequip.bind(this));
+
+		// Add/Remove Biography Goal
+		html.querySelector('.goal-create').addEventListener('click', onGoalCreate.bind(this));
+		html.querySelector('.goal-remove').addEventListener('click', onGoalRemove.bind(this));
+
+		// Increase/Decrease Biography Goal Progress
+		html.querySelector('.goal-pip').addEventListener('click', onGoalIncrease.bind(this));
+		html.querySelector('.goal-pip').addEventListener('contextmenu', onGoalDecrease.bind(this));
+
+		// Add/Remove Biography Connection
+		html.querySelector('.connection-create').addEventListener('click', onConnectionCreate.bind(this));
+		html.querySelector('.connection-remove').addEventListener('click', onConnectionRemove.bind(this));
+
+		// Add/Remove Expertise
+		html.querySelector('.expertise-create').addEventListener('click', onExpertiseCreate.bind(this));
+		html.querySelector('.expertise-remove').addEventListener('click', onExpertiseRemove.bind(this));
+
+		// Increase/Decrease Skill
+		html.querySelector('.skill-pip').addEventListener('click', onSkillIncrease.bind(this));
+		html.querySelector('.skill-pip').addEventListener('contextmenu', onSkillDecrease.bind(this));
+
+		// Enable/Disable Plot Dice
+		html.querySelector('.plot-dice-on').addEventListener('click', onPlotDiceToggle.bind(this, true));
+		html.querySelector('.plot-dice-off').addEventListener('click', onPlotDiceToggle.bind(this, false));
+
+		// Enable/Disable Advantage
+		html.querySelector('.advantage-on').addEventListener('click', onAdvantageToggle.bind(this, true));
+		html.querySelector('.advantage-off').addEventListener('click', onAdvantageToggle.bind(this, false));
+
+		// Enable/Disable Disadvantage
+		html.querySelector('.disadvantage-on').addEventListener('click', onDisadvantageToggle.bind(this, true));
+		html.querySelector('.disadvantage-off').addEventListener('click', onDisadvantageToggle.bind(this, false));
+
+		// View Item Details
+		html.querySelector('.detail-item').addEventListener('click', onItemDetails.bind(this));
+
+		// Handle Container Items
+		html.querySelector('.container-toggle').addEventListener('click', onContainerToggle.bind(this));
+		html.querySelector('.item').addEventListener('dragstart', onItemDrag.bind(this));
+		html.querySelector('.item').addEventListener('dragover', (ev) => { ev.preventDefault(); });
+		html.querySelector('.item').addEventListener('drop', onItemDrop.bind(this));
+		html.querySelector('.container-inventory').addEventListener('drop', onItemDrop.bind(this));
 	}
 
 	/**************
@@ -362,19 +534,6 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	}
 
 	/**
-	 * Determines effect parent to pass to helper
-	 *
-	 * @this CosmereUnofficialActorSheet
-	 * @param {PointerEvent} event   The originating click event
-	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-	 * @private
-	 */
-	static async _toggleEffect(event, target) {
-		const effect = this._getEmbeddedDocument(target);
-		await effect.update({ disabled: !effect.disabled });
-	}
-
-	/**
 	 * Handle clickable rolls.
 	 *
 	 * @this CosmereUnofficialActorSheet
@@ -393,20 +552,167 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 				if (item) return item.roll();
 		}
 
+		return this.handleRoll(dataset);
+	}
+
+	handleRoll(dataset) {
+		const system = this.actor.system;
+
+		const rollInfo = this.getRollInfo(dataset);
+		const label = rollInfo[0];
+		const type = rollInfo[1];
+		const defense = rollInfo[2];
+
+		const context = {
+			actor: this.actor,
+			label: rollInfo[0],
+			type: rollInfo[0],
+			defense: rollInfo[2] ?? null,
+			flags: {
+				type: type,
+				target: game.user.targets.first()?.document ?? null
+			}
+		}
+
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-			let label = dataset.label ? `[ability] ${dataset.label}` : '';
-			let roll = new Roll(dataset.roll, this.actor.getRollData());
-			await roll.toMessage({
+			let rollData = dataset.roll;
+			let plot = '';
+			let flags = {
+				type: type,
+				target: game.user.targets.first()?.document ?? null
+			};
+
+			let hasAdvantage = false;
+			let hasDisadvantage = false;
+			let usePlotDice = false;
+			const rollType = dataset.rollType === 'skill' ? dataset.key : dataset.rollType;
+			console.log(system.activeEffects);
+
+			system.activeEffects.forEach(activeEffect => {
+				if (activeEffect.system.status !== 'active') return;
+				activeEffect.system.effects.forEach(e => {
+					if (e.type === 'dice') {
+						const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);
+						let data = effect.TryApplyEffect('roll', { circumstances: [rollType] });
+						if (data) {
+							switch (data.key) {
+								case 'hasAdvantage': {
+									hasAdvantage = data.value;
+									break;
+								}
+								case 'hasDisadvantage': {
+									hasDisadvantage = data.value;
+								}
+								case 'usePlotDice': {
+									usePlotDice = data.value;
+								}
+							}
+						}
+					}
+				});
+			});
+
+			if (system.hasAdvantage || hasAdvantage) {
+				if (!system.hasDisadvantage) {
+					rollData = `{${rollData}, ${rollData}}kh`;
+				}
+			}
+			if (system.hasDisadvantage || hasDisadvantage) {
+				if (!system.hasAdvantage) {
+					rollData = `{${rollData}, ${rollData}}kl`;
+				}
+			}
+
+			if (type === 'check') {
+				if (system.usePlotDice || usePlotDice) {
+					rollData += " + 1d6[plot]";
+					plot = " + 1d6";
+				}
+			}
+
+			let roll = new Roll(rollData, this.actor.getRollData());
+			if (Hooks.call("system.preRoll", roll) === false) return;
+
+			roll.toMessage({
+				flags: { cosmere: flags },
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				flavor: label,
 				rollMode: game.settings.get('core', 'rollMode'),
 			});
+
 			return roll;
 		}
 	}
 
+	getRollInfo(dataset) {
+		let type = 'damage';
+		switch (dataset.rollType) {
+			case 'skill': {
+				return [`Skill: ${dataset.label}`, "check", dataset.defense];
+			}
+			case 'strike': {
+				return [`Strike: ${dataset.label}`, "check", dataset.defense];
+			}
+			case 'critical': {
+				return [`Critical Damage: ${dataset.label}`, "damage"];
+			}
+			case 'damage': {
+				return [`Damage: ${dataset.label}`, "damage"];
+			}
+			case 'graze': {
+				return [`Graze: ${dataset.label}`, "damage"];
+			}
+			case 'recovery': {
+				type = 'healing'
+			}
+			default: {
+				return [dataset.label, type]
+			}
+		}
+	}
+
 	/** Helper Functions */
+
+	/**
+	 * Handle changing effect toggles.
+	 *
+	 * @this CosmereUnofficialActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @protected
+	 */
+	static async _onEffectToggle(event, target) {
+		event.preventDefault();
+		const li = target.parents('.effect-toggle');
+		const effect = this.actor.items.get(li.data('effectId'));
+		const toggle = effect.system.status === 'active' ? 'inactive' : 'active';
+
+		effect.update({ 'system.status': toggle });
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle weapon actions.
+	 * @param {Item} weapon   The weapon to create the action from
+	 * @private
+	 */
+	_strikeFromWeapon(weapon, context) {
+		const system = context.actor.system;
+		let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : "light_weapons";
+		let mod = system.skills.physical[skill].value;
+
+		return {
+			"name": weapon.name,
+			"_id": weapon._id,
+			"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
+			"crit": weapon.system.damage.die,
+			"defense": "physical",
+			"damageType": "[" + weapon.system.damage.type + "]",
+			"modifier": (mod >= 0) ? (`+${mod}`) : (`-${mod}`)
+		};
+	}
 
 	/**
 	 * Fetches the embedded document representing the containing HTML element
@@ -502,82 +808,6 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			case 'Folder':
 				return this._onDropFolder(event, data);
 		}
-	}
-
-	/**
-	 * Handle the dropping of ActiveEffect data onto an Actor Sheet
-	 * @param {DragEvent} event                  The concluding DragEvent which contains drop data
-	 * @param {object} data                      The data transfer extracted from the event
-	 * @returns {Promise<ActiveEffect|boolean>}  The created ActiveEffect object or false if it couldn't be created.
-	 * @protected
-	 */
-	async _onDropActiveEffect(event, data) {
-		const aeCls = getDocumentClass('ActiveEffect');
-		const effect = await aeCls.fromDropData(data);
-		if (!this.actor.isOwner || !effect) return false;
-		if (effect.target === this.actor)
-			return this._onSortActiveEffect(event, effect);
-		return aeCls.create(effect, { parent: this.actor });
-	}
-
-	/**
-	 * Handle a drop event for an existing embedded Active Effect to sort that Active Effect relative to its siblings
-	 *
-	 * @param {DragEvent} event
-	 * @param {ActiveEffect} effect
-	 */
-	async _onSortActiveEffect(event, effect) {
-		/** @type {HTMLElement} */
-		const dropTarget = event.target.closest('[data-effect-id]');
-		if (!dropTarget) return;
-		const target = this._getEmbeddedDocument(dropTarget);
-
-		// Don't sort on yourself
-		if (effect.uuid === target.uuid) return;
-
-		// Identify sibling items based on adjacent HTML elements
-		const siblings = [];
-		for (const el of dropTarget.parentElement.children) {
-			const siblingId = el.dataset.effectId;
-			const parentId = el.dataset.parentId;
-			if (
-				siblingId &&
-				parentId &&
-				(siblingId !== effect.id || parentId !== effect.parent.id)
-			)
-				siblings.push(this._getEmbeddedDocument(el));
-		}
-
-		// Perform the sort
-		const sortUpdates = SortingHelpers.performIntegerSort(effect, {
-			target,
-			siblings,
-		});
-
-		// Split the updates up by parent document
-		const directUpdates = [];
-
-		const grandchildUpdateData = sortUpdates.reduce((items, u) => {
-			const parentId = u.target.parent.id;
-			const update = { _id: u.target.id, ...u.update };
-			if (parentId === this.actor.id) {
-				directUpdates.push(update);
-				return items;
-			}
-			if (items[parentId]) items[parentId].push(update);
-			else items[parentId] = [update];
-			return items;
-		}, {});
-
-		// Effects-on-items updates
-		for (const [itemId, updates] of Object.entries(grandchildUpdateData)) {
-			await this.actor.items
-				.get(itemId)
-				.updateEmbeddedDocuments('ActiveEffect', updates);
-		}
-
-		// Update on the main actor
-		return this.actor.updateEmbeddedDocuments('ActiveEffect', directUpdates);
 	}
 
 	/**
