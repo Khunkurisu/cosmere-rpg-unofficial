@@ -1,11 +1,13 @@
-export default class CosmereUnofficialItemBase extends foundry.abstract
-  .TypeDataModel {
-  static defineSchema() {
-    const fields = foundry.data.fields;
-    const schema = {};
+import CosmereUnofficialDataModel from "./base-model.mjs";
 
-    schema.description = new fields.HTMLField();
+export default class CosmereUnofficialItemBase extends CosmereUnofficialDataModel {
+	static defineSchema() {
+		const fields = foundry.data.fields;
+		const schema = {};
 
-    return schema;
-  }
+		schema.description = new fields.StringField({ required: true, blank: true });
+		schema.showDetails = new fields.BooleanField({ required: true, initial: false });
+
+		return schema;
+	}
 }
