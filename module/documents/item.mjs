@@ -26,6 +26,15 @@ export class CosmereUnofficialItem extends Item {
 		// If present, add the actor's roll data
 		rollData.actor = this.actor.getRollData();
 
+		if (this.type === "Weapon") {
+			const skills = rollData.actor.skills.physical;
+			if (rollData.skill === "heavy") {
+				rollData.modifier = skills.heavy_weapons.value;
+			} else {
+				rollData.modifier = skills.light_weapons.value;
+			}
+		}
+
 		return rollData;
 	}
 
@@ -57,13 +66,14 @@ export class CosmereUnofficialItem extends Item {
 			const rollData = this.getRollData();
 
 			// Invoke the roll and submit it to chat.
-			const roll = new Roll(rollData.formula, rollData.actor);
+			const roll = new Roll(rollData.formula, rollData);
 			// If you need to store the value first, uncomment the next line.
 			// const result = await roll.evaluate();
 			roll.toMessage({
 				speaker: speaker,
 				rollMode: rollMode,
 				flavor: label,
+				content: item.system.description ?? '',
 			});
 			return roll;
 		}
