@@ -1,5 +1,3 @@
-import { CosmereUnofficialActor } from "../documents/actor.mjs";
-
 export const COSMERE_UNOFFICIAL = {};
 
 /**

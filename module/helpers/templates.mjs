@@ -6,6 +6,8 @@
 export const preloadHandlebarsTemplates = async function () {
 	return loadTemplates([
 		// Actor partials.
+		'systems/cosmere-rpg-unofficial/templates/actor/header.hbs',
+		'templates/generic/tab-navigation.hbs',
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-effects.hbs',
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-actions.hbs',
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-core.hbs',

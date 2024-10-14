@@ -1,0 +1,622 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* Global styles */
+.window-app {
+  font-family: "Roboto", sans-serif;
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.hoverable:hover, .hoverable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8/span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9/span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10/span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11/span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12/span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-start-2 {
+  grid-column-start: 2;
+}
+
+.grid-start-3 {
+  grid-column-start: 3;
+}
+
+.grid-start-4 {
+  grid-column-start: 4;
+}
+
+.grid-start-5 {
+  grid-column-start: 5;
+}
+
+.grid-start-6 {
+  grid-column-start: 6;
+}
+
+.grid-start-7 {
+  grid-column-start: 7;
+}
+
+.grid-start-8 {
+  grid-column-start: 8;
+}
+
+.grid-start-9 {
+  grid-column-start: 9;
+}
+
+.grid-start-10 {
+  grid-column-start: 10;
+}
+
+.grid-start-11 {
+  grid-column-start: 11;
+}
+
+.grid-start-12 {
+  grid-column-start: 12;
+}
+
+.grid-span-2 {
+  grid-column-end: span 2;
+}
+
+.grid-span-3 {
+  grid-column-end: span 3;
+}
+
+.grid-span-4 {
+  grid-column-end: span 4;
+}
+
+.grid-span-5 {
+  grid-column-end: span 5;
+}
+
+.grid-span-6 {
+  grid-column-end: span 6;
+}
+
+.grid-span-7 {
+  grid-column-end: span 7;
+}
+
+.grid-span-8 {
+  grid-column-end: span 8;
+}
+
+.grid-span-9 {
+  grid-column-end: span 9;
+}
+
+.grid-span-10 {
+  grid-column-end: span 10;
+}
+
+.grid-span-11 {
+  grid-column-end: span 11;
+}
+
+.grid-span-12 {
+  grid-column-end: span 12;
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-group-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flexshrink {
+  flex: 0;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flexlarge {
+  flex: 2;
+}
+
+.align-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.align-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.align-center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Styles limited to cosmere-rpg-unofficial sheets */
+.cosmere-rpg-unofficial {
+  /* Tooltip container */
+  /* Tooltip text */
+  /* Tooltip arrow */
+  /* Show the tooltip text when you mouse over the tooltip container */
+}
+.cosmere-rpg-unofficial .item-form {
+  font-family: "Roboto", sans-serif;
+}
+.cosmere-rpg-unofficial .sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.cosmere-rpg-unofficial .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.cosmere-rpg-unofficial .sheet-header .header-fields {
+  flex: 1;
+}
+.cosmere-rpg-unofficial .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.cosmere-rpg-unofficial .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.cosmere-rpg-unofficial .sheet-tabs {
+  flex: 0;
+}
+.cosmere-rpg-unofficial .sheet-body,
+.cosmere-rpg-unofficial .sheet-body .tab,
+.cosmere-rpg-unofficial .sheet-body .tab .editor {
+  height: 100%;
+}
+.cosmere-rpg-unofficial .tox .tox-editor-container {
+  background: #fff;
+}
+.cosmere-rpg-unofficial .tox .tox-edit-area {
+  padding: 0 8px;
+}
+.cosmere-rpg-unofficial .resource-label {
+  font-weight: bold;
+}
+.cosmere-rpg-unofficial .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.cosmere-rpg-unofficial .items-header > * {
+  font-size: 14px;
+  text-align: center;
+}
+.cosmere-rpg-unofficial .items-header .item-name {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  display: flex;
+}
+.cosmere-rpg-unofficial .encumbrance-bar {
+  position: absolute;
+  align-items: center;
+  margin-top: auto;
+  margin-left: 5%;
+  bottom: 0;
+  width: 70%;
+  background-color: rgb(90, 90, 90);
+}
+.cosmere-rpg-unofficial .encumbrance-bar-fill {
+  height: 16px;
+  background-color: purple;
+  position: relative;
+}
+.cosmere-rpg-unofficial .encumbrance-bar-label {
+  align-items: center;
+  color: #c9c7b8;
+  padding: 2 8 0;
+  position: fixed;
+  text-shadow: 0 0 2px black;
+  width: 100%;
+  z-index: 3;
+  margin-left: 2%;
+}
+.cosmere-rpg-unofficial .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.cosmere-rpg-unofficial .items-list .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cosmere-rpg-unofficial .items-list .item-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.cosmere-rpg-unofficial .items-list .item-name h3,
+.cosmere-rpg-unofficial .items-list .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.cosmere-rpg-unofficial .items-list .item-controls {
+  display: flex;
+  flex: 0 0 130px;
+  justify-content: flex-end;
+}
+.cosmere-rpg-unofficial .items-list .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.cosmere-rpg-unofficial .items-list .item-info {
+  display: flex;
+  flex: 0 0 130px;
+  justify-content: flex-end;
+}
+.cosmere-rpg-unofficial .items-list .item-info a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.cosmere-rpg-unofficial .items-list .item {
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.cosmere-rpg-unofficial .items-list .item:last-child {
+  border-bottom: none;
+}
+.cosmere-rpg-unofficial .items-list .item .item-name {
+  color: #191813;
+}
+.cosmere-rpg-unofficial .items-list .item .item-name .item-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.cosmere-rpg-unofficial .items-list .item-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.cosmere-rpg-unofficial .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.cosmere-rpg-unofficial .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.cosmere-rpg-unofficial .items-list .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.cosmere-rpg-unofficial .items-list .detail-item:hover, .cosmere-rpg-unofficial .items-list .detail-item:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.cosmere-rpg-unofficial .items-list .container-toggle:hover, .cosmere-rpg-unofficial .items-list .container-toggle:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.cosmere-rpg-unofficial .items-list .item-details {
+  padding: 5px;
+  margin: 5px;
+  text-align: left;
+  border: 1px solid rgb(150, 150, 150);
+  min-height: 30px;
+}
+.cosmere-rpg-unofficial .items-list .container-inventory {
+  padding-left: 8px;
+  margin: 3px;
+  text-align: left;
+  border: 1px solid rgb(100, 100, 100);
+}
+.cosmere-rpg-unofficial .item-talents {
+  width: 75%;
+  border-left: 3px solid rgb(100, 100, 100);
+  border-right: 3px solid rgb(100, 100, 100);
+  border-bottom: 3px solid rgb(100, 100, 100);
+  padding: 24px;
+  min-height: 50px;
+}
+.cosmere-rpg-unofficial .item-key-talent {
+  width: 75%;
+  border-left: 3px solid rgb(100, 100, 100);
+  border-right: 3px solid rgb(100, 100, 100);
+  border-top: 3px solid rgb(100, 100, 100);
+  padding: 24px;
+}
+.cosmere-rpg-unofficial .key-talent-block {
+  border: 2px dashed rgb(175, 175, 175);
+  padding: 4px;
+}
+.cosmere-rpg-unofficial .actions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.cosmere-rpg-unofficial .actions-list .action-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cosmere-rpg-unofficial .actions-list .action-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.cosmere-rpg-unofficial .actions-list .action-name h3,
+.cosmere-rpg-unofficial .actions-list .action-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.cosmere-rpg-unofficial .actions-list .action-controls {
+  display: flex;
+  flex: 0 0 130px;
+  justify-content: flex-end;
+}
+.cosmere-rpg-unofficial .actions-list .action-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.cosmere-rpg-unofficial .actions-list .action-info {
+  display: flex;
+  flex: 0 0 130px;
+  justify-content: flex-end;
+}
+.cosmere-rpg-unofficial .actions-list .action-info a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.cosmere-rpg-unofficial .actions-list .action {
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.cosmere-rpg-unofficial .actions-list .action:last-child {
+  border-bottom: none;
+}
+.cosmere-rpg-unofficial .actions-list .action .action-name {
+  color: #191813;
+}
+.cosmere-rpg-unofficial .actions-list .action .action-name .action-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.cosmere-rpg-unofficial .actions-list .action-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.cosmere-rpg-unofficial .actions-list .actions-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.cosmere-rpg-unofficial .actions-list .actions-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.cosmere-rpg-unofficial .actions-list .actions-header .action-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.cosmere-rpg-unofficial .effects .item .effect-source,
+.cosmere-rpg-unofficial .effects .item .effect-duration,
+.cosmere-rpg-unofficial .effects .item .effect-controls {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.cosmere-rpg-unofficial .effects .item .effect-controls {
+  border: none;
+}
+.cosmere-rpg-unofficial .tooltip {
+  position: relative;
+  display: inline-block;
+}
+.cosmere-rpg-unofficial .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cosmere-rpg-unofficial .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.cosmere-rpg-unofficial .tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.cosmere-rpg-unofficial .skill-pip {
+  margin-left: 3%;
+  min-width: fit-content;
+}
+.cosmere-rpg-unofficial .skill-pip:hover, .cosmere-rpg-unofficial .skill-pip:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.cosmere-rpg-unofficial .skill-column-header {
+  font-weight: bold;
+  font-size: large;
+  padding: 3px 45% 3px 45%;
+  border: 2px solid rgb(80, 80, 80);
+  background-color: rgb(100, 100, 100);
+  color: rgb(200, 200, 200);
+}
+.cosmere-rpg-unofficial .skills-list {
+  padding: 5%;
+  width: 95%;
+  border: 2px ridge rgb(100, 100, 100);
+  background-color: rgb(215, 215, 215);
+}
+.cosmere-rpg-unofficial .goal-pip {
+  margin-left: 3%;
+  min-width: fit-content;
+  align-content: flex-end;
+}
+.cosmere-rpg-unofficial .goal-pip:hover, .cosmere-rpg-unofficial .goal-pip:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.cosmere-rpg-unofficial .goal-item {
+  margin-right: 15%;
+  margin-left: 5%;
+}
+.cosmere-rpg-unofficial .goal-input {
+  max-width: 50%;
+  margin: auto;
+}
+.cosmere-rpg-unofficial .goal-remove {
+  margin: auto;
+  margin-right: 3px;
+  max-width: fit-content;
+}
