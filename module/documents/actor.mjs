@@ -84,6 +84,13 @@ export class CosmereUnofficialActor extends Actor {
 			}
 		}
 
+		systemData.path.sort((a, b) => {
+			let val = 0;
+			val += a.system.isRadiant ? 1 : -1;
+			val += b.system.isRadiant ? -1 : 1;
+			return val;
+		});
+
 		systemData.isRadiant = this.isRadiant(systemData);
 
 		this.setDefenses(actorData);
