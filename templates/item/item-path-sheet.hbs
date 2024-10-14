@@ -1,0 +1,112 @@
+<form class='{{cssClass}}' autocomplete='off'>
+	<header class='sheet-header'>
+		<img class='profile-img' src='{{item.img}}' data-edit='img' title='{{item.name}}' />
+		<div class='header-fields'>
+			<h1 class='charname'><input name='name' type='text' value='{{item.name}}' placeholder='Name' /></h1>
+		</div>
+	</header>
+
+	{{! Sheet Tab Navigation }}
+	<nav class='sheet-tabs tabs' data-group='primary'>
+		<a class='item' data-tab='description'>Description</a>
+		<a class='item' data-tab='attributes'>Attributes</a>
+	</nav>
+
+	{{! Sheet Body }}
+	<section class='sheet-body'>
+
+		{{! Description Tab }}
+		<div class='tab' data-group='primary' data-tab='description'>
+			{{! Editors must receive enriched text data from getData to properly handle rolls }}
+			{{editor
+        enrichedDescription
+        target='system.description'
+        engine='prosemirror'
+        button=true
+        editable=editable
+      }}
+		</div>
+
+		{{! Attributes Tab }}
+		<div class='tab attributes' data-group='primary' data-tab='attributes'>
+			{{! As you add new fields, add them in here! }}
+			<div class='grid grid-4col flex-group-center'>
+				<div class='grid-span-1 flexrow'>
+					<label for="radiant-toggle" class="resource-label" style="min-width:fit-content">
+						Radiant?
+					</label>
+					<input class="radiant-toggle-checkbox" type="checkbox" id="radiant-toggle" name="radiant-toggle"
+						value="{{system.isRadiant}}" {{#if system.isRadiant}} checked="true" {{/if}}>
+				</div>
+				<div class='grid-span-2 flexrow'>
+					<label class='resource-label' for='system.skill'>Starting Skill</label><br />
+					<select name='system.skill' class='path-skill-select'>
+						<option value="athletics" {{isSelected 'athletics' system.skill}}>Athletics</option>
+						<option value="agility" {{isSelected 'agility' system.skill}}>Agility</option>
+						<option value="heavy_weapons" {{isSelected 'heavy_weapons' system.skill}}>Heavy Weapons</option>
+						<option value="light_weapons" {{isSelected 'light_weapons' system.skill}}>Light Weapons</option>
+						<option value="stealth" {{isSelected 'stealth' system.skill}}>Stealth</option>
+						<option value="thievery" {{isSelected 'thievery' system.skill}}>Thievery</option>
+						<option value="crafting" {{isSelected 'crafting' system.skill}}>Crafting</option>
+						<option value="deduction" {{isSelected 'deduction' system.skill}}>Deduction</option>
+						<option value="discipline" {{isSelected 'discipline' system.skill}}>Discipline</option>
+						<option value="intimidation" {{isSelected 'intimidation' system.skill}}>Intimidation</option>
+						<option value="lore" {{isSelected 'lore' system.skill}}>Lore</option>
+						<option value="medicine" {{isSelected 'medicine' system.skill}}>Medicine</option>
+						<option value="deception" {{isSelected 'deception' system.skill}}>Deception</option>
+						<option value="insight" {{isSelected 'insight' system.skill}}>Insight</option>
+						<option value="leadership" {{isSelected 'leadership' system.skill}}>Leadership</option>
+						<option value="perception" {{isSelected 'perception' system.skill}}>Perception</option>
+						<option value="persuasion" {{isSelected 'persuasion' system.skill}}>Persuasion</option>
+						<option value="survival" {{isSelected 'survival' system.skill}}>Survival</option>
+					</select>
+				</div>
+				<div class="grid-span-1 flexrow"><span></span></div>
+			</div>
+			<hr />
+			<div class="specialty flexcol flex-group-center">
+				<div class="flexrow flexlarge" style="width:60%">
+					<label for="specialty-list" class="resource-label">
+						Specialties
+					</label>
+					<div class='create-specialty flexlarge'>
+						<a class='specialty-create' title='{{localize (lookup @root.config.paths "specialties_new")}}'>
+							<i class='fas fa-plus'></i>
+							<label for='specialty-create'>New Specialty</label>
+						</a>
+					</div>
+				</div>
+				<ol class="specialty-list flexlarge">
+					{{#each system.specialties as |specialty key|}}
+						<li class="grid grid-4col">
+							<div class="grid-span-3">
+								<input type="text" name="system.specialties.{{key}}" value="{{specialty}}"
+									data-dtype="String" />
+							</div>
+							<div class="flexcol">
+								<a class='specialty-remove' data-key="{{@index}}"
+									title='{{localize (lookup @root.config.paths "specialty_remove")}}'>
+									<i class='fas fa-trash'>
+										{{localize (lookup @root.config.paths "specialty_remove")}}
+									</i>
+								</a>
+							</div>
+						</li>
+					{{else}}
+						<li class="flexcol">{{localize (lookup @root.config.paths "specialty_empty")}}</li>
+					{{/each}}
+				</ol>
+			</div>
+			<hr />
+			<div class='talents flexcol flexlarge flex-group-center'>
+				<div class="item-key-talent flexrow">
+					<label class='resource-label'>Key Talent</label>
+					<span class='key-talent-block'>Test{{keyTalent}}</span>
+				</div>
+				<div class='item-talents flexcol'>
+					{{> "systems/cosmere-rpg-unofficial/templates/item/parts/item-talents.hbs"}}
+				</div>
+			</div>
+		</div>
+	</section>
+</form>

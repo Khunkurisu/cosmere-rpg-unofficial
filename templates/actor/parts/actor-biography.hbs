@@ -1,0 +1,94 @@
+<div class="resources flexcol">
+	<div class="backstory flexcol">
+		<div class="backstory flexcol">
+			<label for="backstory" class="resource-label flexlarge flex-group-left">
+				{{localize (lookup @root.config.biography "backstory")}}
+			</label>
+		</div>
+		<div class="backstory flexcol" style="min-height: 250px;">
+			{{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
+			{{editor enrichedBiography target="system.biography.backstory" engine="prosemirror" button=true editable=editable}}
+		</div>
+	</div>
+	<hr />
+	<div class="grid grid-2col">
+		<div class="goals flexcol">
+			<label for="goals" class="resource-label flexlarge flex-group-left">
+				{{localize (lookup @root.config.biography "goals")}}
+			</label>
+			<ol class="goals-list">
+				{{#each system.biography.goals as |goal key|}}
+					<li class="goal-item flexrow flex-group-left">
+						<a class='goal-remove' data-key="{{@index}}"
+							title='{{localize (lookup @root.config.biography goals_remove)}}'>
+							<i class='fas fa-trash'>
+								{{localize (lookup @root.config.biography goals_remove)}}
+							</i>
+						</a>
+						<input class="goal-input" type="text" name="system.biography.goals.{{key}}.text"
+							value="{{goal.text}}" data-dtype="String" />
+						<div class="goal-pip" data-goal="{{key}}">
+							<i class="fa-{{pipRank goal.progress 1}} fa-circle"></i>
+							<i class="fa-{{pipRank goal.progress 2}} fa-circle"></i>
+							<i class="fa-{{pipRank goal.progress 3}} fa-circle"></i>
+						</div>
+					</li>
+				{{/each}}
+			</ol>
+			<div class='create-goal'>
+				<a class='goal-create' title='{{localize (lookup @root.config.biography goals_new)}}'>
+					<i class='fas fa-plus'></i>
+					{{localize (lookup @root.config.biography "goals_new")}}
+				</a>
+			</div>
+		</div>
+		<div class="connections flexcol">
+			<label for="connections" class="resource-label flexlarge flex-group-left">
+				{{localize (lookup @root.config.biography "connections")}}
+			</label>
+			<ol class="connections-list">
+				{{#each system.biography.connections as |connection key|}}
+					<li class="grid grid-4col">
+						<div class="grid-span-3">
+							<input type="text" name="system.biography.connections.{{key}}" value="{{connection}}"
+								data-dtype="String" />
+						</div>
+						<div class="flexcol">
+							<a class='connection-remove' data-key="{{@index}}"
+								title='{{localize (lookup @root.config.biography connections_remove)}}'>
+								<i class='fas fa-trash'>
+									{{localize (lookup @root.config.biography connections_remove)}}
+								</i>
+							</a>
+						</div>
+					</li>
+				{{else}}
+					<li class="flexcol">{{localize (lookup @root.config.biography connections_empty)}}</li>
+				{{/each}}
+			</ol>
+			<div class='create-connection'>
+				<a class='connection-create' title='{{localize (lookup @root.config.biography connections_new)}}'>
+					<i class='fas fa-plus'></i>
+					{{localize (lookup @root.config.biography "connections_new")}}
+				</a>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="grid grid-2col">
+		<div class="purpose flexcol">
+			<label for="purpose" class="resource-label flexlarge flex-group-left">
+				{{localize (lookup @root.config.biography "purpose")}}
+			</label>
+			<input type="text" name="system.biography.purpose" value="{{system.biography.purpose}}"
+				data-dtype="String" />
+		</div>
+		<div class="obstacle flexcol">
+			<label for="obstacle" class="resource-label flexlarge flex-group-left">
+				{{localize (lookup @root.config.biography "obstacle")}}
+			</label>
+			<input type="text" name="system.biography.obstacle" value="{{system.biography.obstacle}}"
+				data-dtype="String" />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,96 @@
+<div class="flexcol flexlarge flex-group-center">
+	<ol class="items-list effects-list">
+		{{#each system.effects as |effect id|}}
+			<li class='item flexrow' style="padding-bottom:5px;padding-top:5px;" data-item-id='{{id}}'>
+				{{#if (ifEquals effect.type 'modifier')}}
+					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
+					<div class="grid grid-5col">
+						<div class="flexcol grid-span-3 flex-group-left">
+							<label class='resource-label'>Target Path</label>
+							<input class='effect-input' type='text' name='target' value='{{effect.target}}'
+								data-dtype='String' data-target="target" />
+						</div>
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Function</label>
+							<select name='effect.func' class='effect-func'>
+								<option value="add" {{isSelected 'add' effect.func}}>Add</option>
+								<option value="subtract" {{isSelected 'subtract' effect.func}}>Subtract</option>
+								<option value="increase" {{isSelected 'increase' effect.func}}>Increase</option>
+								<option value="decrease" {{isSelected 'decrease' effect.func}}>Decrease</option>
+								<option value="override" {{isSelected 'override' effect.func}}>Override</option>
+							</select>
+						</div>
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Value</label>
+							<input class='effect-input' type='text' name='effect.value' value='{{effect.value}}'
+								data-dtype='Number' data-target="value" />
+						</div>
+					</div>
+					<div class="flexcol" style="max-width:min-content; padding-left:5px">
+						<a class='effect-remove' data-key="{{id}}" title='Delete Effect'>
+							<i class='fas fa-trash'></i>
+						</a>
+					</div>
+				{{/if}}
+				{{#if (ifEquals effect.type 'dice')}}
+					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
+					<div class="grid grid-5col">
+						<div class="flexcol grid-span-3 flex-group-left">
+							<label class='resource-label'>Target Path</label>
+							<input class='effect-input' type='text' name='target' value='{{effect.target}}'
+								data-dtype='String' data-target="target" />
+						</div>
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Function</label>
+							<select name='effect.func' class='effect-func'>
+								<option value="advantage" {{isSelected 'advantage' effect.func}}>Advantage</option>
+								<option value="disadvantage" {{isSelected 'disadvantage' effect.func}}>Disadvantage
+								</option>
+							</select>
+						</div>
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Value</label>
+							<input class='effect-input' type='checkbox' name='effect.value' value='{{effect.value}}'
+								{{#if effect.value}} checked="true" {{/if}} data-target="value" />
+						</div>
+					</div>
+					<div class="flexcol" style="max-width:min-content; padding-left:5px">
+						<a class='effect-remove' data-key="{{id}}" title='Delete Effect'>
+							<i class='fas fa-trash'></i>
+						</a>
+					</div>
+				{{/if}}
+			</li>
+		{{/each}}
+	</ol>
+</div>
+<hr />
+<div class="flexrow">
+	<div class="grid grid-5col flex-group-right">
+		<div class="grid-span-3"><span></span></div>
+		<select name='effectCreateType' class='effect-create-select'>
+			<option value="base" {{isSelected 'base' system.effectCreateType}}>Base</option>
+			<option value="modifier" {{isSelected 'modifier' system.effectCreateType}}>Modifier</option>
+		</select>
+		<span class="hoverable" style="width:100%;" data-effect-type="{{system.effectCreateType}}">
+			<a class='effect-create' title='Add Effect'>
+				<i class='fas fa-plus'></i>
+				Add Effect
+			</a>
+		</span>
+	</div>
+</div>
+<div class="grid grid-3col flex-group-right">
+	<div class="grid-span-1"><span></span></div>
+	<div class="flexrow">
+		<label for="hide-on-sheet" class="resource-label">Hide On Sheet </label><br>
+		<input class="effect-toggle-checkbox" data-toggle="hide-on-sheet" type="checkbox" id="hide-on-sheet"
+			name="hide-on-sheet" value="{{system.hide}}" {{#if system.hide}} checked="true"
+			{{/if}}{{#if system.toggle}}disabled="true" {{/if}}>
+	</div>
+	<div class="flexrow">
+		<label for="action-toggle" class="resource-label">Has Action Toggle </label><br>
+		<input class="effect-toggle-checkbox" data-toggle="action-toggle" type="checkbox" id="action-toggle"
+			name="action-toggle" value="{{system.toggle}}" {{#if system.toggle}} checked="true" {{/if}}>
+	</div>
+</div>

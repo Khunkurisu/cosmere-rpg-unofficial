@@ -1,0 +1,46 @@
+<section class="dice-roll damage-roll" data-tooltip-class="pf2e">
+	{{#if flavor}}
+		<div class="dice-flavor">{{flavor}}</div>
+	{{/if}}
+	<div class="dice-result">
+		<div class="dice-formula">{{formula}}</div>
+		{{{tooltip}}}
+		<h4 class="dice-total">
+			<span class="total">{{~total}}</span>
+			{{#if (and instances.length showTotalInstances)}}
+				<div class="instances">
+					(
+					{{~#each instances as |instance|~}}
+						<span class="damage instance color {{instance.type}}" data-tooltip="{{instance.typeLabel}}">
+							{{instance.total}}<i class="{{damageIcon instance.typeLabel}}"></i>
+						</span>
+						{{~#unless @last}} + {{/unless~}}
+							{{~/each~}}
+							)
+				</div>
+			{{/if}}
+		</h4>
+	</div>
+</section>
+
+<section class="damage-application">
+	<button type="button" data-action="apply-damage"
+		title="{{localize "PF2E.DamageButton.Full"}}&#013;{{localize "PF2E.DamageButton.Adjust"}}">
+		<i class="fa-solid fa-heart-broken fa-fw"></i>
+		<span
+			class="label">{{#if splashOnly}}{{localize "PF2E.TraitSplash"}}{{else}}{{localize "PF2E.DamageButton.FullShort"}}{{/if}}</span>
+	</button>
+	<button type="button" class="apply-graze" data-action="apply-graze"
+		title="{{localize "PF2E.DamageButton.Half"}}&#013;{{localize "PF2E.DamageButton.Adjust"}}">
+		<i class="fa-solid fa-heart-broken fa-fw"></i>
+		<span class="label">{{localize "PF2E.DamageButton.HalfShort"}}</span>
+	</button>
+	<button type="button" class="apply-healing" data-action="apply-healing"
+		title="{{localize "PF2E.DamageButton.Healing"}}&#013;{{localize "PF2E.DamageButton.Adjust"}}">
+		<span class="fa-stack fa-fw">
+			<i class="fa-solid fa-heart fa-stack-2x"></i>
+			<i class="fa-solid fa-plus fa-inverse fa-stack-1x"></i>
+		</span>
+		<span class="label">{{localize "PF2E.DamageButton.HealingShort"}}</span>
+	</button>
+</section>
