@@ -56,7 +56,6 @@
 	padding: 0;
 	overflow-y: auto;
 	scrollbar-width: thin;
-	color: $c-tan;
 
 	// Child lists
 	.item-list {
@@ -115,7 +114,6 @@
 			border-bottom: none;
 		}
 		.item-name {
-			color: $c-dark;
 			.item-image {
 				flex: 0 0 30px;
 				height: 30px;

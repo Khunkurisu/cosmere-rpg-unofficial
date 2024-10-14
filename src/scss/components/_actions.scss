@@ -10,7 +10,6 @@
 	padding: 0;
 	overflow-y: auto;
 	scrollbar-width: thin;
-	color: $c-tan;
 
 	// Child lists
 	.action-list {
@@ -69,7 +68,6 @@
 			border-bottom: none;
 		}
 		.action-name {
-			color: $c-dark;
 			.action-image {
 				flex: 0 0 30px;
 				height: 30px;

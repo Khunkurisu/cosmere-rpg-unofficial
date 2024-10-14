@@ -74,31 +74,13 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		main: {
 			template: 'systems/cosmere-rpg-unofficial/templates/actor/actor-sheet.hbs',
 		},
-		actions: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-actions.hbs',
-		},
-		features: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-feats.hbs',
-		},
-		biography: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-biography.hbs',
-		},
-		items: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-items.hbs',
-		},
-		skills: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-skills.hbs',
-		},
-		effects: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-effects.hbs',
-		},
 	};
 
 	/** @override */
 	_configureRenderOptions(options) {
 		super._configureRenderOptions(options);
 		// Not all parts always render
-		options.parts = ['main', 'actions', 'features', 'items', 'skills', 'effects', 'biography'];
+		options.parts = ['main'];
 		// Don't show the other tabs if only limited view
 		if (this.document.limited) return;
 	}
@@ -120,7 +102,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			flags: this.actor.flags,
 			// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
 			config: CONFIG.COSMERE_UNOFFICIAL,
-			tabs: this._getTabs(options.parts),
+			tabs: this._getTabs(['actions', 'items', 'skills', 'features', 'biography', 'effects']),
 			// Necessary for formInput and formFields helpers
 			fields: this.document.schema.fields,
 			systemFields: this.document.system.schema.fields,
@@ -168,12 +150,12 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	 * @returns {Record<string, Partial<ApplicationTab>>}
 	 * @protected
 	 */
-	_getTabs(parts) {
+	_getTabs(actorTabs) {
 		// If you have sub-tabs this is necessary to change
 		const tabGroup = 'primary';
 		// Default tab for first time it's rendered this session
 		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = 'actions';
-		return parts.reduce((tabs, partId) => {
+		const reducedTags = actorTabs.reduce((tabs, partId) => {
 			const tab = {
 				cssClass: '',
 				group: tabGroup,
@@ -216,6 +198,8 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			tabs[partId] = tab;
 			return tabs;
 		}, {});
+		console.log(reducedTags);
+		return reducedTags;
 	}
 
 	/**
@@ -379,65 +363,9 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		// Foundry comes with a large number of utility classes, e.g. SearchFilter
 		// That you may want to implement yourself.
 
-
 		// -------------------------------------------------------------
 		// Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
-		const html = this.element;
-
-		// Increase Item Quantity
-		html.querySelector('.item-quantity-inc').addEventListener('click', onItemIncrease.bind(this));
-
-		// Decrease Item Quantity
-		html.querySelector('.item-quantity-dec').addEventListener('click', onItemDecrease.bind(this));
-
-		// Equip an Item
-		html.querySelector('.item-equip').addEventListener('click', onItemEquip.bind(this));
-
-		// Unequip an Item
-		html.querySelector('.item-unequip').addEventListener('click', onItemUnequip.bind(this));
-
-		// Add/Remove Biography Goal
-		html.querySelector('.goal-create').addEventListener('click', onGoalCreate.bind(this));
-		html.querySelector('.goal-remove').addEventListener('click', onGoalRemove.bind(this));
-
-		// Increase/Decrease Biography Goal Progress
-		html.querySelector('.goal-pip').addEventListener('click', onGoalIncrease.bind(this));
-		html.querySelector('.goal-pip').addEventListener('contextmenu', onGoalDecrease.bind(this));
-
-		// Add/Remove Biography Connection
-		html.querySelector('.connection-create').addEventListener('click', onConnectionCreate.bind(this));
-		html.querySelector('.connection-remove').addEventListener('click', onConnectionRemove.bind(this));
-
-		// Add/Remove Expertise
-		html.querySelector('.expertise-create').addEventListener('click', onExpertiseCreate.bind(this));
-		html.querySelector('.expertise-remove').addEventListener('click', onExpertiseRemove.bind(this));
-
-		// Increase/Decrease Skill
-		html.querySelector('.skill-pip').addEventListener('click', onSkillIncrease.bind(this));
-		html.querySelector('.skill-pip').addEventListener('contextmenu', onSkillDecrease.bind(this));
-
-		// Enable/Disable Plot Dice
-		html.querySelector('.plot-dice-on').addEventListener('click', onPlotDiceToggle.bind(this, true));
-		html.querySelector('.plot-dice-off').addEventListener('click', onPlotDiceToggle.bind(this, false));
-
-		// Enable/Disable Advantage
-		html.querySelector('.advantage-on').addEventListener('click', onAdvantageToggle.bind(this, true));
-		html.querySelector('.advantage-off').addEventListener('click', onAdvantageToggle.bind(this, false));
-
-		// Enable/Disable Disadvantage
-		html.querySelector('.disadvantage-on').addEventListener('click', onDisadvantageToggle.bind(this, true));
-		html.querySelector('.disadvantage-off').addEventListener('click', onDisadvantageToggle.bind(this, false));
-
-		// View Item Details
-		html.querySelector('.detail-item').addEventListener('click', onItemDetails.bind(this));
-
-		// Handle Container Items
-		html.querySelector('.container-toggle').addEventListener('click', onContainerToggle.bind(this));
-		html.querySelector('.item').addEventListener('dragstart', onItemDrag.bind(this));
-		html.querySelector('.item').addEventListener('dragover', (ev) => { ev.preventDefault(); });
-		html.querySelector('.item').addEventListener('drop', onItemDrop.bind(this));
-		html.querySelector('.container-inventory').addEventListener('drop', onItemDrop.bind(this));
 	}
 
 	/**************
