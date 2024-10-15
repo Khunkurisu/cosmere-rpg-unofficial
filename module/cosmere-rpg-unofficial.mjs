@@ -204,3 +204,15 @@ function rollItemMacro(itemUuid) {
 		item.roll();
 	});
 }
+
+Hooks.on("renderActorSheet", (function (o, i, n) {
+	console.log(o);
+	console.log(i);
+	console.log(n);
+}));
+
+Hooks.on("renderItemSheet", (function (o, i, n) {
+	console.log(o);
+	console.log(i);
+	console.log(n);
+}));

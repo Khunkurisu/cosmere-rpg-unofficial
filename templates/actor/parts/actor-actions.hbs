@@ -14,13 +14,13 @@
 		</ol>
 	</div>
 	<div>
-		<ol class='actions-list'>
-			<li class='action flexrow actions-header'>
-				<div class='action-name'>{{localize 'Strikes'}}</div>
+		<ol class='items-list'>
+			<li class='item flexrow items-header'>
+				<div class='item-name'>{{localize 'Strikes'}}</div>
 			</li>
 			{{#each strikes as |action id|}}
-				<li class='action flexrow' data-action-id='{{action._id}}' data-strike-index="{{id}}">
-					<div class='strike-name flex-group-left flexlarge'>
+				<li class='item flexrow' data-item-id='{{action._id}}'>
+					<div class='item-name flex-group-left flexlarge'>
 						{{action.name}}
 					</div>
 					<div class='strike-attack flex-group-left'>
@@ -78,14 +78,14 @@
 			{{/each}}
 		</ol>
 		<hr />
-		<ol class='actions-list'>
+		<ol class='items-list'>
 			{{#each potentialStrikes as |action id|}}
-				<li class='item action flexrow' data-item-id='{{action._id}}'>
-					<div class='strike-name flex-group-left'>
+				<li class='item flexrow' data-item-id='{{action._id}}'>
+					<div class='item-name flex-group-left'>
 						{{action.name}}
 					</div>
 					<div class='equip-strike-weapon flex-group-left flexlarge'>
-						<a class='action-control item-equip' title='{{localize "Equip"}}'>
+						<a class='item-control item-equip' title='{{localize "Equip"}}'>
 							{{localize "Equip"}}
 							<i class='fa-regular fa-hand-back-fist'></i>
 						</a>

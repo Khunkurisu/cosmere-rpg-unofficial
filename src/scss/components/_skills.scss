@@ -13,14 +13,15 @@
 	font-weight: bold;
 	font-size: large;
 	padding: 3px 45% 3px 45%;
-	border: 2px solid rgb(80, 80, 80);
-	background-color: rgb(100, 100, 100);
-	color: rgb(200, 200, 200);
+	border: 2px solid $c-black;
+	background-color: $c-tan;
+	color: $c-faint;
 }
 
 .skills-list {
 	padding: 5%;
 	width: 95%;
-	border: 2px ridge rgb(100, 100, 100);
-	background-color: rgb(215, 215, 215);
+	border: 2px ridge $c-black;
+	background-color: $c-tan;
+	color: $c-faint;
 }
