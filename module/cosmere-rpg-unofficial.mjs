@@ -7,6 +7,7 @@ import { CosmereUnofficialItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { COSMERE_UNOFFICIAL } from './helpers/config.mjs';
+import { registerSettings } from './helpers/settings.mjs';
 // Import DataModel classes
 import * as models from './data-models.mjs';
 
@@ -66,10 +67,12 @@ Hooks.once('init', function () {
 		makeDefault: true,
 		label: 'COSMERE_UNOFFICIAL.SheetLabels.Item',
 	});
+	registerSettings();
 
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
 });
+
 
 /* -------------------------------------------- */
 /*  Handlebars Helpers                          */
@@ -204,3 +207,24 @@ function rollItemMacro(itemUuid) {
 		item.roll();
 	});
 }
+
+Hooks.on("renderApplication", (function (o, i, n) {
+	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
+		i.attr('data-theme', 'dark');
+	}
+}));
+Hooks.on("createProseMirrorEditor", (function (o, i, n) {
+	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
+		i.attr('data-theme', 'dark');
+	}
+}));
+Hooks.on("renderActorSheet", (function (o, i, n) {
+	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
+		i.attr('data-theme', 'dark');
+	}
+}));
+Hooks.on("renderItemSheet", (function (o, i, n) {
+	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
+		i.attr('data-theme', 'dark');
+	}
+}));

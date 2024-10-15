@@ -1,3 +1,12 @@
+:root {
+	--crpgu-primary-bg: #f3f9f9;
+	--crpgu-secondary-bg: #e6eded;
+	--crpgu-transparent-bg: #f3f9f9d1;
+	--crpgu-primary-font: #2a2a40;
+	--crpgu-secondary-font: #4e4b47;
+	--crpgu-header-color: #bcbcbc;
+}
+
 .window-app {
 	font-family: $font-primary;
 }
@@ -5,7 +14,7 @@
 .rollable {
 	&:hover,
 	&:focus {
-		color: $c-darkish;
+		color: var(--crpgu-primary-font);
 		text-shadow: 0 0 10px red;
 		cursor: pointer;
 	}
@@ -14,7 +23,7 @@
 .hoverable {
 	&:hover,
 	&:focus {
-		color: $c-darkish;
+		color: var(--crpgu-primary-font);
 		text-shadow: 0 0 10px red;
 		cursor: pointer;
 	}

@@ -3,12 +3,21 @@
 @import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap);
 
+[data-theme='dark'] {
+	--crpgu-primary-bg: #1e1e2d;
+	--crpgu-secondary-bg: #2a2a40;
+	--crpgu-transparent-bg: #1e1e2dd1;
+	--crpgu-primary-font: #b8c8c9;
+	--crpgu-secondary-font: #b5b3a4;
+	--crpgu-header-color: #000;
+}
+
 .window-app {
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 }
 
 .window-app .window-header {
-	background: $c-black;
+	background: var(--crpgu-header-color);
 }
 
 .window-app .window-content {
@@ -17,7 +26,7 @@
 
 .window-app:not(.item):not(.actor) {
 	font-family: 'PT Sans', monospace;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor).journal-sheet {
@@ -25,48 +34,48 @@
 }
 
 .window-app:not(.item):not(.actor).journal-sheet .window-content aside.sidebar {
-	background: rgba(25, 25, 20, 0.8196078431);
+	background: var(--crpgu-transparent-bg);
 }
 
 .window-app:not(.item):not(.actor) .window-content {
-	color: $c-faint;
-	background: $c-dark;
+	color: var(--crpgu-primary-font);
+	background: var(--crpgu-primary-bg);
 }
 
 .window-app:not(.item):not(.actor) .window-content button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 3px;
 }
 
 .window-app:not(.item):not(.actor) .window-content button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 .window-app:not(.item):not(.actor) .window-content button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 .window-app:not(.item):not(.actor) .window-content button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content label,
@@ -95,13 +104,13 @@
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-black;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-header-color);
 }
 
 .window-app:not(.item):not(.actor) .window-content input,
@@ -109,9 +118,9 @@
 .window-app:not(.item):not(.actor) .window-content textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-black !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-header-color) !important;
 	border-radius: 5px !important;
 }
 
@@ -127,15 +136,15 @@
 .window-app:not(.item):not(.actor) .window-content input[type='text']:active,
 .window-app:not(.item):not(.actor) .window-content textarea:focus,
 .window-app:not(.item):not(.actor) .window-content textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 .window-app:not(.item):not(.actor) .window-content input:disabled,
 .window-app:not(.item):not(.actor) .window-content input[type='text']:disabled,
 .window-app:not(.item):not(.actor) .window-content textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .window-app:not(.item):not(.actor) .window-content input[type='number'] {
@@ -155,15 +164,15 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content table {
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .window-app:not(.item):not(.actor) .window-content table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -176,12 +185,12 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .window-app:not(.item):not(.actor) .window-content table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content table tbody tr {
@@ -199,7 +208,7 @@
 .window-app:not(.item):not(.actor) .window-content .journal-header .title {
 	font-family: 'Bebas Neue', monospace;
 	font-weight: bold;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -208,12 +217,12 @@
 	.page-level
 	.heading-level
 	select {
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror {
-	background: #171619;
-	color: $c-beige;
+	background: var(--crpgu-secondary-bg);
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -221,11 +230,11 @@
 	.prosemirror
 	.editor-menu
 	button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 3px;
 }
 
@@ -236,7 +245,7 @@
 	button
 	.tox-icon
 	svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -245,7 +254,7 @@
 	.editor-menu
 	button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
@@ -257,7 +266,7 @@
 	button:hover
 	.tox-icon
 	svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -266,9 +275,9 @@
 	.editor-menu
 	button:hover
 	ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
@@ -280,7 +289,7 @@
 	ul
 	li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -351,7 +360,7 @@
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -359,9 +368,9 @@
 	.prosemirror
 	.editor-menu
 	select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-black;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-header-color);
 }
 
 .window-app:not(.item):not(.actor)
@@ -381,9 +390,9 @@
 	textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-black !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-header-color) !important;
 	border-radius: 5px !important;
 }
 
@@ -435,7 +444,7 @@
 	.prosemirror
 	.editor-menu
 	textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
@@ -454,8 +463,8 @@
 	.prosemirror
 	.editor-menu
 	textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .window-app:not(.item):not(.actor)
@@ -491,7 +500,7 @@
 	.prosemirror
 	.editor-menu
 	table {
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -502,9 +511,9 @@
 	.editor-menu
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -531,7 +540,7 @@
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -541,7 +550,7 @@
 	.editor-menu
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -586,7 +595,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-black;
+	border-bottom: 2px solid var(--crpgu-header-color);
 }
 
 .window-app:not(.item):not(.actor)
@@ -644,10 +653,10 @@
 	.editor-content
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -680,7 +689,7 @@
 	.editor-container
 	.editor-content
 	table {
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -692,9 +701,9 @@
 	.editor-content
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -723,7 +732,7 @@
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -734,7 +743,7 @@
 	.editor-content
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -760,7 +769,7 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror textarea {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce {
@@ -769,9 +778,9 @@
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce {
-	background: #171619;
-	color: $c-beige;
-	border: 1px solid $c-black;
+	background: var(--crpgu-secondary-bg);
+	color: var(--crpgu-secondary-font);
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 }
 
@@ -789,7 +798,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-black;
+	border-bottom: 2px solid var(--crpgu-header-color);
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content h2,
@@ -835,10 +844,10 @@
 	.tox-tinymce
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -880,7 +889,7 @@
 	.editor-content
 	table,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce table {
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -897,9 +906,9 @@
 	.tox-tinymce
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -942,7 +951,7 @@
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -958,7 +967,7 @@
 	.tox-tinymce
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1009,8 +1018,8 @@
 }
 
 .window-app option {
-	background-color: $c-black;
-	color: $c-faint;
+	background-color: var(--crpgu-header-color);
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1025,11 +1034,11 @@
 	.tox-tinymce
 	.tox-editor-container
 	.tox-editor-header {
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	border-radius: 5px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	background-color: $c-darkish;
+	background-color: var(--crpgu-secondary-bg);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1086,11 +1095,11 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-black;
+	border: 1px solid var(--crpgu-header-color);
 	border-radius: 3px;
 }
 
@@ -1116,7 +1125,7 @@
 	button
 	.tox-icon
 	svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1138,7 +1147,7 @@
 	.tox-toolbar__primary
 	button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
@@ -1165,7 +1174,7 @@
 	button:hover
 	.tox-icon
 	svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1188,9 +1197,9 @@
 	.tox-toolbar__primary
 	button:hover
 	ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
@@ -1217,7 +1226,7 @@
 	ul
 	li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1425,7 +1434,7 @@
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1446,9 +1455,9 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .window-app:not(.item):not(.actor)
@@ -1507,9 +1516,9 @@
 	textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -1678,7 +1687,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
@@ -1736,8 +1745,8 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .window-app:not(.item):not(.actor)
@@ -1825,7 +1834,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -1850,9 +1859,9 @@
 	.tox-toolbar__primary
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -1911,7 +1920,7 @@
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -1935,7 +1944,7 @@
 	.tox-toolbar__primary
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor)
@@ -2002,23 +2011,23 @@
 	.tox-editor-container
 	.tox-sidebar-wrap
 	.tox-edit-area {
-	background: $c-faint;
+	background: var(--crpgu-primary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce textarea {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .window-app:not(.item):not(.actor) .window-content table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -2031,12 +2040,12 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .window-app:not(.item):not(.actor) .window-content table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content table tbody tr {
@@ -2053,12 +2062,12 @@
 
 .window-app:not(.item):not(.actor) .window-content nav.sheet-tabs {
 	border: none;
-	border-top: 1px solid $c-darkish;
-	border-bottom: 1px solid $c-darkish;
+	border-top: 1px solid var(--crpgu-secondary-bg);
+	border-bottom: 1px solid var(--crpgu-secondary-bg);
 }
 
 .window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item:hover {
@@ -2067,14 +2076,14 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item.active {
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	text-shadow: none;
 	font-weight: bold;
 }
 
 .window-app:not(.item):not(.actor) .window-content .notes {
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-style: italic;
 	font-weight: normal;
 	font-size: 0.8rem;
@@ -2082,12 +2091,12 @@
 
 .window-app:not(.item):not(.actor) .window-content hr {
 	border: none;
-	border-bottom: 1px solid $c-darkish;
+	border-bottom: 1px solid var(--crpgu-secondary-bg);
 	margin: 1rem 0 0 1rem;
 }
 
 body {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
 }
 
@@ -2101,9 +2110,9 @@ body {
 
 #interface #ui-left nav#controls .scene-control,
 #interface #ui-left nav#controls .control-tool {
-	background: $c-dark;
-	border: 1px solid $c-darkish;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	border: 1px solid var(--crpgu-secondary-bg);
+	color: var(--crpgu-secondary-font);
 	border-radius: 3px;
 }
 
@@ -2111,7 +2120,7 @@ body {
 #interface #ui-left nav#controls .control-tool.active {
 	border: 1px solid #af1c1c;
 	box-shadow: none;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface #ui-left nav#controls .scene-control:hover,
@@ -2119,29 +2128,30 @@ body {
 	background: #af1c1c;
 	border: 1px solid #af1c1c;
 	box-shadow: none;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface #ui-left #players {
-	border: 1px solid $c-darkish;
-	color: $c-beige;
+	border: 1px solid var(--crpgu-secondary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 }
 
 #interface #ui-right #sidebar {
-	border: 1px solid $c-darkish;
-	color: $c-beige;
+	border: 1px solid var(--crpgu-secondary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 }
 
 #interface #ui-right #sidebar nav#sidebar-tabs {
-	border-bottom: 1px solid $c-darkish;
+	border-bottom: 1px solid var(--crpgu-secondary-bg);
+	background-color: var(--crpgu-transparent-bg);
 	box-shadow: none;
 }
 
 #interface #ui-right #sidebar nav#sidebar-tabs .item {
 	border: none;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border-radius: 3px;
 }
 
@@ -2153,18 +2163,18 @@ body {
 #interface #ui-right #sidebar nav#sidebar-tabs .item.active {
 	box-shadow: none;
 	text-shadow: none;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface #ui-right #sidebar .tab {
-	color: $c-faint;
-	background: rgba(25, 25, 20, 0.6509803922);
+	color: var(--crpgu-primary-font);
+	background: var(--crpgu-transparent-bg);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message {
-	background: #171619;
-	border: 1px solid $c-darkish;
-	color: $c-faint;
+	background: var(--crpgu-secondary-bg);
+	border: 1px solid var(--crpgu-secondary-bg);
+	color: var(--crpgu-primary-font);
 	margin-bottom: 0.5rem;
 	padding: 0rem;
 }
@@ -2177,8 +2187,8 @@ body {
 	.chat-message
 	.message-header {
 	padding: 0.25rem 0.5rem;
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'Nunito', sans-serif;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -2221,7 +2231,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 #interface
@@ -2289,10 +2299,10 @@ body {
 	.message-content
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -2331,7 +2341,7 @@ body {
 	.chat-message
 	.message-content
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -2345,9 +2355,9 @@ body {
 	.message-content
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -2380,7 +2390,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -2393,7 +2403,7 @@ body {
 	.message-content
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 #interface
@@ -2430,11 +2440,11 @@ body {
 	.chat-message
 	.message-content
 	button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
@@ -2448,7 +2458,7 @@ body {
 	button
 	.tox-icon
 	svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 #interface
@@ -2460,7 +2470,7 @@ body {
 	.message-content
 	button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
@@ -2475,7 +2485,7 @@ body {
 	button:hover
 	.tox-icon
 	svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 #interface
@@ -2487,9 +2497,9 @@ body {
 	.message-content
 	button:hover
 	ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
@@ -2504,7 +2514,7 @@ body {
 	ul
 	li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface
@@ -2564,7 +2574,7 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface
@@ -2575,9 +2585,9 @@ body {
 	.chat-message
 	.message-content
 	select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 #interface
@@ -2606,9 +2616,9 @@ body {
 	textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -2687,7 +2697,7 @@ body {
 	.chat-message
 	.message-content
 	textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
@@ -2715,8 +2725,8 @@ body {
 	.chat-message
 	.message-content
 	textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 #interface
@@ -2764,7 +2774,7 @@ body {
 	.chat-message
 	.message-content
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -2778,9 +2788,9 @@ body {
 	.message-content
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -2813,7 +2823,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -2826,7 +2836,7 @@ body {
 	.message-content
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 #interface
@@ -2867,19 +2877,19 @@ body {
 	.dice-formula {
 	font-family: 'PT Sans Caption', serif;
 	font-weight: normal;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
-	border-left: 3px solid $c-beige;
+	border-left: 3px solid var(--crpgu-secondary-font);
 	box-shadow: none;
 }
 #interface option {
-	background-color: $c-black;
-	color: $c-faint;
+	background-color: var(--crpgu-header-color);
+	color: var(--crpgu-primary-font);
 }
 #chat-controls optgroup {
-	background-color: $c-black;
-	color: $c-faint;
+	background-color: var(--crpgu-header-color);
+	color: var(--crpgu-primary-font);
 }
 
 #interface
@@ -2894,31 +2904,31 @@ body {
 	.dice-total {
 	font-family: 'PT Sans Caption', serif;
 	font-weight: bold;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message hr {
 	border: none;
-	border-bottom: 1px solid $c-darkish;
+	border-bottom: 1px solid var(--crpgu-secondary-bg);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
@@ -2931,13 +2941,13 @@ body {
 	button:hover
 	.tox-icon
 	svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
@@ -2950,7 +2960,7 @@ body {
 	ul
 	li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls label,
@@ -2995,13 +3005,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls input,
@@ -3009,9 +3019,9 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-controls textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -3032,7 +3042,7 @@ body {
 	input[type='text']:active,
 #interface #ui-right #sidebar .tab#chat #chat-controls textarea:focus,
 #interface #ui-right #sidebar .tab#chat #chat-controls textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
@@ -3044,8 +3054,8 @@ body {
 	#chat-controls
 	input[type='text']:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-controls textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls input[type='number'] {
@@ -3065,15 +3075,15 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -3093,12 +3103,12 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls table tbody tr {
@@ -3117,39 +3127,39 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form label,
@@ -3194,13 +3204,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form input,
@@ -3208,9 +3218,9 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-form textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -3226,15 +3236,15 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-form input[type='text']:active,
 #interface #ui-right #sidebar .tab#chat #chat-form textarea:focus,
 #interface #ui-right #sidebar .tab#chat #chat-form textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form input:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-form input[type='text']:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-form textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form input[type='number'] {
@@ -3254,15 +3264,15 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -3275,12 +3285,12 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form table tbody tr {
@@ -3305,58 +3315,58 @@ body {
 }
 
 #interface #ui-middle #ui-top nav#navigation #scene-list .scene {
-	background: $c-dark;
-	color: $c-beige;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 	box-shadow: none;
 }
 
 #interface #ui-middle #ui-top nav#navigation #scene-list .scene:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	border: 1px solid #af1c1c;
 }
 
 #interface #ui-middle #ui-top nav#navigation #scene-list .scene.active {
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	border: 1px solid #af1c1c;
 	box-shadow: none;
 }
 
 #interface button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 #interface button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 #interface button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 #interface button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 #interface button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 #interface button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface label,
@@ -3377,13 +3387,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 #interface select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 #interface input,
@@ -3391,9 +3401,9 @@ body {
 #interface textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -3409,15 +3419,15 @@ body {
 #interface input[type='text']:active,
 #interface textarea:focus,
 #interface textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 #interface input:disabled,
 #interface input[type='text']:disabled,
 #interface textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 #interface input[type='number'] {
@@ -3437,15 +3447,15 @@ body {
 }
 
 #interface table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 #interface table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -3458,12 +3468,12 @@ body {
 }
 
 #interface table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 #interface table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 #interface table tbody tr {
@@ -3490,7 +3500,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .dialog .dialog-content h2 {
@@ -3523,10 +3533,10 @@ body {
 
 .dialog .dialog-content blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -3543,15 +3553,15 @@ body {
 }
 
 .dialog .dialog-content table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .dialog .dialog-content table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -3564,12 +3574,12 @@ body {
 }
 
 .dialog .dialog-content table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .dialog .dialog-content table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .dialog .dialog-content table tbody tr {
@@ -3581,39 +3591,39 @@ body {
 }
 
 .dialog .dialog-content button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 .dialog .dialog-content button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .dialog .dialog-content button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 .dialog .dialog-content button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .dialog .dialog-content button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 .dialog .dialog-content button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .dialog .dialog-content label,
@@ -3646,13 +3656,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .dialog .dialog-content select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .dialog .dialog-content input,
@@ -3660,9 +3670,9 @@ body {
 .dialog .dialog-content textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -3678,15 +3688,15 @@ body {
 .dialog .dialog-content input[type='text']:active,
 .dialog .dialog-content textarea:focus,
 .dialog .dialog-content textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 .dialog .dialog-content input:disabled,
 .dialog .dialog-content input[type='text']:disabled,
 .dialog .dialog-content textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .dialog .dialog-content input[type='number'] {
@@ -3706,15 +3716,15 @@ body {
 }
 
 .dialog .dialog-content table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .dialog .dialog-content table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -3727,12 +3737,12 @@ body {
 }
 
 .dialog .dialog-content table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .dialog .dialog-content table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .dialog .dialog-content table tbody tr {
@@ -3748,39 +3758,39 @@ body {
 }
 
 .dialog .dialog-buttons button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 .dialog .dialog-buttons button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .dialog .dialog-buttons button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 .dialog .dialog-buttons button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .dialog .dialog-buttons button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 .dialog .dialog-buttons button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .dialog .dialog-buttons label,
@@ -3813,13 +3823,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .dialog .dialog-buttons select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .dialog .dialog-buttons input,
@@ -3827,9 +3837,9 @@ body {
 .dialog .dialog-buttons textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -3845,15 +3855,15 @@ body {
 .dialog .dialog-buttons input[type='text']:active,
 .dialog .dialog-buttons textarea:focus,
 .dialog .dialog-buttons textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 .dialog .dialog-buttons input:disabled,
 .dialog .dialog-buttons input[type='text']:disabled,
 .dialog .dialog-buttons textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .dialog .dialog-buttons input[type='number'] {
@@ -3873,15 +3883,15 @@ body {
 }
 
 .dialog .dialog-buttons table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .dialog .dialog-buttons table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -3894,12 +3904,12 @@ body {
 }
 
 .dialog .dialog-buttons table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .dialog .dialog-buttons table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .dialog .dialog-buttons table tbody tr {
@@ -3911,33 +3921,33 @@ body {
 }
 
 .filepicker .paths .path {
-	background: $c-dark;
-	color: $c-faint;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
 	border: none;
 }
 
 .filepicker .paths .path .link,
 .filepicker .paths .path .remove {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .filepicker .paths .path .link ::before,
 .filepicker .paths .path .remove ::before {
-	color: $c-faint !important;
+	color: var(--crpgu-primary-font) !important;
 }
 
 #module-management ul#module-list .package {
-	border-bottom: 1px solid $c-darkish;
+	border-bottom: 1px solid var(--crpgu-secondary-bg);
 }
 
 #module-management ul#module-list .package .title-group .title {
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	text-decoration: none;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: $c-faint;
-	border: 1px solid $c-faint;
+	background: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-primary-font);
 }
 
 ::-webkit-scrollbar-track {
@@ -4006,15 +4016,15 @@ body {
 }
 
 .sheet.journal-sheet.journal-entry .journal-entry-content {
-	background: #171619;
+	background: var(--crpgu-secondary-bg);
 }
 
 .sheet.journal-sheet.journal-entry .journal-entry-content .journal-page-header {
 	border: none;
 	font-family: 'Bebas Neue', monospace;
 	text-align: center;
-	background: $c-dark;
-	color: $c-faint;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.journal-sheet.journal-entry
@@ -4022,7 +4032,7 @@ body {
 	.journal-page-header
 	input[type='text'] {
 	font-family: 'Bebas Neue', monospace;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	background: none;
 	border: none;
 }
@@ -4032,7 +4042,7 @@ body {
 	.journal-page-header
 	h1 {
 	font-family: 'Bebas Neue', monospace;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	font-style: normal;
 	font-weight: bold;
 	border: none;
@@ -4043,7 +4053,7 @@ body {
 	.journal-entry-content
 	.journal-page-content {
 	background: none;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.journal-sheet.journal-entry
@@ -4064,7 +4074,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.journal-sheet.journal-entry
@@ -4112,10 +4122,10 @@ body {
 	.journal-page-content
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -4142,7 +4152,7 @@ body {
 	.journal-entry-content
 	.journal-page-content
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -4152,9 +4162,9 @@ body {
 	.journal-page-content
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -4179,7 +4189,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -4188,7 +4198,7 @@ body {
 	.journal-page-content
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.journal-sheet.journal-entry
@@ -4210,39 +4220,39 @@ body {
 }
 
 .sheet.scene-sheet .window-content button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 .sheet.scene-sheet .window-content button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .sheet.scene-sheet .window-content button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 .sheet.scene-sheet .window-content button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .sheet.scene-sheet .window-content button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 .sheet.scene-sheet .window-content button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.scene-sheet .window-content label,
@@ -4263,13 +4273,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.scene-sheet .window-content select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.scene-sheet .window-content input,
@@ -4277,9 +4287,9 @@ body {
 .sheet.scene-sheet .window-content textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -4295,15 +4305,15 @@ body {
 .sheet.scene-sheet .window-content input[type='text']:active,
 .sheet.scene-sheet .window-content textarea:focus,
 .sheet.scene-sheet .window-content textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 .sheet.scene-sheet .window-content input:disabled,
 .sheet.scene-sheet .window-content input[type='text']:disabled,
 .sheet.scene-sheet .window-content textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .sheet.scene-sheet .window-content input[type='number'] {
@@ -4323,15 +4333,15 @@ body {
 }
 
 .sheet.scene-sheet .window-content table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .sheet.scene-sheet .window-content table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -4344,12 +4354,12 @@ body {
 }
 
 .sheet.scene-sheet .window-content table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .sheet.scene-sheet .window-content table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.scene-sheet .window-content table tbody tr {
@@ -4372,7 +4382,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .creaturedescription .editor h2 {
@@ -4405,10 +4415,10 @@ body {
 
 .sheet.actor .creaturedescription .editor blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -4425,15 +4435,15 @@ body {
 }
 
 .sheet.actor .creaturedescription .editor table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .sheet.actor .creaturedescription .editor table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -4446,12 +4456,12 @@ body {
 }
 
 .sheet.actor .creaturedescription .editor table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .sheet.actor .creaturedescription .editor table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor .creaturedescription .editor table tbody tr {
@@ -4474,7 +4484,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .sheet-body h2 {
@@ -4507,10 +4517,10 @@ body {
 
 .sheet.actor .sheet-body blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -4527,15 +4537,15 @@ body {
 }
 
 .sheet.actor .sheet-body table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .sheet.actor .sheet-body table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -4548,12 +4558,12 @@ body {
 }
 
 .sheet.actor .sheet-body table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .sheet.actor .sheet-body table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor .sheet-body table tbody tr {
@@ -4579,44 +4589,44 @@ body {
 }
 
 .sheet.actor .window-content {
-	background: $c-dark;
-	color: $c-faint;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.actor .window-content button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 .sheet.actor .window-content button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .sheet.actor .window-content button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 .sheet.actor .window-content button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .sheet.actor .window-content button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 .sheet.actor .window-content button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.actor .window-content label,
@@ -4626,13 +4636,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.actor .window-content select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .window-content input,
@@ -4640,9 +4650,9 @@ body {
 .sheet.actor .window-content textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -4658,15 +4668,15 @@ body {
 .sheet.actor .window-content input[type='text']:active,
 .sheet.actor .window-content textarea:focus,
 .sheet.actor .window-content textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 .sheet.actor .window-content input:disabled,
 .sheet.actor .window-content input[type='text']:disabled,
 .sheet.actor .window-content textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .sheet.actor .window-content input[type='number'] {
@@ -4686,15 +4696,15 @@ body {
 }
 
 .sheet.actor .window-content table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .sheet.actor .window-content table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -4707,12 +4717,12 @@ body {
 }
 
 .sheet.actor .window-content table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .sheet.actor .window-content table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor .window-content table tbody tr {
@@ -4734,13 +4744,13 @@ body {
 .sheet.actor .window-content .header-fields .header {
 	background: none;
 	border-radius: 0px;
-	border-bottom: 1px solid $c-darkish;
+	border-bottom: 1px solid var(--crpgu-secondary-bg);
 	grid-template-columns: 100px 1fr;
 }
 
 .sheet.actor .window-content .header-fields .header .profile {
 	width: 100px;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 2px;
 }
@@ -4767,7 +4777,7 @@ body {
 
 .sheet.actor .window-content .header-fields .health .healthmaxtext {
 	margin-top: -3px;
-	color: $c-darkish;
+	color: var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .window-content .header-fields .health .minmaxwrapper {
@@ -4810,9 +4820,9 @@ body {
 	.mainstatwrapper
 	.mainstat
 	.mainstatlabel {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
-	background: #171619;
+	background: var(--crpgu-secondary-bg);
 	display: grid;
 	align-items: center;
 	padding-left: 0.1rem;
@@ -4866,7 +4876,7 @@ body {
 	.mainstatwrapper
 	.mainstatmod-input {
 	position: static;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	margin: 0px;
 	margin-left: 26px;
@@ -4905,13 +4915,13 @@ body {
 
 .sheet.actor .window-content nav .tab-select {
 	flex: 0 0 auto;
-	background: #171619;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-secondary-bg);
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-bottom: none;
 	border-radius: 5px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-weight: normal;
 	font-size: 0.8rem;
@@ -4920,8 +4930,8 @@ body {
 }
 
 .sheet.actor .window-content nav .tab-select.active {
-	background: $c-dark;
-	color: $c-faint;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
 	text-decoration: none;
 	box-shadow: none;
 	text-shadow: none;
@@ -4940,20 +4950,20 @@ body {
 }
 
 .sheet.actor .window-content .sheet-body {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .window-content .sheet-body ol.items-list {
 	background: none;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 }
 
 .sheet.actor .window-content .sheet-body ol.items-list li.item.item-header {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
-	border: 1px solid $c-darkish;
+	color: var(--crpgu-secondary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
@@ -4966,7 +4976,7 @@ body {
 	font-family: 'PT Sans Caption';
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -5006,7 +5016,7 @@ body {
 	.sheet-body
 	ol.items-list
 	li.item:not(.item-header):nth-child(odd) {
-	background: $c-darkish;
+	background: var(--crpgu-secondary-bg);
 }
 
 .sheet.actor
@@ -5019,7 +5029,7 @@ body {
 	font-family: 'PT Sans', monospace;
 	font-weight: normal;
 	font-size: 0.8rem;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	background: none;
 }
 
@@ -5073,16 +5083,16 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .skill_training_frame {
 	background: none;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	font-size: 0.8rem;
 }
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-edit {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	border: none;
 	border-radius: 3px;
@@ -5112,7 +5122,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-content h2 {
@@ -5151,10 +5161,10 @@ body {
 	.editor-content
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -5184,7 +5194,7 @@ body {
 }
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-content table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -5197,9 +5207,9 @@ body {
 	.editor-content
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -5230,7 +5240,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -5242,7 +5252,7 @@ body {
 	.editor-content
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -5275,9 +5285,9 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce {
-	background: #171619;
-	color: $c-beige;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-secondary-bg);
+	color: var(--crpgu-secondary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 }
 
@@ -5295,7 +5305,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content h2,
@@ -5339,10 +5349,10 @@ body {
 	blockquote,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -5388,7 +5398,7 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content table,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -5409,9 +5419,9 @@ body {
 	.tox-tinymce
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -5462,7 +5472,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -5482,7 +5492,7 @@ body {
 	.tox-tinymce
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -5560,11 +5570,11 @@ body {
 	.tox-tinymce
 	.tox-editor-container
 	.tox-editor-header {
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	border-radius: 5px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	background-color: $c-darkish;
+	background-color: var(--crpgu-secondary-bg);
 }
 
 .sheet.actor
@@ -5633,11 +5643,11 @@ body {
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
@@ -5667,7 +5677,7 @@ body {
 	button
 	.tox-icon
 	svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -5693,7 +5703,7 @@ body {
 	.tox-toolbar__primary
 	button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
@@ -5724,7 +5734,7 @@ body {
 	button:hover
 	.tox-icon
 	svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .sheet.actor
@@ -5751,9 +5761,9 @@ body {
 	.tox-toolbar__primary
 	button:hover
 	ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
@@ -5784,7 +5794,7 @@ body {
 	ul
 	li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.actor
@@ -5968,7 +5978,7 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.actor
@@ -5993,9 +6003,9 @@ body {
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor
@@ -6066,9 +6076,9 @@ body {
 	textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -6273,7 +6283,7 @@ body {
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
@@ -6343,8 +6353,8 @@ body {
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .sheet.actor
@@ -6448,7 +6458,7 @@ body {
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -6477,9 +6487,9 @@ body {
 	.tox-toolbar__primary
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -6546,7 +6556,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -6574,7 +6584,7 @@ body {
 	.tox-toolbar__primary
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -6653,11 +6663,11 @@ body {
 	.tox-editor-container
 	.tox-sidebar-wrap
 	.tox-edit-area {
-	background: $c-faint;
+	background: var(--crpgu-primary-font);
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce textarea {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor .window-content .creature-header-grid {
@@ -6665,7 +6675,7 @@ body {
 }
 
 .sheet.actor .window-content .creature-header-grid .whiteline {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor
@@ -6698,12 +6708,12 @@ body {
 	.grid
 	.resource
 	.healthmaxtext {
-	color: $c-darkish;
+	color: var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .window-content .creature-description-grid .editor {
 	padding-top: 0.5rem;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -6728,7 +6738,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor
@@ -6786,10 +6796,10 @@ body {
 	.editor-content
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -6822,7 +6832,7 @@ body {
 	.editor
 	.editor-content
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -6834,9 +6844,9 @@ body {
 	.editor-content
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -6865,7 +6875,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -6876,7 +6886,7 @@ body {
 	.editor-content
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -6902,10 +6912,10 @@ body {
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	outline: none;
 }
 
@@ -6914,7 +6924,7 @@ body {
 	.creature-description-grid
 	.creature-abilities
 	.whiteline {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities li {
@@ -6938,7 +6948,7 @@ body {
 	font-family: 'Bebas Neue', monospace;
 	font-size: 1rem;
 	text-align: left;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.actor
@@ -6957,7 +6967,7 @@ body {
 	.creature-abilities
 	.creature-ability-container
 	.creature-ability-text {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -6984,7 +6994,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.actor
@@ -7047,10 +7057,10 @@ body {
 	.creature-ability-text
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -7086,7 +7096,7 @@ body {
 	.creature-ability-container
 	.creature-ability-text
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -7099,9 +7109,9 @@ body {
 	.creature-ability-text
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -7132,7 +7142,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -7144,7 +7154,7 @@ body {
 	.creature-ability-text
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.actor
@@ -7193,44 +7203,44 @@ body {
 }
 
 .sheet.item .window-content {
-	background: $c-dark;
-	color: $c-faint;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.item .window-content button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-size: 0.75rem;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 3px;
 }
 
 .sheet.item .window-content button .tox-icon svg {
-	fill: $c-beige;
+	fill: var(--crpgu-secondary-font);
 }
 
 .sheet.item .window-content button:hover {
 	background: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
 .sheet.item .window-content button:hover .tox-icon svg {
-	fill: $c-faint;
+	fill: var(--crpgu-primary-font);
 }
 
 .sheet.item .window-content button:hover ul {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
 .sheet.item .window-content button:hover ul li:hover {
 	background-color: #af1c1c;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.item .window-content label,
@@ -7250,13 +7260,13 @@ body {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-weight: bold;
 	font-size: 0.8rem;
-	color: $c-faint;
+	color: var(--crpgu-primary-font);
 }
 
 .sheet.item .window-content select {
-	background: $c-dark;
-	color: $c-faint;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.item .window-content input,
@@ -7264,9 +7274,9 @@ body {
 .sheet.item .window-content textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
-	background: $c-dark !important;
-	color: $c-beige !important;
-	border: 1px solid $c-darkish !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
+	border: 1px solid var(--crpgu-secondary-bg) !important;
 	border-radius: 5px !important;
 }
 
@@ -7282,15 +7292,15 @@ body {
 .sheet.item .window-content input[type='text']:active,
 .sheet.item .window-content textarea:focus,
 .sheet.item .window-content textarea:active {
-	border: 1px solid $c-beige !important;
+	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
 .sheet.item .window-content input:disabled,
 .sheet.item .window-content input[type='text']:disabled,
 .sheet.item .window-content textarea:disabled {
-	background: $c-dark !important;
-	color: $c-beige !important;
+	background: var(--crpgu-primary-bg) !important;
+	color: var(--crpgu-secondary-font) !important;
 }
 
 .sheet.item .window-content input[type='number'] {
@@ -7310,15 +7320,15 @@ body {
 }
 
 .sheet.item .window-content table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .sheet.item .window-content table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -7331,12 +7341,12 @@ body {
 }
 
 .sheet.item .window-content table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .sheet.item .window-content table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.item .window-content table tbody tr {
@@ -7359,13 +7369,13 @@ body {
 
 .sheet.item .window-content nav .tab-select {
 	flex: 0 0 auto;
-	background: #171619;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-secondary-bg);
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-bottom: none;
 	border-radius: 5px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
 	font-weight: normal;
 	font-size: 0.8rem;
@@ -7374,8 +7384,8 @@ body {
 }
 
 .sheet.item .window-content nav .tab-select.active {
-	background: $c-dark;
-	color: $c-faint;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
 	text-decoration: none;
 	box-shadow: none;
 	text-shadow: none;
@@ -7419,8 +7429,8 @@ body {
 }
 
 .sheet.item .window-content .circle-statwrapper-vertical {
-	background: #171619;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-secondary-bg);
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 }
 
@@ -7434,7 +7444,7 @@ body {
 }
 
 .sheet.item .window-content .sheet-body {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.item .window-content .sheet-body .tab {
@@ -7453,7 +7463,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .sheet.item .window-content .sheet-body .tab h2 {
@@ -7486,10 +7496,10 @@ body {
 
 .sheet.item .window-content .sheet-body .tab blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -7506,15 +7516,15 @@ body {
 }
 
 .sheet.item .window-content .sheet-body .tab table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
 .sheet.item .window-content .sheet-body .tab table thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -7527,12 +7537,12 @@ body {
 }
 
 .sheet.item .window-content .sheet-body .tab table thead tr td p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
 .sheet.item .window-content .sheet-body .tab table tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .sheet.item .window-content .sheet-body .tab table tbody tr {
@@ -7545,7 +7555,7 @@ body {
 
 .dialog .window-content .dialog-content .macro_window {
 	background: none;
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .dialog .window-content .dialog-content .macro_window .macro_desc {
@@ -7613,8 +7623,8 @@ body {
 	.dialog-content
 	.headerinputfield
 	.macro_window {
-	background: #171619;
-	border: 1px solid $c-darkish;
+	background: var(--crpgu-secondary-bg);
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 }
 
@@ -7683,27 +7693,27 @@ body {
 	.dialog-content
 	.headerinputfield
 	.macro_window:has(input[type='radio']:checked) {
-	background: $c-dark;
-	color: $c-faint;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-primary-font);
 }
 
 .gm-screen-app .gm-screen-actions .gm-screen-tabs button.item {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .gm-screen-app .gm-screen-actions .gm-screen-tabs button.active {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 }
 
 .gm-screen-app .gm-screen-actions button,
 .gm-screen-app .gm-screen-actions .meta-actions button {
-	background: $c-dark;
-	color: $c-beige;
+	background: var(--crpgu-primary-bg);
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 }
 
 .gm-screen-app
@@ -7711,8 +7721,8 @@ body {
 	.gm-screen-grid
 	.gm-screen-grid-cell
 	.gm-screen-grid-cell-content-wrapper {
-	background: #171619;
-	color: $c-beige;
+	background: var(--crpgu-secondary-bg);
+	color: var(--crpgu-secondary-font);
 }
 
 .gm-screen-app
@@ -7737,7 +7747,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	border-bottom: 2px solid $c-darkish;
+	border-bottom: 2px solid var(--crpgu-secondary-bg);
 }
 
 .gm-screen-app
@@ -7795,10 +7805,10 @@ body {
 	.gm-screen-grid-cell-content-wrapper
 	blockquote {
 	border: none;
-	border-left: 4px solid $c-faint;
+	border-left: 4px solid var(--crpgu-primary-font);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	margin: 1rem 0.4rem 1rem 0rem;
 	padding: 1rem;
 }
@@ -7831,7 +7841,7 @@ body {
 	.gm-screen-grid-cell
 	.gm-screen-grid-cell-content-wrapper
 	table {
-	border: 1px solid $c-darkish;
+	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
@@ -7843,9 +7853,9 @@ body {
 	.gm-screen-grid-cell-content-wrapper
 	table
 	thead {
-	background: $c-dark;
+	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	border: none;
 	border-radius: 0px;
 	border-top-left-radius: 5px;
@@ -7874,7 +7884,7 @@ body {
 	tr
 	td
 	p {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
@@ -7885,7 +7895,7 @@ body {
 	.gm-screen-grid-cell-content-wrapper
 	table
 	tbody {
-	color: $c-beige;
+	color: var(--crpgu-secondary-font);
 }
 
 .gm-screen-app
