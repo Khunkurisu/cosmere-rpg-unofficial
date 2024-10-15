@@ -3,7 +3,7 @@
 	min-width: fit-content;
 	&:hover,
 	&:focus {
-		color: #000;
+		color: $c-darkish;
 		text-shadow: 0 0 10px red;
 		cursor: pointer;
 	}
@@ -14,7 +14,7 @@
 	font-size: large;
 	padding: 3px 45% 3px 45%;
 	border: 2px solid $c-black;
-	background-color: $c-tan;
+	background-color: $c-darkish;
 	color: $c-faint;
 }
 
@@ -22,6 +22,6 @@
 	padding: 5%;
 	width: 95%;
 	border: 2px ridge $c-black;
-	background-color: $c-tan;
+	background-color: $c-darkish;
 	color: $c-faint;
 }

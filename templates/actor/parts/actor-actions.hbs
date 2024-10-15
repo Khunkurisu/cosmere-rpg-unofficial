@@ -19,7 +19,7 @@
 				<div class='item-name'>{{localize 'Strikes'}}</div>
 			</li>
 			{{#each strikes as |action id|}}
-				<li class='item flexrow' data-item-id='{{action._id}}'>
+				<li class='item flexrow' data-item-id='{{action._id}}' style="max-width:90%;padding-left:15px;">
 					<div class='item-name flex-group-left flexlarge'>
 						{{action.name}}
 					</div>
@@ -77,7 +77,6 @@
 				</li>
 			{{/each}}
 		</ol>
-		<hr />
 		<ol class='items-list'>
 			{{#each potentialStrikes as |action id|}}
 				<li class='item flexrow' data-item-id='{{action._id}}'>

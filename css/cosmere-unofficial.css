@@ -9,13 +9,13 @@
 }
 
 .rollable:hover, .rollable:focus {
-  color: #000;
+  color: #2a2a40;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
 
 .hoverable:hover, .hoverable:focus {
-  color: #000;
+  color: #2a2a40;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
@@ -227,7 +227,7 @@
 
 .window-app:not(.item):not(.actor) {
   font-family: "PT Sans", monospace;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor).journal-sheet {
@@ -239,12 +239,12 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content {
-  color: #c9c7b8;
-  background: #191813;
+  color: #b8c8c9;
+  background: #1e1e2d;
 }
 
 .window-app:not(.item):not(.actor) .window-content button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
@@ -258,17 +258,17 @@
 
 .window-app:not(.item):not(.actor) .window-content button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .window-app:not(.item):not(.actor) .window-content button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -276,7 +276,7 @@
 
 .window-app:not(.item):not(.actor) .window-content button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content label,
@@ -287,12 +287,12 @@
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content select {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
   border: 1px solid #000;
 }
 
@@ -301,7 +301,7 @@
 .window-app:not(.item):not(.actor) .window-content textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
   border: 1px solid #000 !important;
   border-radius: 5px !important;
@@ -326,7 +326,7 @@
 .window-app:not(.item):not(.actor) .window-content input:disabled,
 .window-app:not(.item):not(.actor) .window-content input[type=text]:disabled,
 .window-app:not(.item):not(.actor) .window-content textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -353,7 +353,7 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -387,11 +387,11 @@
 .window-app:not(.item):not(.actor) .window-content .journal-header .title {
   font-family: "Bebas Neue", monospace;
   font-weight: bold;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .journal-header .page-level .heading-level select {
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror {
@@ -400,7 +400,7 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
@@ -414,17 +414,17 @@
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -432,7 +432,7 @@
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu label,
@@ -447,12 +447,12 @@
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu select {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
   border: 1px solid #000;
 }
 
@@ -461,7 +461,7 @@
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
   border: 1px solid #000 !important;
   border-radius: 5px !important;
@@ -486,7 +486,7 @@
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu input:disabled,
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu input[type=text]:disabled,
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -513,7 +513,7 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-menu table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -589,10 +589,10 @@
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-container .editor-content blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -615,7 +615,7 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content .prosemirror .editor-container .editor-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -714,10 +714,10 @@
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content blockquote,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -744,7 +744,7 @@
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content table thead,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -785,13 +785,18 @@
   background: none;
 }
 
+.window-app option {
+  background-color: #000;
+  color: #b8c8c9;
+}
+
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header {
-  color: #c9c7b8;
+  color: #b8c8c9;
   border-radius: 5px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  background-color: #444;
+  background-color: #2a2a40;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord,
@@ -806,7 +811,7 @@
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
@@ -822,19 +827,19 @@
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover .tox-icon svg,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -843,7 +848,7 @@
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul li:hover,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary label,
@@ -867,14 +872,14 @@
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary select,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary input,
@@ -885,9 +890,9 @@
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -922,7 +927,7 @@
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary input:disabled,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary input[type=text]:disabled,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -947,14 +952,14 @@
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table thead,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -992,7 +997,7 @@
 
 .window-app:not(.item):not(.actor) .window-content .tinymce .editor-content .tox-editor-container .tox-sidebar-wrap .tox-edit-area,
 .window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce .tox-editor-container .tox-sidebar-wrap .tox-edit-area {
-  background: #c9c7b8;
+  background: #b8c8c9;
 }
 
 .window-app:not(.item):not(.actor) .window-content .tinymce textarea {
@@ -1000,13 +1005,13 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .window-app:not(.item):not(.actor) .window-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -1039,8 +1044,8 @@
 
 .window-app:not(.item):not(.actor) .window-content nav.sheet-tabs {
   border: none;
-  border-top: 1px solid #444;
-  border-bottom: 1px solid #444;
+  border-top: 1px solid #2a2a40;
+  border-bottom: 1px solid #2a2a40;
 }
 
 .window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item {
@@ -1053,7 +1058,7 @@
 }
 
 .window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item.active {
-  color: #c9c7b8;
+  color: #b8c8c9;
   text-shadow: none;
   font-weight: bold;
 }
@@ -1068,12 +1073,12 @@
 
 .window-app:not(.item):not(.actor) .window-content hr {
   border: none;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #2a2a40;
   margin: 1rem 0 0 1rem;
 }
 
 body {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
 }
 
@@ -1087,8 +1092,8 @@ body {
 
 #interface #ui-left nav#controls .scene-control,
 #interface #ui-left nav#controls .control-tool {
-  background: #191813;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  border: 1px solid #2a2a40;
   color: #b5b3a4;
   border-radius: 3px;
 }
@@ -1097,7 +1102,7 @@ body {
 #interface #ui-left nav#controls .control-tool.active {
   border: 1px solid #af1c1c;
   box-shadow: none;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-left nav#controls .scene-control:hover,
@@ -1105,23 +1110,23 @@ body {
   background: #af1c1c;
   border: 1px solid #af1c1c;
   box-shadow: none;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-left #players {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
 }
 
 #interface #ui-right #sidebar {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
 }
 
 #interface #ui-right #sidebar nav#sidebar-tabs {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #2a2a40;
   box-shadow: none;
 }
 
@@ -1139,25 +1144,25 @@ body {
 #interface #ui-right #sidebar nav#sidebar-tabs .item.active {
   box-shadow: none;
   text-shadow: none;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab {
-  color: #c9c7b8;
+  color: #b8c8c9;
   background: rgba(25, 25, 20, 0.6509803922);
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message {
   background: #171619;
-  border: 1px solid #444;
-  color: #c9c7b8;
+  border: 1px solid #2a2a40;
+  color: #b8c8c9;
   margin-bottom: 0.5rem;
   padding: 0rem;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-header {
   padding: 0.25rem 0.5rem;
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "Nunito", sans-serif;
   border-top-left-radius: 5px;
@@ -1181,7 +1186,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content h2 {
@@ -1214,10 +1219,10 @@ body {
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -1234,13 +1239,13 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -1272,11 +1277,11 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -1286,17 +1291,17 @@ body {
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -1304,7 +1309,7 @@ body {
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content label,
@@ -1315,13 +1320,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content input,
@@ -1329,9 +1334,9 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -1354,7 +1359,7 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content input:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content input[type=text]:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -1375,13 +1380,13 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -1422,24 +1427,34 @@ body {
   box-shadow: none;
 }
 
+#interface option {
+  background-color: #000;
+  color: #b8c8c9;
+}
+
+#chat-controls optgroup {
+  background-color: #000;
+  color: #b8c8c9;
+}
+
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message .message-content .dice-roll .dice-result .dice-total {
   font-family: "PT Sans Caption", serif;
   font-weight: bold;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-log .chat-message hr {
   border: none;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #2a2a40;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -1449,17 +1464,17 @@ body {
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -1467,7 +1482,7 @@ body {
 
 #interface #ui-right #sidebar .tab#chat #chat-controls button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls label,
@@ -1478,13 +1493,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls input,
@@ -1492,9 +1507,9 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-controls textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -1517,7 +1532,7 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-controls input:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-controls input[type=text]:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-controls textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -1538,13 +1553,13 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-controls table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -1576,11 +1591,11 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -1590,17 +1605,17 @@ body {
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -1608,7 +1623,7 @@ body {
 
 #interface #ui-right #sidebar .tab#chat #chat-form button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form label,
@@ -1619,13 +1634,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form input,
@@ -1633,9 +1648,9 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-form textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -1658,7 +1673,7 @@ body {
 #interface #ui-right #sidebar .tab#chat #chat-form input:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-form input[type=text]:disabled,
 #interface #ui-right #sidebar .tab#chat #chat-form textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -1679,13 +1694,13 @@ body {
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 #interface #ui-right #sidebar .tab#chat #chat-form table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -1723,30 +1738,30 @@ body {
 }
 
 #interface #ui-middle #ui-top nav#navigation #scene-list .scene {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   box-shadow: none;
 }
 
 #interface #ui-middle #ui-top nav#navigation #scene-list .scene:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   border: 1px solid #af1c1c;
 }
 
 #interface #ui-middle #ui-top nav#navigation #scene-list .scene.active {
-  color: #c9c7b8;
+  color: #b8c8c9;
   border: 1px solid #af1c1c;
   box-shadow: none;
 }
 
 #interface button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -1756,17 +1771,17 @@ body {
 
 #interface button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 #interface button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 #interface button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -1774,7 +1789,7 @@ body {
 
 #interface button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface label,
@@ -1785,13 +1800,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 #interface select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 #interface input,
@@ -1799,9 +1814,9 @@ body {
 #interface textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -1824,7 +1839,7 @@ body {
 #interface input:disabled,
 #interface input[type=text]:disabled,
 #interface textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -1845,13 +1860,13 @@ body {
 }
 
 #interface table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 #interface table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -1898,7 +1913,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .dialog .dialog-content h2 {
@@ -1931,10 +1946,10 @@ body {
 
 .dialog .dialog-content blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -1951,13 +1966,13 @@ body {
 }
 
 .dialog .dialog-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .dialog .dialog-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -1989,11 +2004,11 @@ body {
 }
 
 .dialog .dialog-content button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -2003,17 +2018,17 @@ body {
 
 .dialog .dialog-content button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .dialog .dialog-content button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .dialog .dialog-content button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -2021,7 +2036,7 @@ body {
 
 .dialog .dialog-content button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .dialog .dialog-content label,
@@ -2032,13 +2047,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .dialog .dialog-content select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 .dialog .dialog-content input,
@@ -2046,9 +2061,9 @@ body {
 .dialog .dialog-content textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -2071,7 +2086,7 @@ body {
 .dialog .dialog-content input:disabled,
 .dialog .dialog-content input[type=text]:disabled,
 .dialog .dialog-content textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -2092,13 +2107,13 @@ body {
 }
 
 .dialog .dialog-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .dialog .dialog-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -2134,11 +2149,11 @@ body {
 }
 
 .dialog .dialog-buttons button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -2148,17 +2163,17 @@ body {
 
 .dialog .dialog-buttons button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .dialog .dialog-buttons button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .dialog .dialog-buttons button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -2166,7 +2181,7 @@ body {
 
 .dialog .dialog-buttons button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .dialog .dialog-buttons label,
@@ -2177,13 +2192,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .dialog .dialog-buttons select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 .dialog .dialog-buttons input,
@@ -2191,9 +2206,9 @@ body {
 .dialog .dialog-buttons textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -2216,7 +2231,7 @@ body {
 .dialog .dialog-buttons input:disabled,
 .dialog .dialog-buttons input[type=text]:disabled,
 .dialog .dialog-buttons textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -2237,13 +2252,13 @@ body {
 }
 
 .dialog .dialog-buttons table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .dialog .dialog-buttons table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -2275,8 +2290,8 @@ body {
 }
 
 .filepicker .paths .path {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
   border: none;
 }
 
@@ -2287,21 +2302,21 @@ body {
 
 .filepicker .paths .path .link ::before,
 .filepicker .paths .path .remove ::before {
-  color: #c9c7b8 !important;
+  color: #b8c8c9 !important;
 }
 
 #module-management ul#module-list .package {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #2a2a40;
 }
 
 #module-management ul#module-list .package .title-group .title {
-  color: #c9c7b8;
+  color: #b8c8c9;
   text-decoration: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c9c7b8;
-  border: 1px solid #c9c7b8;
+  background: #b8c8c9;
+  border: 1px solid #b8c8c9;
 }
 
 ::-webkit-scrollbar-track {
@@ -2362,20 +2377,20 @@ body {
   border: none;
   font-family: "Bebas Neue", monospace;
   text-align: center;
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
 }
 
 .sheet.journal-sheet.journal-entry .journal-entry-content .journal-page-header input[type=text] {
   font-family: "Bebas Neue", monospace;
-  color: #c9c7b8;
+  color: #b8c8c9;
   background: none;
   border: none;
 }
 
 .sheet.journal-sheet.journal-entry .journal-entry-content .journal-page-header h1 {
   font-family: "Bebas Neue", monospace;
-  color: #c9c7b8;
+  color: #b8c8c9;
   font-style: normal;
   font-weight: bold;
   border: none;
@@ -2399,7 +2414,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.journal-sheet.journal-entry .journal-entry-content .journal-page-content h2 {
@@ -2432,10 +2447,10 @@ body {
 
 .sheet.journal-sheet.journal-entry .journal-entry-content .journal-page-content blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -2452,13 +2467,13 @@ body {
 }
 
 .sheet.journal-sheet.journal-entry .journal-entry-content .journal-page-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.journal-sheet.journal-entry .journal-entry-content .journal-page-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -2490,11 +2505,11 @@ body {
 }
 
 .sheet.scene-sheet .window-content button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -2504,17 +2519,17 @@ body {
 
 .sheet.scene-sheet .window-content button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .sheet.scene-sheet .window-content button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .sheet.scene-sheet .window-content button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -2522,7 +2537,7 @@ body {
 
 .sheet.scene-sheet .window-content button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.scene-sheet .window-content label,
@@ -2533,13 +2548,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.scene-sheet .window-content select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.scene-sheet .window-content input,
@@ -2547,9 +2562,9 @@ body {
 .sheet.scene-sheet .window-content textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -2572,7 +2587,7 @@ body {
 .sheet.scene-sheet .window-content input:disabled,
 .sheet.scene-sheet .window-content input[type=text]:disabled,
 .sheet.scene-sheet .window-content textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -2593,13 +2608,13 @@ body {
 }
 
 .sheet.scene-sheet .window-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.scene-sheet .window-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -2642,7 +2657,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.actor .creaturedescription .editor h2 {
@@ -2675,10 +2690,10 @@ body {
 
 .sheet.actor .creaturedescription .editor blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -2695,13 +2710,13 @@ body {
 }
 
 .sheet.actor .creaturedescription .editor table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .creaturedescription .editor table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -2744,7 +2759,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.actor .sheet-body h2 {
@@ -2777,10 +2792,10 @@ body {
 
 .sheet.actor .sheet-body blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -2797,13 +2812,13 @@ body {
 }
 
 .sheet.actor .sheet-body table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .sheet-body table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -2840,16 +2855,16 @@ body {
 }
 
 .sheet.actor .window-content {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
 }
 
 .sheet.actor .window-content button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -2859,17 +2874,17 @@ body {
 
 .sheet.actor .window-content button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .sheet.actor .window-content button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .sheet.actor .window-content button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -2877,7 +2892,7 @@ body {
 
 .sheet.actor .window-content button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.actor .window-content label,
@@ -2887,13 +2902,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.actor .window-content select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.actor .window-content input,
@@ -2901,9 +2916,9 @@ body {
 .sheet.actor .window-content textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -2926,7 +2941,7 @@ body {
 .sheet.actor .window-content input:disabled,
 .sheet.actor .window-content input[type=text]:disabled,
 .sheet.actor .window-content textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -2947,13 +2962,13 @@ body {
 }
 
 .sheet.actor .window-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .window-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -2995,13 +3010,13 @@ body {
 .sheet.actor .window-content .header-fields .header {
   background: none;
   border-radius: 0px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #2a2a40;
   grid-template-columns: 100px 1fr;
 }
 
 .sheet.actor .window-content .header-fields .header .profile {
   width: 100px;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 2px;
 }
@@ -3028,7 +3043,7 @@ body {
 
 .sheet.actor .window-content .header-fields .health .healthmaxtext {
   margin-top: -3px;
-  color: #444;
+  color: #2a2a40;
 }
 
 .sheet.actor .window-content .header-fields .health .minmaxwrapper {
@@ -3060,7 +3075,7 @@ body {
 }
 
 .sheet.actor .window-content .header-fields .abilities .mainstatwrapper .mainstat .mainstatlabel {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   background: #171619;
   display: grid;
@@ -3091,7 +3106,7 @@ body {
 
 .sheet.actor .window-content .header-fields .abilities .mainstatwrapper .mainstatmod-input {
   position: static;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   margin: 0px;
   margin-left: 26px;
@@ -3126,7 +3141,7 @@ body {
 .sheet.actor .window-content nav .tab-select {
   flex: 0 0 auto;
   background: #171619;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-bottom: none;
   border-radius: 5px;
   border-bottom-left-radius: 0px;
@@ -3140,8 +3155,8 @@ body {
 }
 
 .sheet.actor .window-content nav .tab-select.active {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
   text-decoration: none;
   box-shadow: none;
   text-shadow: none;
@@ -3160,20 +3175,20 @@ body {
 }
 
 .sheet.actor .window-content .sheet-body {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.actor .window-content .sheet-body ol.items-list {
   background: none;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
 }
 
 .sheet.actor .window-content .sheet-body ol.items-list li.item.item-header {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -3203,7 +3218,7 @@ body {
 }
 
 .sheet.actor .window-content .sheet-body ol.items-list li.item:not(.item-header):nth-child(odd) {
-  background: #171619;
+  background: #2a2a40;
 }
 
 .sheet.actor .window-content .sheet-body ol.items-list li.item:not(.item-header) div {
@@ -3242,13 +3257,13 @@ body {
   background: none;
   color: #b5b3a4;
   font-family: "PT Sans Caption";
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   font-size: 0.8rem;
 }
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-edit {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   border: none;
@@ -3279,7 +3294,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-content h2 {
@@ -3312,10 +3327,10 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-content blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -3332,13 +3347,13 @@ body {
 }
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .window-content .sheet-body .tab .editor .editor-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -3377,7 +3392,7 @@ body {
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce {
   background: #171619;
   color: #b5b3a4;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
 }
 
@@ -3395,7 +3410,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content h2,
@@ -3433,10 +3448,10 @@ body {
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content blockquote,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -3456,14 +3471,14 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content table,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content table thead,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -3506,11 +3521,11 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header {
-  color: #c9c7b8;
+  color: #b8c8c9;
   border-radius: 5px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  background-color: #444;
+  background-color: #2a2a40;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord,
@@ -3525,11 +3540,11 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -3541,19 +3556,19 @@ body {
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover .tox-icon svg,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -3562,7 +3577,7 @@ body {
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul li:hover,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary label,
@@ -3582,14 +3597,14 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary select,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary input,
@@ -3600,9 +3615,9 @@ body {
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -3637,7 +3652,7 @@ body {
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary input:disabled,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary input[type=text]:disabled,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -3662,14 +3677,14 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table thead,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-editor-header .tox-toolbar-overlord .tox-toolbar__primary table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -3707,7 +3722,7 @@ body {
 
 .sheet.actor .window-content .sheet-body .tab .tinymce .editor-content .tox-editor-container .tox-sidebar-wrap .tox-edit-area,
 .sheet.actor .window-content .sheet-body .tab .tinymce .tox-tinymce .tox-editor-container .tox-sidebar-wrap .tox-edit-area {
-  background: #c9c7b8;
+  background: #b8c8c9;
 }
 
 .sheet.actor .window-content .sheet-body .tab .tinymce textarea {
@@ -3719,7 +3734,7 @@ body {
 }
 
 .sheet.actor .window-content .creature-header-grid .whiteline {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.actor .window-content .creature-description-grid .creaturedescription .grid .resource .minmaxwrapper {
@@ -3733,7 +3748,7 @@ body {
 }
 
 .sheet.actor .window-content .creature-description-grid .creaturedescription .grid .resource .healthmaxtext {
-  color: #444;
+  color: #2a2a40;
 }
 
 .sheet.actor .window-content .creature-description-grid .editor {
@@ -3753,7 +3768,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.actor .window-content .creature-description-grid .editor .editor-content h2 {
@@ -3786,10 +3801,10 @@ body {
 
 .sheet.actor .window-content .creature-description-grid .editor .editor-content blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -3806,13 +3821,13 @@ body {
 }
 
 .sheet.actor .window-content .creature-description-grid .editor .editor-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .window-content .creature-description-grid .editor .editor-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -3844,15 +3859,15 @@ body {
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   outline: none;
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities .whiteline {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities li {
@@ -3867,7 +3882,7 @@ body {
   font-family: "Bebas Neue", monospace;
   font-size: 1rem;
   text-align: left;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities .creature-ability-container .creature-ability-title:hover {
@@ -3891,7 +3906,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities .creature-ability-container .creature-ability-text h2 {
@@ -3924,10 +3939,10 @@ body {
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities .creature-ability-container .creature-ability-text blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -3944,13 +3959,13 @@ body {
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities .creature-ability-container .creature-ability-text table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.actor .window-content .creature-description-grid .creature-abilities .creature-ability-container .creature-ability-text table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -3993,16 +4008,16 @@ body {
 }
 
 .sheet.item .window-content {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
 }
 
 .sheet.item .window-content button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
   font-size: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 3px;
 }
 
@@ -4012,17 +4027,17 @@ body {
 
 .sheet.item .window-content button:hover {
   background: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
   box-shadow: none;
   text-shadow: none;
 }
 
 .sheet.item .window-content button:hover .tox-icon svg {
-  fill: #c9c7b8;
+  fill: #b8c8c9;
 }
 
 .sheet.item .window-content button:hover ul {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans", monospace;
   color: #b5b3a4;
   border: none;
@@ -4030,7 +4045,7 @@ body {
 
 .sheet.item .window-content button:hover ul li:hover {
   background-color: #af1c1c;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.item .window-content label,
@@ -4040,13 +4055,13 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   font-weight: bold;
   font-size: 0.8rem;
-  color: #c9c7b8;
+  color: #b8c8c9;
 }
 
 .sheet.item .window-content select {
-  background: #191813;
-  color: #c9c7b8;
-  border: 1px solid #444;
+  background: #1e1e2d;
+  color: #b8c8c9;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.item .window-content input,
@@ -4054,9 +4069,9 @@ body {
 .sheet.item .window-content textarea {
   font-family: "Nunito", sans-serif;
   font-weight: normal;
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
-  border: 1px solid #444 !important;
+  border: 1px solid #2a2a40 !important;
   border-radius: 5px !important;
 }
 
@@ -4079,7 +4094,7 @@ body {
 .sheet.item .window-content input:disabled,
 .sheet.item .window-content input[type=text]:disabled,
 .sheet.item .window-content textarea:disabled {
-  background: #191813 !important;
+  background: #1e1e2d !important;
   color: #b5b3a4 !important;
 }
 
@@ -4100,13 +4115,13 @@ body {
 }
 
 .sheet.item .window-content table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.item .window-content table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -4150,7 +4165,7 @@ body {
 .sheet.item .window-content nav .tab-select {
   flex: 0 0 auto;
   background: #171619;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-bottom: none;
   border-radius: 5px;
   border-bottom-left-radius: 0px;
@@ -4164,8 +4179,8 @@ body {
 }
 
 .sheet.item .window-content nav .tab-select.active {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
   text-decoration: none;
   box-shadow: none;
   text-shadow: none;
@@ -4210,7 +4225,7 @@ body {
 
 .sheet.item .window-content .circle-statwrapper-vertical {
   background: #171619;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
 }
 
@@ -4224,7 +4239,7 @@ body {
 }
 
 .sheet.item .window-content .sheet-body {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
 }
 
 .sheet.item .window-content .sheet-body .tab {
@@ -4243,7 +4258,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .sheet.item .window-content .sheet-body .tab h2 {
@@ -4276,10 +4291,10 @@ body {
 
 .sheet.item .window-content .sheet-body .tab blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -4296,13 +4311,13 @@ body {
 }
 
 .sheet.item .window-content .sheet-body .tab table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .sheet.item .window-content .sheet-body .tab table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -4352,7 +4367,7 @@ body {
 .dialog .sheet.item .window-content .sheet-header .dialog-content .headerinputfield .macro_window,
 .sheet.item .dialog .window-content .sheet-header .dialog-content .headerinputfield .macro_window {
   background: #171619;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
 }
 
@@ -4365,27 +4380,27 @@ body {
 .sheet.item .dialog .window-content .dialog-content .sheet-header .headerinputfield .macro_window:has(input[type=radio]:checked),
 .dialog .sheet.item .window-content .sheet-header .dialog-content .headerinputfield .macro_window:has(input[type=radio]:checked),
 .sheet.item .dialog .window-content .sheet-header .dialog-content .headerinputfield .macro_window:has(input[type=radio]:checked) {
-  background: #191813;
-  color: #c9c7b8;
+  background: #1e1e2d;
+  color: #b8c8c9;
 }
 
 .gm-screen-app .gm-screen-actions .gm-screen-tabs button.item {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
 }
 
 .gm-screen-app .gm-screen-actions .gm-screen-tabs button.active {
-  background: #191813;
+  background: #1e1e2d;
 }
 
 .gm-screen-app .gm-screen-actions button,
 .gm-screen-app .gm-screen-actions .meta-actions button {
-  background: #191813;
+  background: #1e1e2d;
   color: #b5b3a4;
   font-family: "PT Sans", monospace;
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
 }
 
 .gm-screen-app .gm-screen-container .gm-screen-grid .gm-screen-grid-cell .gm-screen-grid-cell-content-wrapper {
@@ -4405,7 +4420,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border: none;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #2a2a40;
 }
 
 .gm-screen-app .gm-screen-container .gm-screen-grid .gm-screen-grid-cell .gm-screen-grid-cell-content-wrapper h2 {
@@ -4438,10 +4453,10 @@ body {
 
 .gm-screen-app .gm-screen-container .gm-screen-grid .gm-screen-grid-cell .gm-screen-grid-cell-content-wrapper blockquote {
   border: none;
-  border-left: 4px solid #c9c7b8;
+  border-left: 4px solid #b8c8c9;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #191813;
+  background: #1e1e2d;
   margin: 1rem 0.4rem 1rem 0rem;
   padding: 1rem;
 }
@@ -4458,13 +4473,13 @@ body {
 }
 
 .gm-screen-app .gm-screen-container .gm-screen-grid .gm-screen-grid-cell .gm-screen-grid-cell-content-wrapper table {
-  border: 1px solid #444;
+  border: 1px solid #2a2a40;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
 .gm-screen-app .gm-screen-container .gm-screen-grid .gm-screen-grid-cell .gm-screen-grid-cell-content-wrapper table thead {
-  background: #191813;
+  background: #1e1e2d;
   font-family: "PT Sans Caption";
   color: #b5b3a4;
   border: none;
@@ -4703,6 +4718,7 @@ body {
 .cosmere-rpg-unofficial .sheet-body .tab,
 .cosmere-rpg-unofficial .sheet-body .tab .editor {
   height: 100%;
+  padding: 10px;
 }
 .cosmere-rpg-unofficial .tox .tox-editor-container {
   background: #fff;
@@ -4762,7 +4778,7 @@ body {
   padding: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  color: #444;
+  color: #2a2a40;
 }
 .cosmere-rpg-unofficial .items-list .item-list {
   list-style: none;
@@ -4807,13 +4823,13 @@ body {
 .cosmere-rpg-unofficial .items-list .item {
   align-items: center;
   padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
+  border-bottom: 1px solid #b8c8c9;
 }
 .cosmere-rpg-unofficial .items-list .item:last-child {
   border-bottom: none;
 }
 .cosmere-rpg-unofficial .items-list .item .item-name {
-  color: #191813;
+  color: #1e1e2d;
 }
 .cosmere-rpg-unofficial .items-list .item .item-name .item-image {
   flex: 0 0 30px;
@@ -4846,12 +4862,12 @@ body {
   text-align: left;
 }
 .cosmere-rpg-unofficial .items-list .detail-item:hover, .cosmere-rpg-unofficial .items-list .detail-item:focus {
-  color: #000;
+  color: #2a2a40;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
 .cosmere-rpg-unofficial .items-list .container-toggle:hover, .cosmere-rpg-unofficial .items-list .container-toggle:focus {
-  color: #000;
+  color: #2a2a40;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
@@ -4893,7 +4909,7 @@ body {
   padding: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  color: #444;
+  color: #2a2a40;
 }
 .cosmere-rpg-unofficial .actions-list .action-list {
   list-style: none;
@@ -4938,13 +4954,13 @@ body {
 .cosmere-rpg-unofficial .actions-list .action {
   align-items: center;
   padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
+  border-bottom: 1px solid #b8c8c9;
 }
 .cosmere-rpg-unofficial .actions-list .action:last-child {
   border-bottom: none;
 }
 .cosmere-rpg-unofficial .actions-list .action .action-name {
-  color: #191813;
+  color: #1e1e2d;
 }
 .cosmere-rpg-unofficial .actions-list .action .action-name .action-image {
   flex: 0 0 30px;
@@ -5028,7 +5044,7 @@ body {
   min-width: fit-content;
 }
 .cosmere-rpg-unofficial .skill-pip:hover, .cosmere-rpg-unofficial .skill-pip:focus {
-  color: #000;
+  color: #2a2a40;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
@@ -5037,15 +5053,15 @@ body {
   font-size: large;
   padding: 3px 45% 3px 45%;
   border: 2px solid #000;
-  background-color: #444;
-  color: #c9c7b8;
+  background-color: #2a2a40;
+  color: #b8c8c9;
 }
 .cosmere-rpg-unofficial .skills-list {
   padding: 5%;
   width: 95%;
   border: 2px ridge #000;
-  background-color: #444;
-  color: #c9c7b8;
+  background-color: #2a2a40;
+  color: #b8c8c9;
 }
 .cosmere-rpg-unofficial .goal-pip {
   margin-left: 3%;
@@ -5053,7 +5069,7 @@ body {
   align-content: flex-end;
 }
 .cosmere-rpg-unofficial .goal-pip:hover, .cosmere-rpg-unofficial .goal-pip:focus {
-  color: #000;
+  color: #2a2a40;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }

@@ -257,12 +257,20 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		system.activeEffects.forEach(effect => {
 			if (effect.system.hide) return;
 			if (effect.system.toggle) toggleable.push(effect);
-			activeEffects.push(effect);
+			if (effect.system.status === 'active') {
+				activeEffects.push(effect);
+			} else {
+				effects.push(effect);
+			}
 		});
 		system.effects.forEach(effect => {
 			if (effect.system.hide) return;
 			if (effect.system.toggle) toggleable.push(effect);
-			effects.push(effect);
+			if (effect.system.status === 'active') {
+				activeEffects.push(effect);
+			} else {
+				effects.push(effect);
+			}
 		});
 
 		// Assign and return

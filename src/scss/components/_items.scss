@@ -56,7 +56,7 @@
 	padding: 0;
 	overflow-y: auto;
 	scrollbar-width: thin;
-	color: $c-tan;
+	color: $c-darkish;
 
 	// Child lists
 	.item-list {
@@ -156,7 +156,7 @@
 	.detail-item {
 		&:hover,
 		&:focus {
-			color: #000;
+			color: $c-darkish;
 			text-shadow: 0 0 10px red;
 			cursor: pointer;
 		}
@@ -165,7 +165,7 @@
 	.container-toggle {
 		&:hover,
 		&:focus {
-			color: #000;
+			color: $c-darkish;
 			text-shadow: 0 0 10px red;
 			cursor: pointer;
 		}
