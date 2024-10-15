@@ -84,6 +84,9 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 Handlebars.registerHelper('toUpperCase', function (str) {
 	return str.toUpperCase();
 });
+Handlebars.registerHelper('round', function (n) {
+	return Number((n).toFixed(2));
+});
 /* {{#ifEquals sampleString "This is a string"}}*/
 /*   Your HTML here								*/
 /* {{/ifEquals}}								*/
