@@ -220,7 +220,6 @@
   --crpgu-primary-font: #2a2a40;
   --crpgu-secondary-font: #4e4b47;
   --crpgu-header-color: #bcbcbc;
-  --crpgu-bg-image: url("systems/cosmere-rpg-unofficial/assets/anvil-impact.png");
 }
 
 [data-theme=beige] {
@@ -230,7 +229,6 @@
   --crpgu-primary-font: #272525;
   --crpgu-secondary-font: #3e3b3b;
   --crpgu-header-color: #9d9489;
-  --crpgu-bg-image: url("systems/cosmere-rpg-unofficial/assets/anvil-impact.png");
 }
 
 [data-theme=dark] {
@@ -240,7 +238,6 @@
   --crpgu-primary-font: #b8c8c9;
   --crpgu-secondary-font: #b5b3a4;
   --crpgu-header-color: #000;
-  --crpgu-bg-image: url("systems/cosmere-rpg-unofficial/assets/anvil-impact.png");
 }
 
 [data-theme=glass] {
@@ -250,7 +247,6 @@
   --crpgu-primary-font: #b8c8c9;
   --crpgu-secondary-font: #b5b3a4;
   --crpgu-header-color: #00000088;
-  --crpgu-bg-image: url("systems/cosmere-rpg-unofficial/assets/anvil-impact.png");
 }
 
 .window-app {
@@ -281,7 +277,6 @@
 .window-app:not(.item):not(.actor) .window-content {
   color: var(--crpgu-primary-font);
   background: var(--crpgu-primary-bg);
-  background-image: var(--crpgu-bg-image);
 }
 
 .window-app:not(.item):not(.actor) .window-content button {
@@ -4763,7 +4758,7 @@ body {
   padding: 10px;
 }
 .cosmere-rpg-unofficial .tox .tox-editor-container {
-  background: #fff;
+  background: var(--crpgu-secondary-bg);
 }
 .cosmere-rpg-unofficial .tox .tox-edit-area {
   padding: 0 8px;
@@ -4820,7 +4815,7 @@ body {
   padding: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  color: #2a2a40;
+  color: var(--crpgu-primary-font);
 }
 .cosmere-rpg-unofficial .items-list .item-list {
   list-style: none;
@@ -4865,13 +4860,13 @@ body {
 .cosmere-rpg-unofficial .items-list .item {
   align-items: center;
   padding: 0 2px;
-  border-bottom: 1px solid #b8c8c9;
+  border-bottom: 1px solid var(--crpgu-header-color);
 }
 .cosmere-rpg-unofficial .items-list .item:last-child {
   border-bottom: none;
 }
 .cosmere-rpg-unofficial .items-list .item .item-name {
-  color: #1e1e2d;
+  color: var(--crpgu-secondary-font);
 }
 .cosmere-rpg-unofficial .items-list .item .item-name .item-image {
   flex: 0 0 30px;
@@ -4904,12 +4899,12 @@ body {
   text-align: left;
 }
 .cosmere-rpg-unofficial .items-list .detail-item:hover, .cosmere-rpg-unofficial .items-list .detail-item:focus {
-  color: #2a2a40;
+  color: var(--crpgu-primary-font);
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
 .cosmere-rpg-unofficial .items-list .container-toggle:hover, .cosmere-rpg-unofficial .items-list .container-toggle:focus {
-  color: #2a2a40;
+  color: var(--crpgu-primary-font);
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
@@ -4944,95 +4939,6 @@ body {
 .cosmere-rpg-unofficial .key-talent-block {
   border: 2px dashed rgb(175, 175, 175);
   padding: 4px;
-}
-.cosmere-rpg-unofficial .actions-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  color: #2a2a40;
-}
-.cosmere-rpg-unofficial .actions-list .action-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.cosmere-rpg-unofficial .actions-list .action-name {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: center;
-  display: flex;
-}
-.cosmere-rpg-unofficial .actions-list .action-name h3,
-.cosmere-rpg-unofficial .actions-list .action-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
-}
-.cosmere-rpg-unofficial .actions-list .action-controls {
-  display: flex;
-  flex: 0 0 130px;
-  justify-content: flex-end;
-}
-.cosmere-rpg-unofficial .actions-list .action-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
-}
-.cosmere-rpg-unofficial .actions-list .action-info {
-  display: flex;
-  flex: 0 0 130px;
-  justify-content: flex-end;
-}
-.cosmere-rpg-unofficial .actions-list .action-info a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
-}
-.cosmere-rpg-unofficial .actions-list .action {
-  align-items: center;
-  padding: 0 2px;
-  border-bottom: 1px solid #b8c8c9;
-}
-.cosmere-rpg-unofficial .actions-list .action:last-child {
-  border-bottom: none;
-}
-.cosmere-rpg-unofficial .actions-list .action .action-name {
-  color: #1e1e2d;
-}
-.cosmere-rpg-unofficial .actions-list .action .action-name .action-image {
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
-  border: none;
-  margin-right: 5px;
-}
-.cosmere-rpg-unofficial .actions-list .action-prop {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
-}
-.cosmere-rpg-unofficial .actions-list .actions-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
-}
-.cosmere-rpg-unofficial .actions-list .actions-header > * {
-  font-size: 12px;
-  text-align: center;
-}
-.cosmere-rpg-unofficial .actions-list .actions-header .action-name {
-  padding-left: 5px;
-  text-align: left;
 }
 .cosmere-rpg-unofficial .effects .item .effect-source,
 .cosmere-rpg-unofficial .effects .item .effect-duration,
@@ -5086,7 +4992,7 @@ body {
   min-width: fit-content;
 }
 .cosmere-rpg-unofficial .skill-pip:hover, .cosmere-rpg-unofficial .skill-pip:focus {
-  color: #2a2a40;
+  color: var(--crpgu-primary-font);
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
@@ -5094,16 +5000,16 @@ body {
   font-weight: bold;
   font-size: large;
   padding: 3px 45% 3px 45%;
-  border: 2px solid #000;
-  background-color: #2a2a40;
-  color: #b8c8c9;
+  border: 2px solid var(--crpgu-secondary-bg);
+  background-color: var(--crpgu-primary-bg);
+  color: var(--crpgu-secondary-font);
 }
 .cosmere-rpg-unofficial .skills-list {
   padding: 5%;
   width: 95%;
-  border: 2px ridge #000;
-  background-color: #2a2a40;
-  color: #b8c8c9;
+  border: 2px ridge var(--crpgu-secondary-bg);
+  background-color: var(--crpgu-primary-bg);
+  color: var(--crpgu-secondary-font);
 }
 .cosmere-rpg-unofficial .goal-pip {
   margin-left: 3%;
@@ -5111,7 +5017,7 @@ body {
   align-content: flex-end;
 }
 .cosmere-rpg-unofficial .goal-pip:hover, .cosmere-rpg-unofficial .goal-pip:focus {
-  color: #2a2a40;
+  color: var(--crpgu-primary-font);
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }

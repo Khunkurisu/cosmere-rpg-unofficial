@@ -4,7 +4,7 @@
 	align-content: flex-end;
 	&:hover,
 	&:focus {
-		color: $c-darkish;
+		color: var(--crpgu-primary-font);
 		text-shadow: 0 0 10px red;
 		cursor: pointer;
 	}

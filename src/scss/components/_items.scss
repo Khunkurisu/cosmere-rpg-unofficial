@@ -56,7 +56,7 @@
 	padding: 0;
 	overflow-y: auto;
 	scrollbar-width: thin;
-	color: $c-darkish;
+	color: var(--crpgu-primary-font);
 
 	// Child lists
 	.item-list {
@@ -110,12 +110,12 @@
 	.item {
 		align-items: center;
 		padding: 0 2px; // to align with the header border
-		border-bottom: 1px solid $c-faint;
+		border-bottom: 1px solid var(--crpgu-header-color);
 		&:last-child {
 			border-bottom: none;
 		}
 		.item-name {
-			color: $c-dark;
+			color: var(--crpgu-secondary-font);
 			.item-image {
 				flex: 0 0 30px;
 				height: 30px;
@@ -156,7 +156,7 @@
 	.detail-item {
 		&:hover,
 		&:focus {
-			color: $c-darkish;
+			color: var(--crpgu-primary-font);
 			text-shadow: 0 0 10px red;
 			cursor: pointer;
 		}
@@ -165,7 +165,7 @@
 	.container-toggle {
 		&:hover,
 		&:focus {
-			color: $c-darkish;
+			color: var(--crpgu-primary-font);
 			text-shadow: 0 0 10px red;
 			cursor: pointer;
 		}
