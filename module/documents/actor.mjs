@@ -203,7 +203,33 @@ export class CosmereUnofficialActor extends Actor {
 		const systemData = actorData.system;
 		const attributes = systemData.attributes;
 
-		systemData.health.max = 10 + attributes.strength.value;
+		let base = 10;
+		let tier = 1;
+		switch (systemData.level) {
+			case 2: case 3: case 4: case 5: {
+				base += (systemData.level - 1) * 5;
+				break;
+			}
+			case 6: case 7: case 8: case 9: case 10: {
+				tier = 2;
+				base += 20;
+				base += (systemData.level - 5) * 4;
+				break;
+			}
+			case 11: case 12: case 13: case 14: case 15: {
+				tier = 3;
+				base += 40;
+				base += (systemData.level - 10) * 3;
+				break;
+			}
+			case 16: case 17: case 18: case 19: case 20: {
+				tier = 4
+				base += 55;
+				base += (systemData.level - 15) * 2;
+				break;
+			}
+		}
+		systemData.health.max = base + attributes.strength.value * tier;
 		systemData.focus.max = 2 + attributes.willpower.value;
 		const investitureBonus = Math.max(attributes.presence.value, attributes.awareness.value);
 		systemData.investiture.max = systemData.isRadiant ? 2 + investitureBonus : 0;
