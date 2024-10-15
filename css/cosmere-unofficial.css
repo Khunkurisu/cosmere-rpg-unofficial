@@ -5040,4 +5040,5 @@ body {
   max-height: 100%;
   width: auto;
   height: auto;
+  background-color: var(--crpgu-secondary-bg);
 }
