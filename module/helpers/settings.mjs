@@ -5,10 +5,12 @@ export async function registerSettings() {
 		scope: 'client',
 		config: true,
 		type: String,
-		default: 'Light',
+		default: 'light',
 		choices: {
-			1: 'Light',
-			2: 'Dark'
+			'light': 'Light',
+			'beige': 'Beige',
+			'dark': 'Dark',
+			'glass': 'Glass'
 		},
 		requiresReload: true
 	});

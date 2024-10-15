@@ -207,24 +207,20 @@ function rollItemMacro(itemUuid) {
 		item.roll();
 	});
 }
+function setTheme(i) {
+	console.log(game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	i.attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+}
 
 Hooks.on("renderApplication", (function (o, i, n) {
-	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
-		i.attr('data-theme', 'dark');
-	}
+	setTheme(i);
 }));
 Hooks.on("createProseMirrorEditor", (function (o, i, n) {
-	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
-		i.attr('data-theme', 'dark');
-	}
+	setTheme(i);
 }));
 Hooks.on("renderActorSheet", (function (o, i, n) {
-	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
-		i.attr('data-theme', 'dark');
-	}
+	setTheme(i);
 }));
 Hooks.on("renderItemSheet", (function (o, i, n) {
-	if (game.settings.get('cosmere-rpg-unofficial', 'colorTheme') == 2) {
-		i.attr('data-theme', 'dark');
-	}
+	setTheme(i);
 }));
