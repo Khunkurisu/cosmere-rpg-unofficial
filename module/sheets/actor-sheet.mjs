@@ -216,9 +216,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 							actions.push(action);
 							break;
 						}
-						default: {
-							activities.push(action);
-						}
 					}
 				}
 				switch (item.system.type) {
