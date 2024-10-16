@@ -10,7 +10,7 @@ export default class CosmereUnofficialFeature extends CosmereUnofficialItemBase 
 		schema.requirements = new fields.ArrayField(new fields.ObjectField());
 		schema.requirementCreateType = new fields.StringField({ initial: "skill" });
 
-		schema.active = new fields.BooleanField({ initial: false });
+		schema.active = new fields.BooleanField({ initial: true });
 		schema.effects = new fields.ArrayField(new fields.ObjectField());
 		schema.effectCreateType = new fields.StringField({ initial: "modifier" });
 		schema.hasToggle = new fields.BooleanField({ initial: false });
