@@ -26,11 +26,6 @@
 								data-dtype='Number' data-target="value" />
 						</div>
 					</div>
-					<div class="flexcol" style="max-width:min-content; padding-left:5px">
-						<a class='effect-remove' data-key="{{id}}" title='Delete Effect'>
-							<i class='fas fa-trash'></i>
-						</a>
-					</div>
 				{{/if}}
 				{{#if (ifEquals effect.type 'dice')}}
 					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
@@ -46,20 +41,21 @@
 								<option value="advantage" {{isSelected 'advantage' effect.func}}>Advantage</option>
 								<option value="disadvantage" {{isSelected 'disadvantage' effect.func}}>Disadvantage
 								</option>
+								<option value="plot" {{isSelected 'plot' effect.func}}>Plot Dice</option>
 							</select>
 						</div>
 						<div class="flexcol flex-group-left">
-							<label class='resource-label'>Value</label>
+							<label class='resource-label'>Selector</label>
 							<input class='effect-input' type='checkbox' name='effect.value' value='{{effect.value}}'
 								{{#if effect.value}} checked="true" {{/if}} data-target="value" />
 						</div>
 					</div>
-					<div class="flexcol" style="max-width:min-content; padding-left:5px">
-						<a class='effect-remove' data-key="{{id}}" title='Delete Effect'>
-							<i class='fas fa-trash'></i>
-						</a>
-					</div>
 				{{/if}}
+				<div class="flexcol" style="max-width:min-content; padding-left:5px">
+					<a class='effect-remove' data-key="{{id}}" title='Delete Effect'>
+						<i class='fas fa-trash'></i>
+					</a>
+				</div>
 			</li>
 		{{/each}}
 	</ol>
@@ -69,8 +65,8 @@
 	<div class="grid grid-5col flex-group-right">
 		<div class="grid-span-3"><span></span></div>
 		<select name='effectCreateType' class='effect-create-select'>
-			<option value="base" {{isSelected 'base' system.effectCreateType}}>Base</option>
 			<option value="modifier" {{isSelected 'modifier' system.effectCreateType}}>Modifier</option>
+			<option value="dice" {{isSelected 'dice' system.effectCreateType}}>Dice</option>
 		</select>
 		<span class="hoverable" style="width:100%;" data-effect-type="{{system.effectCreateType}}">
 			<a class='effect-create' title='Add Effect'>

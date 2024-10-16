@@ -197,6 +197,8 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 
 		if (type === 'modifier') {
 			effect = new effects.ModifierEffect('load', '', [], 'add', 0);
+		} else if (type === 'dice') {
+			effect = new effects.DiceEffect('test', '', [], 'advantage', true);
 		}
 		if (effect) {
 			modEffects.push(effect);
