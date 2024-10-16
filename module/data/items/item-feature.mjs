@@ -11,9 +11,9 @@ export default class CosmereUnofficialFeature extends CosmereUnofficialItemBase 
 		schema.active = new fields.BooleanField({ initial: false });
 		schema.effects = new fields.ArrayField(new fields.ObjectField());
 		schema.effectCreateType = new fields.StringField({ initial: "modifier" });
+		schema.hasToggle = new fields.BooleanField({ initial: false });
 
 		schema.hasAction = new fields.BooleanField({ initial: false });
-		schema.hasToggle = new fields.BooleanField({ initial: false });
 		schema.cost = new fields.NumberField({ ...requiredInteger, initial: 0, min: -2 });
 
 		return schema;

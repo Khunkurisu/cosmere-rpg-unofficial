@@ -7,7 +7,6 @@ export default class CosmereUnofficialEffect extends CosmereUnofficialItemBase {
 		const schema = super.defineSchema();
 
 		schema.active = new fields.BooleanField({ initial: false });
-
 		schema.duration = new fields.SchemaField({
 			value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 			unit: new fields.StringField({ initial: "round" })
