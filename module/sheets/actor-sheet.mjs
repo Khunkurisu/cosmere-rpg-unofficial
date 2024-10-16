@@ -191,6 +191,36 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 			// Append to features.
 			else if (item.type === 'Feature') {
+				if (item.system.hasAction) {
+					const action = {
+						name: item.name,
+						img: item.img,
+						_id: item._id,
+						system: {
+							unit: 'actions',
+							cost: item.system.cost,
+							description: item.system.description,
+							showDetails: item.system.showDetails,
+						}
+					};
+					switch (action.system.cost) {
+						case -1: {
+							reactions.push(action);
+							break;
+						}
+						case 0: {
+							freeActions.push(action);
+							break;
+						}
+						case 1: case 2: case 3: {
+							actions.push(action);
+							break;
+						}
+						default: {
+							activities.push(action);
+						}
+					}
+				}
 				switch (item.system.type) {
 					case 'Ancestry': {
 						ancestryFeatures.push(item);
