@@ -141,7 +141,7 @@ export class CosmereUnofficialActor extends Actor {
 					equipped.push(item);
 				}
 			}
-			else if (item.type === 'Effect') {
+			else if (item.type === 'Effect' || item.type === 'Feature') {
 				if (item.system.active) {
 					activeEffects.push(item);
 					return;
