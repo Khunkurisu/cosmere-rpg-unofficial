@@ -527,15 +527,16 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			let hasAdvantage = false;
 			let hasDisadvantage = false;
 			let usePlotDice = false;
-			const rollType = dataset.rollType === 'skill' ? dataset.key : dataset.rollType;
-			console.log(system.activeEffects);
+			const rollType = dataset.rollType === 'skill' ? `skill-${dataset.key}` : dataset.rollType;
 
-			system.activeEffects.forEach(activeEffect => {
-				if (activeEffect.system.active) return;
+			system.effects.forEach(activeEffect => {
+				if (!activeEffect.system.active) return;
 				activeEffect.system.effects.forEach(e => {
+					console.log(e);
 					if (e.type === 'dice') {
-						const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);
+						const effect = new Effects.DiceEffect(e.trigger, e.target, e.predicate, e.value);
 						let data = effect.TryApplyEffect('roll', { circumstances: [rollType] });
+						console.log(data);
 						if (data) {
 							switch (data.key) {
 								case 'hasAdvantage': {
