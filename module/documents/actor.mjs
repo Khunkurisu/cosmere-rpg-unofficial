@@ -127,7 +127,6 @@ export class CosmereUnofficialActor extends Actor {
 	checkItems(actorData) {
 		const systemData = actorData.system;
 
-		const activeEffects = [];
 		const effects = [];
 		const equipped = [];
 		const stored = [];
@@ -141,12 +140,12 @@ export class CosmereUnofficialActor extends Actor {
 					equipped.push(item);
 				}
 			}
-			else if (item.type === 'Effect' || item.type === 'Feature') {
-				if (item.system.active) {
-					activeEffects.push(item);
-					return;
-				}
+			else if (item.type === 'Effect') {
 				effects.push(item);
+			} else if (item.type === 'Feature') {
+				if (item.system.effects.length > 0) {
+					effects.push(item);
+				}
 			}
 			else if (item.type === 'Container') {
 				containers.push(item);
@@ -169,7 +168,6 @@ export class CosmereUnofficialActor extends Actor {
 			container.system.displayWeight = `${Number((container.system.totalWeight).toFixed(2))} lbs`;
 		});
 
-		systemData.activeEffects = activeEffects;
 		systemData.effects = effects;
 		systemData.equipped = equipped;
 		systemData.stored = stored;
@@ -351,18 +349,23 @@ export class CosmereUnofficialActor extends Actor {
 
 	getEffectBonuses(actorData) {
 		const system = actorData.system;
-		system.activeEffects.forEach(activeEffect => {
-			if (activeEffect.system.status !== 'active') return;
+		system.effects.forEach(activeEffect => {
+			if (!activeEffect.system.active) return;
+			console.log(activeEffect);
 			activeEffect.system.effects.forEach(e => {
+				console.log(e);
 				if (e.type === 'modifier') {
 					const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);
+					console.log(effect);
 					let targetVal = this._getValueByString(effect.target);
-					if (targetVal) {
+					console.log(targetVal);
+					if (targetVal || targetVal === 0) {
 						let data = {
 							circumstances: [],
 							value: targetVal
 						}
 						data = effect.TryApplyEffect('load', data);
+						console.log(data);
 						if (data) {
 							this._setValueByString(effect.target, data.value);
 							console.log(this._getValueByString(effect.target));

@@ -4,8 +4,7 @@
 			{{#each toggleable as |effect id|}}
 				<li class='effect-toggle flexrow flex-group-left' data-effect-id='{{effect._id}}'>
 					<input class="effect-toggle-checkbox" type="checkbox" id="effect-toggle" name="effect-toggle"
-						value="{{effect.system.status}}" {{#if (ifEquals effect.system.status 'active')}} checked="true"
-						{{/if}}>
+						value="{{effect.system.status}}" {{#if effect.system.active}} checked="true" {{/if}}>
 					<label for="effect-toggle" class="resource-label" style="min-width:fit-content">
 						{{effect.name}}
 					</label>

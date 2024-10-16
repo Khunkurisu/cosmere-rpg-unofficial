@@ -69,7 +69,6 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
 		context.config = CONFIG.COSMERE_UNOFFICIAL;
 
-		console.log(context.type);
 		if (this.item.type === 'Feature') {
 			const requirementText = [];
 			context.system.requirements.forEach(requirement => {

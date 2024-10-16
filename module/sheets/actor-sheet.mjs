@@ -284,22 +284,18 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const activeEffects = [];
 		const effects = [];
 		const toggleable = [];
-		system.activeEffects.forEach(effect => {
-			if (effect.system.hasToggle) toggleable.push(effect);
-			if (effect.system.active) {
-				activeEffects.push(effect);
-			} else {
-				effects.push(effect);
-			}
-		});
 		system.effects.forEach(effect => {
 			if (effect.system.hasToggle) toggleable.push(effect);
-			if (effect.system.active) {
-				activeEffects.push(effect);
-			} else {
-				effects.push(effect);
+			if (effect.type === 'Effect') {
+				if (effect.system.active) {
+					activeEffects.push(effect);
+				} else {
+					effects.push(effect);
+				}
 			}
 		});
+
+		toggleable.sort((a, b) => a.name.localeCompare(b.name));
 
 		// Assign and return
 		context.gear = gear;
