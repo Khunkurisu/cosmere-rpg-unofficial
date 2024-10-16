@@ -9,6 +9,9 @@ export default class CosmereUnofficialFeature extends CosmereUnofficialItemBase 
 		schema.level = new fields.NumberField({ ...requiredInteger, initial: 1, min: 1 });
 		schema.type = new fields.StringField({ initial: "Ancestry" });
 
+		schema.effects = new fields.ArrayField(new fields.ObjectField());
+		schema.effectCreateType = new fields.StringField({ initial: "modifier" });
+
 		return schema;
 	}
 }

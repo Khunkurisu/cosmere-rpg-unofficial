@@ -9,8 +9,8 @@
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item" data-tab="description">Description</a>
-		{{!-- <a class="item" data-tab="attributes">Attributes</a> --}}
-		{{!-- <a class="item" data-tab="effects">Effects</a> --}}
+		<a class="item" data-tab="attributes">Attributes</a>
+		<a class="item" data-tab="effects">Effects</a>
 	</nav>
 
 	{{!-- Sheet Body --}}
@@ -27,9 +27,10 @@
 			{{!-- As you add new fields, add them in here! --}}
 		</div>
 
-		{{!-- Effects Tab --}}
-		<div class="tab effects" data-group="primary" data-tab="effects">
-			{{!-- {{> "systems/cosmere-rpg-unofficial/templates/item/parts/item-effects.hbs"}} --}}
+		{{! Effects Tab }}
+		<div class='tab effects' data-group='primary' data-tab='effects'>
+			{{! As you add new fields, add them in here! }}
+			{{> "systems/cosmere-rpg-unofficial/templates/item/parts/item-effects.hbs"}}
 		</div>
 	</section>
 </form>
