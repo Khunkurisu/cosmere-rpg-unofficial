@@ -87,11 +87,17 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 Handlebars.registerHelper('round', function (n) {
 	return Number((n).toFixed(2));
 });
-/* {{#ifEquals sampleString "This is a string"}}*/
-/*   Your HTML here								*/
-/* {{/ifEquals}}								*/
+/* {{#if (ifEquals sampleString "This is a string")}}	*/
+/*   Your HTML here										*/
+/* {{/if}}												*/
 Handlebars.registerHelper('ifEquals', function (arg1, arg2) {
 	return (arg1 == arg2);
+});
+Handlebars.registerHelper('ifGreater', function (arg1, arg2) {
+	return (arg1 > arg2);
+});
+Handlebars.registerHelper('ifLesser', function (arg1, arg2) {
+	return (arg1 < arg2);
 });
 Handlebars.registerHelper('capacityPct', function (capacityObj) {
 	return (capacityObj.carrying / capacityObj.maxCarry) * 100;
