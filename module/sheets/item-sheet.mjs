@@ -126,6 +126,13 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		// Add/Remove Specialties
 		html.on('click', '.specialty-create', this._onSpecialtyCreate.bind(this));
 		html.on('click', '.specialty-remove', this._onSpecialtyRemove.bind(this));
+
+		// Handle Feature Requirements
+		html.on('click', '.requirement-create', this._onRequirementCreate.bind(this));
+		html.on('click', '.requirement-remove', this._onRequirementRemove.bind(this));
+		html.on('change', '.requirement-create-select', this._onRequirementSelect.bind(this));
+		html.on('change', '.requirement-input', this._onRequirementChange.bind(this));
+		html.on('change', '.requirement-skill-select', this._onRequirementSkillSelect.bind(this));
 	}
 
 	/**
@@ -242,6 +249,112 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 			const hasAction = !item.system.hasAction;
 			item.update({ 'system.hasAction': hasAction });
 		}
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle created selected requirement type.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRequirementCreate(event) {
+		event.preventDefault();
+		const system = this.item.system;
+		const reqType = this.item.system.requirementCreateType;
+		const modReqs = system.requirements;
+		console.log(reqType);
+		let req = null;
+
+		if (reqType === 'skill') {
+			req = {
+				skill: 'athletics',
+				value: 1,
+				type: 'skill'
+			};
+		} else if (reqType === 'talent') {
+			req = {
+				value: '',
+				type: 'talent'
+			};
+		}
+		console.log(req);
+		if (req) {
+			modReqs.push(req);
+		}
+		console.log(modReqs);
+
+		this.item.update({ "system.requirements": modReqs });
+		console.log(this.item.system.requirements);
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle removing an requirement.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRequirementRemove(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const dataset = element.dataset;
+		const modRequirements = this.item.system.requirements;
+
+		modRequirements.splice(dataset.key, 1);
+		this.item.update({ "system.requirements": modRequirements });
+
+		this.render(false);
+	};
+
+	/**
+	 * Handle selecting requirement creation type.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRequirementSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+
+		this.item.system.requirementCreateType = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle changing requirement value.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRequirementChange(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const li = $(element).parents('.item');
+		const modRequirements = this.item.system.requirements;
+		const requirement = modRequirements[li.data('itemId')];
+		const target = element.dataset.target;
+
+		if (requirement && target) {
+			requirement[target] = element.value;
+			this.item.update({ "system.requirements": modRequirements });
+		}
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle selecting requirement skill.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRequirementSkillSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const li = $(element).parents('.item');
+		const modRequirements = this.item.system.requirements;
+		const requirement = modRequirements[li.data('itemId')];
+
+		requirement.skill = element.value;
 
 		this.render(false);
 	}

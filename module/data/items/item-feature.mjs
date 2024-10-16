@@ -7,6 +7,8 @@ export default class CosmereUnofficialFeature extends CosmereUnofficialItemBase 
 		const schema = super.defineSchema();
 
 		schema.type = new fields.StringField({ initial: "Path" });
+		schema.requirements = new fields.ArrayField(new fields.ObjectField());
+		schema.requirementCreateType = new fields.StringField({ initial: "skill" });
 
 		schema.active = new fields.BooleanField({ initial: false });
 		schema.effects = new fields.ArrayField(new fields.ObjectField());

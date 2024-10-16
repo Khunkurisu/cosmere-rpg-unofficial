@@ -1,0 +1,83 @@
+<div class="flexcol flexlarge flex-group-center">
+	<ol class="items-list requirements-list">
+		{{#each system.requirements as |requirement id|}}
+			<li class='item flexrow' style="padding-bottom:5px;padding-top:5px;" data-item-id='{{id}}'>
+				{{#if (ifEquals requirement.type 'skill')}}
+					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
+					<div class="grid grid-2col">
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Skill</label>
+							<select name='requirement.skill' class='requirement-skill-select'>
+								<option value="athletics" {{isSelected 'athletics' requirement.skill}}>Athletics
+								</option>
+								<option value="agility" {{isSelected 'agility' requirement.skill}}>Agility</option>
+								<option value="heavy_weapons" {{isSelected 'heavy_weapons' requirement.skill}}>Heavy
+									Weapons
+								</option>
+								<option value="light_weapons" {{isSelected 'light_weapons' requirement.skill}}>Light
+									Weapons
+								</option>
+								<option value="stealth" {{isSelected 'stealth' requirement.skill}}>Stealth</option>
+								<option value="thievery" {{isSelected 'thievery' requirement.skill}}>Thievery</option>
+								<option value="crafting" {{isSelected 'crafting' requirement.skill}}>Crafting</option>
+								<option value="deduction" {{isSelected 'deduction' requirement.skill}}>Deduction
+								</option>
+								<option value="discipline" {{isSelected 'discipline' requirement.skill}}>Discipline
+								</option>
+								<option value="intimidation" {{isSelected 'intimidation' requirement.skill}}>
+									Intimidation
+								</option>
+								<option value="lore" {{isSelected 'lore' requirement.skill}}>Lore</option>
+								<option value="medicine" {{isSelected 'medicine' requirement.skill}}>Medicine</option>
+								<option value="deception" {{isSelected 'deception' requirement.skill}}>Deception
+								</option>
+								<option value="insight" {{isSelected 'insight' requirement.skill}}>Insight</option>
+								<option value="leadership" {{isSelected 'leadership' requirement.skill}}>Leadership
+								</option>
+								<option value="perception" {{isSelected 'perception' requirement.skill}}>Perception
+								</option>
+								<option value="persuasion" {{isSelected 'persuasion' requirement.skill}}>Persuasion
+								</option>
+								<option value="survival" {{isSelected 'survival' requirement.skill}}>Survival</option>
+							</select>
+						</div>
+						<div class="flexcol flex-group-left">
+							<label class='resource-label'>Value</label>
+							<input class='requirement-input' type='text' name='requirement.value'
+								value='{{requirement.value}}' data-dtype='Number' data-target="value" />
+						</div>
+					</div>
+				{{/if}}
+				{{#if (ifEquals requirement.type 'talent')}}
+					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
+					<div class="flexcol flex-group-left">
+						<label class='resource-label'>Talent Name</label>
+						<input class='requirement-input' type='text' name='requirement.value'
+							value='{{requirement.value}}' data-dtype='Number' data-target="value" />
+					</div>
+				{{/if}}
+				<div class="flexcol" style="max-width:min-content; padding-left:5px">
+					<a class='requirement-remove' data-key="{{id}}" title='Delete Requirement'>
+						<i class='fas fa-trash'></i>
+					</a>
+				</div>
+			</li>
+		{{/each}}
+	</ol>
+</div>
+<hr />
+<div class="flexrow">
+	<div class="grid grid-5col flex-group-right">
+		<div class="grid-span-3"><span></span></div>
+		<select name='requirementCreateType' class='requirement-create-select'>
+			<option value="skill" {{isSelected 'skill' system.requirementCreateType}}>Skill</option>
+			<option value="talent" {{isSelected 'talent' system.requirementCreateType}}>Talent</option>
+		</select>
+		<span class="hoverable" style="width:100%;" data-requirement-type="{{system.requirementCreateType}}">
+			<a class='requirement-create' title='Add Requirement'>
+				<i class='fas fa-plus'></i>
+				Add Req.
+			</a>
+		</span>
+	</div>
+</div>

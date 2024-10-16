@@ -16,5 +16,6 @@ export const preloadHandlebarsTemplates = async function () {
 		// Item partials
 		'systems/cosmere-rpg-unofficial/templates/item/parts/item-talents.hbs',
 		'systems/cosmere-rpg-unofficial/templates/item/parts/item-effects.hbs',
+		'systems/cosmere-rpg-unofficial/templates/item/parts/item-requirements.hbs',
 	]);
 };
