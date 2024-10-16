@@ -29,13 +29,18 @@
 
 		{{!-- Description Tab --}}
 		<div class="tab" data-group="primary" data-tab="description">
+			{{#if system.hasAction}}
+				<p>{{{activation}}}</p>
+			{{/if}}
+			{{#if (ifGreater system.requirements.length 0)}}
+				<p>{{{requirements}}}</p>
+			{{/if}}
 			{{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
 			{{editor enrichedDescription target="system.description" engine="prosemirror" button=true editable=editable}}
 		</div>
 
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
-			{{> "systems/cosmere-rpg-unofficial/templates/item/parts/item-requirements.hbs"}}
 			<div class="grid grid-3col flex-group-right">
 				{{#if system.hasAction}}
 					<div class="grid-span-1"><span></span></div>
@@ -60,6 +65,10 @@
 						{{#if system.hasAction}} checked="true" {{/if}}>
 				</div>
 			</div>
+			{{#if (ifGreater system.requirements.length 0)}}
+				<hr />
+			{{/if}}
+			{{> "systems/cosmere-rpg-unofficial/templates/item/parts/item-requirements.hbs"}}
 		</div>
 		{{! Effects Tab }}
 		<div class='tab effects' data-group='primary' data-tab='effects'>

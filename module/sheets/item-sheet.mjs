@@ -69,6 +69,55 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
 		context.config = CONFIG.COSMERE_UNOFFICIAL;
 
+		console.log(context.type);
+		if (this.item.type === 'Feature') {
+			const requirementText = [];
+			context.system.requirements.forEach(requirement => {
+				if (requirement.type === 'skill') {
+					let localSkillKey = '';
+					if (requirement.skill in context.config.skills.physical) localSkillKey = 'physical';
+					else if (requirement.skill in context.config.skills.cognitive) localSkillKey = 'cognitive';
+					else if (requirement.skill in context.config.skills.spiritual) localSkillKey = 'spiritual';
+					const localSkillName = game.i18n.localize(context.config.skills[localSkillKey][requirement.skill]);
+					requirementText.push(`${localSkillName} ${requirement.value}`);
+					return;
+				}
+				requirementText.push(`${requirement.value}`);
+			});
+			context.requirements = `<b>Requirements:</b> ${requirementText.join('; ')}`;
+			if (context.system.hasAction) {
+				let actionText = [];
+				switch (context.system.cost) {
+					case -2: {
+						actionText.push('<i class="fa-solid fa-certificate"></i>');
+						break;
+					}
+					case -1: {
+						actionText.push('<i class="fa-regular fa-arrow-turn-left"></i>');
+						break;
+					}
+					case 0: {
+						actionText.push('<i class="fa-light fa-play"></i>');
+						break;
+					}
+					case 1: {
+						actionText.push('<i class="fa-solid fa-play"></i>');
+						break;
+					} case 2: {
+						actionText.push('<i class="fa-solid fa-play"></i>');
+						actionText.push('<i class="fa-solid fa-play"></i>');
+						break;
+					} case 3: {
+						actionText.push('<i class="fa-solid fa-play"></i>');
+						actionText.push('<i class="fa-solid fa-play"></i>');
+						actionText.push('<i class="fa-solid fa-play"></i>');
+						break;
+					}
+				}
+				context.activation = `<b>Activation:</b> ${actionText.join('')}`
+			}
+		}
+
 		return context;
 	}
 
