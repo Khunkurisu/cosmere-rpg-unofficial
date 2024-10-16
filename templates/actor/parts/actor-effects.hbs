@@ -31,7 +31,7 @@
 				<li class='item flexrow' data-item-id='{{effect._id}}'
 					{{#unless effect.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{effect.system.description}}}
+						{{editor enrichedDescription target="effect.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -68,7 +68,7 @@
 				<li class='item flexrow' data-item-id='{{effect._id}}'
 					{{#unless effect.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{effect.system.description}}}
+						{{editor enrichedDescription target="effect.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}

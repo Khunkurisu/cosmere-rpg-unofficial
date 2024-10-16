@@ -146,7 +146,7 @@
 				<li class='item flexrow' data-item-id='{{action._id}}'
 					{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{action.system.description}}}
+						{{editor enrichedDescription target="action.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -191,7 +191,7 @@
 				<li class='item flexrow' data-item-id='{{action._id}}'
 					{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{action.system.description}}}
+						{{editor enrichedDescription target="action.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -236,7 +236,7 @@
 				<li class='item flexrow' data-item-id='{{action._id}}'
 					{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{action.system.description}}}
+						{{editor enrichedDescription target="action.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -280,7 +280,7 @@
 				<li class='item flexrow' data-item-id='{{action._id}}'
 					{{#unless action.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{action.system.description}}}
+						{{editor enrichedDescription target="action.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}

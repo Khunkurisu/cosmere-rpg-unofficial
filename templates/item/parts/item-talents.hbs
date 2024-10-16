@@ -27,7 +27,7 @@
 		<li class='item flexrow' data-item-id='{{item._id}}' {{#unless item.system.showDetails}}style='display: none'
 			{{/unless}}>
 			<div class='item-details flex-group-center'>
-				{{{item.system.description}}}
+				{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 			</div>
 		</li>
 	{{/each}}
