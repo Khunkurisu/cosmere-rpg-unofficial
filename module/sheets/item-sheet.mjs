@@ -323,7 +323,6 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const system = this.item.system;
 		const reqType = this.item.system.requirementCreateType;
 		const modReqs = system.requirements;
-		console.log(reqType);
 		let req = null;
 
 		if (reqType === 'skill') {
@@ -338,14 +337,11 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 				type: 'talent'
 			};
 		}
-		console.log(req);
 		if (req) {
 			modReqs.push(req);
 		}
-		console.log(modReqs);
 
 		this.item.update({ "system.requirements": modReqs });
-		console.log(this.item.system.requirements);
 
 		this.render(false);
 	}

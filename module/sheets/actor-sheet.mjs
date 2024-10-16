@@ -278,6 +278,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			"formula": "1d4",
 			"crit": 4,
 			"damageType": "[impact]",
+			"skill": "athletics",
 			"modifier": (mod >= 0) ? ("+" + mod) : ("-" + mod)
 		});
 
@@ -502,18 +503,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const rollInfo = this.getRollInfo(dataset);
 		const label = rollInfo[0];
 		const type = rollInfo[1];
-		const defense = rollInfo[2];
-
-		const context = {
-			actor: this.actor,
-			label: rollInfo[0],
-			type: rollInfo[0],
-			defense: rollInfo[2] ?? null,
-			flags: {
-				type: type,
-				target: game.user.targets.first()?.document ?? null
-			}
-		}
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
@@ -527,16 +516,20 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			let hasAdvantage = false;
 			let hasDisadvantage = false;
 			let usePlotDice = false;
-			const rollType = dataset.rollType === 'skill' ? `skill-${dataset.key}` : dataset.rollType;
+			let rollSelectors = ['test', dataset.rollType];
+			if (dataset.rollType === 'skill') {
+				rollSelectors.push(`skill-${dataset.key}`);
+			} else if (dataset.rollType === 'strike') {
+				let key = dataset.key === 'heavy' ? 'heavy_weapons' : dataset.key === 'light' ? 'light_weapons' : dataset.key;
+				rollSelectors.push('skill', `skill-${key}`);
+			}
 
 			system.effects.forEach(activeEffect => {
 				if (!activeEffect.system.active) return;
 				activeEffect.system.effects.forEach(e => {
-					console.log(e);
 					if (e.type === 'dice') {
 						const effect = new Effects.DiceEffect(e.trigger, e.target, e.predicate, e.value);
-						let data = effect.TryApplyEffect('roll', { circumstances: [rollType] });
-						console.log(data);
+						let data = effect.TryApplyEffect('roll', { circumstances: rollSelectors });
 						if (data) {
 							switch (data.key) {
 								case 'hasAdvantage': {
@@ -621,7 +614,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 */
 	_strikeFromWeapon(weapon, context) {
 		const system = context.actor.system;
-		let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : "light_weapons";
+		let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : weapon.system.skill === "light" ? "light_weapons" : weapon.system.skill;
 		let mod = system.skills.physical[skill].value;
 
 		return {
@@ -630,6 +623,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
 			"crit": weapon.system.damage.die,
 			"defense": "physical",
+			"skill": weapon.system.skill,
 			"damageType": "[" + weapon.system.damage.type + "]",
 			"modifier": (mod >= 0) ? (`+${mod}`) : (`-${mod}`)
 		};

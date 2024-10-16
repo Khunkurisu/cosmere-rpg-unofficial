@@ -347,24 +347,18 @@ export class CosmereUnofficialActor extends Actor {
 		const system = actorData.system;
 		system.effects.forEach(activeEffect => {
 			if (!activeEffect.system.active) return;
-			console.log(activeEffect);
 			activeEffect.system.effects.forEach(e => {
-				console.log(e);
 				if (e.type === 'modifier') {
 					const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);
-					console.log(effect);
 					let targetVal = this._getValueByString(effect.target);
-					console.log(targetVal);
 					if (targetVal || targetVal === 0) {
 						let data = {
 							circumstances: [],
 							value: targetVal
 						}
 						data = effect.TryApplyEffect('load', data);
-						console.log(data);
 						if (data) {
 							this._setValueByString(effect.target, data.value);
-							console.log(this._getValueByString(effect.target));
 						}
 					}
 				}

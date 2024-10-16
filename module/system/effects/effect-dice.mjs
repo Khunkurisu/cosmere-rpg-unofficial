@@ -13,8 +13,6 @@ export default class DiceEffect extends Effect {
 		data = super.ApplyEffect(data);
 		if (!data) return null;
 
-		console.log(this.target);
-
 		switch (this.target) {
 			case 'advantage': {
 				data.key = 'hasAdvantage'
