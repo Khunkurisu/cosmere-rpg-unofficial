@@ -142,7 +142,7 @@ export class CosmereUnofficialActor extends Actor {
 				}
 			}
 			else if (item.type === 'Effect') {
-				if (item.system.status !== "disabled") {
+				if (item.system.active) {
 					activeEffects.push(item);
 					return;
 				}

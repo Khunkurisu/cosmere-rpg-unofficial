@@ -236,11 +236,11 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const target = element.dataset.toggle;
 
 		if (target === 'action-toggle') {
-			const toggle = !item.system.toggle;
-			item.update({ 'system.toggle': toggle });
-		} else if (target === 'hide-on-sheet') {
-			const hide = !item.system.hide;
-			item.update({ 'system.hide': hide });
+			const hasToggle = !item.system.hasToggle;
+			item.update({ 'system.hasToggle': hasToggle });
+		} else if (target === 'has-action-toggle') {
+			const hasAction = !item.system.hasAction;
+			item.update({ 'system.hasAction': hasAction });
 		}
 
 		this.render(false);

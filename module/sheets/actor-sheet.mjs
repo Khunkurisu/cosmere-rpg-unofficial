@@ -255,18 +255,16 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const effects = [];
 		const toggleable = [];
 		system.activeEffects.forEach(effect => {
-			if (effect.system.hide) return;
-			if (effect.system.toggle) toggleable.push(effect);
-			if (effect.system.status === 'active') {
+			if (effect.system.hasToggle) toggleable.push(effect);
+			if (effect.system.active) {
 				activeEffects.push(effect);
 			} else {
 				effects.push(effect);
 			}
 		});
 		system.effects.forEach(effect => {
-			if (effect.system.hide) return;
-			if (effect.system.toggle) toggleable.push(effect);
-			if (effect.system.status === 'active') {
+			if (effect.system.hasToggle) toggleable.push(effect);
+			if (effect.system.active) {
 				activeEffects.push(effect);
 			} else {
 				effects.push(effect);
@@ -400,9 +398,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		event.preventDefault();
 		const li = $(event.currentTarget).parents('.effect-toggle');
 		const effect = this.actor.items.get(li.data('effectId'));
-		const toggle = effect.system.status === 'active' ? 'inactive' : 'active';
+		const toggle = !effect.system.active;
 
-		effect.update({ 'system.status': toggle });
+		effect.update({ 'system.active': toggle });
 
 		this.render(false);
 	}
@@ -507,7 +505,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			console.log(system.activeEffects);
 
 			system.activeEffects.forEach(activeEffect => {
-				if (activeEffect.system.status !== 'active') return;
+				if (activeEffect.system.active) return;
 				activeEffect.system.effects.forEach(e => {
 					if (e.type === 'dice') {
 						const effect = new Effects.ModifierEffect(e.trigger, e.target, e.predicate, e.func, e.value);

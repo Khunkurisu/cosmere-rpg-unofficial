@@ -6,15 +6,14 @@ export default class CosmereUnofficialEffect extends CosmereUnofficialItemBase {
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = super.defineSchema();
 
-		schema.status = new fields.StringField({ initial: "active" });
+		schema.active = new fields.BooleanField({ initial: false });
 
 		schema.duration = new fields.SchemaField({
 			value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 			unit: new fields.StringField({ initial: "round" })
 		});
 
-		schema.hide = new fields.BooleanField({ initial: false });
-		schema.toggle = new fields.BooleanField({ initial: false });
+		schema.hasToggle = new fields.BooleanField({ initial: false });
 		schema.effects = new fields.ArrayField(new fields.ObjectField());
 		schema.effectCreateType = new fields.StringField({ initial: "modifier" });
 

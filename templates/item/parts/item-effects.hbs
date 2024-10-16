@@ -81,16 +81,10 @@
 	</div>
 </div>
 <div class="grid grid-3col flex-group-right">
-	<div class="grid-span-1"><span></span></div>
-	<div class="flexrow">
-		<label for="hide-on-sheet" class="resource-label">Hide On Sheet </label><br>
-		<input class="effect-toggle-checkbox" data-toggle="hide-on-sheet" type="checkbox" id="hide-on-sheet"
-			name="hide-on-sheet" value="{{system.hide}}" {{#if system.hide}} checked="true"
-			{{/if}}{{#if system.toggle}}disabled="true" {{/if}}>
-	</div>
+	<div class="grid-span-2"><span></span></div>
 	<div class="flexrow">
 		<label for="action-toggle" class="resource-label">Has Action Toggle </label><br>
 		<input class="effect-toggle-checkbox" data-toggle="action-toggle" type="checkbox" id="action-toggle"
-			name="action-toggle" value="{{system.toggle}}" {{#if system.toggle}} checked="true" {{/if}}>
+			name="action-toggle" value="{{system.hasToggle}}" {{#if system.hasToggle}} checked="true" {{/if}}>
 	</div>
 </div>

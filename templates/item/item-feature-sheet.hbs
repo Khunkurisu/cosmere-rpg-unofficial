@@ -3,6 +3,17 @@
 		<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
 		<div class="header-fields">
 			<h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+			<div class="grid grid-3col flex-group-right">
+				<div class="flexrow">
+					<label class='resource-label' for='system.type'>Talent Type</label>
+					<select name='system.type' class='talent-type-selection'>
+						<option value="Path" {{isSelected 'Path' system.type}}>Path</option>
+						<option value="Ancestry" {{isSelected 'Ancestry' system.type}}>Ancestry</option>
+						<option value="Misc" {{isSelected 'Misc' system.type}}>Misc</option>
+					</select>
+				</div>
+				<div class="grid-span-1"><span></span></div>
+			</div>
 		</div>
 	</header>
 
@@ -25,41 +36,32 @@
 		{{!-- Attributes Tab --}}
 		<div class="tab attributes" data-group="primary" data-tab="attributes">
 			<div class="grid grid-3col flex-group-right">
-				<div class="flexrow">
-					<label class='resource-label' for='system.type'>Talent Type</label>
-					<select name='system.type' class='talent-type-selection'>
-						<option value="Path" {{isSelected 'Path' system.type}}>Path</option>
-						<option value="Ancestry" {{isSelected 'Ancestry' system.type}}>Ancestry</option>
-						<option value="Misc" {{isSelected 'Misc' system.type}}>Misc</option>
-					</select>
-				</div>
-				<div class="grid-span-2"><span></span></div>
-			</div>
-			<div class="grid grid-3col flex-group-right">
+				{{#if system.hasAction}}
+					<div class="grid-span-1"><span></span></div>
+					<div class="flexrow">
+						<label class='resource-label' for='system.actionCost'>Action Cost</label>
+						<select name='system.cost' class='action-cost-selection'>
+							<option value="0" {{isSelected '0' system.cost}}>Free Action</option>
+							<option value="1" {{isSelected '1' system.cost}}>1 Action</option>
+							<option value="2" {{isSelected '2' system.cost}}>2 Actions</option>
+							<option value="3" {{isSelected '3' system.cost}}>3 Actions</option>
+							<option value="-1" {{isSelected '-1' system.cost}}>Reaction</option>
+							<option value="-2" {{isSelected '-2' system.cost}}>Special</option>
+						</select>
+					</div>
+				{{else}}
+					<div class="grid-span-2"><span></span></div>
+				{{/if}}
 				<div class="flexrow">
 					<label for="has-action-toggle" class="resource-label">Has Action </label><br>
 					<input class="effect-toggle-checkbox" data-toggle="has-action-toggle" type="checkbox"
-						id="has-action-toggle" name="has-action-toggle" value="{{system.toggle}}"
+						id="has-action-toggle" name="has-action-toggle" value="{{system.hasToggle}}"
 						{{#if system.hasAction}} checked="true" {{/if}}>
 				</div>
-				<div class="flexrow">
-					<label class='resource-label' for='system.actionCost'>Action Cost</label>
-					<select name='system.cost' class='action-cost-selection'>
-						<option value="0" {{isSelected '0' system.cost}}>Free Action</option>
-						<option value="1" {{isSelected '1' system.cost}}>1 Action</option>
-						<option value="2" {{isSelected '2' system.cost}}>2 Actions</option>
-						<option value="3" {{isSelected '3' system.cost}}>3 Actions</option>
-						<option value="-1" {{isSelected '-1' system.cost}}>Reaction</option>
-						<option value="-2" {{isSelected '-2' system.cost}}>Special</option>
-					</select>
-				</div>
-				<div class="grid-span-1"><span></span></div>
 			</div>
 		</div>
-
 		{{! Effects Tab }}
 		<div class='tab effects' data-group='primary' data-tab='effects'>
-			{{! As you add new fields, add them in here! }}
 			{{> "systems/cosmere-rpg-unofficial/templates/item/parts/item-effects.hbs"}}
 		</div>
 	</section>
