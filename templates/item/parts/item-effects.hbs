@@ -2,8 +2,8 @@
 	<ol class="items-list effects-list">
 		{{#each system.effects as |effect id|}}
 			<li class='item flexrow' style="padding-bottom:5px;padding-top:5px;" data-item-id='{{id}}'>
+				<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
 				{{#if (ifEquals effect.type 'modifier')}}
-					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
 					<div class="grid grid-5col">
 						<div class="flexcol grid-span-3 flex-group-left">
 							<label class='resource-label'>Target Path</label>
@@ -28,12 +28,16 @@
 					</div>
 				{{/if}}
 				{{#if (ifEquals effect.type 'dice')}}
-					<span style="max-width:min-content; padding-right:5px">{{id}}.</span>
 					<div class="grid grid-5col">
-						<div class="flexcol grid-span-3 flex-group-left">
-							<label class='resource-label'>Target Path</label>
-							<input class='effect-input' type='text' name='target' value='{{effect.target}}'
-								data-dtype='String' data-target="target" />
+						<div class="flexcol grid-span-3 flex-group-left" style="margin-right: 5%;">
+							<div class="resource-label tooltip">
+								<label for="tooltiptext">Selector</label>
+								<span class="tooltiptext">
+									Comma Separated List
+								</span>
+							</div>
+							<input class='effect-input' type='text' name='target' value='{{toString effect.predicate}}'
+								data-dtype='String' data-target="selectorString" />
 						</div>
 						<div class="flexcol flex-group-left">
 							<label class='resource-label'>Function</label>
@@ -45,9 +49,9 @@
 							</select>
 						</div>
 						<div class="flexcol flex-group-left">
-							<label class='resource-label'>Selector</label>
+							<label class='resource-label'>Enabled</label>
 							<input class='effect-input' type='checkbox' name='effect.value' value='{{effect.value}}'
-								{{#if effect.value}} checked="true" {{/if}} data-target="value" />
+								{{#if effect.value}} checked="true" {{/if}} data-target="value-toggle" />
 						</div>
 					</div>
 				{{/if}}

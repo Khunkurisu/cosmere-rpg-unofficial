@@ -274,7 +274,17 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const target = element.dataset.target;
 
 		if (effect && target) {
-			effect[target] = element.value;
+			let newVal = element.value;
+			let newTarget = target;
+			if (target === 'selectorString') {
+				let selectorString = element.value;
+				newVal = selectorString.split ? selectorString.trim().split(',') : [element.value];
+				newTarget = 'predicate';
+			} else if (target === 'value-toggle') {
+				newTarget = 'value';
+				newVal = !effect[newTarget];
+			}
+			effect[newTarget] = newVal;
 			this.item.update({ "system.effects": modEffects });
 		}
 
