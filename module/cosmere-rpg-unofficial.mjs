@@ -212,7 +212,7 @@ function rollItemMacro(itemUuid) {
 }
 function setTheme(i) {
 	console.log(game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
-	i.attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	i.attr && i.attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
 }
 
 Hooks.on("renderApplication", (function (o, i, n) {

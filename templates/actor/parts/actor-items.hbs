@@ -66,7 +66,7 @@
 				<li class='item flexrow' data-item-id='{{item._id}}'
 					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{item.system.description}}}
+						{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -131,7 +131,7 @@
 				<li class='item flexrow' data-item-id='{{item._id}}'
 					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{item.system.description}}}
+						{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -196,7 +196,7 @@
 				<li class='item flexrow' data-item-id='{{item._id}}'
 					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{item.system.description}}}
+						{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -252,7 +252,7 @@
 				<li class='item flexrow' data-item-id='{{container._id}}'
 					{{#unless container.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{{container.system.description}}}
+						{{editor enrichedDescription target="container.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 				<ol class='item-list container-inventory' {{#unless container.system.showStored}} style='display: none'
@@ -301,7 +301,7 @@
 						<li class='item flexrow' data-item-id='{{item._id}}'
 							{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
 							<div class='item-details flex-group-center'>
-								{{{item.system.description}}}
+								{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 							</div>
 						</li>
 					{{/each}}
