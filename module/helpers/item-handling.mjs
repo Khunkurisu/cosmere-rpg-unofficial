@@ -98,7 +98,7 @@ export function onItemDetails(event) {
 export function onItemDrag(event) {
 	const li = $(event.currentTarget);
 	const item = this.actor.items.get(li.data('itemId'));
-	if (item.type !== 'Container') {
+	if (item && item.type !== 'Container') {
 		this.lastDragged = item._id;
 	}
 };
