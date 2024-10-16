@@ -99,6 +99,9 @@ Handlebars.registerHelper('ifGreater', function (arg1, arg2) {
 Handlebars.registerHelper('ifLesser', function (arg1, arg2) {
 	return (arg1 < arg2);
 });
+Handlebars.registerHelper('toString', function (arr) {
+	return arr.join ? arr.join(', ') : arr.toString();
+});
 Handlebars.registerHelper('capacityPct', function (capacityObj) {
 	return (capacityObj.carrying / capacityObj.maxCarry) * 100;
 });
