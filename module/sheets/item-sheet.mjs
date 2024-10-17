@@ -88,7 +88,7 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 				let actionText = [];
 				switch (context.system.cost) {
 					case -2: {
-						actionText.push('<i class="fa-solid fa-certificate"></i>');
+						actionText.push('<i class="fa-solid fa-star"></i>');
 						break;
 					}
 					case -1: {
