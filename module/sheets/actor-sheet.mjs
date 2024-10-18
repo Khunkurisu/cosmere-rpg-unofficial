@@ -16,8 +16,6 @@ import {
 import {
 	getExpertiseCategories,
 	onExpertiseManage,
-	onExpertiseCreate,
-	onExpertiseRemove,
 	onSkillIncrease,
 	onSkillDecrease
 } from '../helpers/skills-and-expertise.mjs';
@@ -386,10 +384,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// Manage Expertise
 		html.on('click', '.expertise-manage', onExpertiseManage.bind(this));
-
-		// Add/Remove Expertise
-		html.on('click', '.expertise-create', onExpertiseCreate.bind(this));
-		html.on('click', '.expertise-remove', onExpertiseRemove.bind(this));
 
 		// Increase/Decrease Skill
 		html.on('click', '.skill-pip', onSkillIncrease.bind(this));

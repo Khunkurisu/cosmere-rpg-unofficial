@@ -1,24 +1,4 @@
 import { ExpertiseManager } from "../application/expertise-manager.mjs";
-/**
- * Handle adding expertise.
- * @param {Event} event   The originating click event
- * @private
- */
-export function onExpertiseCreate(event) {
-	event.preventDefault();
-	const element = event.currentTarget;
-	const dataset = element.dataset;
-	const system = this.actor.system;
-	const expertise = system.expertise;
-
-	expertise.push({
-		"text": "New expertise",
-		"category": dataset.type,
-		"source": "default",
-	});
-
-	this.render(false);
-};
 
 /**
  * Handle managing expertise.
@@ -65,33 +45,6 @@ export function getExpertiseCategories(expertises) {
 
 	return lists;
 }
-
-/**
- * Handle removing expertise.
- * @param {Event} event   The originating click event
- * @private
- */
-export function onExpertiseRemove(event) {
-	event.preventDefault();
-	const element = event.currentTarget;
-	const dataset = element.dataset;
-
-	const system = this.actor.system;
-	const expertise = system.expertise;
-	let index = -1;
-	for (let i = 0; i < expertise.length - 1; i++) {
-		if (expertise[i].text === dataset.key) {
-			index = i;
-			break;
-		}
-	}
-
-	if (index !== -1) {
-		expertise.splice(index, 1);
-	}
-
-	this.render(false);
-};
 
 /**
 	 * Handle increasing skill rank.

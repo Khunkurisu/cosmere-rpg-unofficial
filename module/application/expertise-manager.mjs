@@ -79,7 +79,7 @@ export class ExpertiseManager extends HandlebarsApplicationMixin(ApplicationV2) 
 				{ type: "submit", icon: "fa-solid fa-save", label: "SETTINGS.Save" },
 				{ type: "button", icon: "fa-solid fa-ban", label: "Cancel", action: "cancel" },
 			]
-		}
+		};
 		return context;
 	}
 
