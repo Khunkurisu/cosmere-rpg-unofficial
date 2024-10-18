@@ -27,8 +27,13 @@
 			</div>
 			<ol class="goals-list">
 				{{#each system.biography.goals as |goal index|}}
-					<li class="flexrow">
-						<span>{{goal.text}}</span>
+					<li class="grid grid-5col">
+						<span class="flexcol grid-span-3">{{goal.text}}</span>
+						<div class="goal-pip grid-span-2" data-goal="{{key}}">
+							<i class="fa-{{pipRank goal.progress 1}} fa-circle"></i>
+							<i class="fa-{{pipRank goal.progress 2}} fa-circle"></i>
+							<i class="fa-{{pipRank goal.progress 3}} fa-circle"></i>
+						</div>
 					</li>
 				{{/each}}
 			</ol>
