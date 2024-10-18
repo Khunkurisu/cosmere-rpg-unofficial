@@ -137,7 +137,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 * @param {object} context The context object to mutate
 	 */
 	_prepareItems(context) {
-		const system = context.actor.system;
+		const system = this.actor.system;
+		console.log(system.expertise);
 
 		// Initialize containers.
 		const gear = [];
