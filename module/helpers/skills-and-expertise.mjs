@@ -1,18 +1,61 @@
 /**
-	 * Handle adding expertise.
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
+ * Handle adding expertise.
+ * @param {Event} event   The originating click event
+ * @private
+ */
 export function onExpertiseCreate(event) {
 	event.preventDefault();
+	const element = event.currentTarget;
+	const dataset = element.dataset;
 	const system = this.actor.system;
-	const expertise = system.expertise
+	const expertise = system.expertise;
 
-	const count = Object.keys(expertise).length;
-	expertise["entry-" + (count + 1)] = "New expertise";
+	expertise.push({
+		"text": "New expertise",
+		"category": dataset.type,
+		"source": "default",
+	});
 
 	this.render(false);
 };
+
+/**
+ * Handle managing expertise.
+ * @param {Event} event   The originating click event
+ * @private
+ */
+export function onExpertiseManage(event) {
+	event.preventDefault();
+	const element = event.currentTarget;
+	const system = this.actor.system;
+	const expertise = system.expertise;
+
+	console.log(getExpertiseCategories(expertise));
+
+	this.render(false);
+};
+
+/**
+ * Handle categorizing expertise.
+ * @param {Array} expertises   Expertise array from actor
+ * @private
+ */
+export function getExpertiseCategories(expertises) {
+	let lists = {
+		Utility: [],
+		Cultural: [],
+		Weapon: [],
+		Armor: [],
+		Special: [],
+	};
+
+	for (let e in expertises) {
+		const expertise = expertises[e];
+		lists[expertise.category].push(expertise);
+	}
+
+	return lists;
+}
 
 /**
  * Handle removing expertise.

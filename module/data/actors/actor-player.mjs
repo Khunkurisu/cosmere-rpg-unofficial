@@ -1,4 +1,5 @@
 import CosmereUnofficialActorBase from "../base-actor.mjs";
+import { version as currentVersion } from "../../cosmere-rpg-unofficial.mjs";
 
 export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase {
 	static defineSchema() {
@@ -13,7 +14,11 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 			purpose: new fields.StringField({ required: true, blank: true }),
 			obstacle: new fields.StringField({ required: true, blank: true }),
 			goals: new fields.ObjectField(),
-			connections: new fields.ObjectField()
+			connections: new fields.ObjectField(),
+			height: new fields.StringField(),
+			weight: new fields.StringField(),
+			age: new fields.StringField(),
+			ethnicity: new fields.StringField(),
 		});
 
 		schema.ancestry = new fields.ObjectField();
@@ -23,8 +28,16 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 	}
 
 	static migrateData(source) {
-		const originalPath = { ...(source.path) };
-		source.path = originalPath.hasOwnProperty('talents') ? [originalPath] : [];
+		if (!source.ver) source.ver = "0.2.4";
+		const version = source.ver.split('.');
+		const release = Number.parseInt(version[0], 10);
+		const update = Number.parseInt(version[1], 10);
+		const revision = Number.parseInt(version[2], 10);
+
+		if (release <= 0 && update <= 2 && revision < 4) {
+			const originalPath = { ...(source.path) };
+			source.path = originalPath.hasOwnProperty('talents') ? [originalPath] : [];
+		}
 
 		return super.migrateData(source);
 	}

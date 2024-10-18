@@ -1,5 +1,3 @@
-import { CosmereUnofficialActor } from "../documents/actor.mjs";
-
 export const COSMERE_UNOFFICIAL = {};
 
 /**
@@ -65,10 +63,13 @@ COSMERE_UNOFFICIAL.skills = {
 		persuasion: 'COSMERE_UNOFFICIAL.Skill.Persuasion.long',
 		survival: 'COSMERE_UNOFFICIAL.Skill.Survival.long'
 	},
-	expertise: 'COSMERE_UNOFFICIAL.Expertise.label',
-	expertises_new: 'COSMERE_UNOFFICIAL.Expertise.create',
-	expertises_remove: 'COSMERE_UNOFFICIAL.Expertise.delete',
-	expertises_empty: 'COSMERE_UNOFFICIAL.Expertise.missing',
+	expertise: {
+		label: 'COSMERE_UNOFFICIAL.Expertise.label',
+		new: 'COSMERE_UNOFFICIAL.Expertise.create',
+		manage: 'COSMERE_UNOFFICIAL.Expertise.edit',
+		remove: 'COSMERE_UNOFFICIAL.Expertise.delete',
+		empty: 'COSMERE_UNOFFICIAL.Expertise.missing'
+	},
 };
 
 COSMERE_UNOFFICIAL.skillAbbreviations = {

@@ -1,0 +1,23 @@
+<ol class="expertise-list flexlarge">
+	{{#each system.expertise as |expertise key|}}
+		<li class="flexrow">
+			<div class="grid-span-3">
+				<input type="text" name="system.expertise.{{key}}" value="{{expertise}}" data-dtype="String" />
+			</div>
+			<div class="flexcol">
+				<a class='expertise-remove' data-key="{{@index}}"
+					title='{{localize (lookup @root.config.skills.expertise "remove")}}'>
+					<i class='fas fa-trash'>
+						{{localize (lookup @root.config.skills.expertise "remove")}}
+					</i>
+				</a>
+			</div>
+		</li>
+	{{/each}}
+</ol>
+<div class='create-expertise flexlarge'>
+	<a class='expertise-create' title='{{localize (lookup @root.config.skills.expertise "new")}}'>
+		<i class='fas fa-plus'></i>
+		{{localize (lookup @root.config.skills.expertise "new")}}
+	</a>
+</div>

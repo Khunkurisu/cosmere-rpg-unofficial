@@ -14,6 +14,8 @@ import {
 	onConnectionRemove
 } from '../helpers/connections.mjs';
 import {
+	getExpertiseCategories,
+	onExpertiseManage,
 	onExpertiseCreate,
 	onExpertiseRemove,
 	onSkillIncrease,
@@ -147,6 +149,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 */
 	_prepareItems(context) {
 		const system = context.actor.system;
+		console.log(system.expertise);
+		getExpertiseCategories(system.expertise);
 
 		// Initialize containers.
 		const gear = [];
@@ -374,6 +378,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Add/Remove Biography Connection
 		html.on('click', '.connection-create', onConnectionCreate.bind(this));
 		html.on('click', '.connection-remove', onConnectionRemove.bind(this));
+
+		// Manage Expertise
+		html.on('click', '.expertise-manage', onExpertiseManage.bind(this));
 
 		// Add/Remove Expertise
 		html.on('click', '.expertise-create', onExpertiseCreate.bind(this));

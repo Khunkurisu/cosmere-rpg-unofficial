@@ -22,7 +22,8 @@
 			"label": "Expertise",
 			"create": "New Expertise",
 			"delete": "Remove Expertise",
-			"missing": "No Expertise"
+			"missing": "No Expertise",
+			"edit": "Edit Expertise"
 		},
 		"Attribute": {
 			"Strength": {
