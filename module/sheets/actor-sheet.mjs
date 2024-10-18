@@ -1,9 +1,5 @@
 import * as Effects from '../system/effects.mjs';
 import {
-	onManageActiveEffect,
-	prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
-import {
 	onGoalIncrease,
 	onGoalDecrease,
 	onGoalManage,
@@ -17,9 +13,6 @@ import {
 	onSkillDecrease
 } from '../helpers/skills-and-expertise.mjs';
 import {
-	onPlotDiceToggle,
-	onAdvantageToggle,
-	onDisadvantageToggle,
 	onRollManage
 } from '../helpers/dice-state-handling.mjs';
 import {
@@ -383,18 +376,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Increase/Decrease Skill
 		html.on('click', '.skill-pip', onSkillIncrease.bind(this));
 		html.on('contextmenu', '.skill-pip', onSkillDecrease.bind(this));
-
-		// Enable/Disable Plot Dice
-		html.on('click', '.plot-dice-on', onPlotDiceToggle.bind(this, true));
-		html.on('click', '.plot-dice-off', onPlotDiceToggle.bind(this, false));
-
-		// Enable/Disable Advantage
-		html.on('click', '.advantage-on', onAdvantageToggle.bind(this, true));
-		html.on('click', '.advantage-off', onAdvantageToggle.bind(this, false));
-
-		// Enable/Disable Disadvantage
-		html.on('click', '.disadvantage-on', onDisadvantageToggle.bind(this, true));
-		html.on('click', '.disadvantage-off', onDisadvantageToggle.bind(this, false));
 
 		// View Item Details
 		html.on('click', '.detail-item', onItemDetails.bind(this));

@@ -17,6 +17,10 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		window: {
 			contentClasses: ["standard-form"],
 		},
+		position: {
+			width: 400,
+			height: "auto",
+		}
 	}
 
 	static PARTS = {
@@ -35,8 +39,8 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		const modifiers = [...dice.modifiers];
 
 		modifiers.forEach(modifier => {
+			if (!modifier.enabled) return;
 			let mod = modifier.value > 0 ? ` + ${modifier.value}` : ` - ${modifier.value}`;
-			console.log(mod);
 			dice.rollData += `${mod}[${modifier.label}]`;
 			console.log(dice.rollData);
 		});
@@ -98,6 +102,7 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 			modifiers.push({
 				label: l,
 				value: v,
+				enabled: true,
 			});
 
 			this.render({ force: false });
@@ -129,6 +134,10 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 			case 'advantage': {
 				options.hasAdvantage = !options.hasAdvantage;
 				break;
+			}
+			case 'modifier': {
+				const modifier = options.modifiers[dataset.index];
+				modifier.enabled = !modifier.enabled;
 			}
 		}
 
