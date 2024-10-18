@@ -1,3 +1,4 @@
+import { ExpertiseManager } from "../application/expertise-manager.mjs";
 /**
  * Handle adding expertise.
  * @param {Event} event   The originating click event
@@ -24,13 +25,21 @@ export function onExpertiseCreate(event) {
  * @param {Event} event   The originating click event
  * @private
  */
-export function onExpertiseManage(event) {
+export async function onExpertiseManage(event) {
 	event.preventDefault();
-	const element = event.currentTarget;
 	const system = this.actor.system;
 	const expertise = system.expertise;
 
-	console.log(getExpertiseCategories(expertise));
+	const options = {
+		actor: this.actor,
+		...getExpertiseCategories(expertise),
+		window: {
+			resizable: true,
+			title: "Manage Expertise",
+		},
+	}
+
+	new ExpertiseManager(options).render({ force: true });
 
 	this.render(false);
 };
@@ -68,13 +77,18 @@ export function onExpertiseRemove(event) {
 	const dataset = element.dataset;
 
 	const system = this.actor.system;
-	const expertise = system.expertise
-
-	const index = [];
-	for (var x in expertise) {
-		index.push(x);
+	const expertise = system.expertise;
+	let index = -1;
+	for (let i = 0; i < expertise.length - 1; i++) {
+		if (expertise[i].text === dataset.key) {
+			index = i;
+			break;
+		}
 	}
-	delete expertise[index[dataset.key]];
+
+	if (index !== -1) {
+		expertise.splice(index, 1);
+	}
 
 	this.render(false);
 };

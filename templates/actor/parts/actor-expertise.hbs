@@ -1,23 +1,128 @@
-<ol class="expertise-list flexlarge">
-	{{#each system.expertise as |expertise key|}}
-		<li class="flexrow">
-			<div class="grid-span-3">
-				<input type="text" name="system.expertise.{{key}}" value="{{expertise}}" data-dtype="String" />
+<div class="flexcol flex-group-center" style="width:100%;">
+	<div class="expertise flexcol flex-group-center" style="width:75%;">
+		<span class="skill-column-header">
+			{{localize (lookup @root.config.skills.expertise "label")}}
+		</span>
+	</div>
+	<div class="flexcol flex-group-left">
+		<div class="grid grid-2col">
+			<div class="skills-list">
+				<div class='grid grid-5col'>
+					<span class="grid-span-4"><label class="resource-label">Cultural</label></span>
+					<a class='expertise-create' data-action="create" data-type="Cultural"
+						title='{{localize (lookup @root.config.skills.expertise "new")}}'>
+						<i class='fas fa-plus'></i>
+					</a>
+				</div>
+				<ol class="expertise-list">
+					{{#each culturalExpertise as |expertise index|}}
+						<li class="grid grid-3col">
+							<input class="expertise-input grid-span-2" type="text" name="expertise.text"
+								value="{{expertise.text}}" data-dtype="String" data-type="Cultural"
+								data-index="{{@index}}" />
+							<a class='expertise-remove' data-action="remove" data-index="{{@index}}"
+								data-type="Cultural"
+								title='{{localize (lookup @root.config.skills.expertise "remove")}}'>
+								<i class='fas fa-trash'></i>
+							</a>
+						</li>
+					{{/each}}
+				</ol>
 			</div>
-			<div class="flexcol">
-				<a class='expertise-remove' data-key="{{@index}}"
-					title='{{localize (lookup @root.config.skills.expertise "remove")}}'>
-					<i class='fas fa-trash'>
-						{{localize (lookup @root.config.skills.expertise "remove")}}
-					</i>
-				</a>
+			<div class="skills-list">
+				<div class='grid grid-5col'>
+					<span class="grid-span-4"><label class="resource-label">Utility</label></span>
+					<a class='expertise-create' data-action="create" data-type="Utility"
+						title='{{localize (lookup @root.config.skills.expertise "new")}}'>
+						<i class='fas fa-plus'></i>
+					</a>
+				</div>
+				<ol class="expertise-list">
+					{{#each utilityExpertise as |expertise index|}}
+						<li class="grid grid-3col">
+							<input class="expertise-input grid-span-2" type="text" name="expertise.text"
+								value="{{expertise.text}}" data-dtype="String" data-type="Utility"
+								data-index="{{@index}}" />
+							<a class='expertise-remove' data-action="remove" data-index="{{@index}}" data-type="Utility"
+								title='{{localize (lookup @root.config.skills.expertise "remove")}}'>
+								<i class='fas fa-trash'></i>
+							</a>
+						</li>
+					{{/each}}
+				</ol>
 			</div>
-		</li>
-	{{/each}}
-</ol>
-<div class='create-expertise flexlarge'>
-	<a class='expertise-create' title='{{localize (lookup @root.config.skills.expertise "new")}}'>
-		<i class='fas fa-plus'></i>
-		{{localize (lookup @root.config.skills.expertise "new")}}
-	</a>
+		</div>
+		<div class="grid grid-2col">
+			<div class="skills-list">
+				<div class='grid grid-5col'>
+					<span class="grid-span-4"><label class="resource-label">Weapon</label></span>
+					<a class='expertise-create' data-action="create" data-type="Weapon"
+						title='{{localize (lookup @root.config.skills.expertise "new")}}'>
+						<i class='fas fa-plus'></i>
+					</a>
+				</div>
+				<ol class="expertise-list">
+					{{#each weaponExpertise as |expertise index|}}
+						<li class="grid grid-3col">
+							<input class="expertise-input grid-span-2" type="text" name="expertise.text"
+								value="{{expertise.text}}" data-dtype="String" data-type="Weapon"
+								data-index="{{@index}}" />
+							<a class='expertise-remove' data-action="remove" data-index="{{@index}}" data-type="Weapon"
+								title='{{localize (lookup @root.config.skills.expertise "remove")}}'>
+								<i class='fas fa-trash'></i>
+							</a>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="skills-list">
+				<div class='grid grid-5col'>
+					<span class="grid-span-4"><label class="resource-label">Armor</label></span>
+					<a class='expertise-create' data-action="create" data-type="Armor"
+						title='{{localize (lookup @root.config.skills.expertise "new")}}'>
+						<i class='fas fa-plus'></i>
+					</a>
+				</div>
+				<ol class="expertise-list">
+					{{#each armorExpertise as |expertise index|}}
+						<li class="grid grid-3col">
+							<input class="expertise-input grid-span-2" type="text" name="expertise.text"
+								value="{{expertise.text}}" data-dtype="String" data-type="Armor"
+								data-index="{{@index}}" />
+							<a class='expertise-remove' data-action="remove" data-index="{{@index}}" data-type="Armor"
+								title='{{localize (lookup @root.config.skills.expertise "remove")}}'>
+								<i class='fas fa-trash'></i>
+							</a>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+		</div>
+		<div class="grid grid-3col" style="width:150%;">
+			<div><span></span></div>
+			<div class="skills-list">
+				<div class='grid grid-5col'>
+					<span class="grid-span-4"><label class="resource-label">Special</label></span>
+					<a class='expertise-create' data-action="create" data-type="Special"
+						title='{{localize (lookup @root.config.skills.expertise "new")}}'>
+						<i class='fas fa-plus'></i>
+					</a>
+				</div>
+				<ol class="expertise-list">
+					{{#each specialExpertise as |expertise index|}}
+						<li class="grid grid-3col">
+							<input class="expertise-input grid-span-2" type="text" name="expertise.text"
+								value="{{expertise.text}}" data-dtype="String" data-type="Special"
+								data-index="{{@index}}" />
+							<a class='expertise-remove' data-action="remove" data-index="{{@index}}" data-type="Special"
+								title='{{localize (lookup @root.config.skills.expertise "remove")}}'>
+								<i class='fas fa-trash'></i>
+							</a>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div><span></span></div>
+		</div>
+	</div>
 </div>
