@@ -234,24 +234,26 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 				}
 			}
 		} else if (release <= 0 && update <= 2 && revision < 5) {
-			let expertises = [];
-			for (let e in source.expertise) {
-				const oldExpertise = source.expertise[e];
-				let type = 'Utility';
-				if (oldExpertise.toLowerCase().includes('cultural')) type = 'Cultural';
-				else if (oldExpertise.toLowerCase().includes('weapon')) type = 'Weapon';
-				else if (oldExpertise.toLowerCase().includes('armor')) type = 'Armor';
-				else if (oldExpertise.toLowerCase().includes('special')) type = 'Special';
-				const expertise = oldExpertise
-					.replace(/[\(\[\{][a-zA-Z0-9\s]+[\]\)\}]/gm, '')
-					.trim();
+			if (!Array.isArray(source.expertise)) {
+				let expertises = [];
+				for (let e in source.expertise) {
+					const oldExpertise = source.expertise[e];
+					let type = 'Utility';
+					if (oldExpertise.toLowerCase().includes('cultural')) type = 'Cultural';
+					else if (oldExpertise.toLowerCase().includes('weapon')) type = 'Weapon';
+					else if (oldExpertise.toLowerCase().includes('armor')) type = 'Armor';
+					else if (oldExpertise.toLowerCase().includes('special')) type = 'Special';
+					const expertise = oldExpertise
+						.replace(/[\(\[\{][a-zA-Z0-9\s]+[\]\)\}]/gm, '')
+						.trim();
 
-				expertises.push({
-					text: expertise,
-					category: type
-				});
+					expertises.push({
+						text: expertise,
+						category: type
+					});
+				}
+				source.expertise = expertises;
 			}
-			source.expertise = expertises;
 		}
 
 		return source;
