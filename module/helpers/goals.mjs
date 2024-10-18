@@ -1,3 +1,29 @@
+import { GoalManager } from "../application/goal-manager.mjs";
+
+/**
+ * Handle managing goal.
+ * @param {Event} event   The originating click event
+ * @private
+ */
+export async function onGoalManage(event) {
+	event.preventDefault();
+	const system = this.actor.system;
+	const goal = system.goal;
+
+	const options = {
+		actor: this.actor,
+		goals: [...system.biography.goals],
+		window: {
+			resizable: true,
+			title: "Manage Goal",
+		},
+	}
+
+	new GoalManager(options).render({ force: true });
+
+	this.render(false);
+};
+
 /**
  * Handle adding goals.
  * @param {Event} event   The originating click event
