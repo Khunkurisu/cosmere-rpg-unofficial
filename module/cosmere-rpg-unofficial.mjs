@@ -11,7 +11,7 @@ import { registerSettings } from './helpers/settings.mjs';
 // Import DataModel classes
 import * as models from './data-models.mjs';
 
-export const version = "0.2.5";
+export const version = "0.2.6";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
