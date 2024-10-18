@@ -20,5 +20,6 @@ export const preloadHandlebarsTemplates = async function () {
 		// Application partials
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-expertise.hbs',
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-goals.hbs',
+		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-connections.hbs',
 	]);
 };

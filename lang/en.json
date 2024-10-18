@@ -6,16 +6,18 @@
 			"Purpose": "Purpose",
 			"Obstacle": "Obstacle",
 			"Goals": {
-				"label": "Goal",
+				"label": "Goals",
 				"create": "New Goal",
 				"delete": "Remove Goal",
-				"missing": "No Goals"
+				"missing": "No Goals",
+				"manage": "Manage Goals"
 			},
 			"Connections": {
 				"label": "Connections",
 				"create": "New Connection",
 				"delete": "Remove Connection",
-				"missing": "No Connections"
+				"missing": "No Connections",
+				"manage": "Manage Connections"
 			}
 		},
 		"Expertise": {

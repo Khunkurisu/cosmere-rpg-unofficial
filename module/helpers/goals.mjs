@@ -32,7 +32,7 @@ export async function onGoalManage(event) {
 export function onGoalCreate(event) {
 	event.preventDefault();
 	const system = this.actor.system;
-	let goals = system.biography.goals
+	let goals = system.biography.goals;
 
 	const count = Object.keys(goals).length;
 	goals["entry_" + (count + 1)] = {
