@@ -1,24 +1,23 @@
 <div class="flexcol flex-group-center" style="width:100%;">
-	<div class="goal flexcol flex-group-center" style="width:75%;">
-		<span class="skill-column-header">
-			{{localize (lookup @root.config.biography.goals "label")}}
-		</span>
-	</div>
 	<div class="skills-list flexcol flex-group-left" style="width:150%;">
 		<div class='grid grid-5col'>
-			<span class="grid-span-4"><label class="resource-label">Goals</label></span>
-			<a class='goal-create' data-action="create" data-type="Goals"
-				title='{{localize (lookup @root.config.skills.goal "new")}}'>
+			<span class="grid-span-4">
+				<label class="resource-label">
+					{{localize (lookup @root.config.biography.connections "label")}}
+				</label>
+			</span>
+			<a class='connection-create' data-action="create" data-type="Connections"
+				title='{{localize (lookup @root.config.skills.connection "new")}}'>
 				<i class='fas fa-plus'></i>
 			</a>
 		</div>
-		<ol class="goal-list">
-			{{#each goals as |goal index|}}
+		<ol class="connection-list">
+			{{#each connections as |connection index|}}
 				<li class="grid grid-3col">
-					<input class="goal-input grid-span-2" type="text" name="goal.text" value="{{goal.text}}"
-						data-dtype="String" data-type="Special" data-index="{{@index}}" />
-					<a class='goal-remove' data-action="remove" data-index="{{@index}}" data-type="Special"
-						title='{{localize (lookup @root.config.skills.goal "remove")}}'>
+					<input class="connection-input grid-span-2" type="text" name="connection" value="{{connection}}"
+						data-dtype="String" data-index="{{@index}}" />
+					<a class='connection-remove' data-action="remove" data-index="{{@index}}"
+						title='{{localize (lookup @root.config.skills.connection "remove")}}'>
 						<i class='fas fa-trash'></i>
 					</a>
 				</li>

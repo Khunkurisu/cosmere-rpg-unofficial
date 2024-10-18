@@ -1,12 +1,11 @@
 <div class="flexcol flex-group-center" style="width:100%;">
-	<div class="goal flexcol flex-group-center" style="width:75%;">
-		<span class="skill-column-header">
-			{{localize (lookup @root.config.biography.goals "label")}}
-		</span>
-	</div>
 	<div class="skills-list flexcol flex-group-left" style="width:150%;">
 		<div class='grid grid-5col'>
-			<span class="grid-span-4"><label class="resource-label">Goals</label></span>
+			<span class="grid-span-4">
+				<label class="resource-label">
+					{{localize (lookup @root.config.biography.goals "label")}}
+				</label>
+			</span>
 			<a class='goal-create' data-action="create" data-type="Goals"
 				title='{{localize (lookup @root.config.skills.goal "new")}}'>
 				<i class='fas fa-plus'></i>
@@ -16,8 +15,8 @@
 			{{#each goals as |goal index|}}
 				<li class="grid grid-3col">
 					<input class="goal-input grid-span-2" type="text" name="goal.text" value="{{goal.text}}"
-						data-dtype="String" data-type="Special" data-index="{{@index}}" />
-					<a class='goal-remove' data-action="remove" data-index="{{@index}}" data-type="Special"
+						data-dtype="String" data-index="{{@index}}" />
+					<a class='goal-remove' data-action="remove" data-index="{{@index}}"
 						title='{{localize (lookup @root.config.skills.goal "remove")}}'>
 						<i class='fas fa-trash'></i>
 					</a>
