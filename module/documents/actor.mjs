@@ -1,5 +1,6 @@
 import * as Effects from '../system/effects.mjs';
 import { getByString, setByString } from "../helpers/objects.mjs";
+import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the system.
  * @extends {Actor}
@@ -18,6 +19,7 @@ export class CosmereUnofficialActor extends Actor {
 	prepareBaseData() {
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
+		this.system.ver = currentVersion;
 	}
 
 	/**

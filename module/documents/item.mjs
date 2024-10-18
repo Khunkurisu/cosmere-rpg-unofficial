@@ -1,3 +1,5 @@
+import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -10,6 +12,13 @@ export class CosmereUnofficialItem extends Item {
 		// As with the actor class, items are documents that can have their data
 		// preparation methods overridden (such as prepareBaseData()).
 		super.prepareData();
+	}
+
+	/** @override */
+	prepareBaseData() {
+		// Data modifications in this step occur before processing embedded
+		// documents or derived data.
+		this.system.ver = currentVersion;
 	}
 
 	/**

@@ -1,5 +1,4 @@
 import CosmereUnofficialActorBase from "../base-actor.mjs";
-import { version as currentVersion } from "../../cosmere-rpg-unofficial.mjs";
 
 export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase {
 	static defineSchema() {
@@ -28,8 +27,9 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 	}
 
 	static migrateData(source) {
-		if (!source.ver) source.ver = "0.2.4";
-		const version = source.ver.split('.');
+		source = super.migrateData(source);
+		let ver = source.ver ?? "0.2.4";
+		const version = ver.split('.');
 		const release = Number.parseInt(version[0], 10);
 		const update = Number.parseInt(version[1], 10);
 		const revision = Number.parseInt(version[2], 10);
@@ -39,6 +39,6 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 			source.path = originalPath.hasOwnProperty('talents') ? [originalPath] : [];
 		}
 
-		return super.migrateData(source);
+		return source;
 	}
 }

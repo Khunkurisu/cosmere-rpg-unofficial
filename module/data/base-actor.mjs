@@ -7,7 +7,7 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 		const fields = foundry.data.fields;
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = {
-			"ver": new fields.StringField({ initial: currentVersion }),
+			"ver": new fields.StringField({ required: true, nullable: false, initial: currentVersion }),
 			"health": new fields.SchemaField({
 				"value": new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
 				"max": new fields.NumberField({ ...requiredInteger, initial: 10 })
@@ -191,8 +191,8 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 	}
 
 	static migrateData(source) {
-		if (!source.ver) source.ver = "0.2.4";
-		const version = source.ver.split('.');
+		let ver = source.ver ?? "0.2.4";
+		const version = ver.split('.');
 		const release = Number.parseInt(version[0], 10);
 		const update = Number.parseInt(version[1], 10);
 		const revision = Number.parseInt(version[2], 10);
@@ -254,8 +254,7 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 			source.expertise = expertises;
 		}
 
-		source.ver = currentVersion;
-		return super.migrateData(source);
+		return source;
 	}
 
 }
