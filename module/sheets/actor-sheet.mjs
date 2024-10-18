@@ -559,13 +559,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				}
 			}
 
-			if (type === 'check') {
-				if (system.usePlotDice || usePlotDice) {
-					rollData += " + 1d6[plot]";
-					plot = " + 1d6";
-				}
-			}
-
 			let roll = new Roll(rollData, this.actor.getRollData());
 			if (Hooks.call("system.preRoll", roll) === false) return;
 
@@ -575,6 +568,20 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				flavor: label,
 				rollMode: game.settings.get('core', 'rollMode'),
 			});
+
+			if (type === 'check') {
+				if (system.usePlotDice || usePlotDice) {
+					let plotData = "1d6";
+					let plotRoll = new Roll(plotData, this.actor.getRollData());
+
+					plotRoll.toMessage({
+						flags: { cosmere: flags },
+						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+						flavor: 'Raise the Stakes!',
+						rollMode: game.settings.get('core', 'rollMode'),
+					});
+				}
+			}
 
 			return roll;
 		}
