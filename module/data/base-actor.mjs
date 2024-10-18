@@ -183,10 +183,6 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 			})
 		});
 
-		schema.usePlotDice = new fields.BooleanField({ initial: false });
-		schema.hasAdvantage = new fields.BooleanField({ initial: false });
-		schema.hasDisadvantage = new fields.BooleanField({ initial: false });
-
 		return schema;
 	}
 
