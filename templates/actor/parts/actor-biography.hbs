@@ -27,9 +27,9 @@
 			</div>
 			<ol class="goals-list">
 				{{#each system.biography.goals as |goal index|}}
-					<li class="grid grid-5col">
-						<span class="flexcol grid-span-3">{{goal.text}}</span>
-						<div class="goal-pip grid-span-2" data-goal="{{key}}">
+					<li class="list-item grid grid-5col">
+						<span class="flexcol grid-span-3" style="word-wrap:break-word;">{{goal.text}}</span>
+						<div class="goal-pip grid-span-2" data-index="{{@index}}">
 							<i class="fa-{{pipRank goal.progress 1}} fa-circle"></i>
 							<i class="fa-{{pipRank goal.progress 2}} fa-circle"></i>
 							<i class="fa-{{pipRank goal.progress 3}} fa-circle"></i>
@@ -53,8 +53,8 @@
 			</div>
 			<ol class="connections-list">
 				{{#each system.biography.connections as |connection index|}}
-					<li class="flexrow">
-						<span>{{connection.text}}</span>
+					<li class="list-item flexrow" style="vertical-align:middle;">
+						<span style="word-wrap:break-word;">{{connection}}</span>
 					</li>
 				{{/each}}
 			</ol>
@@ -66,15 +66,15 @@
 			<label for="purpose" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "purpose")}}
 			</label>
-			<input type="text" name="system.biography.purpose" value="{{system.biography.purpose}}"
-				data-dtype="String" />
+			<textarea class="biography-textarea" data-target="purpose" cols=40
+				rows=4>{{system.biography.purpose}}</textarea>
 		</div>
 		<div class="obstacle flexcol">
 			<label for="obstacle" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "obstacle")}}
 			</label>
-			<input type="text" name="system.biography.obstacle" value="{{system.biography.obstacle}}"
-				data-dtype="String" />
+			<textarea class="biography-textarea" data-target="obstacle" cols=40
+				rows=4>{{system.biography.obstacle}}</textarea>
 		</div>
 	</div>
 </div>

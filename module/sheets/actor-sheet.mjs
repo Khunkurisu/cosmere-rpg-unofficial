@@ -4,17 +4,12 @@ import {
 	prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
 import {
-	onGoalCreate,
-	onGoalRemove,
 	onGoalIncrease,
 	onGoalDecrease,
 	onGoalManage,
-} from '../helpers/goals.mjs';
-import {
-	onConnectionCreate,
-	onConnectionRemove,
 	onConnectionManage,
-} from '../helpers/connections.mjs';
+	onBiographyChange,
+} from '../helpers/biography-handling.mjs';
 import {
 	getExpertiseCategories,
 	onExpertiseManage,
@@ -372,19 +367,14 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Effect toggle.
 		html.on('click', '.effect-toggle-checkbox', this._onEffectToggle.bind(this));
 
-		// Add/Remove Biography Goal
-		html.on('click', '.goal-create', onGoalCreate.bind(this));
-		html.on('click', '.goal-remove', onGoalRemove.bind(this));
+		// Manage Biography Connections/Goals
+		html.on('click', '.connections-manage', onConnectionManage.bind(this));
 		html.on('click', '.goals-manage', onGoalManage.bind(this));
-
-		// Increase/Decrease Biography Goal Progress
 		html.on('click', '.goal-pip', onGoalIncrease.bind(this));
 		html.on('contextmenu', '.goal-pip', onGoalDecrease.bind(this));
 
-		// Add/Remove Biography Connection
-		html.on('click', '.connection-create', onConnectionCreate.bind(this));
-		html.on('click', '.connection-remove', onConnectionRemove.bind(this));
-		html.on('click', '.connections-manage', onConnectionManage.bind(this));
+		// Manage Biography Purpose and Obstacle
+		html.on('change', '.biography-textarea', onBiographyChange.bind(this));
 
 		// Manage Expertise
 		html.on('click', '.expertise-manage', onExpertiseManage.bind(this));
