@@ -1,3 +1,4 @@
+import { RollManager } from "../application/roll-manager.mjs";
 /**
 	 * Handle toggling plot dice.
 	 * @param {Event} event   The originating click event
@@ -49,7 +50,6 @@ export function onDisadvantageToggle(shouldEnable, event) {
  */
 export function onRollManage(context) {
 	const options = {
-		actor: this.actor,
 		...context,
 		window: {
 			resizable: true,
@@ -58,6 +58,4 @@ export function onRollManage(context) {
 	};
 
 	new RollManager(options).render({ force: true });
-
-	this.render(false);
 };

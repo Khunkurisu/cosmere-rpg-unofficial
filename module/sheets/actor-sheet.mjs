@@ -516,17 +516,20 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			}
 
 			let context = {
+				actor: this.actor,
 				rollLabel: label,
 				rollFlags: {
 					type: type,
 					target: game.user.targets.first()?.document ?? null
 				},
-				rollData: dataset.roll,
 				selectors: rollSelectors,
-				hasAdvantage: false,
-				hasDisadvantage: false,
-				usePlotDice: false,
-				modifiers: [],
+				dice: {
+					rollData: dataset.roll,
+					hasAdvantage: false,
+					hasDisadvantage: false,
+					usePlotDice: false,
+					modifiers: [],
+				}
 			};
 
 			system.effects.forEach(activeEffect => {
@@ -536,7 +539,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 						const effect = new Effects.DiceEffect(e.trigger, e.target, e.predicate, e.value);
 						let data = effect.TryApplyEffect('roll', { circumstances: rollSelectors });
 						if (data) {
-							context[data.key] = data.value;
+							context.dice[data.key] = data.value;
 						}
 					}
 				});

@@ -11,6 +11,7 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		actions: {
 			create: RollManager.createModifier,
 			remove: RollManager.removeModifier,
+			toggle: RollManager.toggleModifier,
 			cancel: RollManager.onCancel,
 		},
 		window: {
@@ -28,33 +29,36 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 	}
 
 	static #onSubmit(event, form, formData) {
-		const context = this.options.context;
+		const dice = { ...this.options.dice };
+		const flags = { ...this.options.rollFlags };
 		const actor = this.options.actor;
-		const rollData = this.options.rollData;
-		if (context.hasAdvantage) {
-			if (!context.hasDisadvantage) {
-				rollData = `{${rollData}, ${rollData}}kh`;
-			}
-		}
-		if (context.hasDisadvantage) {
-			if (!context.hasAdvantage) {
-				rollData = `{${rollData}, ${rollData}}kl`;
-			}
-		}
+		const modifiers = [...dice.modifiers];
 
-		let roll = new Roll(rollData, actor.getRollData());
-		if (Hooks.call("system.preRoll", roll) === false) return;
-
-		roll.toMessage({
-			flags: { cosmere: flags },
-			speaker: ChatMessage.getSpeaker({ actor: actor }),
-			flavor: label,
-			rollMode: game.settings.get('core', 'rollMode'),
+		modifiers.forEach(modifier => {
+			let mod = modifier.value > 0 ? ` + ${modifier.value}` : ` - ${modifier.value}`;
+			console.log(mod);
+			dice.rollData += `${mod}[${modifier.label}]`;
+			console.log(dice.rollData);
 		});
 
-		if (context.usePlotDice) {
+		if (dice.hasAdvantage) {
+			if (!dice.hasDisadvantage) {
+				dice.rollData = `{${dice.rollData}, ${dice.rollData}}kh`;
+			}
+		}
+		if (dice.hasDisadvantage) {
+			if (!dice.hasAdvantage) {
+				dice.rollData = `{${dice.rollData}, ${dice.rollData}}kl`;
+			}
+		}
+
+		let roll = new Roll(dice.rollData, actor.getRollData());
+		if (Hooks.call("system.preRoll", roll) === false) return;
+
+		if (dice.usePlotDice) {
 			let plotData = "1d6";
 			let plotRoll = new Roll(plotData, actor.getRollData());
+			if (Hooks.call("system.preRoll", roll) === false) return;
 
 			plotRoll.toMessage({
 				flags: { cosmere: flags },
@@ -63,6 +67,15 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 				rollMode: game.settings.get('core', 'rollMode'),
 			});
 		}
+
+		roll.toMessage({
+			flags: { cosmere: flags },
+			speaker: ChatMessage.getSpeaker({ actor: actor }),
+			flavor: this.options.rollLabel,
+			rollMode: game.settings.get('core', 'rollMode'),
+		});
+
+		this.close();
 	}
 
 	static onCancel(event, target) {
@@ -72,22 +85,52 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 	static createModifier(event, target) {
 		console.log(event);
 		console.log(target);
-		/* const modifiers = this.options.modifiers;
+		const parent = $(target).parents('.modifier-fields');
+		const label = $(parent).children()[0];
+		const value = $(parent).children()[1];
+		const modifiers = this.options.dice.modifiers;
+		let l = label.value ?? 'misc';
+		if (!l || l === '') l = 'misc';
+		let v = value.value ?? 0;
+		if ((!v && v !== 0) || v === '' || v === NaN) v = 0;
 
-		modifiers.push({
-			label: "New Modifier",
-			value: 0,
-		});
-		console.log(modifiers); */
+		if (v !== 0) {
+			modifiers.push({
+				label: l,
+				value: v,
+			});
 
-		this.render({ force: false });
+			this.render({ force: false });
+		}
 	}
 
 	static removeModifier(event, target) {
 		const dataset = target.dataset;
-		const modifiers = this.options.modifiers;
+		const modifiers = this.options.dice.modifiers;
 
 		modifiers.splice(dataset.index, 1);
+
+		this.render({ force: false });
+	}
+
+	static toggleModifier(event, target) {
+		const dataset = target.dataset;
+		const options = this.options.dice;
+
+		switch (dataset.target) {
+			case 'plot-dice': {
+				options.usePlotDice = !options.usePlotDice;
+				break;
+			}
+			case 'disadvantage': {
+				options.hasDisadvantage = !options.hasDisadvantage;
+				break;
+			}
+			case 'advantage': {
+				options.hasAdvantage = !options.hasAdvantage;
+				break;
+			}
+		}
 
 		this.render({ force: false });
 	}
@@ -98,11 +141,7 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 			rollLabel: this.options.label,
 			rollFlags: this.options.flags,
 			selectors: this.options.rollSelectors,
-			rollData: this.options.rollData,
-			hasAdvantage: this.options.hasAdvantage,
-			hasDisadvantage: this.options.hasDisadvantage,
-			usePlotDice: this.options.usePlotDice,
-			modifiers: [...this.options.modifiers],
+			dice: { ...this.options.dice },
 			buttons: [
 				{ type: "submit", icon: "fa-solid fa-dice", label: "Roll" },
 				{ type: "button", icon: "fa-solid fa-ban", label: "Cancel", action: "cancel" },
@@ -110,28 +149,5 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		};
 		context.config = CONFIG.COSMERE_UNOFFICIAL;
 		return context;
-	}
-
-	_onRender(context, options) {
-		const html = $(this.element);
-		console.log(context);
-
-		html.on("change", ".roll-input", this.onRollChange.bind(this));
-	}
-
-	/**
-	 * Handle changing roll text.
-	 * @param {Event} event   The originating change event
-	 * @private
-	 */
-	onRollChange(event) {
-		event.preventDefault();
-		const element = event.currentTarget;
-		const dataset = element.dataset;
-		const modifiers = this.options.modifiers;
-
-		modifiers[dataset.index][dataset.target] = element.value;
-
-		this.render({ force: false });
 	}
 }

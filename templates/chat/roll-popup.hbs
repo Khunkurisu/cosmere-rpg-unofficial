@@ -2,13 +2,13 @@
 	<div class="flexrow resource list-item">
 		<label for="usePlotDice" class="resource-label">Plot Dice</label>
 		<div class="resource-content flex-right flex-between">
-			{{#if usePlotDice}}
-				<a class='dice-control' title='{{localize 'Disable Plot Dice'}}' data-type="toggle"
+			{{#if dice.usePlotDice}}
+				<a class='dice-control' title='{{localize 'Disable Plot Dice'}}' data-action="toggle"
 					data-target="plot-dice">
 					<i class="fa-solid fa-toggle-on fa-xl"></i>
 				</a>
 			{{else}}
-				<a class='dice-control' title='{{localize 'Enable Plot Dice'}}' data-type="toggle"
+				<a class='dice-control' title='{{localize 'Enable Plot Dice'}}' data-action="toggle"
 					data-target="plot-dice">
 					<i class="fa-solid fa-toggle-off fa-xl"></i>
 				</a>
@@ -18,13 +18,13 @@
 	<div class="flexrow resource list-item">
 		<label for="hasAdvantage" class="resource-label">Advantage</label>
 		<div class="resource-content flex-right flex-between">
-			{{#if hasAdvantage}}
-				<a class='dice-control' title='{{localize 'Disable Advantage'}}' data-type="toggle"
+			{{#if dice.hasAdvantage}}
+				<a class='dice-control' title='{{localize 'Disable Advantage'}}' data-action="toggle"
 					data-target="advantage">
 					<i class="fa-solid fa-toggle-on fa-xl"></i>
 				</a>
 			{{else}}
-				<a class='dice-control' title='{{localize 'Enable Advantage'}}' data-type="toggle"
+				<a class='dice-control' title='{{localize 'Enable Advantage'}}' data-action="toggle"
 					data-target="advantage">
 					<i class="fa-solid fa-toggle-off fa-xl"></i>
 				</a>
@@ -34,25 +34,23 @@
 	<div class="flexrow resource list-item">
 		<label for="hasDisadvantage" class="resource-label">Disadvantage</label>
 		<div class="resource-content flex-right flex-between">
-			{{#if hasDisadvantage}}
-				<a class='dice-control' title='{{localize 'Disable Disadvantage'}}' data-type="toggle"
+			{{#if dice.hasDisadvantage}}
+				<a class='dice-control' title='{{localize 'Disable Disadvantage'}}' data-action="toggle"
 					data-target="disadvantage">
 					<i class="fa-solid fa-toggle-on fa-xl"></i>
 				</a>
 			{{else}}
-				<a class='dice-control' title='{{localize 'Enable Disadvantage'}}' data-type="toggle"
+				<a class='dice-control' title='{{localize 'Enable Disadvantage'}}' data-action="toggle"
 					data-target="disadvantage">
 					<i class="fa-solid fa-toggle-off fa-xl"></i>
 				</a>
 			{{/if}}
 		</div>
 	</div>
-	{{#each modifiers as |modifier index|}}
-		<div class="flexrow resource list-item">
-			<input class="roll-input" data-index="{{@index}}" data-target="label" name="label" type="text"
-				value="{{modifier.label}}" placeholder="Label" />
-			<input class="roll-input" data-index="{{@index}}" data-target="value" name="value" type="number"
-				value="{{modifier.value}}" placeholder="Value" />
+	{{#each dice.modifiers as |modifier index|}}
+		<div class="grid grid-4col resource list-item">
+			<label class="grid-span-2">{{modifier.label}}</label>
+			<label>{{modifier.value}}</label>
 			<a class='modifier-remove' data-action="remove" data-index="{{@index}}"
 				title='{{localize 'Delete Modifier'}}'>
 				<i class="fa-solid fa-trash"></i>
@@ -60,8 +58,14 @@
 		</div>
 	{{/each}}
 	<hr />
-	<a class='modifier-create' data-action="create" title='{{localize 'Create Modifier'}}'>
-		<i class="fa-solid fa-plus"></i>
-		<label class="resource-label">{{localize 'Create Modifier'}}</label>
-	</a>
+	<div class="grid grid-4col  modifier-fields">
+		<input class="roll-input grid-span-2" data-index="{{@index}}" data-target="label" name="label" type="text"
+			placeholder="Modifier Label" />
+		<input class="roll-input" data-index="{{@index}}" data-target="value" name="value" type="number"
+			placeholder="Value" />
+		<a class='modifier-create' data-action="create" title='{{localize 'Create Modifier'}}'>
+			<i class="fa-solid fa-plus"></i>
+			<label class="resource-label">{{localize 'Create Modifier'}}</label>
+		</a>
+	</div>
 </div>
