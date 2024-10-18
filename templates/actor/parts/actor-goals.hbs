@@ -2,9 +2,7 @@
 	<div class="skills-list flexcol flex-group-left" style="width:150%;">
 		<div class='grid grid-5col'>
 			<span class="grid-span-4">
-				<label class="resource-label">
-					{{localize (lookup @root.config.biography.goals "label")}}
-				</label>
+				{{localize (lookup @root.config.biography.goals "label")}}
 			</span>
 			<a class='goal-create' data-action="create" data-type="Goals"
 				title='{{localize (lookup @root.config.skills.goal "new")}}'>

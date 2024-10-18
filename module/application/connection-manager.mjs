@@ -1,17 +1,17 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 
-export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
+export class ConnectionManager extends HandlebarsApplicationMixin(ApplicationV2) {
 	static DEFAULT_OPTIONS = {
 		tag: "form",
 		form: {
-			handler: GoalManager.#onSubmit,
+			handler: ConnectionManager.#onSubmit,
 			submitOnChange: false,
 			closeOnSubmit: false,
 		},
 		actions: {
-			create: GoalManager.createGoal,
-			remove: GoalManager.removeGoal,
-			cancel: GoalManager.onCancel,
+			create: ConnectionManager.createConnection,
+			remove: ConnectionManager.removeConnection,
+			cancel: ConnectionManager.onCancel,
 		},
 		window: {
 			contentClasses: ["standard-form"],
@@ -20,7 +20,7 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static PARTS = {
 		form: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-goals.hbs'
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-connections.hbs'
 		},
 		footer: {
 			template: "templates/generic/form-footer.hbs",
@@ -29,9 +29,9 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static #onSubmit(event, form, formData) {
 		const actor = this.options.actor;
-		const goals = this.options.goals;
-		console.log(goals);
-		actor.update({ "system.biography.goals": goals });
+		const connections = this.options.connections;
+		console.log(connections);
+		actor.update({ "system.biography.connections": connections });
 		this.close();
 	}
 
@@ -39,23 +39,19 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		this.close();
 	}
 
-	static createGoal(event, target) {
-		const goals = this.options.goals;
+	static createConnection(event, target) {
+		const connections = this.options.connections;
 
-		goals.push({
-			text: "New Goal",
-			progress: 0,
-		});
-		console.log(goals);
+		connections.push("New Connection");
 
 		this.render({ force: false });
 	}
 
-	static removeGoal(event, target) {
+	static removeConnection(event, target) {
 		const dataset = target.dataset;
-		const goals = this.options.goals;
+		const connections = this.options.connections;
 
-		goals.splice(dataset.index, 1);
+		connections.splice(dataset.index, 1);
 
 		this.render({ force: false });
 	}
@@ -63,7 +59,7 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 	async _prepareContext(options) {
 		const context = {
 			actor: this.options.actor,
-			goals: [...this.options.goals],
+			connections: [...this.options.connections],
 			buttons: [
 				{ type: "submit", icon: "fa-solid fa-save", label: "SETTINGS.Save" },
 				{ type: "button", icon: "fa-solid fa-ban", label: "Cancel", action: "cancel" },
@@ -77,21 +73,21 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		const html = $(this.element);
 		console.log(context);
 
-		html.on("change", ".goal-input", this.onGoalChange.bind(this));
+		html.on("change", ".connection-input", this.onConnectionChange.bind(this));
 	}
 
 	/**
-	 * Handle changing goal text.
+	 * Handle changing connection text.
 	 * @param {Event} event   The originating change event
 	 * @private
 	 */
-	onGoalChange(event) {
+	onConnectionChange(event) {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const dataset = element.dataset;
-		const goals = this.options.goals;
+		const connections = this.options.connections;
 
-		goals[dataset.index].text = element.value;
+		connections[dataset.index] = element.value;
 
 		this.render({ force: false });
 	}

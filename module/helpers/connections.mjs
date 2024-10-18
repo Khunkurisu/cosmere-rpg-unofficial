@@ -1,3 +1,28 @@
+import { ConnectionManager } from "../application/connection-manager.mjs";
+
+/**
+ * Handle managing connection.
+ * @param {Event} event   The originating click event
+ * @private
+ */
+export async function onConnectionManage(event) {
+	event.preventDefault();
+	const system = this.actor.system;
+
+	const options = {
+		actor: this.actor,
+		connections: [...system.biography.connections],
+		window: {
+			resizable: true,
+			title: "Manage Goal",
+		},
+	}
+
+	new ConnectionManager(options).render({ force: true });
+
+	this.render(false);
+};
+
 /**
 	 * Handle adding connections.
 	 * @param {Event} event   The originating click event

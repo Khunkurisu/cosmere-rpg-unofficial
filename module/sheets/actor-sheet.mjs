@@ -7,11 +7,13 @@ import {
 	onGoalCreate,
 	onGoalRemove,
 	onGoalIncrease,
-	onGoalDecrease
+	onGoalDecrease,
+	onGoalManage,
 } from '../helpers/goals.mjs';
 import {
 	onConnectionCreate,
-	onConnectionRemove
+	onConnectionRemove,
+	onConnectionManage,
 } from '../helpers/connections.mjs';
 import {
 	getExpertiseCategories,
@@ -373,6 +375,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Add/Remove Biography Goal
 		html.on('click', '.goal-create', onGoalCreate.bind(this));
 		html.on('click', '.goal-remove', onGoalRemove.bind(this));
+		html.on('click', '.goals-manage', onGoalManage.bind(this));
 
 		// Increase/Decrease Biography Goal Progress
 		html.on('click', '.goal-pip', onGoalIncrease.bind(this));
@@ -381,6 +384,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		// Add/Remove Biography Connection
 		html.on('click', '.connection-create', onConnectionCreate.bind(this));
 		html.on('click', '.connection-remove', onConnectionRemove.bind(this));
+		html.on('click', '.connections-manage', onConnectionManage.bind(this));
 
 		// Manage Expertise
 		html.on('click', '.expertise-manage', onExpertiseManage.bind(this));

@@ -13,7 +13,7 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 			purpose: new fields.StringField({ required: true, blank: true }),
 			obstacle: new fields.StringField({ required: true, blank: true }),
 			goals: new fields.ArrayField(new fields.ObjectField()),
-			connections: new fields.ArrayField(new fields.ObjectField()),
+			connections: new fields.ArrayField(new fields.StringField()),
 			height: new fields.StringField(),
 			weight: new fields.StringField(),
 			age: new fields.StringField(),

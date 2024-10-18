@@ -8,7 +8,6 @@ import { GoalManager } from "../application/goal-manager.mjs";
 export async function onGoalManage(event) {
 	event.preventDefault();
 	const system = this.actor.system;
-	const goal = system.goal;
 
 	const options = {
 		actor: this.actor,
