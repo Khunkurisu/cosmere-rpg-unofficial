@@ -150,3 +150,37 @@ export function onContainerToggle(event) {
 
 	this.render(false);
 };
+
+export async function enrichItemDesc(context, item) {
+	let description = '';
+	if (item.type === 'Feature') {
+		if (item.system.requirements.length > 0) {
+			const requirementText = [];
+			item.system.requirements.forEach(requirement => {
+				if (requirement.type === 'skill') {
+					let localSkillKey = '';
+					if (requirement.skill in context.config.skills.physical) localSkillKey = 'physical';
+					else if (requirement.skill in context.config.skills.cognitive) localSkillKey = 'cognitive';
+					else if (requirement.skill in context.config.skills.spiritual) localSkillKey = 'spiritual';
+					const localSkillName = game.i18n.localize(context.config.skills[localSkillKey][requirement.skill]);
+					requirementText.push(`${localSkillName} ${requirement.value}`);
+					return;
+				}
+				requirementText.push(`${requirement.value}`);
+			});
+			description += `<p><b>Requirements:</b> ${requirementText.join('; ')}</p>`;
+		}
+	}
+	description += `${item.system.description}`;
+	return await TextEditor.enrichHTML(
+		description,
+		{
+			// Whether to show secret blocks in the finished html
+			secrets: context.isOwner,
+			// Data to fill in for inline rolls
+			rollData: context.actor.getRollData(),
+			// Relative UUID resolution
+			relativeTo: item,
+		}
+	);
+}

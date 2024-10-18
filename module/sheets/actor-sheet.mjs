@@ -32,7 +32,8 @@ import {
 	onItemDetails,
 	onItemDrag,
 	onItemDrop,
-	onContainerToggle
+	onContainerToggle,
+	enrichItemDesc
 } from '../helpers/item-handling.mjs';
 import { CheckCosmere } from "../system/dice/check.mjs";
 
@@ -81,6 +82,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
 		context.config = CONFIG.COSMERE_UNOFFICIAL;
+		context.isOwner = this.document.isOwner;
 
 		// Prepare character data and items.
 		if (actorData.type == 'Player') {
@@ -93,7 +95,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				this.actor.system.biography.backstory,
 				{
 					// Whether to show secret blocks in the finished html
-					secrets: this.document.isOwner,
+					secrets: context.isOwner,
 					// Necessary in v11, can be removed in v12
 					async: true,
 					// Data to fill in for inline rolls
@@ -114,7 +116,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				this.actor.system.notes,
 				{
 					// Whether to show secret blocks in the finished html
-					secrets: this.document.isOwner,
+					secrets: context.isOwner,
 					// Necessary in v11, can be removed in v12
 					async: true,
 					// Data to fill in for inline rolls
@@ -164,8 +166,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const sheet = this;
 
 		// Iterate through items, allocating to containers
-		context.items.forEach(function (item) {
+		context.items.forEach(async function (item) {
 			item.img = item.img || Item.DEFAULT_ICON;
+			item.enrichedDescription = await enrichItemDesc(context, item);
 
 			// Append to container.
 			if (item.type === 'Container') {
