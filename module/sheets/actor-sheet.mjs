@@ -149,8 +149,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 */
 	_prepareItems(context) {
 		const system = context.actor.system;
-		console.log(system.expertise);
-		getExpertiseCategories(system.expertise);
 
 		// Initialize containers.
 		const gear = [];
@@ -319,6 +317,13 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.activeEffects = activeEffects;
 		context.effects = effects;
 		context.toggleable = toggleable;
+
+		let expertiseCategories = getExpertiseCategories(system.expertise);
+		context.utilityExpertise = expertiseCategories["Utility"];
+		context.culturalExpertise = expertiseCategories["Cultural"];
+		context.weaponExpertise = expertiseCategories["Weapon"];
+		context.armorExpertise = expertiseCategories["Armor"];
+		context.specialExpertise = expertiseCategories["Special"];
 	}
 
 	/* -------------------------------------------- */
