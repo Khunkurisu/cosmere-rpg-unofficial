@@ -41,3 +41,23 @@ export function onDisadvantageToggle(shouldEnable, event) {
 
 	this.render(false);
 };
+
+/**
+ * Handle managing roll.
+ * @param {Object} context Context of the originating sheet
+ * @private
+ */
+export function onRollManage(context) {
+	const options = {
+		actor: this.actor,
+		...context,
+		window: {
+			resizable: true,
+			title: "Manage Roll",
+		},
+	};
+
+	new RollManager(options).render({ force: true });
+
+	this.render(false);
+};

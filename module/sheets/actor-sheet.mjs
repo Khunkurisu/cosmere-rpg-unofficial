@@ -19,7 +19,8 @@ import {
 import {
 	onPlotDiceToggle,
 	onAdvantageToggle,
-	onDisadvantageToggle
+	onDisadvantageToggle,
+	onRollManage
 } from '../helpers/dice-state-handling.mjs';
 import {
 	onItemIncrease,
@@ -494,7 +495,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		}
 		CheckCosmere.roll(context, event); */
 
-		return this.handleRoll(dataset);
+		this.handleRoll(dataset);
 	}
 
 	handleRoll(dataset) {
@@ -506,16 +507,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// Handle rolls that supply the formula directly.
 		if (dataset.roll) {
-			let rollData = dataset.roll;
-			let plot = '';
-			let flags = {
-				type: type,
-				target: game.user.targets.first()?.document ?? null
-			};
-
-			let hasAdvantage = false;
-			let hasDisadvantage = false;
-			let usePlotDice = false;
 			let rollSelectors = ['test', dataset.rollType];
 			if (dataset.rollType === 'skill') {
 				rollSelectors.push(`skill-${dataset.key}`);
@@ -524,6 +515,20 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				rollSelectors.push('skill', `skill-${key}`);
 			}
 
+			let context = {
+				rollLabel: label,
+				rollFlags: {
+					type: type,
+					target: game.user.targets.first()?.document ?? null
+				},
+				rollData: dataset.roll,
+				selectors: rollSelectors,
+				hasAdvantage: false,
+				hasDisadvantage: false,
+				usePlotDice: false,
+				modifiers: [],
+			};
+
 			system.effects.forEach(activeEffect => {
 				if (!activeEffect.system.active) return;
 				activeEffect.system.effects.forEach(e => {
@@ -531,59 +536,13 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 						const effect = new Effects.DiceEffect(e.trigger, e.target, e.predicate, e.value);
 						let data = effect.TryApplyEffect('roll', { circumstances: rollSelectors });
 						if (data) {
-							switch (data.key) {
-								case 'hasAdvantage': {
-									hasAdvantage = data.value;
-									break;
-								}
-								case 'hasDisadvantage': {
-									hasDisadvantage = data.value;
-								}
-								case 'usePlotDice': {
-									usePlotDice = data.value;
-								}
-							}
+							context[data.key] = data.value;
 						}
 					}
 				});
 			});
 
-			if (system.hasAdvantage || hasAdvantage) {
-				if (!system.hasDisadvantage) {
-					rollData = `{${rollData}, ${rollData}}kh`;
-				}
-			}
-			if (system.hasDisadvantage || hasDisadvantage) {
-				if (!system.hasAdvantage) {
-					rollData = `{${rollData}, ${rollData}}kl`;
-				}
-			}
-
-			let roll = new Roll(rollData, this.actor.getRollData());
-			if (Hooks.call("system.preRoll", roll) === false) return;
-
-			roll.toMessage({
-				flags: { cosmere: flags },
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: label,
-				rollMode: game.settings.get('core', 'rollMode'),
-			});
-
-			if (type === 'check') {
-				if (system.usePlotDice || usePlotDice) {
-					let plotData = "1d6";
-					let plotRoll = new Roll(plotData, this.actor.getRollData());
-
-					plotRoll.toMessage({
-						flags: { cosmere: flags },
-						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-						flavor: 'Raise the Stakes!',
-						rollMode: game.settings.get('core', 'rollMode'),
-					});
-				}
-			}
-
-			return roll;
+			onRollManage(context);
 		}
 	}
 
