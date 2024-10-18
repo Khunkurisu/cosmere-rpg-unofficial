@@ -80,6 +80,7 @@ export class ExpertiseManager extends HandlebarsApplicationMixin(ApplicationV2) 
 				{ type: "button", icon: "fa-solid fa-ban", label: "Cancel", action: "cancel" },
 			]
 		};
+		context.config = CONFIG.COSMERE_UNOFFICIAL;
 		return context;
 	}
 
