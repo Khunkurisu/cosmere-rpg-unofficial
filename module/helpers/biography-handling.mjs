@@ -1,49 +1,51 @@
+import { ConnectionManager } from "../application/connection-manager.mjs";
+import { GoalManager } from "../application/goal-manager.mjs";
+
 /**
- * Handle adding goals.
+ * Handle managing connection.
  * @param {Event} event   The originating click event
  * @private
  */
-export function onGoalCreate(event) {
+export async function onConnectionManage(event) {
 	event.preventDefault();
 	const system = this.actor.system;
-	let goals = system.biography.goals
 
-	const count = Object.keys(goals).length;
-	goals["entry_" + (count + 1)] = {
-		text: "New Goal",
-		progress: 0
-	};
-
-	this.actor.update({ "system.biography.goals": goals });
-
-	this.render(false);
-};
-
-/**
- * Handle removing goals.
- * @param {Event} event   The originating click event
- * @private
- */
-export function onGoalRemove(event) {
-	event.preventDefault();
-	const element = event.currentTarget;
-	const dataset = element.dataset;
-
-	const system = this.actor.system;
-	let goals = system.biography.goals
-
-	const index = [];
-	for (var x in goals) {
-		index.push(x);
+	const options = {
+		actor: this.actor,
+		connections: [...system.biography.connections],
+		window: {
+			resizable: true,
+			title: "Manage Goal",
+		},
 	}
-	delete goals[index[dataset.key]];
 
-	this.actor.update({ "system.biography.goals": goals });
+	new ConnectionManager(options).render({ force: true });
 
 	this.render(false);
 };
 
+/**
+ * Handle managing goal.
+ * @param {Event} event   The originating click event
+ * @private
+ */
+export async function onGoalManage(event) {
+	event.preventDefault();
+	const system = this.actor.system;
 
+	const options = {
+		actor: this.actor,
+		goals: [...system.biography.goals],
+		window: {
+			resizable: true,
+			title: "Manage Goal",
+		},
+	}
+
+	new GoalManager(options).render({ force: true });
+
+	this.render(false);
+};
 
 /**
 	 * Handle increasing goal rank.
@@ -56,13 +58,13 @@ export function onGoalIncrease(event) {
 	const data = element.dataset;
 	const system = this.actor.system;
 	let goals = system.biography.goals;
-	const goal = goals[data.goal];
+	const goal = goals[data.index];
 	let progress = goal.progress
 
 	if (progress < 3) {
 		progress++;
 	}
-	goals[data.goal].progress = progress;
+	goals[data.index].progress = progress;
 
 	this.actor.update({ "system.biography.goals": goals });
 
@@ -80,15 +82,29 @@ export function onGoalDecrease(event) {
 	const data = element.dataset;
 	const system = this.actor.system;
 	let goals = system.biography.goals;
-	const goal = goals[data.goal];
+	const goal = goals[data.index];
 	let progress = goal.progress
 
 	if (progress > 0) {
 		progress--;
 	}
-	goals[data.goal].progress = progress;
+	goals[data.index].progress = progress;
 
 	this.actor.update({ "system.biography.goals": goals });
 
 	this.render(false);
 };
+
+export function onBiographyChange(event) {
+	event.preventDefault();
+	const element = event.currentTarget;
+	const data = element.dataset;
+
+	const key = `system.biography.${data.target}`;
+	const updateObj = {};
+	updateObj[key] = element.value;
+
+	this.actor.update(updateObj);
+
+	this.render(false);
+}

@@ -5021,9 +5021,11 @@ body {
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
-.cosmere-rpg-unofficial .goal-item {
-  margin-right: 15%;
-  margin-left: 5%;
+.cosmere-rpg-unofficial .list-item {
+  padding-bottom: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  border-bottom: 1px inset var(--crpgu-header-color);
 }
 .cosmere-rpg-unofficial .goal-input {
   max-width: 50%;

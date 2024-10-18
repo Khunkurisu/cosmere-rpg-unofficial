@@ -9,16 +9,22 @@ COSMERE_UNOFFICIAL.members = 'COSMERE_UNOFFICIAL.Members';
 
 COSMERE_UNOFFICIAL.biography = {
 	backstory: 'COSMERE_UNOFFICIAL.Biography.Backstory',
-	goals: 'COSMERE_UNOFFICIAL.Biography.Goals.label',
-	connections: 'COSMERE_UNOFFICIAL.Biography.Connections.label',
 	purpose: 'COSMERE_UNOFFICIAL.Biography.Purpose',
 	obstacle: 'COSMERE_UNOFFICIAL.Biography.Obstacle',
-	goals_new: 'COSMERE_UNOFFICIAL.Biography.Goals.create',
-	connections_new: 'COSMERE_UNOFFICIAL.Biography.Connections.create',
-	goals_remove: 'COSMERE_UNOFFICIAL.Biography.Goals.delete',
-	connections_remove: 'COSMERE_UNOFFICIAL.Biography.Connections.delete',
-	goals_empty: 'COSMERE_UNOFFICIAL.Biography.Goals.missing',
-	connections_empty: 'COSMERE_UNOFFICIAL.Biography.Connections.missing'
+	goals: {
+		label: 'COSMERE_UNOFFICIAL.Biography.Goals.label',
+		new: 'COSMERE_UNOFFICIAL.Biography.Goals.create',
+		remove: 'COSMERE_UNOFFICIAL.Biography.Goals.delete',
+		empty: 'COSMERE_UNOFFICIAL.Biography.Goals.missing',
+		manage: 'COSMERE_UNOFFICIAL.Biography.Goals.manage',
+	},
+	connections: {
+		label: 'COSMERE_UNOFFICIAL.Biography.Connections.label',
+		new: 'COSMERE_UNOFFICIAL.Biography.Connections.create',
+		remove: 'COSMERE_UNOFFICIAL.Biography.Connections.delete',
+		empty: 'COSMERE_UNOFFICIAL.Biography.Connections.missing',
+		manage: 'COSMERE_UNOFFICIAL.Biography.Connections.manage',
+	}
 };
 
 COSMERE_UNOFFICIAL.attributes = {

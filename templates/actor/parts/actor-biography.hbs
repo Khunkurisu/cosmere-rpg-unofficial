@@ -5,29 +5,31 @@
 				{{localize (lookup @root.config.biography "backstory")}}
 			</label>
 		</div>
-		<div class="backstory flexcol" style="min-height: 250px;">
+		<div class="backstory flexcol" style="min-height: 175px;">
 			{{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
 			{{editor enrichedBiography target="system.biography.backstory" engine="prosemirror" button=true editable=editable}}
 		</div>
 	</div>
 	<hr />
 	<div class="grid grid-2col">
-		<div class="goals flexcol">
-			<label for="goals" class="resource-label flexlarge flex-group-left">
-				{{localize (lookup @root.config.biography "goals")}}
-			</label>
+		<div class="skills-list">
+			<div class="grid grid-5col">
+				<div class="grid-span-4">
+					<span>
+						<label class="resource-label">
+							{{localize (lookup @root.config.biography.goals "label")}}
+						</label>
+					</span>
+				</div>
+				<a class='goals-manage' title='{{localize (lookup @root.config.biography.goals "manage")}}'>
+					<i class="fa-solid fa-gear"></i>
+				</a>
+			</div>
 			<ol class="goals-list">
-				{{#each system.biography.goals as |goal key|}}
-					<li class="goal-item flexrow flex-group-left">
-						<a class='goal-remove' data-key="{{@index}}"
-							title='{{localize (lookup @root.config.biography goals_remove)}}'>
-							<i class='fas fa-trash'>
-								{{localize (lookup @root.config.biography goals_remove)}}
-							</i>
-						</a>
-						<input class="goal-input" type="text" name="system.biography.goals.{{key}}.text"
-							value="{{goal.text}}" data-dtype="String" />
-						<div class="goal-pip" data-goal="{{key}}">
+				{{#each system.biography.goals as |goal index|}}
+					<li class="list-item grid grid-5col">
+						<span class="flexcol grid-span-3" style="word-wrap:break-word;">{{goal.text}}</span>
+						<div class="goal-pip grid-span-2" data-index="{{@index}}">
 							<i class="fa-{{pipRank goal.progress 1}} fa-circle"></i>
 							<i class="fa-{{pipRank goal.progress 2}} fa-circle"></i>
 							<i class="fa-{{pipRank goal.progress 3}} fa-circle"></i>
@@ -35,43 +37,27 @@
 					</li>
 				{{/each}}
 			</ol>
-			<div class='create-goal'>
-				<a class='goal-create' title='{{localize (lookup @root.config.biography goals_new)}}'>
-					<i class='fas fa-plus'></i>
-					{{localize (lookup @root.config.biography "goals_new")}}
+		</div>
+		<div class="skills-list">
+			<div class="grid grid-5col">
+				<div class="grid-span-4">
+					<span>
+						<label class="resource-label">
+							{{localize (lookup @root.config.biography.connections "label")}}
+						</label>
+					</span>
+				</div>
+				<a class='connections-manage' title='{{localize (lookup @root.config.biography.connections "manage")}}'>
+					<i class="fa-solid fa-gear"></i>
 				</a>
 			</div>
-		</div>
-		<div class="connections flexcol">
-			<label for="connections" class="resource-label flexlarge flex-group-left">
-				{{localize (lookup @root.config.biography "connections")}}
-			</label>
 			<ol class="connections-list">
-				{{#each system.biography.connections as |connection key|}}
-					<li class="grid grid-4col">
-						<div class="grid-span-3">
-							<input type="text" name="system.biography.connections.{{key}}" value="{{connection}}"
-								data-dtype="String" />
-						</div>
-						<div class="flexcol">
-							<a class='connection-remove' data-key="{{@index}}"
-								title='{{localize (lookup @root.config.biography connections_remove)}}'>
-								<i class='fas fa-trash'>
-									{{localize (lookup @root.config.biography connections_remove)}}
-								</i>
-							</a>
-						</div>
+				{{#each system.biography.connections as |connection index|}}
+					<li class="list-item flexrow" style="vertical-align:middle;">
+						<span style="word-wrap:break-word;">{{connection}}</span>
 					</li>
-				{{else}}
-					<li class="flexcol">{{localize (lookup @root.config.biography connections_empty)}}</li>
 				{{/each}}
 			</ol>
-			<div class='create-connection'>
-				<a class='connection-create' title='{{localize (lookup @root.config.biography connections_new)}}'>
-					<i class='fas fa-plus'></i>
-					{{localize (lookup @root.config.biography "connections_new")}}
-				</a>
-			</div>
 		</div>
 	</div>
 	<hr />
@@ -80,15 +66,15 @@
 			<label for="purpose" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "purpose")}}
 			</label>
-			<input type="text" name="system.biography.purpose" value="{{system.biography.purpose}}"
-				data-dtype="String" />
+			<textarea class="biography-textarea" data-target="purpose" cols=40
+				rows=4>{{system.biography.purpose}}</textarea>
 		</div>
 		<div class="obstacle flexcol">
 			<label for="obstacle" class="resource-label flexlarge flex-group-left">
 				{{localize (lookup @root.config.biography "obstacle")}}
 			</label>
-			<input type="text" name="system.biography.obstacle" value="{{system.biography.obstacle}}"
-				data-dtype="String" />
+			<textarea class="biography-textarea" data-target="obstacle" cols=40
+				rows=4>{{system.biography.obstacle}}</textarea>
 		</div>
 	</div>
 </div>
