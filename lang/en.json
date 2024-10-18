@@ -125,6 +125,46 @@
 			"Survival": {
 				"long": "Survival",
 				"abbr": "svl"
+			},
+			"Adhesion": {
+				"long": "Adhesion",
+				"abbr": "adhesion"
+			},
+			"Gravitation": {
+				"long": "Gravitation",
+				"abbr": "gravitation"
+			},
+			"Division": {
+				"long": "Division",
+				"abbr": "division"
+			},
+			"Abrasion": {
+				"long": "Abrasion",
+				"abbr": "abrasion"
+			},
+			"Progression": {
+				"long": "Progression",
+				"abbr": "progression"
+			},
+			"Illumination": {
+				"long": "Illumination",
+				"abbr": "illumination"
+			},
+			"Transformation": {
+				"long": "Transformation",
+				"abbr": "transformation"
+			},
+			"Transportation": {
+				"long": "Transportation",
+				"abbr": "transportation"
+			},
+			"Cohesion": {
+				"long": "Cohesion",
+				"abbr": "cohesion"
+			},
+			"Tension": {
+				"long": "Tension",
+				"abbr": "tension"
 			}
 		},
 		"Defense": {
@@ -143,6 +183,11 @@
 			"Spiritual": {
 				"long": "Spiritual",
 				"abbr": "spi"
+			},
+			"Surge": {
+				"long": "Surge",
+				"plural": "Surges",
+				"abbr": "srg"
 			}
 		},
 		"Sense": {

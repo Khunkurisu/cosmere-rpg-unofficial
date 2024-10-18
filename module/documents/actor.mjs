@@ -126,6 +126,21 @@ export class CosmereUnofficialActor extends Actor {
 		return isRadiant;
 	}
 
+	isRadiantSkill(key) {
+		const systemData = this.system;
+		let isRadiantSkill = false;
+		systemData.path.every(path => {
+			if (path.system.isRadiant) {
+				if (path.system.skills.indexOf(key) > -1) {
+					isRadiantSkill = true;
+					return false;
+				}
+			}
+			return true;
+		});
+		return isRadiantSkill;
+	}
+
 	checkItems(actorData) {
 		const systemData = actorData.system;
 
@@ -195,6 +210,12 @@ export class CosmereUnofficialActor extends Actor {
 				skills[category][key].rank = skills[category][key].initialRank + skills[category][key].bonusRank;
 				const rank = skills[category][key].rank;
 				skills[category][key].value = rank + attribute;
+				if (category === 'surge') {
+					skills[category][key].show = this.isRadiantSkill(key);
+					if (show) {
+						systemData.hasSurges = true;
+					}
+				}
 			}
 		}
 	}

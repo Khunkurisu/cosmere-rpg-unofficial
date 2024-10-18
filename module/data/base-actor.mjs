@@ -180,7 +180,89 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
 					"attribute": new fields.StringField({ initial: "awareness" })
 				})
-			})
+			}),
+			"surge": new fields.SchemaField({
+				"adhesion": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "presence" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"gravitation": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "awareness" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"division": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "intellect" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"abrasion": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "speed" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"progression": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "awareness" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"illumination": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "presence" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"transformation": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "willpower" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"transportation": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "intellect" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"cohesion": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "willpower" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+				"tension": new fields.SchemaField({
+					"value": new fields.NumberField({ ...requiredInteger, initial: 0 }),
+					"bonusRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"initialRank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0, max: 5 }),
+					"rank": new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+					"attribute": new fields.StringField({ initial: "strength" }),
+					"show": new fields.BooleanField({ initial: false })
+				}),
+			}),
 		});
 
 		return schema;

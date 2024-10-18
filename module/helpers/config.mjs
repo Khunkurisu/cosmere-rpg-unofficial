@@ -69,6 +69,18 @@ COSMERE_UNOFFICIAL.skills = {
 		persuasion: 'COSMERE_UNOFFICIAL.Skill.Persuasion.long',
 		survival: 'COSMERE_UNOFFICIAL.Skill.Survival.long'
 	},
+	surge: {
+		adhesion: 'COSMERE_UNOFFICIAL.Skill.Adhesion.long',
+		gravitation: 'COSMERE_UNOFFICIAL.Skill.Gravitation.long',
+		division: 'COSMERE_UNOFFICIAL.Skill.Division.long',
+		abrasion: 'COSMERE_UNOFFICIAL.Skill.Abrasion.long',
+		progression: 'COSMERE_UNOFFICIAL.Skill.Progression.long',
+		illumination: 'COSMERE_UNOFFICIAL.Skill.Illumination.long',
+		transformation: 'COSMERE_UNOFFICIAL.Skill.Transformation.long',
+		transportation: 'COSMERE_UNOFFICIAL.Skill.Transportation.long',
+		cohesion: 'COSMERE_UNOFFICIAL.Skill.Cohesion.long',
+		tension: 'COSMERE_UNOFFICIAL.Skill.Tension.long',
+	},
 	expertise: {
 		label: 'COSMERE_UNOFFICIAL.Expertise.label',
 		new: 'COSMERE_UNOFFICIAL.Expertise.create',
@@ -103,20 +115,37 @@ COSMERE_UNOFFICIAL.skillAbbreviations = {
 		persuasion: 'COSMERE_UNOFFICIAL.Skill.Persuasion.abbr',
 		survival: 'COSMERE_UNOFFICIAL.Skill.Survival.abbr'
 	},
+	surge: {
+		adhesion: 'COSMERE_UNOFFICIAL.Skill.Adhesion.abbr',
+		gravitation: 'COSMERE_UNOFFICIAL.Skill.Gravitation.abbr',
+		division: 'COSMERE_UNOFFICIAL.Skill.Division.abbr',
+		abrasion: 'COSMERE_UNOFFICIAL.Skill.Abrasion.abbr',
+		progression: 'COSMERE_UNOFFICIAL.Skill.Progression.abbr',
+		illumination: 'COSMERE_UNOFFICIAL.Skill.Illumination.abbr',
+		transformation: 'COSMERE_UNOFFICIAL.Skill.Transformation.abbr',
+		transportation: 'COSMERE_UNOFFICIAL.Skill.Transportation.abbr',
+		cohesion: 'COSMERE_UNOFFICIAL.Skill.Cohesion.abbr',
+		tension: 'COSMERE_UNOFFICIAL.Skill.Tension.abbr',
+	}
 };
 
 COSMERE_UNOFFICIAL.defenses = {
 	deflect: 'COSMERE_UNOFFICIAL.Defense.Deflect.long',
 	physical: 'COSMERE_UNOFFICIAL.Defense.Physical.long',
 	cognitive: 'COSMERE_UNOFFICIAL.Defense.Cognitive.long',
-	spiritual: 'COSMERE_UNOFFICIAL.Defense.Spiritual.long'
+	spiritual: 'COSMERE_UNOFFICIAL.Defense.Spiritual.long',
+	surge: {
+		singular: 'COSMERE_UNOFFICIAL.Defense.Surge.long',
+		plural: 'COSMERE_UNOFFICIAL.Defense.Surge.plural',
+	},
 };
 
 COSMERE_UNOFFICIAL.defenseAbbreviations = {
 	deflect: 'COSMERE_UNOFFICIAL.Defense.Deflect.abbr',
 	physical: 'COSMERE_UNOFFICIAL.Defense.Physical.abbr',
 	cognitive: 'COSMERE_UNOFFICIAL.Defense.Cognitive.abbr',
-	spiritual: 'COSMERE_UNOFFICIAL.Defense.Spiritual.abbr'
+	spiritual: 'COSMERE_UNOFFICIAL.Defense.Spiritual.abbr',
+	surge: 'COSMERE_UNOFFICIAL.Defense.Surge.abbr',
 };
 
 COSMERE_UNOFFICIAL.senses = {
