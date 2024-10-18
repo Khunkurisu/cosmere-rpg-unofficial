@@ -108,18 +108,71 @@
 		<span class="skill-column-header">
 			{{localize (lookup @root.config.skills.expertise "label")}}
 		</span>
-		<div class='manage-expertise grid grid-5col flex-group-right'>
+	</div>
+	<div class="flexcol flex-group-left">
+		<div class='manage-expertise grid grid-5col flex-group-right' style="width:200%;">
 			<div class="grid-span-4"><span></span></div>
 			<a class='expertise-manage' title='{{localize (lookup @root.config.skills.expertise "manage")}}'>
 				<i class="fa-solid fa-gear"></i>
 			</a>
 		</div>
-		<ol class="expertise-list">
-			{{#each system.expertise as |expertise index|}}
-				<li class="flexrow">
-					{{index}}. <span>{{expertise.text}}</span>
-				</li>
-			{{/each}}
-		</ol>
+		<div class="grid grid-2col" style="width:200%;">
+			<div class="skills-list">
+				<span><label class="resource-label">Cultural</label></span>
+				<ol class="expertise-list">
+					{{#each culturalExpertise as |expertise index|}}
+						<li class="flexrow">
+							<span>{{expertise.text}}</span>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="skills-list">
+				<span><label class="resource-label">Utility</label></span>
+				<ol class="expertise-list">
+					{{#each utilityExpertise as |expertise index|}}
+						<li class="flexrow">
+							<span>{{expertise.text}}</span>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+		</div>
+		<div class="grid grid-2col" style="width:200%;">
+			<div class="skills-list">
+				<span><label class="resource-label">Weapon</label></span>
+				<ol class="expertise-list">
+					{{#each weaponExpertise as |expertise index|}}
+						<li class="flexrow">
+							<span>{{expertise.text}}</span>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="skills-list">
+				<span><label class="resource-label">Armor</label></span>
+				<ol class="expertise-list">
+					{{#each armorExpertise as |expertise index|}}
+						<li class="flexrow">
+							<span>{{expertise.text}}</span>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+		</div>
+		<div class="grid grid-3col" style="width:300%;">
+			<div><span></span></div>
+			<div class="skills-list">
+				<span><label class="resource-label">Special</label></span>
+				<ol class="expertise-list">
+					{{#each specialExpertise as |expertise index|}}
+						<li class="flexrow">
+							<span>{{expertise.text}}</span>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div><span></span></div>
+		</div>
 	</div>
 </div>
