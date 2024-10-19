@@ -529,10 +529,8 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		event.preventDefault();
 		const system = this.item.system;
 		const specialties = system.specialties
-		console.log(specialties);
 
 		const count = Object.keys(specialties).length;
-		console.log(count);
 		specialties["entry-" + (count + 1)] = "New Specialty";
 
 		this.render(false);

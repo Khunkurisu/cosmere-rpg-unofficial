@@ -30,7 +30,7 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 	static #onSubmit(event, form, formData) {
 		const actor = this.options.actor;
 		const goals = this.options.goals;
-		console.log(goals);
+
 		actor.update({ "system.biography.goals": goals });
 		this.close();
 	}
@@ -46,7 +46,6 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 			text: "New Goal",
 			progress: 0,
 		});
-		console.log(goals);
 
 		this.render({ force: false });
 	}
@@ -75,7 +74,6 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	_onRender(context, options) {
 		const html = $(this.element);
-		console.log(context);
 
 		html.on("change", ".goal-input", this.onGoalChange.bind(this));
 	}

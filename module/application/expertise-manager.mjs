@@ -36,7 +36,6 @@ export class ExpertiseManager extends HandlebarsApplicationMixin(ApplicationV2) 
 			...this.options.Armor,
 			...this.options.Special,
 		];
-		console.log(expertise);
 		actor.update({ "system.expertise": expertise });
 		this.close();
 	}
@@ -86,7 +85,6 @@ export class ExpertiseManager extends HandlebarsApplicationMixin(ApplicationV2) 
 
 	_onRender(context, options) {
 		const html = $(this.element);
-		console.log(context);
 
 		html.on("change", ".expertise-input", this.onExpertiseChange.bind(this));
 	}

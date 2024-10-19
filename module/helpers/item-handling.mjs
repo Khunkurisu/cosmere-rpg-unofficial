@@ -86,6 +86,7 @@ export function onItemDetails(event) {
 	const showDetails = !item.system.showDetails;
 
 	item.update({ "system.showDetails": showDetails });
+	console.log(item);
 
 	this.render(false);
 };

@@ -42,7 +42,6 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 			if (!modifier.enabled) return;
 			let mod = modifier.value > 0 ? ` + ${modifier.value}` : ` - ${modifier.value}`;
 			dice.rollData += `${mod}[${modifier.label}]`;
-			console.log(dice.rollData);
 		});
 
 		if (dice.hasAdvantage) {
@@ -87,8 +86,6 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 	}
 
 	static createModifier(event, target) {
-		console.log(event);
-		console.log(target);
 		const parent = $(target).parents('.modifier-fields');
 		const label = $(parent).children()[0];
 		const value = $(parent).children()[1];

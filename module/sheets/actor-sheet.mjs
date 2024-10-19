@@ -137,8 +137,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 * @param {object} context The context object to mutate
 	 */
 	_prepareItems(context) {
-		const system = this.actor.system;
-		console.log(system.expertise);
+		const system = context.actor.system;
 
 		// Initialize containers.
 		const gear = [];
@@ -307,6 +306,8 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.activeEffects = activeEffects;
 		context.effects = effects;
 		context.toggleable = toggleable;
+
+		console.log(context.pathFeatures);
 
 		let expertiseCategories = getExpertiseCategories(system.expertise);
 		context.utilityExpertise = expertiseCategories["Utility"];
