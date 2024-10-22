@@ -83,9 +83,8 @@ export function onItemDetails(event) {
 	event.preventDefault();
 	const li = $(event.currentTarget).parents('.item');
 	const item = this.actor.items.get(li.data('itemId'));
-	const showDetails = !item.system.showDetails;
+	item.system.showDetails = !item.system.showDetails;
 
-	item.update({ "system.showDetails": showDetails });
 	console.log(item);
 
 	this.render(false);
