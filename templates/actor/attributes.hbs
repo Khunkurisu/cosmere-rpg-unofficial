@@ -1,0 +1,107 @@
+<aside class="sidebar">
+	<div class="resources flexcol">
+		<div class="resource flex-group-center">
+			<label for="recovery-die" class="resource-label">Recovery Die</label>
+			<div class="resource-content flexrow flex-center flex-between">
+				<span class="rollable flexlarge flex-group-center" data-roll="d{{system.recovery}}"
+					data-roll-type="recovery" data-label="{{localize (lookup @root.config.recovery)}}"
+					style="padding:5px;">
+					<i class="fa-regular fa-dice-d{{system.recovery}} fa-xl"></i>
+				</span>
+			</div>
+			<label for="system.health.value" class="resource-label">Health</label>
+			<div class="resource-content flexrow flex-center flex-between">
+				<input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
+				<span>/</span>
+				<input type="text" name="system.health.max" value="{{system.health.max}}"
+					{{#unless (ifEquals actor.type 'Adversary')}}disabled="true" {{/unless}} data-dtype="Number" />
+			</div>
+		</div>
+		<div class="resource flex-group-center">
+			<label for="system.focus.value" class="resource-label">Focus</label>
+			<div class="resource-content flexrow flex-center flex-between">
+				<input type="text" name="system.focus.value" value="{{system.focus.value}}" data-dtype="Number" />
+				<span>/</span>
+				<input type="text" name="system.focus.max" value="{{system.focus.max}}"
+					{{#unless (ifEquals actor.type 'Adversary')}}disabled="true" {{/unless}} data-dtype="Number" />
+			</div>
+		</div>
+		<div class="resource flex-group-center">
+			<label for="system.investiture.value" class="resource-label">Investiture</label>
+			<div class="resource-content flexrow flex-center flex-between">
+				<input type="text" name="system.investiture.value" value="{{system.investiture.value}}"
+					data-dtype="Number" />
+				<span>/</span>
+				<input type="text" name="system.investiture.max" value="{{system.investiture.max}}"
+					{{#unless (ifEquals actor.type 'Adversary')}}disabled="true" {{/unless}} data-dtype="Number" />
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="defenses flexcol">
+		<div class="deflect flexrow flex-group-center">
+			<label for="system.deflect" class="resource-label flexlarge align-left"
+				data-label="{{localize (lookup @root.config.defenses deflect)}}">
+				{{localize (lookup @root.config.defenses "deflect")}}
+			</label>
+			<input type="text" name="system.deflect" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+				{{/unless}} value="{{system.deflect}}" data-dtype="Number" />
+		</div>
+		<div class="physical flexrow flex-group-center">
+			<label for="system.physical" class="resource-label flexlarge align-left"
+				data-label="{{localize (lookup @root.config.defenses physical)}}">
+				{{localize (lookup @root.config.defenses "physical")}}
+			</label>
+			<input type="text" name="system.physical" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+				{{/unless}} value="{{system.physical}}" data-dtype="Number" />
+		</div>
+		<div class="cognitive flexrow flex-group-center">
+			<label for="system.cognitive" class="resource-label flexlarge align-left"
+				data-label="{{localize (lookup @root.config.defenses cognitive)}}">
+				{{localize (lookup @root.config.defenses "cognitive")}}
+			</label>
+			<input type="text" name="system.cognitive" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+				{{/unless}} value="{{system.cognitive}}" data-dtype="Number" />
+		</div>
+		<div class="spiritual flexrow flex-group-center">
+			<label for="system.spiritual" class="resource-label flexlarge align-left"
+				data-label="{{localize (lookup @root.config.defenses spiritual)}}">
+				{{localize (lookup @root.config.defenses "spiritual")}}
+			</label>
+			<input type="text" name="system.spiritual" {{#unless (ifEquals actor.type 'Adversary')}}disabled="true"
+				{{/unless}} value="{{system.spiritual}}" data-dtype="Number" />
+		</div>
+	</div>
+	<hr />
+	<div class="attributes flexcol">
+		{{#each system.attributes as |attribute key|}}
+			<div class="attribute flexrow flex-group-center">
+				<label for="system.attributes.{{key}}.value" class="resource-label flexlarge align-left"
+					data-label="{{localize (lookup @root.config.attributes key)}}">
+					{{localize (lookup @root.config.attributes key)}}
+				</label>
+				<input type="number" name="system.attributes.{{key}}.value" value="{{attribute.value}}"
+					data-dtype="Number" />
+			</div>
+		{{/each}}
+	</div>
+	<hr />
+	<div class="senses-and-movement flexcol">
+		<div class="sense-range flexrow flex-group-center">
+			<label for="system.senses" class="resource-label flexlarge align-left"
+				data-label="{{localize (lookup @root.config.senses range)}}">
+				{{localize (lookup @root.config.senses "range")}}
+			</label>
+			<input type="text" name="system.senses" disabled="true" value="{{system.senses}}ft" />
+		</div>
+		{{#each system.movement as |movement key|}}
+			<div class="movement flexrow flex-group-center">
+				<label for="system.movement.{{key}}" class="resource-label flexlarge align-left"
+					data-label="{{localize (lookup @root.config.movement key)}}">
+					{{localize (lookup @root.config.movement key)}}
+				</label>
+				<input type="text" name="system.movement.{{key}}" disabled="true" value="{{movement}}ft" />
+			</div>
+		{{/each}}
+	</div>
+</aside>
