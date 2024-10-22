@@ -13,16 +13,4 @@ export default class CosmereUnofficialItemBase extends CosmereUnofficialDataMode
 
 		return schema;
 	}
-
-	static migrateData(source) {
-		let ver = source.ver ?? "0.2.4";
-		const version = ver.split('.');
-		const release = Number.parseInt(version[0], 10);
-		const update = Number.parseInt(version[1], 10);
-		const revision = Number.parseInt(version[2], 10);
-
-		//if (release <= 0 && update <= 2 && revision < 3) { }
-
-		return source;
-	}
 }
