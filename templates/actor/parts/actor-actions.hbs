@@ -2,10 +2,10 @@
 	<div style="max-width:80%;margin-left:15px;">
 		<ol class='effect-toggle-list grid grid-3col flex-group-left'>
 			{{#each toggleable as |effect id|}}
-				<li class='effect-toggle flexrow flex-group-left' data-effect-id='{{effect._id}}'>
-					<input class="effect-toggle-checkbox" data-action="toggleEffect" type="checkbox" id="effect-toggle"
-						name="effect-toggle" value="{{effect.system.status}}" {{#if effect.system.active}}
-						checked="true" {{/if}}>
+				<li class='effect-toggle flexrow flex-group-left' data-action="toggleEffect"
+					data-effect-id='{{effect._id}}'>
+					<input class="effect-toggle-checkbox" type="checkbox" id="effect-toggle" name="effect-toggle"
+						value="{{effect.system.status}}" {{#if effect.system.active}} checked="true" {{/if}}>
 					<label for="effect-toggle" class="resource-label" style="min-width:fit-content">
 						{{effect.name}}
 					</label>

@@ -35,37 +35,38 @@
 	--crpgu-header-color: #00000088;
 }
 
-.window-app {
+.applicatoin {
 	border: 1px solid var(--crpgu-header-color);
+	font-family: $font-primary;
 }
 
-.window-app .window-header {
+.applicatoin .window-header {
 	background: var(--crpgu-header-color);
 }
 
-.window-app .window-content {
+.applicatoin .window-content {
 	padding: 0.1rem 0.5rem;
 }
 
-.window-app:not(.item):not(.actor) {
+.applicatoin:not(.item):not(.actor) {
 	font-family: 'PT Sans', monospace;
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor).journal-sheet {
+.applicatoin:not(.item):not(.actor).journal-sheet {
 	background: none;
 }
 
-.window-app:not(.item):not(.actor).journal-sheet .window-content aside.sidebar {
+.applicatoin:not(.item):not(.actor).journal-sheet .window-content aside.sidebar {
 	background: var(--crpgu-transparent-bg);
 }
 
-.window-app:not(.item):not(.actor) .window-content {
+.applicatoin:not(.item):not(.actor) .window-content {
 	color: var(--crpgu-primary-font);
 	background: var(--crpgu-primary-bg);
 }
 
-.window-app:not(.item):not(.actor) .window-content button {
+.applicatoin:not(.item):not(.actor) .window-content button {
 	background: var(--crpgu-primary-bg);
 	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
@@ -74,52 +75,52 @@
 	border-radius: 3px;
 }
 
-.window-app:not(.item):not(.actor) .window-content button .tox-icon svg {
+.applicatoin:not(.item):not(.actor) .window-content button .tox-icon svg {
 	fill: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content button:hover {
+.applicatoin:not(.item):not(.actor) .window-content button:hover {
 	background: #af1c1c;
 	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content button:hover .tox-icon svg {
+.applicatoin:not(.item):not(.actor) .window-content button:hover .tox-icon svg {
 	fill: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content button:hover ul {
+.applicatoin:not(.item):not(.actor) .window-content button:hover ul {
 	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
 	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content button:hover ul li:hover {
+.applicatoin:not(.item):not(.actor) .window-content button:hover ul li:hover {
 	background-color: #af1c1c;
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content label,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor) .window-content label,
+.applicatoin:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
 	.header
 	.headerinputfield,
 .sheet.actor
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -130,15 +131,15 @@
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content select {
+.applicatoin:not(.item):not(.actor) .window-content select {
 	background: var(--crpgu-primary-bg);
 	color: var(--crpgu-primary-font);
 	border: 1px solid var(--crpgu-header-color);
 }
 
-.window-app:not(.item):not(.actor) .window-content input,
-.window-app:not(.item):not(.actor) .window-content input[type='text'],
-.window-app:not(.item):not(.actor) .window-content textarea {
+.applicatoin:not(.item):not(.actor) .window-content input,
+.applicatoin:not(.item):not(.actor) .window-content input[type='text'],
+.applicatoin:not(.item):not(.actor) .window-content textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
 	background: var(--crpgu-primary-bg) !important;
@@ -147,52 +148,52 @@
 	border-radius: 5px !important;
 }
 
-.window-app:not(.item):not(.actor) .window-content input:hover,
-.window-app:not(.item):not(.actor) .window-content input[type='text']:hover,
-.window-app:not(.item):not(.actor) .window-content textarea:hover {
+.applicatoin:not(.item):not(.actor) .window-content input:hover,
+.applicatoin:not(.item):not(.actor) .window-content input[type='text']:hover,
+.applicatoin:not(.item):not(.actor) .window-content textarea:hover {
 	border: 1px solid #af1c1c !important;
 }
 
-.window-app:not(.item):not(.actor) .window-content input:focus,
-.window-app:not(.item):not(.actor) .window-content input:active,
-.window-app:not(.item):not(.actor) .window-content input[type='text']:focus,
-.window-app:not(.item):not(.actor) .window-content input[type='text']:active,
-.window-app:not(.item):not(.actor) .window-content textarea:focus,
-.window-app:not(.item):not(.actor) .window-content textarea:active {
+.applicatoin:not(.item):not(.actor) .window-content input:focus,
+.applicatoin:not(.item):not(.actor) .window-content input:active,
+.applicatoin:not(.item):not(.actor) .window-content input[type='text']:focus,
+.applicatoin:not(.item):not(.actor) .window-content input[type='text']:active,
+.applicatoin:not(.item):not(.actor) .window-content textarea:focus,
+.applicatoin:not(.item):not(.actor) .window-content textarea:active {
 	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content input:disabled,
-.window-app:not(.item):not(.actor) .window-content input[type='text']:disabled,
-.window-app:not(.item):not(.actor) .window-content textarea:disabled {
+.applicatoin:not(.item):not(.actor) .window-content input:disabled,
+.applicatoin:not(.item):not(.actor) .window-content input[type='text']:disabled,
+.applicatoin:not(.item):not(.actor) .window-content textarea:disabled {
 	background: var(--crpgu-primary-bg) !important;
 	color: var(--crpgu-secondary-font) !important;
 }
 
-.window-app:not(.item):not(.actor) .window-content input[type='number'] {
+.applicatoin:not(.item):not(.actor) .window-content input[type='number'] {
 	font-family: 'PT Sans Caption', serif;
 	font-weight: bold;
 }
 
-.window-app:not(.item):not(.actor) .window-content range-picker {
+.applicatoin:not(.item):not(.actor) .window-content range-picker {
 	border: none;
 	background: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content .rollable:hover {
+.applicatoin:not(.item):not(.actor) .window-content .rollable:hover {
 	color: #af1c1c;
 	box-shadow: none;
 	text-shadow: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content table {
+.applicatoin:not(.item):not(.actor) .window-content table {
 	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
-.window-app:not(.item):not(.actor) .window-content table thead {
+.applicatoin:not(.item):not(.actor) .window-content table thead {
 	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
 	color: var(--crpgu-secondary-font);
@@ -202,25 +203,25 @@
 	border-top-right-radius: 5px;
 }
 
-.window-app:not(.item):not(.actor) .window-content table thead tr.table-header {
+.applicatoin:not(.item):not(.actor) .window-content table thead tr.table-header {
 	background: none;
 	border: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content table thead tr td p {
+.applicatoin:not(.item):not(.actor) .window-content table thead tr td p {
 	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
-.window-app:not(.item):not(.actor) .window-content table tbody {
+.applicatoin:not(.item):not(.actor) .window-content table tbody {
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content table tbody tr {
+.applicatoin:not(.item):not(.actor) .window-content table tbody tr {
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	table
 	tbody
@@ -228,13 +229,13 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.window-app:not(.item):not(.actor) .window-content .journal-header .title {
+.applicatoin:not(.item):not(.actor) .window-content .journal-header .title {
 	font-family: 'Bebas Neue', monospace;
 	font-weight: bold;
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.journal-header
 	.page-level
@@ -243,12 +244,12 @@
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content .prosemirror {
+.applicatoin:not(.item):not(.actor) .window-content .prosemirror {
 	background: var(--crpgu-secondary-bg);
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -261,7 +262,7 @@
 	border-radius: 3px;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -271,7 +272,7 @@
 	fill: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -282,7 +283,7 @@
 	text-shadow: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -292,7 +293,7 @@
 	fill: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -304,7 +305,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -315,12 +316,12 @@
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	label,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.prosemirror
@@ -328,13 +329,13 @@
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	.sheet-header
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
@@ -342,13 +343,13 @@
 	.editor-menu
 	.headerinputfield,
 .sheet.item
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.prosemirror
 	.editor-menu
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.prosemirror
@@ -357,14 +358,14 @@
 	.header
 	.headerinputfield,
 .sheet.actor
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	.header-fields
 	.header
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
@@ -373,7 +374,7 @@
 	.editor-menu
 	.headerinputfield,
 .sheet.actor
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -386,7 +387,7 @@
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -396,17 +397,17 @@
 	border: 1px solid var(--crpgu-header-color);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text'],
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -419,17 +420,17 @@
 	border-radius: 5px !important;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -437,32 +438,32 @@
 	border: 1px solid #af1c1c !important;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:active,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:active,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	textarea:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -471,17 +472,17 @@
 	box-shadow: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:disabled,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:disabled,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -490,7 +491,7 @@
 	color: var(--crpgu-secondary-font) !important;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -499,7 +500,7 @@
 	font-weight: bold;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -508,7 +509,7 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -518,7 +519,7 @@
 	text-shadow: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -528,7 +529,7 @@
 	padding: 0.5rem;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -543,7 +544,7 @@
 	border-top-right-radius: 5px;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -554,7 +555,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -567,7 +568,7 @@
 	font-family: 'PT Sans Caption';
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -576,7 +577,7 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -586,7 +587,7 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -596,7 +597,7 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -607,7 +608,7 @@
 	line-height: 1.2rem;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -621,7 +622,7 @@
 	border-bottom: 2px solid var(--crpgu-header-color);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -633,7 +634,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -645,7 +646,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -657,7 +658,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -669,7 +670,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -684,7 +685,7 @@
 	padding: 1rem;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -694,7 +695,7 @@
 	font-family: 'Nunito', sans-serif;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -706,7 +707,7 @@
 	text-decoration: underline;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -717,7 +718,7 @@
 	padding: 0.5rem;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -733,7 +734,7 @@
 	border-top-right-radius: 5px;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -745,7 +746,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -759,7 +760,7 @@
 	font-family: 'PT Sans Caption';
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -769,7 +770,7 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -780,7 +781,7 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -791,31 +792,31 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.window-app:not(.item):not(.actor) .window-content .prosemirror textarea {
+.applicatoin:not(.item):not(.actor) .window-content .prosemirror textarea {
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce {
 	padding: 0.5rem;
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce .editor-content,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content,
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce {
 	background: var(--crpgu-secondary-bg);
 	color: var(--crpgu-secondary-font);
 	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce .editor-content p,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce p {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content p,
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce p {
 	font-family: 'Nunito', sans-serif;
 	font-size: 0.9rem;
 	line-height: 1.2rem;
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce .editor-content h1,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h1 {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h1,
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h1 {
 	font-family: 'Bebas Neue';
 	font-size: 1.6rem;
 	font-weight: bold;
@@ -824,44 +825,44 @@
 	border-bottom: 2px solid var(--crpgu-header-color);
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce .editor-content h2,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h2 {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h2,
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h2 {
 	font-family: 'PT Sans Caption';
 	font-size: 1.3rem;
 	font-weight: bold;
 	border: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce .editor-content h3,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h3 {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h3,
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h3 {
 	font-family: 'Nunito';
 	font-size: 1.1rem;
 	font-weight: bold;
 	border: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce .editor-content h4,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h4 {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h4,
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h4 {
 	font-family: 'Nunito';
 	font-size: 1rem;
 	font-weight: normal;
 	border: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce .editor-content h5,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h5 {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h5,
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h5 {
 	font-family: 'Nunito';
 	font-size: 0.9rem;
 	font-weight: bold;
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	blockquote,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -875,13 +876,13 @@
 	padding: 1rem;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	blockquote
 	p,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -890,12 +891,12 @@
 	font-family: 'Nunito', sans-serif;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.content-link,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -906,24 +907,24 @@
 	text-decoration: underline;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table,
-.window-app:not(.item):not(.actor) .window-content .tinymce .tox-tinymce table {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce table {
 	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	thead,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -938,14 +939,14 @@
 	border-top-right-radius: 5px;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	thead
 	tr.table-header,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -956,7 +957,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -965,7 +966,7 @@
 	tr
 	td
 	p,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -978,13 +979,13 @@
 	font-family: 'PT Sans Caption';
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	tbody,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -993,14 +994,14 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	tbody
 	tr,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1010,14 +1011,14 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	tbody
 	tr:nth-child(odd),
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1027,12 +1028,12 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1040,18 +1041,18 @@
 	background: none;
 }
 
-.window-app option {
+.applicatoin option {
 	background-color: var(--crpgu-header-color);
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container
 	.tox-editor-header,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1064,14 +1065,14 @@
 	background-color: var(--crpgu-secondary-bg);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container
 	.tox-editor-header
 	.tox-toolbar-overlord,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1081,7 +1082,7 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1089,7 +1090,7 @@
 	.tox-editor-header
 	.tox-toolbar-overlord
 	.tox-toolbar__primary,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1100,7 +1101,7 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1109,7 +1110,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	button,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1126,7 +1127,7 @@
 	border-radius: 3px;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1137,7 +1138,7 @@
 	button
 	.tox-icon
 	svg,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1151,7 +1152,7 @@
 	fill: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1160,7 +1161,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	button:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1175,7 +1176,7 @@
 	text-shadow: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1186,7 +1187,7 @@
 	button:hover
 	.tox-icon
 	svg,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1200,7 +1201,7 @@
 	fill: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1210,7 +1211,7 @@
 	.tox-toolbar__primary
 	button:hover
 	ul,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1226,7 +1227,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1237,7 +1238,7 @@
 	button:hover
 	ul
 	li:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1252,7 +1253,7 @@
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1261,7 +1262,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	label,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.tinymce
@@ -1273,7 +1274,7 @@
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1283,7 +1284,7 @@
 	.tox-toolbar__primary
 	.sheet-header
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
@@ -1295,7 +1296,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.item
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.tinymce
@@ -1305,7 +1306,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.tinymce
@@ -1318,7 +1319,7 @@
 	.header
 	.headerinputfield,
 .sheet.actor
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1329,7 +1330,7 @@
 	.header-fields
 	.header
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
@@ -1342,7 +1343,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.actor
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -1353,7 +1354,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1362,7 +1363,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	label,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.tinymce
@@ -1374,7 +1375,7 @@
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1384,7 +1385,7 @@
 	.tox-toolbar__primary
 	.sheet-header
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
@@ -1396,7 +1397,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.item
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.tinymce
@@ -1406,7 +1407,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.tinymce
@@ -1419,7 +1420,7 @@
 	.header
 	.headerinputfield,
 .sheet.actor
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1430,7 +1431,7 @@
 	.header-fields
 	.header
 	.headerinputfield,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
@@ -1443,7 +1444,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.actor
-	.window-app:not(.item):not(.actor)
+	.applicatoin:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -1460,7 +1461,7 @@
 	color: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1469,7 +1470,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	select,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1483,7 +1484,7 @@
 	border: 1px solid var(--crpgu-secondary-bg);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1492,7 +1493,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1501,7 +1502,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text'],
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1510,7 +1511,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1519,7 +1520,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1528,7 +1529,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text'],
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1545,7 +1546,7 @@
 	border-radius: 5px !important;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1554,7 +1555,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1563,7 +1564,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1572,7 +1573,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1581,7 +1582,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1590,7 +1591,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1602,7 +1603,7 @@
 	border: 1px solid #af1c1c !important;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1611,7 +1612,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1620,7 +1621,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:active,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1629,7 +1630,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1638,7 +1639,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:active,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1647,7 +1648,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1656,7 +1657,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:active,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1665,7 +1666,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1674,7 +1675,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:active,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1683,7 +1684,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1692,7 +1693,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:active,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1701,7 +1702,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:focus,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1714,7 +1715,7 @@
 	box-shadow: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1723,7 +1724,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:disabled,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1732,7 +1733,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:disabled,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1741,7 +1742,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:disabled,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1750,7 +1751,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:disabled,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1759,7 +1760,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:disabled,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1772,7 +1773,7 @@
 	color: var(--crpgu-secondary-font) !important;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1781,7 +1782,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='number'],
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1794,7 +1795,7 @@
 	font-weight: bold;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1803,7 +1804,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	range-picker,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1816,7 +1817,7 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1825,7 +1826,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.rollable:hover,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1839,7 +1840,7 @@
 	text-shadow: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1848,7 +1849,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	table,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1862,7 +1863,7 @@
 	padding: 0.5rem;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1872,7 +1873,7 @@
 	.tox-toolbar__primary
 	table
 	thead,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1891,7 +1892,7 @@
 	border-top-right-radius: 5px;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1902,7 +1903,7 @@
 	table
 	thead
 	tr.table-header,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1917,7 +1918,7 @@
 	border: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1930,7 +1931,7 @@
 	tr
 	td
 	p,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1947,7 +1948,7 @@
 	font-family: 'PT Sans Caption';
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1957,7 +1958,7 @@
 	.tox-toolbar__primary
 	table
 	tbody,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1970,7 +1971,7 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1981,7 +1982,7 @@
 	table
 	tbody
 	tr,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1995,7 +1996,7 @@
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -2006,7 +2007,7 @@
 	table
 	tbody
 	tr:nth-child(odd),
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -2020,14 +2021,14 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container
 	.tox-sidebar-wrap
 	.tox-edit-area,
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -2037,17 +2038,17 @@
 	background: var(--crpgu-primary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content .tinymce textarea {
+.applicatoin:not(.item):not(.actor) .window-content .tinymce textarea {
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content table {
+.applicatoin:not(.item):not(.actor) .window-content table {
 	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
-.window-app:not(.item):not(.actor) .window-content table thead {
+.applicatoin:not(.item):not(.actor) .window-content table thead {
 	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
 	color: var(--crpgu-secondary-font);
@@ -2057,25 +2058,25 @@
 	border-top-right-radius: 5px;
 }
 
-.window-app:not(.item):not(.actor) .window-content table thead tr.table-header {
+.applicatoin:not(.item):not(.actor) .window-content table thead tr.table-header {
 	background: none;
 	border: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content table thead tr td p {
+.applicatoin:not(.item):not(.actor) .window-content table thead tr td p {
 	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
-.window-app:not(.item):not(.actor) .window-content table tbody {
+.applicatoin:not(.item):not(.actor) .window-content table tbody {
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content table tbody tr {
+.applicatoin:not(.item):not(.actor) .window-content table tbody tr {
 	background: none;
 }
 
-.window-app:not(.item):not(.actor)
+.applicatoin:not(.item):not(.actor)
 	.window-content
 	table
 	tbody
@@ -2083,28 +2084,28 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.window-app:not(.item):not(.actor) .window-content nav.sheet-tabs {
+.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs {
 	border: none;
 	border-top: 1px solid var(--crpgu-secondary-bg);
 	border-bottom: 1px solid var(--crpgu-secondary-bg);
 }
 
-.window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item {
+.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs .item {
 	color: var(--crpgu-secondary-font);
 }
 
-.window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item:hover {
+.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs .item:hover {
 	color: #af1c1c;
 	text-shadow: none;
 }
 
-.window-app:not(.item):not(.actor) .window-content nav.sheet-tabs .item.active {
+.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs .item.active {
 	color: var(--crpgu-primary-font);
 	text-shadow: none;
 	font-weight: bold;
 }
 
-.window-app:not(.item):not(.actor) .window-content .notes {
+.applicatoin:not(.item):not(.actor) .window-content .notes {
 	font-family: 'PT Sans', monospace;
 	color: var(--crpgu-secondary-font);
 	font-style: italic;
@@ -2112,7 +2113,7 @@
 	font-size: 0.8rem;
 }
 
-.window-app:not(.item):not(.actor) .window-content hr {
+.applicatoin:not(.item):not(.actor) .window-content hr {
 	border: none;
 	border-bottom: 1px solid var(--crpgu-secondary-bg);
 	margin: 1rem 0 0 1rem;

@@ -39,10 +39,10 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 	/** @override */
 	static DEFAULT_OPTIONS = {
-		classes: ['cosmere-rpg-unofficial'],
+		classes: ['cosmere-rpg-unofficial', 'actor'],
 		position: {
 			width: 800,
-			height: 800,
+			height: 775,
 		},
 		window: {
 			resizable: true,
@@ -385,8 +385,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	 */
 	static async _onEffectToggle(event, target) {
 		event.preventDefault();
-		const li = $(target).parents('.effect-toggle');
-		const effect = this.actor.items.get(li.data('effectId'));
+		const effect = this.actor.items.get(target.dataset.effectId);
 		const toggle = !effect.system.active;
 
 		effect.update({ 'system.active': toggle });
