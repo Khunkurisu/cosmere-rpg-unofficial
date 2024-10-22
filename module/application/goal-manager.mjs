@@ -20,7 +20,7 @@ export class GoalManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static PARTS = {
 		form: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-goals.hbs'
+			template: 'systems/cosmere-rpg-unofficial/templates/dialogs/actor-goals.hbs'
 		},
 		footer: {
 			template: "templates/generic/form-footer.hbs",

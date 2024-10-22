@@ -20,7 +20,7 @@ export class ConnectionManager extends HandlebarsApplicationMixin(ApplicationV2)
 
 	static PARTS = {
 		form: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-connections.hbs'
+			template: 'systems/cosmere-rpg-unofficial/templates/dialogs/actor-connections.hbs'
 		},
 		footer: {
 			template: "templates/generic/form-footer.hbs",

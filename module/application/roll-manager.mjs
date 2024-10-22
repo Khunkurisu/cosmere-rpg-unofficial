@@ -25,7 +25,7 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static PARTS = {
 		form: {
-			template: 'systems/cosmere-rpg-unofficial/templates/chat/roll-popup.hbs'
+			template: 'systems/cosmere-rpg-unofficial/templates/dialogs/roll-popup.hbs'
 		},
 		footer: {
 			template: "templates/generic/form-footer.hbs",
