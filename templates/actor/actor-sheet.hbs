@@ -1,48 +1,51 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
-	<section class="grid grid-5col">
-		{{> "systems/cosmere-rpg-unofficial/templates/actor/attributes.hbs"}}
+<section class="grid grid-5col">
+	{{> "systems/cosmere-rpg-unofficial/templates/actor/attributes.hbs"}}
 
-		<section class="main grid-span-4">
-			{{!-- Sheet Header --}}
-			{{> "systems/cosmere-rpg-unofficial/templates/actor/header.hbs"}}
+	<section class="main grid-span-4">
+		{{!-- Sheet Header --}}
+		{{> "systems/cosmere-rpg-unofficial/templates/actor/header.hbs"}}
 
-			{{!-- Sheet Tab Navigation --}}
-			{{> "systems/cosmere-rpg-unofficial/templates/actor/navigation.hbs"}}
+		{{!-- Sheet Tab Navigation --}}
+		{{> "systems/cosmere-rpg-unofficial/templates/actor/navigation.hbs"}}
 
-			{{!-- Sheet Body --}}
-			<section class="sheet-body">
-				{{!-- Owned Actions Tab --}}
-				<div class="tab actions" data-group="primary" data-tab="actions">
-					{{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-actions.hbs"}}
-				</div>
+		{{!-- Sheet Body --}}
+		<section class="sheet-body">
+			{{!-- Owned Actions Tab --}}
+			<div class="actions-tab" data-tab='actions' {{#unless (ifEquals selectedTab 'actions')}}
+				style='display:none' {{/unless}}>
+				{{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+				{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-actions.hbs"}}
+			</div>
 
-				{{!-- Biography Tab --}}
-				<div class="tab biography" data-group="primary" data-tab="biography">
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-biography.hbs"}}
-				</div>
+			{{!-- Biography Tab --}}
+			<div class="biography-tab" data-tab='biography' {{#unless (ifEquals selectedTab 'biography')}}
+				style='display:none' {{/unless}}>
+				{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-biography.hbs"}}
+			</div>
 
-				{{!-- Owned Items Tab --}}
-				<div class="tab items" data-group="primary" data-tab="items">
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-items.hbs"}}
-				</div>
+			{{!-- Owned Items Tab --}}
+			<div class="items-tab" data-tab='items' {{#unless (ifEquals selectedTab 'items')}} style='display:none'
+				{{/unless}}>
+				{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-items.hbs"}}
+			</div>
 
-				{{!-- Skills Tab --}}
-				<div class="tab items" data-group="primary" data-tab="skills">
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-skills.hbs"}}
-				</div>
+			{{!-- Skills Tab --}}
+			<div class="skills-tab" data-tab='skills' {{#unless (ifEquals selectedTab 'skills')}} style='display:none'
+				{{/unless}}>
+				{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-skills.hbs"}}
+			</div>
 
-				{{!-- Feats Tab --}}
-				<div class="tab items" data-group="primary" data-tab="feats">
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-feats.hbs"}}
-				</div>
+			{{!-- Feats Tab --}}
+			<div class="talents-tab" data-tab='talents' {{#unless (ifEquals selectedTab 'talents')}}
+				style='display:none' {{/unless}}>
+				{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-talents.hbs"}}
+			</div>
 
-				{{!-- Active Effects Tab --}}
-				<div class="tab effects flexcol" data-group="primary" data-tab="effects">
-					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-effects.hbs"}}
-				</div>
-
-			</section>
+			{{!-- Active Effects Tab --}}
+			<div class="effects-tab flexcol" data-tab='effects' {{#unless (ifEquals selectedTab 'effects')}}
+				style='display:none' {{/unless}}>
+				{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-effects.hbs"}}
+			</div>
 		</section>
 	</section>
-</form>
+</section>

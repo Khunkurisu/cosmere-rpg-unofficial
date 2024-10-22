@@ -24,111 +24,129 @@ import {
 	onItemDrag,
 	onItemDrop,
 	onContainerToggle,
-	enrichItemDesc
+	enrichItemDesc,
+	strikeFromWeapon
 } from '../helpers/item-handling.mjs';
-import { CheckCosmere } from "../system/dice/check.mjs";
+import { CheckCosmere } from "../system/dice/check.mjs"; const { api, sheets } = foundry.applications;
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
+ * @extends {ActorSheetV2}
  */
-export class CosmereUnofficialActorSheet extends ActorSheet {
-	/** @override */
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ['cosmere-rpg-unofficial', 'sheet', 'actor'],
-			width: 800,
-			height: 720,
-			tabs: [
-				{
-					navSelector: '.sheet-tabs',
-					contentSelector: '.sheet-body',
-					initial: 'actions',
-				},
-			],
-		});
+export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
+	sheets.ActorSheetV2
+) {
+	constructor(options = {}) {
+		super(options);
+		this.#dragDrop = this.#createDragDropHandlers();
 	}
 
 	/** @override */
-	get template() {
-		return `systems/cosmere-rpg-unofficial/templates/actor/actor-${this.actor.type.toLowerCase()}-sheet.hbs`;
+	static DEFAULT_OPTIONS = {
+		classes: ['cosmere-rpg-unofficial', 'sheet', 'actor'],
+		position: {
+			width: 800,
+			height: 720,
+		},
+		actions: {
+			onEditImage: this._onEditImage,
+			viewDoc: this._viewDoc,
+			createDoc: this._createDoc,
+			deleteDoc: this._deleteDoc,
+			toggleEffect: this._toggleEffect,
+			roll: this._onRoll,
+			nav: this._onNav,
+		},
+		// Custom property that's merged into `this.options`
+		dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
+		form: {
+			submitOnChange: true,
+		},
+	};
+
+	/** @override */
+	static PARTS = {
+		sheet: {
+			template: 'systems/cosmere-rpg-unofficial/templates/actor/actor-sheet.hbs',
+		},
+	};
+
+	/** @override */
+	_configureRenderOptions(options) {
+		super._configureRenderOptions(options);
+		// Not all parts always render
+		options.parts = ['sheet'];
+		// Don't show the other tabs if only limited view
+		if (this.document.limited) return;
 	}
 
 	/* -------------------------------------------- */
 
 	/** @override */
-	async getData() {
+	async _prepareContext(options) {
 		// Retrieve the data structure from the base sheet. You can inspect or log
 		// the context variable to see the structure, but some key properties for
 		// sheets are the actor object, the data object, whether or not it's
 		// editable, the items array, and the effects array.
-		const context = super.getData();
+		const context = {
+			// Validates both permissions and compendium status
+			editable: this.isEditable,
+			owner: this.document.isOwner,
+			limited: this.document.limited,
+			// Add the actor document.
+			actor: this.actor,
+			items: this.actor.items,
+			// Add the actor's data to context.data for easier access, as well as flags.
+			system: this.actor.system,
+			flags: this.actor.flags,
+			selectedTab: this.actor.selectedTab,
+			// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
+			config: CONFIG.COSMERE_UNOFFICIAL,
+		};
 
 		// Use a safe clone of the actor data for further operations.
 		const actorData = this.document.toObject(false);
+		this._prepareItems(context);
 
-		// Add the actor's data to context.data for easier access, as well as flags.
-		context.system = actorData.system;
-		context.flags = actorData.flags;
-
-		// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
-		context.config = CONFIG.COSMERE_UNOFFICIAL;
-		context.isOwner = this.document.isOwner;
-
-		// Prepare character data and items.
-		if (actorData.type == 'Player') {
-			this._prepareItems(context);
-			this._prepareCharacterData(context);
-
-			// Enrich biography info for display
-			// Enrichment turns text like `[[/r 1d20]]` into buttons
-			context.enrichedBiography = await TextEditor.enrichHTML(
-				this.actor.system.biography.backstory,
-				{
-					// Whether to show secret blocks in the finished html
-					secrets: context.isOwner,
-					// Necessary in v11, can be removed in v12
-					async: true,
-					// Data to fill in for inline rolls
-					rollData: this.actor.getRollData(),
-					// Relative UUID resolution
-					relativeTo: this.actor,
-				}
-			);
-		}
-
-		// Prepare NPC data and items.
-		if (actorData.type == 'Adversary') {
-			this._prepareItems(context);
-
-			// Enrich biography info for display
-			// Enrichment turns text like `[[/r 1d20]]` into buttons
-			context.enrichedBiography = await TextEditor.enrichHTML(
-				this.actor.system.notes,
-				{
-					// Whether to show secret blocks in the finished html
-					secrets: context.isOwner,
-					// Necessary in v11, can be removed in v12
-					async: true,
-					// Data to fill in for inline rolls
-					rollData: this.actor.getRollData(),
-					// Relative UUID resolution
-					relativeTo: this.actor,
-				}
-			);
+		switch (actorData.type) {
+			case 'Player': {
+				// Enrich biography info for display
+				// Enrichment turns text like `[[/r 1d20]]` into buttons
+				context.enrichedBiography = await TextEditor.enrichHTML(
+					this.actor.system.biography.backstory,
+					{
+						// Whether to show secret blocks in the finished html
+						secrets: context.owner,
+						// Necessary in v11, can be removed in v12
+						async: true,
+						// Data to fill in for inline rolls
+						rollData: this.actor.getRollData(),
+						// Relative UUID resolution
+						relativeTo: this.actor,
+					}
+				);
+				break;
+			}
+			case 'Adversary':
+				// Enrich biography info for display
+				// Enrichment turns text like `[[/r 1d20]]` into buttons
+				context.enrichedBiography = await TextEditor.enrichHTML(
+					this.actor.system.notes,
+					{
+						// Whether to show secret blocks in the finished html
+						secrets: context.owner,
+						// Necessary in v11, can be removed in v12
+						async: true,
+						// Data to fill in for inline rolls
+						rollData: this.actor.getRollData(),
+						// Relative UUID resolution
+						relativeTo: this.actor,
+					}
+				);
+				break;
 		}
 
 		return context;
-	}
-
-	/**
-	 * Character-specific context modifications
-	 *
-	 * @param {object} context The context object to mutate
-	 */
-	_prepareCharacterData(context) {
-		// This is where you can enrich character-specific editor fields
-		// or setup anything else that's specific to this type
 	}
 
 	/**
@@ -153,8 +171,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		const features = [];
 		const ancestryFeatures = [];
 		const pathFeatures = [];
-
-		const sheet = this;
 
 		// Iterate through items, allocating to containers
 		context.items.forEach(async function (item) {
@@ -230,9 +246,9 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			else if (item.type === 'Weapon') {
 				weapons.push(item);
 				if (item.system.equipped.isEquipped) {
-					strikes.push(sheet._strikeFromWeapon(item, context));
+					strikes.push(strikeFromWeapon(item, context));
 				} else {
-					potentialStrikes.push(sheet._strikeFromWeapon(item, context));
+					potentialStrikes.push(strikeFromWeapon(item, context));
 				}
 			}
 			// Append to armor.
@@ -317,35 +333,23 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		context.specialExpertise = expertiseCategories["Special"];
 	}
 
-	/* -------------------------------------------- */
-
-	/** @override */
-	activateListeners(html) {
-		super.activateListeners(html);
-
-		// Render the item sheet for viewing/editing prior to the editable check.
-		html.on('click', '.item-edit', (ev) => {
-			const li = $(ev.currentTarget).parents('.item');
-			const item = this.actor.items.get(li.data('itemId'));
-			item.sheet.render(true);
-		});
+	/**
+	 * Actions performed after any render of the Application.
+	 * Post-render steps are not awaited by the render process.
+	 * @param {ApplicationRenderContext} context      Prepared context data
+	 * @param {RenderOptions} options                 Provided render options
+	 * @protected
+	 * @override
+	 */
+	_onRender(context, options) {
+		this.#dragDrop.forEach((d) => d.bind(this.element));
+		this.#disableOverrides();
 
 		// -------------------------------------------------------------
 		// Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
 
-		// Add Inventory Item
-		html.on('click', '.item-create', this._onItemCreate.bind(this));
-
-		// Delete Inventory Item
-		html.on('click', '.item-delete', (ev) => {
-			const li = $(ev.currentTarget).parents('.item');
-			const item = this.actor.items.get(li.data('itemId'));
-			item.delete();
-			li.slideUp(200, () => this.render(false));
-		});
-
-		// Increase Item Quantity
+		/* // Increase Item Quantity
 		html.on('click', '.item-quantity-inc', onItemIncrease.bind(this));
 
 		// Decrease Item Quantity
@@ -356,9 +360,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 
 		// Unequip an Item
 		html.on('click', '.item-unequip', onItemUnequip.bind(this));
-
-		// Rollable abilities.
-		html.on('click', '.rollable', this._onRoll.bind(this));
 
 		// Effect toggle.
 		html.on('click', '.effect-toggle-checkbox', this._onEffectToggle.bind(this));
@@ -397,7 +398,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 				li.setAttribute('draggable', true);
 				li.addEventListener('dragstart', handler, false);
 			});
-		}
+		} */
 	}
 
 	/**
@@ -452,7 +453,7 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-	_onRoll(event) {
+	static async _onRoll(event) {
 		event.preventDefault();
 		const element = event.currentTarget;
 		const dataset = element.dataset;
@@ -463,20 +464,6 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 			dataset.label = `Item: ${dataset.label}`;
 			if (item) return item.roll();
 		}
-
-		/* const rollInfo = this.getRollInfo(dataset);
-		const li = $(event.currentTarget).parents('.item');
-		const item = this.actor.items.get(li.data('itemId'));
-
-		const context = {
-			actor: this.actor,
-			label: rollInfo[0],
-			type: rollInfo[1],
-			defense: rollInfo[2] ?? null,
-			item: item ?? null,
-			target: game.user.targets.first()?.document.actor ?? null
-		}
-		CheckCosmere.roll(context, event); */
 
 		this.handleRoll(dataset);
 	}
@@ -559,25 +546,383 @@ export class CosmereUnofficialActorSheet extends ActorSheet {
 		}
 	}
 
+	/**************
+	 *
+	 *   ACTIONS
+	 *
+	 **************/
+
 	/**
-	 * Handle weapon actions.
-	 * @param {Item} weapon   The weapon to create the action from
+	 * Handle changing a Document's image.
+	 *
+	 * @this CosmereUnofficialActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @returns {Promise}
+	 * @protected
+	 */
+	static async _onEditImage(event, target) {
+		const attr = target.dataset.edit;
+		const current = foundry.utils.getProperty(this.document, attr);
+		const { img } =
+			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
+			{};
+		const fp = new FilePicker({
+			current,
+			type: 'image',
+			redirectToRoot: img ? [img] : [],
+			callback: (path) => {
+				this.document.update({ [attr]: path });
+			},
+			top: this.position.top + 40,
+			left: this.position.left + 10,
+		});
+		return fp.browse();
+	}
+
+	/**
+	 * Renders an embedded document's sheet
+	 *
+	 * @this CosmereUnofficialActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @protected
+	 */
+	static async _viewDoc(event, target) {
+		const doc = this._getEmbeddedDocument(target);
+		doc.sheet.render(true);
+	}
+
+	/**
+	 * Handles item deletion
+	 *
+	 * @this CosmereUnofficialActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @protected
+	 */
+	static async _deleteDoc(event, target) {
+		const doc = this._getEmbeddedDocument(target);
+		await doc.delete();
+	}
+
+	/**
+	 * Handle creating a new Owned Item or ActiveEffect for the actor using initial data defined in the HTML dataset
+	 *
+	 * @this CosmereUnofficialActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
 	 * @private
 	 */
-	_strikeFromWeapon(weapon, context) {
-		const system = context.actor.system;
-		let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : weapon.system.skill === "light" ? "light_weapons" : weapon.system.skill;
-		let mod = system.skills.physical[skill].value;
-
-		return {
-			"name": weapon.name,
-			"_id": weapon._id,
-			"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
-			"crit": weapon.system.damage.die,
-			"defense": "physical",
-			"skill": weapon.system.skill,
-			"damageType": "[" + weapon.system.damage.type + "]",
-			"modifier": (mod >= 0) ? (`+${mod}`) : (`-${mod}`)
+	static async _createDoc(event, target) {
+		// Retrieve the configured document class for Item or ActiveEffect
+		const docCls = getDocumentClass(target.dataset.documentClass);
+		// Prepare the document creation data by initializing it a default name.
+		const docData = {
+			name: docCls.defaultName({
+				// defaultName handles an undefined type gracefully
+				type: target.dataset.type,
+				parent: this.actor,
+			}),
 		};
+		// Loop through the dataset and add it to our docData
+		for (const [dataKey, value] of Object.entries(target.dataset)) {
+			// These data attributes are reserved for the action handling
+			if (['action', 'documentClass'].includes(dataKey)) continue;
+			// Nested properties require dot notation in the HTML, e.g. anything with `system`
+			// An example exists in spells.hbs, with `data-system.spell-level`
+			// which turns into the dataKey 'system.spellLevel'
+			foundry.utils.setProperty(docData, dataKey, value);
+		}
+
+		// Finally, create the embedded document!
+		await docCls.create(docData, { parent: this.actor });
+	}
+
+	/**
+	 * Determines effect parent to pass to helper
+	 *
+	 * @this CosmereUnofficialActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @private
+	 */
+	static async _toggleEffect(event, target) {
+		const effect = this._getEmbeddedDocument(target);
+		await effect.update({ disabled: !effect.disabled });
+	}
+
+	static async _onNav(event, target) {
+
+	}
+
+	/** Helper Functions */
+
+	/**
+	 * Fetches the embedded document representing the containing HTML element
+	 *
+	 * @param {HTMLElement} target    The element subject to search
+	 * @returns {Item | ActiveEffect} The embedded Item or ActiveEffect
+	 */
+	_getEmbeddedDocument(target) {
+		const docRow = target.closest('li[data-document-class]');
+		if (docRow.dataset.documentClass === 'Item') {
+			return this.actor.items.get(docRow.dataset.itemId);
+		} else if (docRow.dataset.documentClass === 'ActiveEffect') {
+			const parent =
+				docRow.dataset.parentId === this.actor.id
+					? this.actor
+					: this.actor.items.get(docRow?.dataset.parentId);
+			return parent.effects.get(docRow?.dataset.effectId);
+		} else return console.warn('Could not find document class');
+	}
+
+	/***************
+	 *
+	 * Drag and Drop
+	 *
+	 ***************/
+
+	/**
+	 * Define whether a user is able to begin a dragstart workflow for a given drag selector
+	 * @param {string} selector       The candidate HTML selector for dragging
+	 * @returns {boolean}             Can the current user drag this selector?
+	 * @protected
+	 */
+	_canDragStart(selector) {
+		// game.user fetches the current user
+		return this.isEditable;
+	}
+
+	/**
+	 * Define whether a user is able to conclude a drag-and-drop workflow for a given drop selector
+	 * @param {string} selector       The candidate HTML selector for the drop target
+	 * @returns {boolean}             Can the current user drop on this selector?
+	 * @protected
+	 */
+	_canDragDrop(selector) {
+		// game.user fetches the current user
+		return this.isEditable;
+	}
+
+	/**
+	 * Callback actions which occur at the beginning of a drag start workflow.
+	 * @param {DragEvent} event       The originating DragEvent
+	 * @protected
+	 */
+	_onDragStart(event) {
+		const docRow = event.currentTarget.closest('li');
+		if ('link' in event.target.dataset) return;
+
+		// Chained operation
+		let dragData = this._getEmbeddedDocument(docRow)?.toDragData();
+
+		if (!dragData) return;
+
+		// Set data transfer
+		event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+	}
+
+	/**
+	 * Callback actions which occur when a dragged element is over a drop target.
+	 * @param {DragEvent} event       The originating DragEvent
+	 * @protected
+	 */
+	_onDragOver(event) { }
+
+	/**
+	 * Callback actions which occur when a dragged element is dropped on a target.
+	 * @param {DragEvent} event       The originating DragEvent
+	 * @protected
+	 */
+	async _onDrop(event) {
+		const data = TextEditor.getDragEventData(event);
+		const actor = this.actor;
+		const allowed = Hooks.call('dropActorSheetData', actor, this, data);
+		if (allowed === false) return;
+
+		// Handle different data types
+		switch (data.type) {
+			case 'Actor':
+				return this._onDropActor(event, data);
+			case 'Item':
+				return this._onDropItem(event, data);
+			case 'Folder':
+				return this._onDropFolder(event, data);
+		}
+	}
+
+	/**
+	 * Handle dropping of an Actor data onto another Actor sheet
+	 * @param {DragEvent} event            The concluding DragEvent which contains drop data
+	 * @param {object} data                The data transfer extracted from the event
+	 * @returns {Promise<object|boolean>}  A data object which describes the result of the drop, or false if the drop was
+	 *                                     not permitted.
+	 * @protected
+	 */
+	async _onDropActor(event, data) {
+		if (!this.actor.isOwner) return false;
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * Handle dropping of an item reference or item data onto an Actor Sheet
+	 * @param {DragEvent} event            The concluding DragEvent which contains drop data
+	 * @param {object} data                The data transfer extracted from the event
+	 * @returns {Promise<Item[]|boolean>}  The created or updated Item instances, or false if the drop was not permitted.
+	 * @protected
+	 */
+	async _onDropItem(event, data) {
+		if (!this.actor.isOwner) return false;
+		const item = await Item.implementation.fromDropData(data);
+
+		// Handle item sorting within the same Actor
+		if (this.actor.uuid === item.parent?.uuid)
+			return this._onSortItem(event, item);
+
+		// Create the owned item
+		return this._onDropItemCreate(item, event);
+	}
+
+	/**
+	 * Handle dropping of a Folder on an Actor Sheet.
+	 * The core sheet currently supports dropping a Folder of Items to create all items as owned items.
+	 * @param {DragEvent} event     The concluding DragEvent which contains drop data
+	 * @param {object} data         The data transfer extracted from the event
+	 * @returns {Promise<Item[]>}
+	 * @protected
+	 */
+	async _onDropFolder(event, data) {
+		if (!this.actor.isOwner) return [];
+		const folder = await Folder.implementation.fromDropData(data);
+		if (folder.type !== 'Item') return [];
+		const droppedItemData = await Promise.all(
+			folder.contents.map(async (item) => {
+				if (!(document instanceof Item)) item = await fromUuid(item.uuid);
+				return item;
+			})
+		);
+		return this._onDropItemCreate(droppedItemData, event);
+	}
+
+	/**
+	 * Handle the final creation of dropped Item data on the Actor.
+	 * This method is factored out to allow downstream classes the opportunity to override item creation behavior.
+	 * @param {object[]|object} itemData      The item data requested for creation
+	 * @param {DragEvent} event               The concluding DragEvent which provided the drop data
+	 * @returns {Promise<Item[]>}
+	 * @private
+	 */
+	async _onDropItemCreate(itemData, event) {
+		itemData = itemData instanceof Array ? itemData : [itemData];
+		return this.actor.createEmbeddedDocuments('Item', itemData);
+	}
+
+	/**
+	 * Handle a drop event for an existing embedded Item to sort that Item relative to its siblings
+	 * @param {Event} event
+	 * @param {Item} item
+	 * @private
+	 */
+	_onSortItem(event, item) {
+		// Get the drag source and drop target
+		const items = this.actor.items;
+		const dropTarget = event.target.closest('[data-item-id]');
+		if (!dropTarget) return;
+		const target = items.get(dropTarget.dataset.itemId);
+
+		// Don't sort on yourself
+		if (item.id === target.id) return;
+
+		// Identify sibling items based on adjacent HTML elements
+		const siblings = [];
+		for (let el of dropTarget.parentElement.children) {
+			const siblingId = el.dataset.itemId;
+			if (siblingId && siblingId !== item.id)
+				siblings.push(items.get(el.dataset.itemId));
+		}
+
+		// Perform the sort
+		const sortUpdates = SortingHelpers.performIntegerSort(item, {
+			target,
+			siblings,
+		});
+		const updateData = sortUpdates.map((u) => {
+			const update = u.update;
+			update._id = u.target._id;
+			return update;
+		});
+
+		// Perform the update
+		return this.actor.updateEmbeddedDocuments('Item', updateData);
+	}
+
+	/** The following pieces set up drag handling and are unlikely to need modification  */
+
+	/**
+	 * Returns an array of DragDrop instances
+	 * @type {DragDrop[]}
+	 */
+	get dragDrop() {
+		return this.#dragDrop;
+	}
+
+	// This is marked as private because there's no real need
+	// for subclasses or external hooks to mess with it directly
+	#dragDrop;
+
+	/**
+	 * Create drag-and-drop workflow handlers for this Application
+	 * @returns {DragDrop[]}     An array of DragDrop handlers
+	 * @private
+	 */
+	#createDragDropHandlers() {
+		return this.options.dragDrop.map((d) => {
+			d.permissions = {
+				dragstart: this._canDragStart.bind(this),
+				drop: this._canDragDrop.bind(this),
+			};
+			d.callbacks = {
+				dragstart: this._onDragStart.bind(this),
+				dragover: this._onDragOver.bind(this),
+				drop: this._onDrop.bind(this),
+			};
+			return new DragDrop(d);
+		});
+	}
+
+	/********************
+	 *
+	 * Actor Override Handling
+	 *
+	 ********************/
+
+	/**
+	 * Submit a document update based on the processed form data.
+	 * @param {SubmitEvent} event                   The originating form submission event
+	 * @param {HTMLFormElement} form                The form element that was submitted
+	 * @param {object} submitData                   Processed and validated form data to be used for a document update
+	 * @returns {Promise<void>}
+	 * @protected
+	 * @override
+	 */
+	async _processSubmitData(event, form, submitData) {
+		const overrides = foundry.utils.flattenObject(this.actor.overrides);
+		for (let k of Object.keys(overrides)) delete submitData[k];
+		await this.document.update(submitData);
+	}
+
+	/**
+	 * Disables inputs subject to active effects
+	 */
+	#disableOverrides() {
+		const flatOverrides = foundry.utils.flattenObject(this.actor.overrides);
+		for (const override of Object.keys(flatOverrides)) {
+			const input = this.element.querySelector(`[name="${override}"]`);
+			if (input) {
+				input.disabled = true;
+			}
+		}
 	}
 }

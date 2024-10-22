@@ -151,6 +151,28 @@ export function onContainerToggle(event) {
 	this.render(false);
 };
 
+/**
+ * Handle weapon actions.
+ * @param {Item} weapon   The weapon to create the action from
+ * @private
+ */
+export function strikeFromWeapon(weapon, context) {
+	const system = context.actor.system;
+	let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : weapon.system.skill === "light" ? "light_weapons" : weapon.system.skill;
+	let mod = system.skills.physical[skill].value;
+
+	return {
+		"name": weapon.name,
+		"_id": weapon._id,
+		"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
+		"crit": weapon.system.damage.die,
+		"defense": "physical",
+		"skill": weapon.system.skill,
+		"damageType": "[" + weapon.system.damage.type + "]",
+		"modifier": (mod >= 0) ? (`+${mod}`) : (`-${mod}`)
+	};
+}
+
 export async function enrichItemDesc(context, item) {
 	let description = '';
 	if (item.type === 'Feature') {

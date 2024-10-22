@@ -12,7 +12,10 @@ export const preloadHandlebarsTemplates = async function () {
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-biography.hbs',
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-items.hbs',
 		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-skills.hbs',
-		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-feats.hbs',
+		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-talents.hbs',
+		'systems/cosmere-rpg-unofficial/templates/actor/navigation.hbs',
+		'systems/cosmere-rpg-unofficial/templates/actor/header.hbs',
+		'systems/cosmere-rpg-unofficial/templates/actor/attributes.hbs',
 		// Item partials
 		'systems/cosmere-rpg-unofficial/templates/item/parts/item-talents.hbs',
 		'systems/cosmere-rpg-unofficial/templates/item/parts/item-effects.hbs',
