@@ -21,9 +21,9 @@ export const preloadHandlebarsTemplates = async function () {
 		'systems/cosmere-rpg-unofficial/templates/item/parts/item-effects.hbs',
 		'systems/cosmere-rpg-unofficial/templates/item/parts/item-requirements.hbs',
 		// Application partials
-		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-expertise.hbs',
-		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-goals.hbs',
-		'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-connections.hbs',
-		'systems/cosmere-rpg-unofficial/templates/chat/roll-popup.hbs'
+		'systems/cosmere-rpg-unofficial/templates/dialogs/actor-expertise.hbs',
+		'systems/cosmere-rpg-unofficial/templates/dialogs/actor-goals.hbs',
+		'systems/cosmere-rpg-unofficial/templates/dialogs/actor-connections.hbs',
+		'systems/cosmere-rpg-unofficial/templates/dialogs/roll-popup.hbs'
 	]);
 };

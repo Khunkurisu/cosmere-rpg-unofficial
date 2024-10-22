@@ -6,7 +6,7 @@ import { GoalManager } from "../application/goal-manager.mjs";
  * @param {Event} event   The originating click event
  * @private
  */
-export async function onConnectionManage(event) {
+export async function onConnectionManage(event, target) {
 	event.preventDefault();
 	const system = this.actor.system;
 
@@ -29,7 +29,7 @@ export async function onConnectionManage(event) {
  * @param {Event} event   The originating click event
  * @private
  */
-export async function onGoalManage(event) {
+export async function onGoalManage(event, target) {
 	event.preventDefault();
 	const system = this.actor.system;
 

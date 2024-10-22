@@ -21,7 +21,8 @@
 						</label>
 					</span>
 				</div>
-				<a class='goals-manage' title='{{localize (lookup @root.config.biography.goals "manage")}}'>
+				<a class='goals-manage' data-action="manageGoal"
+					title='{{localize (lookup @root.config.biography.goals "manage")}}'>
 					<i class="fa-solid fa-gear"></i>
 				</a>
 			</div>
@@ -29,7 +30,7 @@
 				{{#each system.biography.goals as |goal index|}}
 					<li class="list-item grid grid-5col">
 						<span class="flexcol grid-span-3" style="word-wrap:break-word;">{{goal.text}}</span>
-						<div class="goal-pip grid-span-2" data-index="{{@index}}">
+						<div class="goal-pip grid-span-2" data-action="goalIncrease" data-index="{{@index}}">
 							<i class="fa-{{pipRank goal.progress 1}} fa-circle"></i>
 							<i class="fa-{{pipRank goal.progress 2}} fa-circle"></i>
 							<i class="fa-{{pipRank goal.progress 3}} fa-circle"></i>
@@ -47,7 +48,8 @@
 						</label>
 					</span>
 				</div>
-				<a class='connections-manage' title='{{localize (lookup @root.config.biography.connections "manage")}}'>
+				<a class='connections-manage' data-action="manageConnection"
+					title='{{localize (lookup @root.config.biography.connections "manage")}}'>
 					<i class="fa-solid fa-gear"></i>
 				</a>
 			</div>

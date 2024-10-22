@@ -16,13 +16,9 @@ import {
 	onRollManage
 } from '../helpers/dice-state-handling.mjs';
 import {
-	onItemIncrease,
-	onItemDecrease,
+	onItemIncrement,
 	onItemEquip,
-	onItemUnequip,
 	onItemDetails,
-	onItemDrag,
-	onItemDrop,
 	onContainerToggle,
 	enrichItemDesc,
 	strikeFromWeapon
@@ -43,19 +39,31 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 	/** @override */
 	static DEFAULT_OPTIONS = {
-		classes: ['cosmere-rpg-unofficial', 'sheet', 'actor'],
+		classes: ['cosmere-rpg-unofficial'],
 		position: {
 			width: 800,
-			height: 720,
+			height: 800,
+		},
+		window: {
+			resizable: true,
 		},
 		actions: {
 			onEditImage: this._onEditImage,
 			viewDoc: this._viewDoc,
 			createDoc: this._createDoc,
 			deleteDoc: this._deleteDoc,
-			toggleEffect: this._toggleEffect,
+			toggleEffect: this._onEffectToggle,
 			roll: this._onRoll,
 			nav: this._onNav,
+			itemEquip: onItemEquip,
+			itemIncrement: onItemIncrement,
+			detailToggle: onItemDetails,
+			containerToggle: onContainerToggle,
+			skillIncrease: onSkillIncrease,
+			goalIncrease: onGoalIncrease,
+			manageExpertise: onExpertiseManage,
+			manageGoal: onGoalManage,
+			manageConnection: onConnectionManage,
 		},
 		// Custom property that's merged into `this.options`
 		dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
@@ -348,47 +356,16 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		// -------------------------------------------------------------
 		// Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
+		const html = $(this.element);
 
-		/* // Increase Item Quantity
-		html.on('click', '.item-quantity-inc', onItemIncrease.bind(this));
-
-		// Decrease Item Quantity
-		html.on('click', '.item-quantity-dec', onItemDecrease.bind(this));
-
-		// Equip an Item
-		html.on('click', '.item-equip', onItemEquip.bind(this));
-
-		// Unequip an Item
-		html.on('click', '.item-unequip', onItemUnequip.bind(this));
-
-		// Effect toggle.
-		html.on('click', '.effect-toggle-checkbox', this._onEffectToggle.bind(this));
-
-		// Manage Biography Connections/Goals
-		html.on('click', '.connections-manage', onConnectionManage.bind(this));
-		html.on('click', '.goals-manage', onGoalManage.bind(this));
-		html.on('click', '.goal-pip', onGoalIncrease.bind(this));
+		// Decrease Goal Progress
 		html.on('contextmenu', '.goal-pip', onGoalDecrease.bind(this));
 
-		// Manage Biography Purpose and Obstacle
+		// Manage Biography Purpose/Obstacle
 		html.on('change', '.biography-textarea', onBiographyChange.bind(this));
 
-		// Manage Expertise
-		html.on('click', '.expertise-manage', onExpertiseManage.bind(this));
-
-		// Increase/Decrease Skill
-		html.on('click', '.skill-pip', onSkillIncrease.bind(this));
+		// Decrease Skill Rank
 		html.on('contextmenu', '.skill-pip', onSkillDecrease.bind(this));
-
-		// View Item Details
-		html.on('click', '.detail-item', onItemDetails.bind(this));
-
-		// Handle Container Items
-		html.on('click', '.container-toggle', onContainerToggle.bind(this));
-		html.on('dragstart', '.item', onItemDrag.bind(this));
-		html.on('dragover', '.item', (ev) => { ev.preventDefault(); });
-		html.on('drop', '.item', onItemDrop.bind(this));
-		html.on('drop', '.container-inventory', onItemDrop.bind(this));
 
 		// Drag events for macros.
 		if (this.actor.isOwner) {
@@ -398,7 +375,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 				li.setAttribute('draggable', true);
 				li.addEventListener('dragstart', handler, false);
 			});
-		} */
+		}
 	}
 
 	/**
@@ -406,46 +383,15 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-	_onEffectToggle(event) {
+	static async _onEffectToggle(event, target) {
 		event.preventDefault();
-		const li = $(event.currentTarget).parents('.effect-toggle');
+		const li = $(target).parents('.effect-toggle');
 		const effect = this.actor.items.get(li.data('effectId'));
 		const toggle = !effect.system.active;
 
 		effect.update({ 'system.active': toggle });
 
 		this.render(false);
-	}
-
-	/**
-	 * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-	async _onItemCreate(event) {
-		event.preventDefault();
-		const header = event.currentTarget;
-		// Get the type of item to create.
-		const type = header.dataset.type;
-		// Grab any data associated with this control.
-		const data = foundry.utils.duplicate(header.dataset);
-		// Initialize a default name.
-		const name = `New ${type.capitalize()}`;
-		// Prepare the item object.
-		const itemData = {
-			name: name,
-			type: type,
-			system: data,
-		};
-		// Remove the type from the dataset since it's in the itemData.type prop.
-		delete itemData.system['type'];
-
-		if (type === 'Feature') {
-			itemData.system.type = header.dataset.featType;
-		}
-
-		// Finally, create the item!
-		return await this.actor.createEmbeddedDocuments("Item", [itemData]);
 	}
 
 	/**
@@ -639,21 +585,10 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		await docCls.create(docData, { parent: this.actor });
 	}
 
-	/**
-	 * Determines effect parent to pass to helper
-	 *
-	 * @this CosmereUnofficialActorSheet
-	 * @param {PointerEvent} event   The originating click event
-	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-	 * @private
-	 */
-	static async _toggleEffect(event, target) {
-		const effect = this._getEmbeddedDocument(target);
-		await effect.update({ disabled: !effect.disabled });
-	}
-
 	static async _onNav(event, target) {
+		this.actor.selectedTab = target.dataset.tab;
 
+		this.render({ force: false });
 	}
 
 	/** Helper Functions */
