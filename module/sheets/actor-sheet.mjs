@@ -362,7 +362,6 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		if (!this.isEditable) return;
 		const html = $(this.element);
 		if (this.scroll) {
-			console.log(this.scroll);
 			const body = $(this.element).find('.sheet-body');
 			body.scrollLeft(this.scroll.left);
 			body.scrollTop(this.scroll.top);
