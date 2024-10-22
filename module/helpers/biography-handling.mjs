@@ -21,7 +21,7 @@ export async function onConnectionManage(event, target) {
 
 	new ConnectionManager(options).render({ force: true });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -44,7 +44,7 @@ export async function onGoalManage(event, target) {
 
 	new GoalManager(options).render({ force: true });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -52,10 +52,9 @@ export async function onGoalManage(event, target) {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-export function onGoalIncrease(event) {
+export function onGoalIncrease(event, target) {
 	event.preventDefault();
-	const element = event.currentTarget;
-	const data = element.dataset;
+	const data = target.dataset;
 	const system = this.actor.system;
 	let goals = system.biography.goals;
 	const goal = goals[data.index];
@@ -68,7 +67,7 @@ export function onGoalIncrease(event) {
 
 	this.actor.update({ "system.biography.goals": goals });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -92,19 +91,18 @@ export function onGoalDecrease(event) {
 
 	this.actor.update({ "system.biography.goals": goals });
 
-	this.render(false);
+	this._reRender(false);
 };
 
-export function onBiographyChange(event) {
+export function onBiographyChange(event, target) {
 	event.preventDefault();
-	const element = event.currentTarget;
-	const data = element.dataset;
+	const data = target.dataset;
 
 	const key = `system.biography.${data.target}`;
 	const updateObj = {};
-	updateObj[key] = element.value;
+	updateObj[key] = target.value;
 
 	this.actor.update(updateObj);
 
-	this.render(false);
+	this._reRender(false);
 }

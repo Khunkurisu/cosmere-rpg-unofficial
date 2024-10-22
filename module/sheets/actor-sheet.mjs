@@ -92,6 +92,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 	/** @override */
 	async _prepareContext(options) {
+		const body = $(this.element).find('.sheet-body');
 		// Retrieve the data structure from the base sheet. You can inspect or log
 		// the context variable to see the structure, but some key properties for
 		// sheets are the actor object, the data object, whether or not it's
@@ -110,6 +111,11 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			selectedTab: this.actor.selectedTab,
 			// Adding a pointer to CONFIG.COSMERE_UNOFFICIAL
 			config: CONFIG.COSMERE_UNOFFICIAL,
+		};
+
+		this.scroll ??= {
+			left: body.scrollLeft(),
+			top: body.scrollTop(),
 		};
 
 		// Use a safe clone of the actor data for further operations.
@@ -331,8 +337,6 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		context.effects = effects;
 		context.toggleable = toggleable;
 
-		console.log(context.pathFeatures);
-
 		let expertiseCategories = getExpertiseCategories(system.expertise);
 		context.utilityExpertise = expertiseCategories["Utility"];
 		context.culturalExpertise = expertiseCategories["Cultural"];
@@ -357,6 +361,12 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		// Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
 		const html = $(this.element);
+		if (this.scroll) {
+			console.log(this.scroll);
+			const body = $(this.element).find('.sheet-body');
+			body.scrollLeft(this.scroll.left);
+			body.scrollTop(this.scroll.top);
+		}
 
 		// Decrease Goal Progress
 		html.on('contextmenu', '.goal-pip', onGoalDecrease.bind(this));
@@ -390,7 +400,16 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 
 		effect.update({ 'system.active': toggle });
 
-		this.render(false);
+		this._reRender(false);
+	}
+
+	async _reRender(forceRerender) {
+		const body = $(this.element).find('.sheet-body');
+		this.scroll = {
+			left: body.scrollLeft(),
+			top: body.scrollTop(),
+		};
+		this.render({ force: forceRerender });
 	}
 
 	/**
@@ -535,7 +554,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	 */
 	static async _viewDoc(event, target) {
 		const doc = this._getEmbeddedDocument(target);
-		doc.sheet.render(true);
+		doc.sheet.render({ force: true });
 	}
 
 	/**
@@ -587,7 +606,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	static async _onNav(event, target) {
 		this.actor.selectedTab = target.dataset.tab;
 
-		this.render({ force: false });
+		this._reRender(false);
 	}
 
 	/** Helper Functions */

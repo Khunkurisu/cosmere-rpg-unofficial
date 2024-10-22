@@ -15,7 +15,7 @@ export function onItemIncrement(event, target) {
 
 	item.update({ "system.quantity": newVal });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -42,7 +42,7 @@ export function onItemEquip(event, target) {
 
 	item.update({ "system.equipped.isEquipped": isEquipped });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -56,9 +56,7 @@ export function onItemDetails(event, target) {
 	const item = this.actor.items.get(li.data('itemId'));
 	item.system.showDetails = !item.system.showDetails;
 
-	console.log(item);
-
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -89,7 +87,7 @@ export function onItemDrop(event, target) {
 		containerItems.push(itemId);
 		container.update({ "system.stored": containerItems });
 
-		this.render(false);
+		this._reRender(false);
 		return;
 	}
 	items.forEach(function (item) {
@@ -117,7 +115,7 @@ export function onContainerToggle(event, target) {
 
 	item.update({ "system.showStored": showStored });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**

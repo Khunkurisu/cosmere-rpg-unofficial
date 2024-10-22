@@ -21,7 +21,7 @@ export async function onExpertiseManage(event, target) {
 
 	new ExpertiseManager(options).render({ force: true });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -68,7 +68,7 @@ export function onSkillIncrease(event, target) {
 
 	this.actor.update(updateObject);
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -94,5 +94,5 @@ export function onSkillDecrease(event) {
 
 	this.actor.update(updateObject);
 
-	this.render(false);
+	this._reRender(false);
 };
