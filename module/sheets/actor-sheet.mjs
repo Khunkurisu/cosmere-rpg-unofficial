@@ -582,11 +582,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		const docCls = getDocumentClass(target.dataset.documentClass);
 		// Prepare the document creation data by initializing it a default name.
 		const docData = {
-			name: docCls.defaultName({
-				// defaultName handles an undefined type gracefully
-				type: target.dataset.type,
-				parent: this.actor,
-			}),
+			name: `New ${target.dataset.type}`,
 		};
 		// Loop through the dataset and add it to our docData
 		for (const [dataKey, value] of Object.entries(target.dataset)) {

@@ -12,12 +12,12 @@
 				<div class='item-info'>{{localize 'Quantity'}}</div>
 				<div class='item-info'>{{localize 'Weight'}}</div>
 				<div class='item-controls'>
-					<a class='item-control item-create' data-action="createDoc"
+					<a class='item-control item-create' data-action="createDoc" data-document-class="Item"
 						title='{{localize "DOCUMENT.Create" type="Item"}}' data-type='Weapon'>
 						<i class='fas fa-plus'></i>
 					</a>
-					<a class='item-control item-search' title='{{localize "DOCUMENT.Search" type="Item"}}'
-						data-type='Weapon'>
+					<a class='item-control item-search' data-action="searchDoc" data-type='Weapon'
+						title='{{localize "DOCUMENT.Search" type="Item"}}' data-type='Weapon'>
 						<i class='fas fa-search'></i>
 					</a>
 				</div>
@@ -55,7 +55,8 @@
 								<i class='fa-regular fa-hand-back-fist'></i>
 							</a>
 						{{/if}}
-						<a class='item-control item-edit' data-action="viewDoc" title='{{localize "DOCUMENT.Update"}}'>
+						<a class='item-control item-edit' data-action="viewDoc" data-document-class="Item"
+							title='{{localize "DOCUMENT.Update"}}'>
 							<i class='fas fa-edit'></i>
 						</a>
 						<a class='item-control item-delete' data-action="deleteDoc"
@@ -78,12 +79,12 @@
 				<div class='item-info'>{{localize 'Quantity'}}</div>
 				<div class='item-info'>{{localize 'Weight'}}</div>
 				<div class='item-controls'>
-					<a class='item-control item-create' data-action="createDoc"
+					<a class='item-control item-create' data-action="createDoc" data-document-class="Item"
 						title='{{localize "DOCUMENT.Create" type="Item"}}' data-type='Armor'>
 						<i class='fas fa-plus'></i>
 					</a>
-					<a class='item-control item-search' title='{{localize "DOCUMENT.Search" type="Armor"}}'
-						data-type='Armor'>
+					<a class='item-control item-search' data-action="searchDoc" data-type='Armor'
+						title='{{localize "DOCUMENT.Search" type="Armor"}}' data-type='Armor'>
 						<i class='fas fa-search'></i>
 					</a>
 				</div>
@@ -121,7 +122,8 @@
 								<i class="fa-regular fa-shield"></i>
 							</a>
 						{{/if}}
-						<a class='item-control item-edit' data-action="viewDoc" title='{{localize "DOCUMENT.Update"}}'>
+						<a class='item-control item-edit' data-action="viewDoc" data-document-class="Item"
+							title='{{localize "DOCUMENT.Update"}}'>
 							<i class='fas fa-edit'></i>
 						</a>
 						<a class='item-control item-delete' data-action="deleteDoc"
@@ -144,12 +146,12 @@
 				<div class='item-info'>{{localize 'Quantity'}}</div>
 				<div class='item-info'>{{localize 'Weight'}}</div>
 				<div class='item-controls'>
-					<a class='item-control item-create' data-action="createDoc"
+					<a class='item-control item-create' data-action="createDoc" data-document-class="Item"
 						title='{{localize "DOCUMENT.Create" type="Item"}}' data-type='Equipment'>
 						<i class='fas fa-plus'></i>
 					</a>
-					<a class='item-control item-search' title='{{localize "DOCUMENT.Search" type="Item"}}'
-						data-type='Equipment'>
+					<a class='item-control item-search' data-action="searchDoc" data-type='Equipment'
+						title='{{localize "DOCUMENT.Search" type="Item"}}' data-type='Equipment'>
 						<i class='fas fa-search'></i>
 					</a>
 				</div>
@@ -187,7 +189,8 @@
 								<i class="fa-regular fa-shirt"></i>
 							</a>
 						{{/if}}
-						<a class='item-control item-edit' data-action="viewDoc" title='{{localize "DOCUMENT.Update"}}'>
+						<a class='item-control item-edit' data-action="viewDoc" data-document-class="Item"
+							title='{{localize "DOCUMENT.Update"}}'>
 							<i class='fas fa-edit'></i>
 						</a>
 						<a class='item-control item-delete' data-action="deleteDoc"
@@ -209,12 +212,12 @@
 				<div class='item-name'>{{localize 'Containers'}}</div>
 				<div class='item-info'>{{localize 'Weight'}}</div>
 				<div class='item-controls'>
-					<a class='item-control item-create' data-action="createDoc"
+					<a class='item-control item-create' data-action="createDoc" data-document-class="Item"
 						title='{{localize "DOCUMENT.Create" type="Item"}}' data-type='Container'>
 						<i class='fas fa-plus'></i>
 					</a>
-					<a class='item-control item-search' title='{{localize "DOCUMENT.Search" type="Item"}}'
-						data-type='Container'>
+					<a class='item-control item-search' data-action="searchDoc" data-type='Container'
+						title='{{localize "DOCUMENT.Search" type="Item"}}' data-type='Container'>
 						<i class='fas fa-search'></i>
 					</a>
 				</div>
@@ -244,10 +247,11 @@
 								<i class="fa-regular fa-shirt"></i>
 							</a>
 						{{/if}}
-						<a class='item-control item-edit' data-action="viewDoc" title='{{localize "DOCUMENT.Update"}}'>
+						<a class='item-control item-edit' data-action="viewDoc" data-document-class="Item"
+							title='{{localize "DOCUMENT.Update"}}'>
 							<i class='fas fa-edit'></i>
 						</a>
-						<a class='item-control item-delete' data-action="deleteDoc"
+						<a class='item-control item-delete' data-action="deleteDoc" data-document-class="Item"
 							title='{{localize "DOCUMENT.Delete"}}'>
 							<i class='fas fa-trash'></i>
 						</a>
@@ -295,7 +299,7 @@
 										<i class='fa-regular fa-hand-back-fist'></i>
 									</a>
 								{{/if}}
-								<a class='item-control item-edit' data-action="viewDoc"
+								<a class='item-control item-edit' data-action="viewDoc" data-document-class="Item"
 									title='{{localize "DOCUMENT.Update"}}'>
 									<i class='fas fa-edit'></i>
 								</a>
