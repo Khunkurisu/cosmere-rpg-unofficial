@@ -160,7 +160,7 @@ export async function enrichItemDesc(context, item) {
 			description += `<p><b>Requirements:</b> ${requirementText.join('; ')}</p>`;
 		}
 	}
-	description += `${item.system.description}`;
+	description += `<span>${item.system.description}</span>`;
 	return await TextEditor.enrichHTML(
 		description,
 		{

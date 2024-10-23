@@ -187,9 +187,8 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		const pathFeatures = [];
 
 		// Iterate through items, allocating to containers
-		context.items.forEach(async function (item) {
+		context.items.forEach(function (item) {
 			item.img = item.img || Item.DEFAULT_ICON;
-			item.enrichedDescription = await enrichItemDesc(context, item);
 
 			// Append to container.
 			if (item.type === 'Container') {
@@ -343,6 +342,10 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		context.weaponExpertise = expertiseCategories["Weapon"];
 		context.armorExpertise = expertiseCategories["Armor"];
 		context.specialExpertise = expertiseCategories["Special"];
+
+		context.items.forEach(async (item) => {
+			item.enrichedDescription = await enrichItemDesc(context, item);
+		});
 	}
 
 	/**
