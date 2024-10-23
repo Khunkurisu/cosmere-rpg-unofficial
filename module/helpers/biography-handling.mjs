@@ -94,6 +94,10 @@ export function onGoalDecrease(event) {
 	this._reRender(false);
 };
 
+export function onBackstoryManage(event, target) {
+
+}
+
 export function onBiographyChange(event) {
 	event.preventDefault();
 	const target = event.currentTarget;

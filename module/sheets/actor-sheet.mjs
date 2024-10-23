@@ -5,6 +5,7 @@ import {
 	onGoalManage,
 	onConnectionManage,
 	onBiographyChange,
+	onBackstoryManage,
 } from '../helpers/biography-handling.mjs';
 import {
 	getExpertiseCategories,
@@ -61,6 +62,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			containerToggle: onContainerToggle,
 			skillIncrease: onSkillIncrease,
 			goalIncrease: onGoalIncrease,
+			manageBackstory: onBackstoryManage,
 			manageExpertise: onExpertiseManage,
 			manageGoal: onGoalManage,
 			manageConnection: onConnectionManage,
