@@ -94,8 +94,9 @@ export function onGoalDecrease(event) {
 	this._reRender(false);
 };
 
-export function onBiographyChange(event, target) {
+export function onBiographyChange(event) {
 	event.preventDefault();
+	const target = event.currentTarget;
 	const data = target.dataset;
 
 	const key = `system.biography.${data.target}`;
