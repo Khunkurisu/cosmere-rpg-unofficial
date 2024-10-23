@@ -1,13 +1,18 @@
 <div class="resources flexcol">
 	<div class="backstory flexcol">
-		<div class="backstory flexcol">
-			<label for="backstory" class="resource-label flexlarge flex-group-left">
+		<div class="backstory grid grid-5col flex-group-left" style="margin-left:20px;">
+			<label for="backstory" class="resource-label grid-span-3" style="font-size:large;">
 				{{localize (lookup @root.config.biography "backstory")}}
 			</label>
+			<div><span></span></div>
+			<a class='backstory-manage' data-action="manageBackstory"
+				title='{{localize (lookup @root.config.biography.backstory "manage")}}'>
+				<i class="fa-solid fa-xl fa-edit"></i>
+			</a>
 		</div>
-		<div class="backstory flexcol" style="min-height: 175px;">
+		<div class="backstory flexcol" style="width:80%;min-height:fit-content;margin-left:30px;">
 			{{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
-			{{editor enrichedBiography target="system.biography.backstory" engine="prosemirror" button=true editable=editable}}
+			{{editor enrichedBiography target="system.biography.backstory" engine="prosemirror" button=false editable=false}}
 		</div>
 	</div>
 	<hr />
