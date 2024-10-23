@@ -8,6 +8,7 @@ import { CosmereUnofficialItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { COSMERE_UNOFFICIAL } from './helpers/config.mjs';
 import { registerSettings } from './helpers/settings.mjs';
+import { registerStatusEffects } from './helpers/status-effects.mjs';
 // Import DataModel classes
 import * as models from './data-models.mjs';
 
@@ -70,6 +71,7 @@ Hooks.once('init', function () {
 		label: 'COSMERE_UNOFFICIAL.SheetLabels.Item',
 	});
 	registerSettings();
+	registerStatusEffects();
 
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
