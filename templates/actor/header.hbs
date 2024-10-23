@@ -1,5 +1,6 @@
 <header class="sheet-header">
-	<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+	<img class="profile-img" src="{{actor.img}}" data-action="onEditImage" data-edit="img" title="{{actor.name}}"
+		height="100" width="100" />
 	<div class="header-fields">
 		{{#if (ifEquals actor.type 'Player')}}
 			<div class="resources grid grid-4col">
