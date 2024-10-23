@@ -419,13 +419,12 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-	static async _onRoll(event) {
+	static async _onRoll(event, target) {
 		event.preventDefault();
-		const element = event.currentTarget;
-		const dataset = element.dataset;
+		const dataset = target.dataset;
 
 		if (dataset.rollType == 'item') {
-			const itemId = element.closest('.item').dataset.itemId;
+			const itemId = target.closest('.item').dataset.itemId;
 			const item = this.actor.items.get(itemId);
 			dataset.label = `Item: ${dataset.label}`;
 			if (item) return item.roll();

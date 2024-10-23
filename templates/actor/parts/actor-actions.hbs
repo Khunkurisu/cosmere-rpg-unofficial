@@ -25,9 +25,9 @@
 					</div>
 					<div class='strike-attack flex-group-left'>
 						<div class="tooltip">
-							<label for="strike-attack" class="strike-label rollable" data-roll="1d20{{action.modifier}}"
-								data-roll-type="strike" data-key="{{action.skill}}" data-defense="physical"
-								data-label="{{action.name}}">
+							<label for="strike-attack" class="strike-label rollable" data-action="roll"
+								data-roll="1d20{{action.modifier}}" data-roll-type="strike" data-key="{{action.skill}}"
+								data-defense="physical" data-label="{{action.name}}">
 								{{localize 'Attack'}}
 							</label>
 							<span class="tooltiptext">
@@ -37,7 +37,7 @@
 					</div>
 					<div class='strike-damage flex-group-left'>
 						<div class="tooltip">
-							<label for="strike-damage" class="strike-label rollable"
+							<label for="strike-damage" class="strike-label rollable" data-action="roll"
 								data-roll="{{action.formula}}{{action.modifier}}{{action.damageType}}"
 								data-roll-type="damage" data-label="{{action.name}}">
 								{{localize 'Damage'}}
@@ -50,7 +50,7 @@
 					</div>
 					<div class='strike-damage-crit flex-group-left'>
 						<div class="tooltip">
-							<label for="strike-damage-crit" class="strike-label rollable"
+							<label for="strike-damage-crit" class="strike-label rollable" data-action="roll"
 								data-roll="{{action.formula}}min{{action.crit}}{{action.modifier}}{{action.damageType}}"
 								data-roll-type="critical" data-label="{{action.name}}">
 								{{localize 'Critical'}}
@@ -64,7 +64,7 @@
 					</div>
 					<div class='strike-graze flex-group-left'>
 						<div class="tooltip">
-							<label for="strike-graze" class="strike-label rollable"
+							<label for="strike-graze" class="strike-label rollable" data-action="roll"
 								data-roll="{{action.formula}}{{action.damageType}}" data-roll-type="graze"
 								data-label="{{action.name}}">
 								{{localize 'Graze'}}
@@ -113,7 +113,7 @@
 				<li class='item flexrow' data-item-id='{{action._id}}'>
 					<div class='item-name'>
 						<div class='item-image'>
-							<a class='rollable' data-roll-type='item'>
+							<a class='rollable' data-action="roll" data-roll-type='item'>
 								<img src='{{action.img}}' title='{{action.name}}' width='24' height='24' />
 							</a>
 						</div>
@@ -171,7 +171,7 @@
 				<li class='item flexrow' data-item-id='{{action._id}}'>
 					<div class='item-name'>
 						<div class='item-image'>
-							<a class='rollable' data-roll-type='item'>
+							<a class='rollable' data-action="roll" data-roll-type='item'>
 								<img src='{{action.img}}' title='{{action.name}}' width='24' height='24' />
 							</a>
 						</div>
@@ -216,7 +216,7 @@
 				<li class='item flexrow' data-item-id='{{action._id}}'>
 					<div class='item-name'>
 						<div class='item-image'>
-							<a class='rollable' data-roll-type='item'>
+							<a class='rollable' data-action="roll" data-roll-type='item'>
 								<img src='{{action.img}}' title='{{action.name}}' width='24' height='24' />
 							</a>
 						</div>
