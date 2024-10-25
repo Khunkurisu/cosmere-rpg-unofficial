@@ -425,7 +425,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		event.preventDefault();
 		const dataset = target.dataset;
 
-		if (dataset.rollType == 'item') {
+		if (dataset.rollType.toLowerCase() == 'item') {
 			const itemId = target.closest('.item').dataset.itemId;
 			const item = this.actor.items.get(itemId);
 			dataset.label = `Item: ${dataset.label}`;
