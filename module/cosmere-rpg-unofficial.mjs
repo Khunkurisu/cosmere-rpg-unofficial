@@ -242,11 +242,8 @@ Hooks.on("renderItemSheet", (function (o, i, n) {
 	return true;
 }));
 
-Hooks.on("cosmere-rpg-unofficial.preRoll", (roll, options) => {
-	console.log(roll);
+Hooks.on("createActor", (document, options, userId) => {
+	console.log(document);
 	console.log(options);
-});
-
-Hooks.on("setup", () => {
-	console.log(Array.from(game.actors));
+	console.log(userId);
 });

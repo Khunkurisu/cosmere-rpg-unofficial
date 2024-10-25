@@ -1,4 +1,5 @@
 import CosmereUnofficialDataModel from "./base-model.mjs";
+import { isNumeric, isNumber } from "../helpers/javascript.mjs";
 
 export default class CosmereUnofficialActorBase extends CosmereUnofficialDataModel {
 	static defineSchema() {
@@ -187,5 +188,46 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 		if (source.movement && source.movement.ground && source.movement.ground.value) {
 			source.movement.ground = source.movement.ground.value;
 		}
+		if (!source.health) {
+			source.health = {
+				value: 0,
+				max: 0,
+			};
+		} else {
+			if (source.health.value && !isNumber(source.health.value)) {
+				source.health.value = 0;
+			}
+			if (source.health.max && !isNumber(source.health.max)) {
+				source.health.max = 0;
+			}
+		}
+		if (!source.focus) {
+			source.focus = {
+				value: 0,
+				max: 0,
+			};
+		} else {
+			if (source.focus.value && !isNumber(source.focus.value)) {
+				source.focus.value = 0;
+			}
+			if (source.focus.max && !isNumber(source.focus.max)) {
+				source.focus.max = 0;
+			}
+		}
+		if (!source.investiture) {
+			source.investiture = {
+				value: 0,
+				max: 0,
+			};
+		} else {
+			if (source.investiture.value && !isNumber(source.investiture.value)) {
+				source.investiture.value = 0;
+			}
+			if (source.investiture.max && !isNumber(source.investiture.max)) {
+				source.investiture.max = 0;
+			}
+		}
+
+		return super.migrateData(source);
 	}
 }

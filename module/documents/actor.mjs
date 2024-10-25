@@ -1,4 +1,5 @@
 import * as Effects from '../system/effects.mjs';
+import { validateBaseData } from '../helpers/actor-migration.mjs';
 import { getByString, setByString } from "../helpers/javascript.mjs";
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the system.
@@ -11,7 +12,6 @@ export class CosmereUnofficialActor extends Actor {
 		// the following, in order: data reset (to clear active effects),
 		// prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
 		// prepareDerivedData().
-		console.log(this);
 		super.prepareData();
 	}
 
@@ -20,6 +20,7 @@ export class CosmereUnofficialActor extends Actor {
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
 		this.selectedTab ??= 'actions';
+		validateBaseData(this);
 	}
 
 	/**
@@ -34,7 +35,7 @@ export class CosmereUnofficialActor extends Actor {
 	prepareDerivedData() {
 		const actorData = this;
 		const systemData = actorData.system;
-		const flags = actorData.flags.boilerplate || {};
+		const flags = actorData.flags['cosmere-rpg-unofficial'] || {};
 
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
