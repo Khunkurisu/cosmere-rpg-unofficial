@@ -56,12 +56,22 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		}
 
 		let roll = new Roll(dice.rollData, actor.getRollData());
-		if (Hooks.call("system.preRoll", roll) === false) return;
+		if (Hooks.call("cosmere-rpg-unofficial.preRoll", roll, {
+			...dice,
+			...flags,
+			actor,
+			'modifiers': modifiers
+		}) === false) return;
 
 		if (dice.usePlotDice) {
 			let plotData = "1d6";
 			let plotRoll = new Roll(plotData, actor.getRollData());
-			if (Hooks.call("system.preRoll", roll) === false) return;
+			if (Hooks.call("cosmere-rpg-unofficial.preRoll", roll, {
+				...dice,
+				...flags,
+				actor,
+				'modifiers': modifiers
+			}) === false) return;
 
 			plotRoll.toMessage({
 				flags: { cosmere: flags },
