@@ -48,7 +48,19 @@
 	},
 	"primaryTokenAttribute": "health",
 	"secondaryTokenAttribute": "focus",
-	"packs": [],
+	"packs": [
+		{
+			"name": "conditions",
+			"label": "Conditions",
+			"path": "packs/conditions",
+			"type": "Item",
+			"system": "cosmere-rpg-unofficial",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		}
+	],
 	"packFolders": [],
 	"documentTypes": {
 		"Actor": {
