@@ -1,35 +1,19 @@
 {
-  "folder": "HdvotWDsE3OY6Cnx",
-  "name": "Surprised",
-  "type": "Effect",
-  "img": "icons/svg/item-bag.svg",
-  "system": {
-    "description": "<p>You don’t gain a reaction at the start of combats, and you must take a slow turn and gain one fewer action.</p>",
-    "showDetails": false,
-    "active": true,
-    "duration": {
-      "value": 0,
-      "unit": "round"
-    },
-    "hasToggle": false,
-    "effects": [],
-    "effectCreateType": "modifier"
-  },
-  "effects": [],
-  "flags": {
-    "exportSource": {
-      "world": "new-cosmere-testing",
-      "system": "cosmere-rpg-unofficial",
-      "coreVersion": "12.331",
-      "systemVersion": "0.2.9"
-    }
-  },
-  "_stats": {
-    "coreVersion": "12.331",
-    "systemId": "cosmere-rpg-unofficial",
-    "systemVersion": "0.2.9",
-    "createdTime": 1729898482612,
-    "modifiedTime": 1729898482612,
-    "lastModifiedBy": "VmB6C7ywAMpfRC6D"
-  }
+	"_id": "OhVNHTbplUEhTbY1",
+	"name": "Surprised",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>You don’t gain a reaction at the start of combats, and you must take a slow turn and gain one fewer action.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
 }

@@ -1,35 +1,19 @@
 {
-  "folder": "HdvotWDsE3OY6Cnx",
-  "name": "Enhanced",
-  "type": "Effect",
-  "img": "icons/svg/item-bag.svg",
-  "system": {
-    "description": "<p>While Enhanced, one of your attributes is increased, and can even stretch beyond the normal limits.</p><p>Unlike most conditions, Enhanced has a cumulative effect, and you can have this condition for more than one attribute at a time. When you gain this condition, you gain the stated bonus to the specified attribute for all gameplay purposes, except for your defenses and resources (health, focus, and investiture). These values do not change.</p><p>For example, if you have a Speed of 3 and become Enhanced (+2 Speed), you gain the following benefits:</p><ul><li><p>+2 bonus to your Agility, Light Weapons, Stealth, and Thievery skills.</p></li><li><p>Increase your movement speed to 40 feet per action.</p></li><li><p>Add +2 to any talents that directly scale off of your Speed.</p></li></ul>",
-    "showDetails": false,
-    "active": true,
-    "duration": {
-      "value": 0,
-      "unit": "round"
-    },
-    "hasToggle": false,
-    "effects": [],
-    "effectCreateType": "modifier"
-  },
-  "effects": [],
-  "flags": {
-    "exportSource": {
-      "world": "new-cosmere-testing",
-      "system": "cosmere-rpg-unofficial",
-      "coreVersion": "12.331",
-      "systemVersion": "0.2.9"
-    }
-  },
-  "_stats": {
-    "coreVersion": "12.331",
-    "systemId": "cosmere-rpg-unofficial",
-    "systemVersion": "0.2.9",
-    "createdTime": 1729898482612,
-    "modifiedTime": 1729898482612,
-    "lastModifiedBy": "VmB6C7ywAMpfRC6D"
-  }
+	"_id": "HzWFWXkwK284NMLk",
+	"name": "Enhanced",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>While Enhanced, one of your attributes is increased, and can even stretch beyond the normal limits.</p><p>Unlike most conditions, Enhanced has a cumulative effect, and you can have this condition for more than one attribute at a time. When you gain this condition, you gain the stated bonus to the specified attribute for all gameplay purposes, except for your defenses and resources (health, focus, and investiture). These values do not change.</p><p>For example, if you have a Speed of 3 and become Enhanced (+2 Speed), you gain the following benefits:</p><ul><li><p>+2 bonus to your Agility, Light Weapons, Stealth, and Thievery skills.</p></li><li><p>Increase your movement speed to 40 feet per action.</p></li><li><p>Add +2 to any talents that directly scale off of your Speed.</p></li></ul>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
 }
