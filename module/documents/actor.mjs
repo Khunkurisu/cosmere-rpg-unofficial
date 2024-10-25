@@ -1,6 +1,5 @@
 import * as Effects from '../system/effects.mjs';
-import { getByString, setByString } from "../helpers/objects.mjs";
-import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
+import { getByString, setByString } from "../helpers/javascript.mjs";
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the system.
  * @extends {Actor}
@@ -12,6 +11,7 @@ export class CosmereUnofficialActor extends Actor {
 		// the following, in order: data reset (to clear active effects),
 		// prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
 		// prepareDerivedData().
+		console.log(this);
 		super.prepareData();
 	}
 

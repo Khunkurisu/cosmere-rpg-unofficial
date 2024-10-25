@@ -1,5 +1,3 @@
-import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
-
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}

@@ -12,8 +12,6 @@ import { registerStatusEffects } from './helpers/status-effects.mjs';
 // Import DataModel classes
 import * as models from './data-models.mjs';
 
-export const version = "0.2.6";
-
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -247,4 +245,8 @@ Hooks.on("renderItemSheet", (function (o, i, n) {
 Hooks.on("cosmere-rpg-unofficial.preRoll", (roll, options) => {
 	console.log(roll);
 	console.log(options);
+});
+
+Hooks.on("setup", () => {
+	console.log(Array.from(game.actors));
 });

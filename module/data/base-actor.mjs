@@ -1,13 +1,10 @@
-import { isNumber } from "../helpers/objects.mjs";
 import CosmereUnofficialDataModel from "./base-model.mjs";
-import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
 
 export default class CosmereUnofficialActorBase extends CosmereUnofficialDataModel {
 	static defineSchema() {
 		const fields = foundry.data.fields;
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = {
-			"ver": new fields.StringField({ required: true, nullable: false, initial: currentVersion }),
 			"health": new fields.SchemaField({
 				"value": new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
 				"max": new fields.NumberField({ ...requiredInteger, initial: 10 })
@@ -185,10 +182,10 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 
 		return schema;
 	}
-}
 
-function isNumeric(str) {
-	if (typeof str != "string") return false // we only process strings!
-	return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-		!isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+	static migrateData(source) {
+		if (source.movement && source.movement.ground && source.movement.ground.value) {
+			source.movement.ground = source.movement.ground.value;
+		}
+	}
 }
