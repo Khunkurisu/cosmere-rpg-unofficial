@@ -243,3 +243,8 @@ Hooks.on("renderItemSheet", (function (o, i, n) {
 	setTheme(i);
 	return true;
 }));
+
+Hooks.on("cosmere-rpg-unofficial.preRoll", (roll, options) => {
+	console.log(roll);
+	console.log(options);
+});
