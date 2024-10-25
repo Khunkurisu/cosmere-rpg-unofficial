@@ -12,7 +12,10 @@
 		</div>
 		<div class="backstory flexcol" style="width:80%;min-height:fit-content;margin-left:30px;">
 			{{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
-			{{editor enrichedBiography target="system.biography.backstory" engine="prosemirror" button=false editable=false}}
+			<prose-mirror name="system.description.value" data-document-u-u-i-d="{{@root.actor.uuid}}"
+				value="{{@root.actor.system.description.value}}" toggled="false" collaborate="false">
+				{{{@root.enrichedBiography}}}
+			</prose-mirror>
 		</div>
 	</div>
 	<hr />
