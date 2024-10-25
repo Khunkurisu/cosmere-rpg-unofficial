@@ -13,42 +13,42 @@ export async function registerStatusEffects() {
 		{
 			id: 'afflicted',
 			name: 'Afflicted',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/poison.svg'
 		},
 		{
 			id: 'determined',
 			name: 'Determined',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/wing.svg'
 		},
 		{
 			id: 'disoriented',
 			name: 'Disoriented',
-			img: 'icons/svg/daze.svg'
+			img: 'icons/svg/deaf.svg'
 		},
 		{
 			id: 'empowered',
 			name: 'Empowered',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/aura.svg'
 		},
 		{
 			id: 'enhanced',
 			name: 'Enhanced',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/regen.svg'
 		},
 		{
 			id: 'exhausted',
 			name: 'Exhausted',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/sleep.svg'
 		},
 		{
 			id: 'focused',
 			name: 'Focused',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/eye.svg'
 		},
 		{
 			id: 'immobilized',
 			name: 'Immobilized',
-			img: 'icons/svg/net.svg'
+			img: 'icons/svg/paralysis.svg'
 		},
 		{
 			id: 'prone',
@@ -58,27 +58,22 @@ export async function registerStatusEffects() {
 		{
 			id: 'restrained',
 			name: 'Restrained',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/net.svg'
 		},
 		{
 			id: 'slowed',
 			name: 'Slowed',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/hazard.svg'
 		},
 		{
 			id: 'stunned',
 			name: 'Stunned',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/daze.svg'
 		},
 		{
 			id: 'surprised',
 			name: 'Surprised',
-			img: 'icons/svg/skull.svg'
-		},
-		{
-			id: 'unconscious',
-			name: 'Unconscious',
-			img: 'icons/svg/skull.svg'
+			img: 'icons/svg/silenced.svg'
 		},
 	];
 }

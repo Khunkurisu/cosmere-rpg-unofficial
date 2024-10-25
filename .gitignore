@@ -12,6 +12,12 @@ npm-debug.log
 *.lock
 jsconfig.json
 foundry
+packs/*/LOCK
+packs/*/LOG
+packs/*/LOG.old
+packs/*/*.log
+packs/*/MANIFEST-*
+packs/*/CURRENT
 
 # Boilerplate
 build/

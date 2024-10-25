@@ -1,0 +1,35 @@
+{
+  "folder": "HdvotWDsE3OY6Cnx",
+  "name": "Dead",
+  "type": "Effect",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You are dead. You have the normal effects of being Unconscious, but can not choose to regain 1 hp at the start of your turns and, barring GM discretion, can not regain HP by other means.</p><p></p>",
+    "showDetails": false,
+    "active": true,
+    "duration": {
+      "value": 0,
+      "unit": "round"
+    },
+    "hasToggle": false,
+    "effects": [],
+    "effectCreateType": "modifier"
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "new-cosmere-testing",
+      "system": "cosmere-rpg-unofficial",
+      "coreVersion": "12.331",
+      "systemVersion": "0.2.9"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": "cosmere-rpg-unofficial",
+    "systemVersion": "0.2.9",
+    "createdTime": 1729898482612,
+    "modifiedTime": 1729898482612,
+    "lastModifiedBy": "VmB6C7ywAMpfRC6D"
+  }
+}

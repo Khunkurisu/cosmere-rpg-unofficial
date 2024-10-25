@@ -1,0 +1,35 @@
+{
+  "folder": "HdvotWDsE3OY6Cnx",
+  "name": "Unconscious",
+  "type": "Effect",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You are Unconscious. Your movement rate becomes 0, you can’t move or communicate, and you are unaware of your surroundings. When you gain this condition, you fall Prone and drop anything you were carrying. You can’t take any actions, reactions, or otherwise interact with your surroundings, other than to take in Stormlight to heal yourself (if you are Radiant). In combat, you always go slow, but you can’t do anything on your turn.</p><p>You can choose to regain consciousness at the end of any of your turns (no action required) or when an effect heals you to at least 1 health. When you do so, other characters can sense you’re conscious, you remove the Unconscious condition, and if you are at 0 health, you recover 1 health. But be careful: with such low health, you could easily suffer another injury, this one potentially more dangerous or deadly.</p>",
+    "showDetails": false,
+    "active": true,
+    "duration": {
+      "value": 0,
+      "unit": "round"
+    },
+    "hasToggle": false,
+    "effects": [],
+    "effectCreateType": "modifier"
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "new-cosmere-testing",
+      "system": "cosmere-rpg-unofficial",
+      "coreVersion": "12.331",
+      "systemVersion": "0.2.9"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": "cosmere-rpg-unofficial",
+    "systemVersion": "0.2.9",
+    "createdTime": 1729898482612,
+    "modifiedTime": 1729898482612,
+    "lastModifiedBy": "VmB6C7ywAMpfRC6D"
+  }
+}

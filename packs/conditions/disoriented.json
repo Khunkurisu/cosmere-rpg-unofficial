@@ -1,0 +1,46 @@
+{
+  "folder": "HdvotWDsE3OY6Cnx",
+  "name": "Disoriented",
+  "type": "Effect",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Your senses are disrupted, making most tasks difficult. You can’t use reactions. Your senses count as obscured at all times, and Perception tests (and other tests to use your senses) gain a disadvantage.</p>",
+    "showDetails": false,
+    "active": true,
+    "duration": {
+      "value": 0,
+      "unit": "round"
+    },
+    "hasToggle": false,
+    "effects": [
+      {
+        "type": "dice",
+        "trigger": "roll",
+        "target": "disadvantage",
+        "predicate": [
+          "skill-perception",
+          " sense"
+        ],
+        "value": true
+      }
+    ],
+    "effectCreateType": "modifier"
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "new-cosmere-testing",
+      "system": "cosmere-rpg-unofficial",
+      "coreVersion": "12.331",
+      "systemVersion": "0.2.9"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": "cosmere-rpg-unofficial",
+    "systemVersion": "0.2.9",
+    "createdTime": 1729898482612,
+    "modifiedTime": 1729898482612,
+    "lastModifiedBy": "VmB6C7ywAMpfRC6D"
+  }
+}

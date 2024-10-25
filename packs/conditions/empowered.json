@@ -1,0 +1,51 @@
+{
+  "folder": "HdvotWDsE3OY6Cnx",
+  "name": "Empowered",
+  "type": "Effect",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You gain an advantage on all tests and your Investiture refills to your maximum at the start of each of your turns. This condition is removed at the end of the current scene.</p>",
+    "showDetails": false,
+    "active": true,
+    "duration": {
+      "value": 0,
+      "unit": "round"
+    },
+    "hasToggle": false,
+    "effects": [
+      {
+        "type": "dice",
+        "trigger": "roll",
+        "target": "advantage",
+        "predicate": [],
+        "value": true
+      },
+      {
+        "type": "modifier",
+        "trigger": "load",
+        "target": "system.investiture.value",
+        "predicate": [],
+        "func": "increase",
+        "value": "99999"
+      }
+    ],
+    "effectCreateType": "modifier"
+  },
+  "effects": [],
+  "flags": {
+    "exportSource": {
+      "world": "new-cosmere-testing",
+      "system": "cosmere-rpg-unofficial",
+      "coreVersion": "12.331",
+      "systemVersion": "0.2.9"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": "cosmere-rpg-unofficial",
+    "systemVersion": "0.2.9",
+    "createdTime": 1729898482612,
+    "modifiedTime": 1729898482612,
+    "lastModifiedBy": "VmB6C7ywAMpfRC6D"
+  }
+}

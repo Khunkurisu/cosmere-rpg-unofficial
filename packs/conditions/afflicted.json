@@ -1,0 +1,19 @@
+{
+	"_id": "xZbsa7zG1JnbbR5k",
+	"name": "Afflicted",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>You slowly take damage over time. In combat, at the end of each of your turns, you take the amount and type of damage specified by the effect that gave you the condition.</p><p>Out of combat, you take that damage every 10 seconds and after each time someone attempts to remove the condition.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}
