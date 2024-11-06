@@ -629,6 +629,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 	 */
 	_getEmbeddedDocument(target) {
 		const docRow = target.closest('li[data-document-class]');
+		if (!docRow) return console.warn('Could not find document class');
 		if (docRow.dataset.documentClass === 'Item') {
 			return this.actor.items.get(docRow.dataset.itemId);
 		} else if (docRow.dataset.documentClass === 'ActiveEffect') {
