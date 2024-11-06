@@ -1,11 +1,11 @@
-.cosmere-combatant-buttons {
+.combatant-buttons {
     display: flex;
     text-align: center;
     justify-content: flex-end;
 }
 
-.cosmere-turn-speed-control,
-.cosmere-activate-control {
+.turn-speed-control,
+.activate-control {
     display: block;
     width: 40px;
     height: var(--sidebar-item-height);
@@ -15,15 +15,15 @@
     margin: 0 0.1em;
 }
 
-.cosmere-turn-speed-control {
+.turn-speed-control {
     background-image: url(/icons/svg/clockwork.svg);
 }
 
-.cosmere-activate-control {
+.activate-control {
     background-image: url(/icons/svg/combat.svg);
 }
 
-.cosmere-activate-control-activated {
+.activate-control-activated {
     filter: brightness(40%);
 }
 

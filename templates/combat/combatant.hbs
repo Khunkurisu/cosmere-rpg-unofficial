@@ -39,10 +39,10 @@
         <span class="resource">{{this.resource}}</span>
     </div>
     {{/if}}
-    <div class="cosmere-combatant-buttons">
+    <div class="combatant-buttons">
         {{#if this.owner}}
-        <a class="cosmere-turn-speed-control" role="button" data-tooltip="COSMERE_UNOFFICIAL.Combat.ToggleTurn" data-control="toggleSpeed"></a>
+        <a class="turn-speed-control" role="button" data-tooltip="COSMERE_UNOFFICIAL.Combat.ToggleTurn" data-control="toggleSpeed"></a>
         {{/if}}
-        <a class="cosmere-activate-control {{#if this.activated}}cosmere-activate-control-activated{{/if}}" data-tooltip="COSMERE_UNOFFICIAL.Combat.Activate" {{#if this.owner}}data-control="activateCombatant"{{/if}}></a>
+        <a class="activate-control {{#if this.activated}}activate-control-activated{{/if}}" data-tooltip="COSMERE_UNOFFICIAL.Combat.Activate" {{#if this.owner}}data-control="activateCombatant"{{/if}}></a>
     </div>
 </li>
