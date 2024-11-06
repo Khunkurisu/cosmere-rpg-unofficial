@@ -2,6 +2,11 @@
  * Overrides default tracker template to implement slow/fast buckets and combatant activation button.
  */
 export class CosmereUnofficialCombatTracker extends CombatTracker {
+	static get defaultOptions() {
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			classes: ['cosmere-rpg-unofficial', ...super.defaultOptions.classes],
+		});
+	}
 	// Note: lint rules wants this to be exposed as a readonly field, but base class implements a getter.
 	// eslint-disable-next-line @typescript-eslint/class-literal-property-style
 	get template() {
@@ -86,10 +91,10 @@ export class CosmereUnofficialCombatTracker extends CombatTracker {
 		event.preventDefault();
 		event.stopPropagation();
 		const btn = event.currentTarget;
-		const li = btn.closest < HTMLElement > ('.combatant');
+		const li = $(btn).parents('.combatant');
 		const combatant = this.viewed.getEmbeddedDocument(
 			'Combatant',
-			li.dataset.combatantId,
+			li.data('combatantId'),
 			{},
 		);
 		void combatant.toggleTurnSpeed();
@@ -102,10 +107,10 @@ export class CosmereUnofficialCombatTracker extends CombatTracker {
 		event.preventDefault();
 		event.stopPropagation();
 		const btn = event.currentTarget;
-		const li = btn.closest < HTMLElement > ('.combatant');
+		const li = $(btn).parents('.combatant');
 		const combatant = this.viewed.getEmbeddedDocument(
 			'Combatant',
-			li.dataset.combatantId,
+			li.data('combatantId'),
 			{},
 		);
 		void combatant.setFlag('cosmere-rpg-unofficial', 'activated', true);
