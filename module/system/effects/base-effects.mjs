@@ -1,6 +1,6 @@
 export default class Effect {
 	type = 'base';
-	trigger = 'load';
+	trigger = 'base';
 	target = '';
 	predicate = [];
 
