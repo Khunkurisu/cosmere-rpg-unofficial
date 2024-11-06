@@ -240,11 +240,8 @@ Hooks.on("renderItemSheet", (function (o, i, n) {
 	setTheme(i);
 }));
 Hooks.on("renderActorSheetV2", (function (o, i, n) {
-	setTheme(i);
-	console.log(o);
-	console.log(i);
-	console.log(n);
+	setTheme($(i));
 }));
 Hooks.on("renderItemSheetV2", (function (o, i, n) {
-	setTheme(i);
+	setTheme($(i));
 }));
