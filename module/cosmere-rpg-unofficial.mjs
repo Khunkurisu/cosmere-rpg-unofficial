@@ -241,9 +241,3 @@ Hooks.on("renderItemSheet", (function (o, i, n) {
 	setTheme(i);
 	return true;
 }));
-
-Hooks.on("createActor", (document, options, userId) => {
-	console.log(document);
-	console.log(options);
-	console.log(userId);
-});
