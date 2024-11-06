@@ -25,6 +25,10 @@ export default class ModifierEffect extends Effect {
 				data.value -= this.value;
 				break;
 			}
+			case 'multiply': {
+				data.value *= this.value;
+				break;
+			}
 			case 'increase': {
 				if (data.value < this.value) {
 					data.value = this.value;
