@@ -31,7 +31,7 @@ export function setByString(o, s, v) {
 	}
 };
 
-export function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) };
+export function isNumber(n) { return isFinite(String(n)) };
 
 export function isNumeric(str) {
 	if (typeof str != "string") return false // we only process strings!
