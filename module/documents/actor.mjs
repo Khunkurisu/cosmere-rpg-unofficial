@@ -62,11 +62,20 @@ export class CosmereUnofficialActor extends Actor {
 		const attributes = actorData.system.attributes;
 		const items = actorData.items._source;
 
+		attributes.strength.value = attributes.strength.base;
+		attributes.speed.value = attributes.speed.base;
+		attributes.intellect.value = attributes.intellect.base;
+		attributes.willpower.value = attributes.willpower.base;
+		attributes.awareness.value = attributes.awareness.base;
+		attributes.presence.value = attributes.presence.base;
+
+		this.checkItems(actorData);
+		this.getEffectBonuses(actorData);
+
 		systemData.capacity = {
 			"maxLift": this.getCarryCapacity(attributes),
 			"maxCarry": this.getCarryCapacity(attributes) / 2,
-			"carrying": 0
-		}
+		};
 
 		systemData.senses = this.getSensesRange(attributes);
 
@@ -75,8 +84,6 @@ export class CosmereUnofficialActor extends Actor {
 		systemData.recovery = this.getRecoveryDie(attributes);
 
 		systemData.bonusExpertises = attributes.intellect.value;
-
-		this.checkItems(actorData);
 
 		for (let index in items) {
 			const obj = items[index];
@@ -102,7 +109,7 @@ export class CosmereUnofficialActor extends Actor {
 
 		this.setSkills(systemData);
 
-		this.getEffectBonuses(actorData);
+		this.getEffectBonuses(actorData, 'derived');
 
 		systemData.health.value = Math.min(
 			Math.max(systemData.health.value, 0), systemData.health.max
@@ -346,7 +353,7 @@ export class CosmereUnofficialActor extends Actor {
 		}
 	}
 
-	getEffectBonuses(actorData) {
+	getEffectBonuses(actorData, stage = 'base') {
 		const system = actorData.system;
 		system.effects.forEach(activeEffect => {
 			if (!activeEffect.system.active) return;
@@ -359,7 +366,7 @@ export class CosmereUnofficialActor extends Actor {
 							circumstances: [],
 							value: targetVal
 						}
-						data = effect.TryApplyEffect('load', data);
+						data = effect.TryApplyEffect(stage, data);
 						if (data) {
 							this._setValueByString(effect.target, data.value);
 						}
@@ -391,6 +398,9 @@ export class CosmereUnofficialActor extends Actor {
 		const attributes = actorData.system.attributes;
 		const items = actorData.items._source;
 
+		this.checkItems(actorData);
+		this.getEffectBonuses(actorData);
+
 		systemData.capacity = {
 			"maxLift": this.getCarryCapacity(attributes),
 			"maxCarry": this.getCarryCapacity(attributes) / 2,
@@ -405,15 +415,13 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.bonusExpertises = attributes.intellect.value;
 
-		this.checkItems(actorData);
-
 		/* this.setDefenses(actorData);
 		this.setResources(actorData);
 		this.setDeflect(actorData); */
 
 		this.setSkills(systemData);
 
-		this.getEffectBonuses(actorData);
+		this.getEffectBonuses(actorData, 'derived');
 
 		systemData.health.value = Math.min(
 			Math.max(systemData.health.value, 0), systemData.health.max

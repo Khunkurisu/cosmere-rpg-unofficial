@@ -80,7 +80,7 @@
 					data-label="{{localize (lookup @root.config.attributes key)}}">
 					{{localize (lookup @root.config.attributes key)}}
 				</label>
-				<input type="number" name="system.attributes.{{key}}.value" value="{{attribute.value}}"
+				<input type="number" name="system.attributes.{{key}}.base" value="{{attribute.value}}"
 					data-dtype="Number" />
 			</div>
 		{{/each}}

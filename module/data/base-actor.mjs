@@ -41,6 +41,7 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 		schema.attributes = new fields.SchemaField(
 			Object.keys(CONFIG.COSMERE_UNOFFICIAL.attributes).reduce((obj, attribute) => {
 				obj[attribute] = new fields.SchemaField({
+					base: new fields.NumberField({ ...requiredInteger, initial: 0 }),
 					value: new fields.NumberField({ ...requiredInteger, initial: 0 }),
 				});
 				return obj;
@@ -187,6 +188,14 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 	static migrateData(source) {
 		if (source.movement && source.movement.ground && source.movement.ground.value) {
 			source.movement.ground = source.movement.ground.value;
+		}
+		if (!source.attributes.strength.base) {
+			source.attributes.strength.base = source.attributes.strength.value;
+			source.attributes.speed.base = source.attributes.speed.value;
+			source.attributes.intellect.base = source.attributes.intellect.value;
+			source.attributes.willpower.base = source.attributes.willpower.value;
+			source.attributes.awareness.base = source.attributes.awareness.value;
+			source.attributes.presence.base = source.attributes.presence.value;
 		}
 		if (!source.health) {
 			source.health = {
