@@ -15,7 +15,7 @@ export async function onConnectionManage(event, target) {
 		connections: [...system.biography.connections],
 		window: {
 			resizable: true,
-			title: "Manage Goal",
+			title: "Manage Connection",
 		},
 	}
 
