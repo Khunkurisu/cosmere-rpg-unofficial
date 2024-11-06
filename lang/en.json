@@ -1,6 +1,15 @@
 {
 	"COSMERE_UNOFFICIAL": {
 		"members": "Members",
+		"Combat": {
+			"FastPlayers":"Fast Players",
+			"FastAdversaries":"Fast Adversaries",
+			"SlowPlayers":"Slow Players",
+			"SlowAdversaries":"Slow Adversaries",
+			"Activate": "Mark as having acted",
+			"ToggleTurn": "Toggle Turn Speed",
+			"ResetActivation": "Reset Activation"
+		},
 		"Biography": {
 			"Backstory": "Backstory",
 			"Purpose": "Purpose",

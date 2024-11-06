@@ -24,6 +24,7 @@ export const preloadHandlebarsTemplates = async function () {
 		'systems/cosmere-rpg-unofficial/templates/dialogs/actor-expertise.hbs',
 		'systems/cosmere-rpg-unofficial/templates/dialogs/actor-goals.hbs',
 		'systems/cosmere-rpg-unofficial/templates/dialogs/actor-connections.hbs',
-		'systems/cosmere-rpg-unofficial/templates/dialogs/roll-popup.hbs'
+		'systems/cosmere-rpg-unofficial/templates/dialogs/roll-popup.hbs',
+        'systems/cosmere-rpg-unofficial/templates/combat/combatant.hbs',
 	]);
 };

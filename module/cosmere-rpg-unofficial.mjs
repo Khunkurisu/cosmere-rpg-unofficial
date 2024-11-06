@@ -9,6 +9,9 @@ import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { COSMERE_UNOFFICIAL } from './helpers/config.mjs';
 import { registerSettings } from './helpers/settings.mjs';
 import { registerStatusEffects } from './helpers/status-effects.mjs';
+import { CosmereUnofficialCombatant } from './system/combat/combatant.mjs';
+import { CosmereUnofficialCombat } from './documents/combat.mjs';
+import { CosmereUnofficialCombatTracker } from './application/combat-tracker.mjs';
 // Import DataModel classes
 import * as models from './data-models.mjs';
 
@@ -52,10 +55,9 @@ Hooks.once('init', function () {
 		Ancestry: models.CosmereUnofficialAncestry
 	}
 
-	// Active Effects are never copied to the Actor,
-	// but will still apply to the Actor from within the Item
-	// if the transfer property on the Active Effect is true.
-	CONFIG.ActiveEffect.legacyTransferral = false;
+	CONFIG.Combat.documentClass = CosmereUnofficialCombat;
+	CONFIG.Combatant.documentClass = CosmereUnofficialCombatant;
+	CONFIG.ui.combat = CosmereUnofficialCombatTracker;
 
 	// Register sheet application classes
 	Actors.unregisterSheet('core', ActorSheet);

@@ -27,6 +27,13 @@ COSMERE_UNOFFICIAL.biography = {
 	}
 };
 
+COSMERE_UNOFFICIAL.combat = {
+	fast_players: 'COSMERE_UNOFFICIAL.Combat.FastPlayers',
+	fast_adversaries: 'COSMERE_UNOFFICIAL.Combat.FastAdversaries',
+	slow_players: 'COSMERE_UNOFFICIAL.Combat.SlowPlayers',
+	slow_adversaries: 'COSMERE_UNOFFICIAL.Combat.SlowAdversaries',
+}
+
 COSMERE_UNOFFICIAL.attributes = {
 	strength: 'COSMERE_UNOFFICIAL.Attribute.Strength.long',
 	speed: 'COSMERE_UNOFFICIAL.Attribute.Speed.long',

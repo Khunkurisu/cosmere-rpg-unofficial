@@ -4720,15 +4720,6 @@ body {
   --crpgu-header-color: #bcbcbc;
 }
 
-.theme-dark {
-  --crpgu-primary-bg: #1e1e2d;
-  --crpgu-secondary-bg: #2a2a40;
-  --crpgu-transparent-bg: #1e1e2dd1;
-  --crpgu-primary-font: #b8c8c9;
-  --crpgu-secondary-font: #b5b3a4;
-  --crpgu-header-color: #000;
-}
-
 [data-theme=beige] {
   --crpgu-primary-bg: #d1c6b9;
   --crpgu-secondary-bg: #c3b9ad;
@@ -9543,6 +9534,36 @@ body {
   margin: auto;
   margin-right: 3px;
   max-width: fit-content;
+}
+.cosmere-rpg-unofficial .cosmere-combatant-buttons {
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+}
+.cosmere-rpg-unofficial .cosmere-turn-speed-control,
+.cosmere-rpg-unofficial .cosmere-activate-control {
+  display: block;
+  width: 40px;
+  height: var(--sidebar-item-height);
+  background-size: 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 0.1em;
+}
+.cosmere-rpg-unofficial .cosmere-turn-speed-control {
+  background-image: url(/icons/svg/clockwork.svg);
+}
+.cosmere-rpg-unofficial .cosmere-activate-control {
+  background-image: url(/icons/svg/combat.svg);
+}
+.cosmere-rpg-unofficial .cosmere-activate-control-activated {
+  filter: brightness(40%);
+}
+.cosmere-rpg-unofficial .combat-phase {
+  padding: 0.5rem 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cosmere-rpg-unofficial .profile-img {
   object-fit: contain;
