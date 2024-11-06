@@ -9535,13 +9535,13 @@ body {
   margin-right: 3px;
   max-width: fit-content;
 }
-.cosmere-rpg-unofficial .cosmere-combatant-buttons {
+.cosmere-rpg-unofficial .combatant-buttons {
   display: flex;
   text-align: center;
   justify-content: flex-end;
 }
-.cosmere-rpg-unofficial .cosmere-turn-speed-control,
-.cosmere-rpg-unofficial .cosmere-activate-control {
+.cosmere-rpg-unofficial .turn-speed-control,
+.cosmere-rpg-unofficial .activate-control {
   display: block;
   width: 40px;
   height: var(--sidebar-item-height);
@@ -9550,13 +9550,13 @@ body {
   background-repeat: no-repeat;
   margin: 0 0.1em;
 }
-.cosmere-rpg-unofficial .cosmere-turn-speed-control {
+.cosmere-rpg-unofficial .turn-speed-control {
   background-image: url(/icons/svg/clockwork.svg);
 }
-.cosmere-rpg-unofficial .cosmere-activate-control {
+.cosmere-rpg-unofficial .activate-control {
   background-image: url(/icons/svg/combat.svg);
 }
-.cosmere-rpg-unofficial .cosmere-activate-control-activated {
+.cosmere-rpg-unofficial .activate-control-activated {
   filter: brightness(40%);
 }
 .cosmere-rpg-unofficial .combat-phase {
