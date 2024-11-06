@@ -245,3 +245,9 @@ Hooks.on("renderActorSheetV2", (function (o, i, n) {
 Hooks.on("renderItemSheetV2", (function (o, i, n) {
 	setTheme($(i));
 }));
+Hooks.on("renderDialog", (function (o, i, n) {
+	setTheme(i);
+}));
+Hooks.on("renderDialogV2", (function (o, i, n) {
+	setTheme($(i));
+}));
