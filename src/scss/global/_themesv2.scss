@@ -35,6 +35,26 @@
 	--crpgu-header-color: #00000088;
 }
 
+.app {
+	background: var(--crpgu-transparent-bg);
+	color: var(--crpgu-secondary-font);
+	.player {
+		color: var(--crpgu-primary-font);
+	}
+	.gm {
+		color: var(--crpgu-primary-font);
+	}
+	.player-name {
+		color: var(--crpgu-primary-font);
+	}
+	#players {
+		color: var(--crpgu-primary-font);
+	}
+	#player-list {
+		color: var(--crpgu-primary-font);
+	}
+}
+
 .application {
 	border: 1px solid var(--crpgu-header-color);
 	font-family: $font-primary;
