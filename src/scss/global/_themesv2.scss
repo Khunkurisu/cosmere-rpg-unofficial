@@ -3,6 +3,15 @@
 @import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap);
 
+.theme-dark {
+	--crpgu-primary-bg: #1e1e2d;
+	--crpgu-secondary-bg: #2a2a40;
+	--crpgu-transparent-bg: #1e1e2dd1;
+	--crpgu-primary-font: #b8c8c9;
+	--crpgu-secondary-font: #b5b3a4;
+	--crpgu-header-color: #000;
+}
+
 .application {
 	border: 1px solid var(--crpgu-header-color);
 	font-family: $font-primary;
@@ -25,7 +34,9 @@
 	background: none;
 }
 
-.application:not(.item):not(.actor).journal-sheet .window-content aside.sidebar {
+.application:not(.item):not(.actor).journal-sheet
+	.window-content
+	aside.sidebar {
 	background: var(--crpgu-transparent-bg);
 }
 
@@ -171,7 +182,11 @@
 	border-top-right-radius: 5px;
 }
 
-.application:not(.item):not(.actor) .window-content table thead tr.table-header {
+.application:not(.item):not(.actor)
+	.window-content
+	table
+	thead
+	tr.table-header {
 	background: none;
 	border: none;
 }
@@ -880,7 +895,11 @@
 	.tinymce
 	.editor-content
 	table,
-.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce table {
+.application:not(.item):not(.actor)
+	.window-content
+	.tinymce
+	.tox-tinymce
+	table {
 	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
@@ -2026,7 +2045,11 @@
 	border-top-right-radius: 5px;
 }
 
-.application:not(.item):not(.actor) .window-content table thead tr.table-header {
+.application:not(.item):not(.actor)
+	.window-content
+	table
+	thead
+	tr.table-header {
 	background: none;
 	border: none;
 }
@@ -2067,7 +2090,10 @@
 	text-shadow: none;
 }
 
-.application:not(.item):not(.actor) .window-content nav.sheet-tabs .item.active {
+.application:not(.item):not(.actor)
+	.window-content
+	nav.sheet-tabs
+	.item.active {
 	color: var(--crpgu-primary-font);
 	text-shadow: none;
 	font-weight: bold;

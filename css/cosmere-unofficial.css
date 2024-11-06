@@ -4711,6 +4711,15 @@ body {
   pointer-events: none;
 }
 
+.theme-dark {
+  --crpgu-primary-bg: #1e1e2d;
+  --crpgu-secondary-bg: #2a2a40;
+  --crpgu-transparent-bg: #1e1e2dd1;
+  --crpgu-primary-font: #b8c8c9;
+  --crpgu-secondary-font: #b5b3a4;
+  --crpgu-header-color: #000;
+}
+
 .application {
   border: 1px solid var(--crpgu-header-color);
   font-family: "Roboto", sans-serif;

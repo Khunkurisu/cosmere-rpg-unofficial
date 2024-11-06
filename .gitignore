@@ -18,6 +18,7 @@ packs/*/LOG.old
 packs/*/*.log
 packs/*/MANIFEST-*
 packs/*/CURRENT
+packs/*/*.ldb
 
 # Boilerplate
 build/
