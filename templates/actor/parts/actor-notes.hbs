@@ -1,0 +1,28 @@
+<div class='resources flexcol'>
+	<div class='notes flexcol'>
+		<div class='notes grid flex-group-left' style='margin-left:20px;'>
+			<label
+				for='notes'
+				class='resource-label grid-span-3'
+				style='font-size:large;'
+			>
+				{{localize 'Notes'}}
+			</label>
+		</div>
+		<div
+			class='notes flexcol'
+			style='width:80%;min-height:fit-content;margin-left:30px;'
+		>
+			{{! Editors must receive enriched text data from getData to properly handle rolls }}
+			<prose-mirror
+				name='system.notes'
+				data-document-u-u-i-d='{{@root.actor.uuid}}'
+				value='{{@root.actor.system.notes}}'
+				toggled='false'
+				collaborate='false'
+			>
+				{{{@root.enrichedBiography}}}
+			</prose-mirror>
+		</div>
+	</div>
+</div>
