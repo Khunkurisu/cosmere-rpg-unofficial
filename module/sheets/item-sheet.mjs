@@ -186,23 +186,18 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 	 */
 	_onEffectCreate(event) {
 		event.preventDefault();
-		const system = this.item.system;
-		const type = this.item.system.effectCreateType;
-		const modEffects = system.effects;
-		let effect = null;
 
-		if (type === 'modifier') {
-			effect = new effects.ModifierEffect('base', '', [], 'add', 0);
-		} else if (type === 'dice') {
-			effect = new effects.DiceEffect('roll', 'advantage', [], true);
-		}
-		if (effect) {
-			modEffects.push(effect);
+		const options = {
+			document: this.item,
+			effects: [...this.item.system.effects],
+			type: this.item.system.effectCreateType,
+			window: {
+				resizable: true,
+				title: "Manage Goal",
+			},
 		}
 
-		this.item.update({ "system.effects": modEffects });
-
-		this.render(false);
+		new EffectManager(options).render({ force: true });
 	}
 
 	/**
