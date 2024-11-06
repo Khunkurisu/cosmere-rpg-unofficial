@@ -4,7 +4,15 @@ export function validateBaseData(actor) {
 		const release = ver[0];
 		const update = ver[1];
 		const revision = ver[2];
-		if (release <= 0 && update <= 2 && revision <= 7) {
+		if (release <= 0 && update <= 2 && revision <= 10) {
+			attributes.strength.base = attributes.strength.value;
+			attributes.speed.base = attributes.speed.value;
+			attributes.intellect.base = attributes.intellect.value;
+			attributes.willpower.base = attributes.willpower.value;
+			attributes.awareness.base = attributes.awareness.value;
+			attributes.presence.base = attributes.presence.value;
+		}
+		else if (release <= 0 && update <= 2 && revision <= 7) {
 			if (actor.system.health) {
 				if (actor.system.health.value) {
 					actor.system.health = {
