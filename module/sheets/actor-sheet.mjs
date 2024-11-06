@@ -185,8 +185,14 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		const strikes = [];
 		const potentialStrikes = [];
 		const features = [];
+		let ancestry = false;
+		const paths = [];
 		const ancestryFeatures = [];
 		const pathFeatures = [];
+
+		context.items.forEach(async (item) => {
+			item.enrichedDescription = await enrichItemDesc(context, item);
+		});
 
 		// Iterate through items, allocating to containers
 		context.items.forEach(function (item) {
@@ -214,6 +220,12 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			if (item.type === 'Equipment') {
 				gear.push(item);
 			}
+			else if (item.type === 'Ancestry') {
+				ancestry = item;
+			}
+			else if (item.type === 'Path') {
+				paths.push(item);
+			}
 			// Append to features.
 			else if (item.type === 'Feature') {
 				if (item.system.hasAction) {
@@ -221,6 +233,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 						name: item.name,
 						img: item.img,
 						_id: item._id,
+						enrichedDescription: item.enrichedDescription,
 						system: {
 							unit: 'actions',
 							cost: item.system.cost,
@@ -337,6 +350,8 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		context.activeEffects = activeEffects;
 		context.effects = effects;
 		context.toggleable = toggleable;
+		context.paths = paths;
+		context.ancestry = ancestry;
 
 		let expertiseCategories = getExpertiseCategories(system.expertise);
 		context.utilityExpertise = expertiseCategories["Utility"];
@@ -344,10 +359,6 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 		context.weaponExpertise = expertiseCategories["Weapon"];
 		context.armorExpertise = expertiseCategories["Armor"];
 		context.specialExpertise = expertiseCategories["Special"];
-
-		context.items.forEach(async (item) => {
-			item.enrichedDescription = await enrichItemDesc(context, item);
-		});
 	}
 
 	/**

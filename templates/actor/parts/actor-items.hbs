@@ -68,7 +68,7 @@
 				<li class='item flexrow' data-item-id='{{item._id}}' data-drag='false' data-document-class='Item'
 					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
+						{{editor item.enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -135,7 +135,7 @@
 				<li class='item flexrow' data-item-id='{{item._id}}' data-drag='false' data-document-class='Item'
 					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
+						{{editor item.enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -202,7 +202,7 @@
 				<li class='item flexrow' data-item-id='{{item._id}}' data-drag='false' data-document-class='Item'
 					{{#unless item.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
+						{{editor item.enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -260,7 +260,7 @@
 				<li class='item flexrow' data-item-id='{{container._id}}' data-drag='false' data-document-class='Item'
 					{{#unless container.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{editor enrichedDescription target="container.system.description" engine="prosemirror" button=false editable=false}}
+						{{editor item.enrichedDescription target="container.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 				<ol class='item-list container-inventory' {{#unless container.system.showStored}} style='display: none'
@@ -313,7 +313,7 @@
 							data-document-class='Item' {{#unless item.system.showDetails}}style='display: none'
 							{{/unless}}>
 							<div class='item-details flex-group-center'>
-								{{editor enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
+								{{editor item.enrichedDescription target="item.system.description" engine="prosemirror" button=false editable=false}}
 							</div>
 						</li>
 					{{/each}}
