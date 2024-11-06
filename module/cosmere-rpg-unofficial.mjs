@@ -230,6 +230,9 @@ function setTheme(i) {
 Hooks.on("renderApplication", (function (o, i, n) {
 	setTheme(i);
 }));
+Hooks.on("renderApplicationV2", (function (o, i, n) {
+	setTheme($(i));
+}));
 Hooks.on("createProseMirrorEditor", (function (o, i, n) {
 	setTheme(i);
 }));
