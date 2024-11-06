@@ -17,7 +17,7 @@
 			{{#each activeEffects as |effect id|}}
 				<li class='item flexrow' data-item-id='{{effect._id}}' data-drag='true' data-document-class='Item'>
 					<div class='item-name'>
-						<h4 class='resource-label detail-item' data-action="detailToggle">{{effect.name}}</h4>
+						<span class='resource-label detail-item' data-action="detailToggle">{{effect.name}}</span>
 					</div>
 					<div class='item-controls'>
 						<a class='item-control item-edit' data-action="viewDoc" data-document-class="Item"
@@ -33,7 +33,7 @@
 				<li class='item flexrow' data-item-id='{{effect._id}}' data-drag='false' data-document-class='Item'
 					{{#unless effect.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{editor enrichedDescription target="effect.system.description" engine="prosemirror" button=false editable=false}}
+						{{editor effect.enrichedDescription target="effect.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}
@@ -56,7 +56,7 @@
 			{{#each effects as |effect id|}}
 				<li class='item flexrow' data-item-id='{{effect._id}}' data-drag='true' data-document-class='Item'>
 					<div class='item-name'>
-						<h4 class='resource-label detail-item' data-action="detailToggle">{{effect.name}}</h4>
+						<span class='resource-label detail-item' data-action="detailToggle">{{effect.name}}</span>
 					</div>
 					<div class='item-controls'>
 						<a class='item-control item-edit' data-action="viewDoc" data-document-class="Item"
@@ -72,7 +72,7 @@
 				<li class='item flexrow' data-item-id='{{effect._id}}' data-drag='false' data-document-class='Item'
 					{{#unless effect.system.showDetails}}style='display: none' {{/unless}}>
 					<div class='item-details flex-group-center'>
-						{{editor enrichedDescription target="effect.system.description" engine="prosemirror" button=false editable=false}}
+						{{editor effect.enrichedDescription target="effect.system.description" engine="prosemirror" button=false editable=false}}
 					</div>
 				</li>
 			{{/each}}

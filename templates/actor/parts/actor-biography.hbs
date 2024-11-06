@@ -1,90 +1,145 @@
-<div class="resources flexcol">
-	<div class="backstory flexcol">
-		<div class="backstory grid grid-5col flex-group-left" style="margin-left:20px;">
-			<label for="backstory" class="resource-label grid-span-3" style="font-size:large;">
-				{{localize (lookup @root.config.biography "backstory")}}
+<div class='resources flexcol'>
+	<div class='backstory flexcol'>
+		<div class='backstory grid flex-group-left' style='margin-left:20px;'>
+			<label
+				for='backstory'
+				class='resource-label grid-span-3'
+				style='font-size:large;'
+			>
+				{{localize (lookup @root.config.biography 'backstory')}}
 			</label>
-			<div><span></span></div>
-			<a class='backstory-manage' data-action="manageBackstory"
-				title='{{localize (lookup @root.config.biography.backstory "manage")}}'>
-				<i class="fa-solid fa-xl fa-edit"></i>
-			</a>
 		</div>
-		<div class="backstory flexcol" style="width:80%;min-height:fit-content;margin-left:30px;">
-			{{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
-			<prose-mirror name="system.description.value" data-document-u-u-i-d="{{@root.actor.uuid}}"
-				value="{{@root.actor.system.description.value}}" toggled="false" collaborate="false">
+		<div
+			class='backstory flexcol'
+			style='width:80%;min-height:fit-content;margin-left:30px;'
+		>
+			{{! Editors must receive enriched text data from getData to properly handle rolls }}
+			<prose-mirror
+				name='system.biography.backstory'
+				data-document-u-u-i-d='{{@root.actor.uuid}}'
+				value='{{@root.actor.system.biography.backstory}}'
+				toggled='false'
+				collaborate='false'
+			>
 				{{{@root.enrichedBiography}}}
 			</prose-mirror>
 		</div>
 	</div>
 	<hr />
-	<div class="grid grid-2col">
-		<div class="skills-list">
-			<div class="grid grid-5col">
-				<div class="grid-span-4">
+	<div class='grid grid-2col'>
+		<div class='skills-list'>
+			<div class='grid grid-5col'>
+				<div class='grid-span-4'>
 					<span>
-						<label class="resource-label">
-							{{localize (lookup @root.config.biography.goals "label")}}
+						<label class='resource-label'>
+							{{localize
+								(lookup @root.config.biography.goals 'label')
+							}}
 						</label>
 					</span>
 				</div>
-				<a class='goals-manage' data-action="manageGoal"
-					title='{{localize (lookup @root.config.biography.goals "manage")}}'>
-					<i class="fa-solid fa-gear"></i>
+				<a
+					class='goals-manage'
+					data-action='manageGoal'
+					title='{{localize
+						(lookup @root.config.biography.goals "manage")
+					}}'
+				>
+					<i class='fa-solid fa-gear'></i>
 				</a>
 			</div>
-			<ol class="goals-list">
+			<ol class='goals-list'>
 				{{#each system.biography.goals as |goal index|}}
-					<li class="list-item grid grid-5col">
-						<span class="flexcol grid-span-3" style="word-wrap:break-word;">{{goal.text}}</span>
-						<div class="goal-pip grid-span-2" data-action="goalIncrease" data-index="{{@index}}">
-							<i class="fa-{{pipRank goal.progress 1}} fa-circle"></i>
-							<i class="fa-{{pipRank goal.progress 2}} fa-circle"></i>
-							<i class="fa-{{pipRank goal.progress 3}} fa-circle"></i>
+					<li class='list-item grid grid-5col'>
+						<span
+							class='flexcol grid-span-3'
+							style='word-wrap:break-word;'
+						>{{goal.text}}</span>
+						<div
+							class='goal-pip grid-span-2'
+							data-action='goalIncrease'
+							data-index='{{@index}}'
+						>
+							<i
+								class='fa-{{pipRank goal.progress 1}} fa-circle'
+							></i>
+							<i
+								class='fa-{{pipRank goal.progress 2}} fa-circle'
+							></i>
+							<i
+								class='fa-{{pipRank goal.progress 3}} fa-circle'
+							></i>
 						</div>
 					</li>
 				{{/each}}
 			</ol>
 		</div>
-		<div class="skills-list">
-			<div class="grid grid-5col">
-				<div class="grid-span-4">
+		<div class='skills-list'>
+			<div class='grid grid-5col'>
+				<div class='grid-span-4'>
 					<span>
-						<label class="resource-label">
-							{{localize (lookup @root.config.biography.connections "label")}}
+						<label class='resource-label'>
+							{{localize
+								(lookup
+									@root.config.biography.connections 'label'
+								)
+							}}
 						</label>
 					</span>
 				</div>
-				<a class='connections-manage' data-action="manageConnection"
-					title='{{localize (lookup @root.config.biography.connections "manage")}}'>
-					<i class="fa-solid fa-gear"></i>
+				<a
+					class='connections-manage'
+					data-action='manageConnection'
+					title='{{localize
+						(lookup @root.config.biography.connections "manage")
+					}}'
+				>
+					<i class='fa-solid fa-gear'></i>
 				</a>
 			</div>
-			<ol class="connections-list">
+			<ol class='connections-list'>
 				{{#each system.biography.connections as |connection index|}}
-					<li class="list-item flexrow" style="vertical-align:middle;">
-						<span style="word-wrap:break-word;">{{connection}}</span>
+					<li
+						class='list-item flexrow'
+						style='vertical-align:middle;'
+					>
+						<span
+							style='word-wrap:break-word;'
+						>{{connection}}</span>
 					</li>
 				{{/each}}
 			</ol>
 		</div>
 	</div>
 	<hr />
-	<div class="grid grid-2col">
-		<div class="purpose flexcol">
-			<label for="purpose" class="resource-label flexlarge flex-group-left">
-				{{localize (lookup @root.config.biography "purpose")}}
+	<div class='grid grid-2col'>
+		<div class='purpose flexcol'>
+			<label
+				for='purpose'
+				class='resource-label flexlarge flex-group-left'
+			>
+				{{localize (lookup @root.config.biography 'purpose')}}
 			</label>
-			<textarea class="biography-textarea" data-target="purpose" cols=40
-				rows=4>{{system.biography.purpose}}</textarea>
+			<textarea
+				class='biography-textarea'
+				data-target='purpose'
+				cols='40'
+				rows='4'
+			>{{system.biography.purpose}}</textarea>
 		</div>
-		<div class="obstacle flexcol">
-			<label for="obstacle" class="resource-label flexlarge flex-group-left">
-				{{localize (lookup @root.config.biography "obstacle")}}
+		<div class='obstacle flexcol'>
+			<label
+				for='obstacle'
+				class='resource-label flexlarge flex-group-left'
+			>
+				{{localize (lookup @root.config.biography 'obstacle')}}
 			</label>
-			<textarea class="biography-textarea" data-target="obstacle" cols=40
-				rows=4>{{system.biography.obstacle}}</textarea>
+			<textarea
+				class='biography-textarea'
+				data-target='obstacle'
+				cols='40'
+				rows='4'
+			>{{system.biography.obstacle}}</textarea>
 		</div>
 	</div>
 </div>

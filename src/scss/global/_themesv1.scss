@@ -5,7 +5,7 @@
 :root {
 	--crpgu-primary-bg: #f3f9f9;
 	--crpgu-secondary-bg: #e6eded;
-	--crpgu-transparent-bg: #f3f9f9d1;
+	--crpgu-transparent-bg: #f3f9f969;
 	--crpgu-primary-font: #2a2a40;
 	--crpgu-secondary-font: #4e4b47;
 	--crpgu-header-color: #bcbcbc;
@@ -13,7 +13,7 @@
 [data-theme='beige'] {
 	--crpgu-primary-bg: #d1c6b9;
 	--crpgu-secondary-bg: #c3b9ad;
-	--crpgu-transparent-bg: #d1c6b9d1;
+	--crpgu-transparent-bg: #d1c6b969;
 	--crpgu-primary-font: #272525;
 	--crpgu-secondary-font: #3e3b3b;
 	--crpgu-header-color: #9d9489;
@@ -21,18 +21,18 @@
 [data-theme='dark'] {
 	--crpgu-primary-bg: #1e1e2d;
 	--crpgu-secondary-bg: #2a2a40;
-	--crpgu-transparent-bg: #1e1e2dd1;
+	--crpgu-transparent-bg: #1e1e2d69;
 	--crpgu-primary-font: #b8c8c9;
 	--crpgu-secondary-font: #b5b3a4;
 	--crpgu-header-color: #000;
 }
 [data-theme='glass'] {
-	--crpgu-primary-bg: #15153088;
-	--crpgu-secondary-bg: #2a2a4088;
-	--crpgu-transparent-bg: #1e1e2d3a;
+	--crpgu-primary-bg: #15153044;
+	--crpgu-secondary-bg: #2a2a4044;
+	--crpgu-transparent-bg: #1e1e2d69;
 	--crpgu-primary-font: #b8c8c9;
 	--crpgu-secondary-font: #b5b3a4;
-	--crpgu-header-color: #00000088;
+	--crpgu-header-color: #00000044;
 }
 
 .window-app {

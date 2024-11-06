@@ -229,17 +229,28 @@ function setTheme(i) {
 
 Hooks.on("renderApplication", (function (o, i, n) {
 	setTheme(i);
-	return true;
+}));
+Hooks.on("renderApplicationV2", (function (o, i, n) {
+	setTheme($(i));
 }));
 Hooks.on("createProseMirrorEditor", (function (o, i, n) {
 	setTheme(i);
-	return true;
 }));
 Hooks.on("renderActorSheet", (function (o, i, n) {
 	setTheme(i);
-	return true;
 }));
 Hooks.on("renderItemSheet", (function (o, i, n) {
 	setTheme(i);
-	return true;
+}));
+Hooks.on("renderActorSheetV2", (function (o, i, n) {
+	setTheme($(i));
+}));
+Hooks.on("renderItemSheetV2", (function (o, i, n) {
+	setTheme($(i));
+}));
+Hooks.on("renderDialog", (function (o, i, n) {
+	setTheme(i);
+}));
+Hooks.on("renderDialogV2", (function (o, i, n) {
+	setTheme($(i));
 }));

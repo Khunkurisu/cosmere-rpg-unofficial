@@ -18,10 +18,17 @@
 			</div>
 
 			{{!-- Biography Tab --}}
-			<div class="biography-tab" data-tab='biography' {{#unless (ifEquals selectedTab 'biography')}}
-				style='display:none' {{/unless}}>
-				{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-biography.hbs"}}
-			</div>
+			{{#if (ifEquals actor.type 'Player')}}
+				<div class="biography-tab" data-tab='biography' {{#unless (ifEquals selectedTab 'biography')}}
+					style='display:none' {{/unless}}>
+					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-biography.hbs"}}
+				</div>
+			{{else}}
+				<div class="biography-tab" data-tab='biography' {{#unless (ifEquals selectedTab 'biography')}}
+					style='display:none' {{/unless}}>
+					{{> "systems/cosmere-rpg-unofficial/templates/actor/parts/actor-notes.hbs"}}
+				</div>
+			{{/if}}
 
 			{{!-- Owned Items Tab --}}
 			<div class="items-tab" data-tab='items' {{#unless (ifEquals selectedTab 'items')}} style='display:none'

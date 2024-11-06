@@ -1,72 +1,57 @@
-@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap);
-:root {
-	--crpgu-primary-bg: #f3f9f9;
-	--crpgu-secondary-bg: #e6eded;
-	--crpgu-transparent-bg: #f3f9f9d1;
-	--crpgu-primary-font: #2a2a40;
-	--crpgu-secondary-font: #4e4b47;
-	--crpgu-header-color: #bcbcbc;
-}
-[data-theme='beige'] {
-	--crpgu-primary-bg: #d1c6b9;
-	--crpgu-secondary-bg: #c3b9ad;
-	--crpgu-transparent-bg: #d1c6b9d1;
-	--crpgu-primary-font: #272525;
-	--crpgu-secondary-font: #3e3b3b;
-	--crpgu-header-color: #9d9489;
-}
-[data-theme='dark'] {
-	--crpgu-primary-bg: #1e1e2d;
-	--crpgu-secondary-bg: #2a2a40;
-	--crpgu-transparent-bg: #1e1e2dd1;
-	--crpgu-primary-font: #b8c8c9;
-	--crpgu-secondary-font: #b5b3a4;
-	--crpgu-header-color: #000;
-}
-[data-theme='glass'] {
-	--crpgu-primary-bg: #15153088;
-	--crpgu-secondary-bg: #2a2a4088;
-	--crpgu-transparent-bg: #1e1e2d3a;
-	--crpgu-primary-font: #b8c8c9;
-	--crpgu-secondary-font: #b5b3a4;
-	--crpgu-header-color: #00000088;
+.app {
+	background: var(--crpgu-transparent-bg);
+	color: var(--crpgu-secondary-font);
+	.player {
+		color: var(--crpgu-primary-font);
+	}
+	.gm {
+		color: var(--crpgu-primary-font);
+	}
+	.player-name {
+		color: var(--crpgu-primary-font);
+	}
+	#players {
+		color: var(--crpgu-primary-font);
+	}
+	#player-list {
+		color: var(--crpgu-primary-font);
+	}
 }
 
-.applicatoin {
+.application {
 	border: 1px solid var(--crpgu-header-color);
 	font-family: $font-primary;
 }
 
-.applicatoin .window-header {
+.application .window-header {
 	background: var(--crpgu-header-color);
 }
 
-.applicatoin .window-content {
+.application .window-content {
 	padding: 0.1rem 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor) {
+.application:not(.item):not(.actor) {
 	font-family: 'PT Sans', monospace;
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor).journal-sheet {
+.application:not(.item):not(.actor).journal-sheet {
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor).journal-sheet .window-content aside.sidebar {
+.application:not(.item):not(.actor).journal-sheet
+	.window-content
+	aside.sidebar {
 	background: var(--crpgu-transparent-bg);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content {
+.application:not(.item):not(.actor) .window-content {
 	color: var(--crpgu-primary-font);
 	background: var(--crpgu-primary-bg);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content button {
+.application:not(.item):not(.actor) .window-content button {
 	background: var(--crpgu-primary-bg);
 	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans', monospace;
@@ -75,52 +60,52 @@
 	border-radius: 3px;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content button .tox-icon svg {
+.application:not(.item):not(.actor) .window-content button .tox-icon svg {
 	fill: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content button:hover {
+.application:not(.item):not(.actor) .window-content button:hover {
 	background: #af1c1c;
 	color: var(--crpgu-primary-font);
 	box-shadow: none;
 	text-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content button:hover .tox-icon svg {
+.application:not(.item):not(.actor) .window-content button:hover .tox-icon svg {
 	fill: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content button:hover ul {
+.application:not(.item):not(.actor) .window-content button:hover ul {
 	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans', monospace;
 	color: var(--crpgu-secondary-font);
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content button:hover ul li:hover {
+.application:not(.item):not(.actor) .window-content button:hover ul li:hover {
 	background-color: #af1c1c;
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content label,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor) .window-content label,
+.application:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
 	.header
 	.headerinputfield,
 .sheet.actor
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -131,15 +116,15 @@
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content select {
+.application:not(.item):not(.actor) .window-content select {
 	background: var(--crpgu-primary-bg);
 	color: var(--crpgu-primary-font);
 	border: 1px solid var(--crpgu-header-color);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content input,
-.applicatoin:not(.item):not(.actor) .window-content input[type='text'],
-.applicatoin:not(.item):not(.actor) .window-content textarea {
+.application:not(.item):not(.actor) .window-content input,
+.application:not(.item):not(.actor) .window-content input[type='text'],
+.application:not(.item):not(.actor) .window-content textarea {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
 	background: var(--crpgu-primary-bg) !important;
@@ -148,52 +133,52 @@
 	border-radius: 5px !important;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content input:hover,
-.applicatoin:not(.item):not(.actor) .window-content input[type='text']:hover,
-.applicatoin:not(.item):not(.actor) .window-content textarea:hover {
+.application:not(.item):not(.actor) .window-content input:hover,
+.application:not(.item):not(.actor) .window-content input[type='text']:hover,
+.application:not(.item):not(.actor) .window-content textarea:hover {
 	border: 1px solid #af1c1c !important;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content input:focus,
-.applicatoin:not(.item):not(.actor) .window-content input:active,
-.applicatoin:not(.item):not(.actor) .window-content input[type='text']:focus,
-.applicatoin:not(.item):not(.actor) .window-content input[type='text']:active,
-.applicatoin:not(.item):not(.actor) .window-content textarea:focus,
-.applicatoin:not(.item):not(.actor) .window-content textarea:active {
+.application:not(.item):not(.actor) .window-content input:focus,
+.application:not(.item):not(.actor) .window-content input:active,
+.application:not(.item):not(.actor) .window-content input[type='text']:focus,
+.application:not(.item):not(.actor) .window-content input[type='text']:active,
+.application:not(.item):not(.actor) .window-content textarea:focus,
+.application:not(.item):not(.actor) .window-content textarea:active {
 	border: 1px solid var(--crpgu-secondary-font) !important;
 	box-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content input:disabled,
-.applicatoin:not(.item):not(.actor) .window-content input[type='text']:disabled,
-.applicatoin:not(.item):not(.actor) .window-content textarea:disabled {
+.application:not(.item):not(.actor) .window-content input:disabled,
+.application:not(.item):not(.actor) .window-content input[type='text']:disabled,
+.application:not(.item):not(.actor) .window-content textarea:disabled {
 	background: var(--crpgu-primary-bg) !important;
 	color: var(--crpgu-secondary-font) !important;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content input[type='number'] {
+.application:not(.item):not(.actor) .window-content input[type='number'] {
 	font-family: 'PT Sans Caption', serif;
 	font-weight: bold;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content range-picker {
+.application:not(.item):not(.actor) .window-content range-picker {
 	border: none;
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .rollable:hover {
+.application:not(.item):not(.actor) .window-content .rollable:hover {
 	color: #af1c1c;
 	box-shadow: none;
 	text-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table {
+.application:not(.item):not(.actor) .window-content table {
 	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table thead {
+.application:not(.item):not(.actor) .window-content table thead {
 	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
 	color: var(--crpgu-secondary-font);
@@ -203,25 +188,29 @@
 	border-top-right-radius: 5px;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table thead tr.table-header {
+.application:not(.item):not(.actor)
+	.window-content
+	table
+	thead
+	tr.table-header {
 	background: none;
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table thead tr td p {
+.application:not(.item):not(.actor) .window-content table thead tr td p {
 	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table tbody {
+.application:not(.item):not(.actor) .window-content table tbody {
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table tbody tr {
+.application:not(.item):not(.actor) .window-content table tbody tr {
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	table
 	tbody
@@ -229,13 +218,13 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .journal-header .title {
+.application:not(.item):not(.actor) .window-content .journal-header .title {
 	font-family: 'Bebas Neue', monospace;
 	font-weight: bold;
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.journal-header
 	.page-level
@@ -244,12 +233,12 @@
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .prosemirror {
+.application:not(.item):not(.actor) .window-content .prosemirror {
 	background: var(--crpgu-secondary-bg);
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -262,7 +251,7 @@
 	border-radius: 3px;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -272,7 +261,7 @@
 	fill: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -283,7 +272,7 @@
 	text-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -293,7 +282,7 @@
 	fill: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -305,7 +294,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -316,12 +305,12 @@
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	label,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.prosemirror
@@ -329,13 +318,13 @@
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	.sheet-header
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
@@ -343,13 +332,13 @@
 	.editor-menu
 	.headerinputfield,
 .sheet.item
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.prosemirror
 	.editor-menu
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.prosemirror
@@ -358,14 +347,14 @@
 	.header
 	.headerinputfield,
 .sheet.actor
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	.header-fields
 	.header
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
@@ -374,7 +363,7 @@
 	.editor-menu
 	.headerinputfield,
 .sheet.actor
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -387,7 +376,7 @@
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -397,17 +386,17 @@
 	border: 1px solid var(--crpgu-header-color);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text'],
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -420,17 +409,17 @@
 	border-radius: 5px !important;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -438,32 +427,32 @@
 	border: 1px solid #af1c1c !important;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:active,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:active,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	textarea:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -472,17 +461,17 @@
 	box-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input:disabled,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
 	input[type='text']:disabled,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -491,7 +480,7 @@
 	color: var(--crpgu-secondary-font) !important;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -500,7 +489,7 @@
 	font-weight: bold;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -509,7 +498,7 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -519,7 +508,7 @@
 	text-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -529,7 +518,7 @@
 	padding: 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -544,7 +533,7 @@
 	border-top-right-radius: 5px;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -555,7 +544,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -568,7 +557,7 @@
 	font-family: 'PT Sans Caption';
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -577,7 +566,7 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -587,7 +576,7 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-menu
@@ -597,7 +586,7 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -608,7 +597,7 @@
 	line-height: 1.2rem;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -622,7 +611,7 @@
 	border-bottom: 2px solid var(--crpgu-header-color);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -634,7 +623,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -646,7 +635,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -658,7 +647,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -670,7 +659,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -685,7 +674,7 @@
 	padding: 1rem;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -695,7 +684,7 @@
 	font-family: 'Nunito', sans-serif;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -707,7 +696,7 @@
 	text-decoration: underline;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -718,7 +707,7 @@
 	padding: 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -734,7 +723,7 @@
 	border-top-right-radius: 5px;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -746,7 +735,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -760,7 +749,7 @@
 	font-family: 'PT Sans Caption';
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -770,7 +759,7 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -781,7 +770,7 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.prosemirror
 	.editor-container
@@ -792,31 +781,31 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .prosemirror textarea {
+.application:not(.item):not(.actor) .window-content .prosemirror textarea {
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce {
+.application:not(.item):not(.actor) .window-content .tinymce {
 	padding: 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce {
+.application:not(.item):not(.actor) .window-content .tinymce .editor-content,
+.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce {
 	background: var(--crpgu-secondary-bg);
 	color: var(--crpgu-secondary-font);
 	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content p,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce p {
+.application:not(.item):not(.actor) .window-content .tinymce .editor-content p,
+.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce p {
 	font-family: 'Nunito', sans-serif;
 	font-size: 0.9rem;
 	line-height: 1.2rem;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h1,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h1 {
+.application:not(.item):not(.actor) .window-content .tinymce .editor-content h1,
+.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h1 {
 	font-family: 'Bebas Neue';
 	font-size: 1.6rem;
 	font-weight: bold;
@@ -825,44 +814,44 @@
 	border-bottom: 2px solid var(--crpgu-header-color);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h2,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h2 {
+.application:not(.item):not(.actor) .window-content .tinymce .editor-content h2,
+.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h2 {
 	font-family: 'PT Sans Caption';
 	font-size: 1.3rem;
 	font-weight: bold;
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h3,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h3 {
+.application:not(.item):not(.actor) .window-content .tinymce .editor-content h3,
+.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h3 {
 	font-family: 'Nunito';
 	font-size: 1.1rem;
 	font-weight: bold;
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h4,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h4 {
+.application:not(.item):not(.actor) .window-content .tinymce .editor-content h4,
+.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h4 {
 	font-family: 'Nunito';
 	font-size: 1rem;
 	font-weight: normal;
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .editor-content h5,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h5 {
+.application:not(.item):not(.actor) .window-content .tinymce .editor-content h5,
+.application:not(.item):not(.actor) .window-content .tinymce .tox-tinymce h5 {
 	font-family: 'Nunito';
 	font-size: 0.9rem;
 	font-weight: bold;
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	blockquote,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -876,13 +865,13 @@
 	padding: 1rem;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	blockquote
 	p,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -891,12 +880,12 @@
 	font-family: 'Nunito', sans-serif;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.content-link,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -907,24 +896,28 @@
 	text-decoration: underline;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table,
-.applicatoin:not(.item):not(.actor) .window-content .tinymce .tox-tinymce table {
+.application:not(.item):not(.actor)
+	.window-content
+	.tinymce
+	.tox-tinymce
+	table {
 	border: 1px solid var(--crpgu-header-color);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	thead,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -939,14 +932,14 @@
 	border-top-right-radius: 5px;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	thead
 	tr.table-header,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -957,7 +950,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -966,7 +959,7 @@
 	tr
 	td
 	p,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -979,13 +972,13 @@
 	font-family: 'PT Sans Caption';
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	tbody,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -994,14 +987,14 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	tbody
 	tr,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1011,14 +1004,14 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	table
 	tbody
 	tr:nth-child(odd),
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1028,12 +1021,12 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1041,18 +1034,18 @@
 	background: none;
 }
 
-.applicatoin option {
+.application option {
 	background-color: var(--crpgu-header-color);
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container
 	.tox-editor-header,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1065,14 +1058,14 @@
 	background-color: var(--crpgu-secondary-bg);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container
 	.tox-editor-header
 	.tox-toolbar-overlord,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1082,7 +1075,7 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1090,7 +1083,7 @@
 	.tox-editor-header
 	.tox-toolbar-overlord
 	.tox-toolbar__primary,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1101,7 +1094,7 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1110,7 +1103,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	button,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1127,7 +1120,7 @@
 	border-radius: 3px;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1138,7 +1131,7 @@
 	button
 	.tox-icon
 	svg,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1152,7 +1145,7 @@
 	fill: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1161,7 +1154,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	button:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1176,7 +1169,7 @@
 	text-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1187,7 +1180,7 @@
 	button:hover
 	.tox-icon
 	svg,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1201,7 +1194,7 @@
 	fill: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1211,7 +1204,7 @@
 	.tox-toolbar__primary
 	button:hover
 	ul,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1227,7 +1220,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1238,7 +1231,7 @@
 	button:hover
 	ul
 	li:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1253,7 +1246,7 @@
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1262,7 +1255,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	label,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.tinymce
@@ -1274,7 +1267,7 @@
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1284,7 +1277,7 @@
 	.tox-toolbar__primary
 	.sheet-header
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
@@ -1296,7 +1289,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.item
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.tinymce
@@ -1306,7 +1299,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.tinymce
@@ -1319,7 +1312,7 @@
 	.header
 	.headerinputfield,
 .sheet.actor
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1330,7 +1323,7 @@
 	.header-fields
 	.header
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
@@ -1343,7 +1336,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.actor
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -1354,7 +1347,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1363,7 +1356,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	label,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.tinymce
@@ -1375,7 +1368,7 @@
 	.sheet-header
 	.headerinputfield,
 .sheet.item
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1385,7 +1378,7 @@
 	.tox-toolbar__primary
 	.sheet-header
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.item
 	.window-content
 	.sheet-header
@@ -1397,7 +1390,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.item
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.sheet-header
 	.tinymce
@@ -1407,7 +1400,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.tinymce
@@ -1420,7 +1413,7 @@
 	.header
 	.headerinputfield,
 .sheet.actor
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1431,7 +1424,7 @@
 	.header-fields
 	.header
 	.headerinputfield,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.sheet.actor
 	.window-content
 	.header-fields
@@ -1444,7 +1437,7 @@
 	.tox-toolbar__primary
 	.headerinputfield,
 .sheet.actor
-	.applicatoin:not(.item):not(.actor)
+	.application:not(.item):not(.actor)
 	.window-content
 	.header-fields
 	.header
@@ -1461,7 +1454,7 @@
 	color: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1470,7 +1463,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	select,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1484,7 +1477,7 @@
 	border: 1px solid var(--crpgu-secondary-bg);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1493,7 +1486,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1502,7 +1495,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text'],
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1511,7 +1504,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1520,7 +1513,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1529,7 +1522,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text'],
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1546,7 +1539,7 @@
 	border-radius: 5px !important;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1555,7 +1548,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1564,7 +1557,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1573,7 +1566,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1582,7 +1575,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1591,7 +1584,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1603,7 +1596,7 @@
 	border: 1px solid #af1c1c !important;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1612,7 +1605,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1621,7 +1614,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:active,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1630,7 +1623,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1639,7 +1632,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:active,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1648,7 +1641,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1657,7 +1650,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:active,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1666,7 +1659,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1675,7 +1668,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:active,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1684,7 +1677,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1693,7 +1686,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:active,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1702,7 +1695,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:focus,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1715,7 +1708,7 @@
 	box-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1724,7 +1717,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:disabled,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1733,7 +1726,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:disabled,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1742,7 +1735,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	textarea:disabled,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1751,7 +1744,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input:disabled,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1760,7 +1753,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='text']:disabled,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1773,7 +1766,7 @@
 	color: var(--crpgu-secondary-font) !important;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1782,7 +1775,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	input[type='number'],
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1795,7 +1788,7 @@
 	font-weight: bold;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1804,7 +1797,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	range-picker,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1817,7 +1810,7 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1826,7 +1819,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	.rollable:hover,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1840,7 +1833,7 @@
 	text-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1849,7 +1842,7 @@
 	.tox-toolbar-overlord
 	.tox-toolbar__primary
 	table,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1863,7 +1856,7 @@
 	padding: 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1873,7 +1866,7 @@
 	.tox-toolbar__primary
 	table
 	thead,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1892,7 +1885,7 @@
 	border-top-right-radius: 5px;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1903,7 +1896,7 @@
 	table
 	thead
 	tr.table-header,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1918,7 +1911,7 @@
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1931,7 +1924,7 @@
 	tr
 	td
 	p,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1948,7 +1941,7 @@
 	font-family: 'PT Sans Caption';
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1958,7 +1951,7 @@
 	.tox-toolbar__primary
 	table
 	tbody,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1971,7 +1964,7 @@
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -1982,7 +1975,7 @@
 	table
 	tbody
 	tr,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -1996,7 +1989,7 @@
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
@@ -2007,7 +2000,7 @@
 	table
 	tbody
 	tr:nth-child(odd),
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -2021,14 +2014,14 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.editor-content
 	.tox-editor-container
 	.tox-sidebar-wrap
 	.tox-edit-area,
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	.tinymce
 	.tox-tinymce
@@ -2038,17 +2031,17 @@
 	background: var(--crpgu-primary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .tinymce textarea {
+.application:not(.item):not(.actor) .window-content .tinymce textarea {
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table {
+.application:not(.item):not(.actor) .window-content table {
 	border: 1px solid var(--crpgu-secondary-bg);
 	border-radius: 5px;
 	padding: 0.5rem;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table thead {
+.application:not(.item):not(.actor) .window-content table thead {
 	background: var(--crpgu-primary-bg);
 	font-family: 'PT Sans Caption';
 	color: var(--crpgu-secondary-font);
@@ -2058,25 +2051,29 @@
 	border-top-right-radius: 5px;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table thead tr.table-header {
+.application:not(.item):not(.actor)
+	.window-content
+	table
+	thead
+	tr.table-header {
 	background: none;
 	border: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table thead tr td p {
+.application:not(.item):not(.actor) .window-content table thead tr td p {
 	color: var(--crpgu-secondary-font);
 	font-family: 'PT Sans Caption';
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table tbody {
+.application:not(.item):not(.actor) .window-content table tbody {
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content table tbody tr {
+.application:not(.item):not(.actor) .window-content table tbody tr {
 	background: none;
 }
 
-.applicatoin:not(.item):not(.actor)
+.application:not(.item):not(.actor)
 	.window-content
 	table
 	tbody
@@ -2084,28 +2081,31 @@
 	background: rgba(255, 255, 255, 0.05);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs {
+.application:not(.item):not(.actor) .window-content nav.sheet-tabs {
 	border: none;
 	border-top: 1px solid var(--crpgu-secondary-bg);
 	border-bottom: 1px solid var(--crpgu-secondary-bg);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs .item {
+.application:not(.item):not(.actor) .window-content nav.sheet-tabs .item {
 	color: var(--crpgu-secondary-font);
 }
 
-.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs .item:hover {
+.application:not(.item):not(.actor) .window-content nav.sheet-tabs .item:hover {
 	color: #af1c1c;
 	text-shadow: none;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content nav.sheet-tabs .item.active {
+.application:not(.item):not(.actor)
+	.window-content
+	nav.sheet-tabs
+	.item.active {
 	color: var(--crpgu-primary-font);
 	text-shadow: none;
 	font-weight: bold;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content .notes {
+.application:not(.item):not(.actor) .window-content .notes {
 	font-family: 'PT Sans', monospace;
 	color: var(--crpgu-secondary-font);
 	font-style: italic;
@@ -2113,7 +2113,7 @@
 	font-size: 0.8rem;
 }
 
-.applicatoin:not(.item):not(.actor) .window-content hr {
+.application:not(.item):not(.actor) .window-content hr {
 	border: none;
 	border-bottom: 1px solid var(--crpgu-secondary-bg);
 	margin: 1rem 0 0 1rem;
