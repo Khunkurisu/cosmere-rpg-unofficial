@@ -74,7 +74,7 @@ export class CosmereUnofficialActor extends Actor {
 		this.getEffectBonuses(actorData);
 
 		systemData.capacity.maxLift = this.getCarryCapacity(attributes);
-		systemData.capacity.maxCarry = this.getCarryCapacity(attributes) / 2
+		systemData.capacity.maxCarry = systemData.capacity.maxLift / 2
 
 		systemData.senses = this.getSensesRange(attributes);
 
