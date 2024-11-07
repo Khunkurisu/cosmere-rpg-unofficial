@@ -17,10 +17,19 @@ export class CosmereUnofficialActor extends Actor {
 
 	/** @override */
 	prepareBaseData() {
+		const actorData = this;
+		const attributes = actorData.system.attributes;
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
 		this.selectedTab ??= 'actions';
 		validateBaseData(this);
+
+		attributes.strength.value = attributes.strength.base;
+		attributes.speed.value = attributes.speed.base;
+		attributes.intellect.value = attributes.intellect.base;
+		attributes.willpower.value = attributes.willpower.base;
+		attributes.awareness.value = attributes.awareness.base;
+		attributes.presence.value = attributes.presence.base;
 	}
 
 	/**
@@ -61,13 +70,6 @@ export class CosmereUnofficialActor extends Actor {
 		const systemData = actorData.system;
 		const attributes = actorData.system.attributes;
 		const items = actorData.items._source;
-
-		attributes.strength.value = attributes.strength.base;
-		attributes.speed.value = attributes.speed.base;
-		attributes.intellect.value = attributes.intellect.base;
-		attributes.willpower.value = attributes.willpower.base;
-		attributes.awareness.value = attributes.awareness.base;
-		attributes.presence.value = attributes.presence.base;
 
 		this.checkItems(actorData);
 		this.setDeflect(actorData);
