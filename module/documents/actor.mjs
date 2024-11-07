@@ -70,7 +70,8 @@ export class CosmereUnofficialActor extends Actor {
 		attributes.presence.value = attributes.presence.base;
 
 		this.checkItems(actorData);
-		console.log(systemData.stored);
+		this.setDeflect(actorData);
+
 		this.getEffectBonuses(actorData);
 
 		systemData.capacity.maxLift = this.getCarryCapacity(attributes);
@@ -102,11 +103,10 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.isRadiant = this.isRadiant(systemData);
 
+		this.setSkills(systemData);
+
 		this.setDefenses(actorData);
 		this.setResources(actorData);
-		this.setDeflect(actorData);
-
-		this.setSkills(systemData);
 
 		this.getEffectBonuses(actorData, 'derived');
 
