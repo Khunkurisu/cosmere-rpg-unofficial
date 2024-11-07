@@ -70,6 +70,7 @@ export class CosmereUnofficialActor extends Actor {
 		attributes.presence.value = attributes.presence.base;
 
 		this.checkItems(actorData);
+		console.log(systemData.stored);
 		this.getEffectBonuses(actorData);
 
 		systemData.capacity = {
@@ -145,7 +146,8 @@ export class CosmereUnofficialActor extends Actor {
 		actorData.items.forEach(function (item) {
 			if (item.type === 'Equipment' || item.type === 'Weapon' || item.type === 'Armor') {
 				systemData.capacity.carrying += item.system.totalWeight;
-				item.system.displayWeight = `${Number((item.system.totalWeight).toFixed(2))} lbs`;
+				item.system.displayWeight = `${item.system.totalWeight ?
+					Number((item.system.totalWeight).toFixed(2)) : 0} lbs`;
 				if (item.system.quantity > 0 && item.system.isEquipped) {
 					equipped.push(item);
 				}
@@ -175,7 +177,8 @@ export class CosmereUnofficialActor extends Actor {
 			});
 			container.system.items = containerItems;
 			systemData.capacity.carrying += container.system.totalWeight;
-			container.system.displayWeight = `${Number((container.system.totalWeight).toFixed(2))} lbs`;
+			container.system.displayWeight = `${container.system.totalWeight ?
+				Number((container.system.totalWeight).toFixed(2)) : 0} lbs`;
 		});
 
 		systemData.effects = effects;

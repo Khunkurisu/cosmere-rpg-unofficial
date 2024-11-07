@@ -206,6 +206,7 @@ export class CosmereUnofficialActorSheet extends api.HandlebarsApplicationMixin(
 			}
 
 			let isStored = false;
+			console.log(system.stored);
 			system.stored.every(function (obj) {
 				if (obj._id === item._id) {
 					isStored = true;

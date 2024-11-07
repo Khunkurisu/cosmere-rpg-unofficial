@@ -89,7 +89,7 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 	return str.toUpperCase();
 });
 Handlebars.registerHelper('round', function (n) {
-	return Number((n).toFixed(2));
+	return n ? Number((n).toFixed(2)) : 0;
 });
 /* {{#if (ifEquals sampleString "This is a string")}}	*/
 /*   Your HTML here										*/

@@ -1,58 +1,59 @@
 export function validateBaseData(actor) {
+	const system = actor.system;
 	if (actor._stats.systemVersion !== game.system.version) {
 		const ver = actor._stats.systemVersion.split('.');
 		const release = ver[0];
 		const update = ver[1];
 		const revision = ver[2];
 		if (release <= 0 && update <= 2 && revision <= 10) {
-			attributes.strength.base = attributes.strength.value;
-			attributes.speed.base = attributes.speed.value;
-			attributes.intellect.base = attributes.intellect.value;
-			attributes.willpower.base = attributes.willpower.value;
-			attributes.awareness.base = attributes.awareness.value;
-			attributes.presence.base = attributes.presence.value;
+			system.attributes.strength.base = system.attributes.strength.value;
+			system.attributes.speed.base = system.attributes.speed.value;
+			system.attributes.intellect.base = system.attributes.intellect.value;
+			system.attributes.willpower.base = system.attributes.willpower.value;
+			system.attributes.awareness.base = system.attributes.awareness.value;
+			system.attributes.presence.base = system.attributes.presence.value;
 		}
 		else if (release <= 0 && update <= 2 && revision <= 7) {
-			if (actor.system.health) {
-				if (actor.system.health.value) {
-					actor.system.health = {
-						value: actor.system.health.value,
+			if (system.health) {
+				if (system.health.value) {
+					system.health = {
+						value: system.health.value,
 						max: 10,
 					};
 				} else {
-					actor.system.health = {
+					system.health = {
 						value: 10,
 						max: 10,
 					};
 				}
 			}
-			if (actor.system.focus) {
-				if (actor.system.focus.value) {
-					actor.system.focus = {
-						value: actor.system.focus.value,
+			if (system.focus) {
+				if (system.focus.value) {
+					system.focus = {
+						value: system.focus.value,
 						max: 10,
 					};
 				} else {
-					actor.system.focus = {
+					system.focus = {
 						value: 10,
 						max: 10,
 					};
 				}
 			}
-			if (actor.system.value) {
-				if (actor.system.value.value) {
-					actor.system.value = {
-						value: actor.system.value.value,
+			if (system.value) {
+				if (system.value.value) {
+					system.value = {
+						value: system.value.value,
 						max: 10,
 					};
 				} else {
-					actor.system.value = {
+					system.value = {
 						value: 10,
 						max: 10,
 					};
 				}
 			}
-			actor.system.movement = {
+			system.movement = {
 				ground: 20,
 			}
 		}
