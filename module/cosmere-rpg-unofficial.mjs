@@ -223,34 +223,52 @@ function rollItemMacro(itemUuid) {
 		item.roll();
 	});
 }
+
 function setTheme(i) {
-	i.attr && i.attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	if (i.attr) {
+		i.attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	} else if ($(i).attr) {
+		$(i).attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	}
 }
 
 Hooks.on("renderApplication", (function (o, i, n) {
 	setTheme(i);
+	return true;
 }));
 Hooks.on("renderApplicationV2", (function (o, i, n) {
-	setTheme($(i));
+	setTheme(i);
+	return true;
+}));
+Hooks.on("renderDocumentSheetV2", (function (o, i, n) {
+	setTheme(i);
+	return true;
 }));
 Hooks.on("createProseMirrorEditor", (function (o, i, n) {
 	setTheme(i);
+	return true;
 }));
 Hooks.on("renderActorSheet", (function (o, i, n) {
 	setTheme(i);
+	return true;
 }));
 Hooks.on("renderItemSheet", (function (o, i, n) {
 	setTheme(i);
-}));
-Hooks.on("renderActorSheetV2", (function (o, i, n) {
-	setTheme($(i));
-}));
-Hooks.on("renderItemSheetV2", (function (o, i, n) {
-	setTheme($(i));
+	return true;
 }));
 Hooks.on("renderDialog", (function (o, i, n) {
 	setTheme(i);
+	return true;
 }));
 Hooks.on("renderDialogV2", (function (o, i, n) {
-	setTheme($(i));
+	setTheme(i);
+	return true;
+}));
+Hooks.on("renderDocumentDirectory", (function (o, i, n) {
+	setTheme(i);
+	return true;
+}));
+Hooks.on("renderSidebarTab", (function (o, i, n) {
+	setTheme(i);
+	return true;
 }));
