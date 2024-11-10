@@ -147,6 +147,9 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		// Select Starting Skill
 		html.on('change', '.path-skill-select', this._onPathSkillSelect.bind(this));
 
+		// Select Radiant Path Surge Skills
+		html.on('change', '.radiant-path-skill-select', this._onRadiantPathSkillSelect.bind(this));
+
 		// Select Path Type
 		html.on('change', '.radiant-toggle-checkbox', this._onRadiantCheckboxToggle.bind(this));
 
@@ -497,6 +500,29 @@ export class CosmereUnofficialItemSheet extends ItemSheet {
 		const system = this.item.system;
 
 		system.skill = element.value;
+
+		this.render(false);
+	}
+
+	/**
+	 * Handle selecting path starting skill.
+	 * @param {Event} event   The originating click event
+	 * @private
+	 */
+	_onRadiantPathSkillSelect(event) {
+		event.preventDefault();
+		const element = event.currentTarget;
+		const system = this.item.system;
+		const dataset = element.dataset;
+		const index = dataset.key;
+
+		while (system.skills.length < 2) {
+			system.skills.push('adhesion');
+		}
+
+		system.skills[index] = element.value;
+		const skills = system.skills;
+		this.item.update({ "system.skills": skills });
 
 		this.render(false);
 	}

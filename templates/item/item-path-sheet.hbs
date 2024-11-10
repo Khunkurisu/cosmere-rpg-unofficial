@@ -38,29 +38,79 @@
 					<input class="radiant-toggle-checkbox" type="checkbox" id="radiant-toggle" name="radiant-toggle"
 						value="{{system.isRadiant}}" {{#if system.isRadiant}} checked="true" {{/if}}>
 				</div>
-				<div class='grid-span-2 flexrow'>
-					<label class='resource-label' for='system.skill'>Starting Skill</label><br />
-					<select name='system.skill' class='path-skill-select'>
-						<option value="athletics" {{isSelected 'athletics' system.skill}}>Athletics</option>
-						<option value="agility" {{isSelected 'agility' system.skill}}>Agility</option>
-						<option value="heavy_weapons" {{isSelected 'heavy_weapons' system.skill}}>Heavy Weapons</option>
-						<option value="light_weapons" {{isSelected 'light_weapons' system.skill}}>Light Weapons</option>
-						<option value="stealth" {{isSelected 'stealth' system.skill}}>Stealth</option>
-						<option value="thievery" {{isSelected 'thievery' system.skill}}>Thievery</option>
-						<option value="crafting" {{isSelected 'crafting' system.skill}}>Crafting</option>
-						<option value="deduction" {{isSelected 'deduction' system.skill}}>Deduction</option>
-						<option value="discipline" {{isSelected 'discipline' system.skill}}>Discipline</option>
-						<option value="intimidation" {{isSelected 'intimidation' system.skill}}>Intimidation</option>
-						<option value="lore" {{isSelected 'lore' system.skill}}>Lore</option>
-						<option value="medicine" {{isSelected 'medicine' system.skill}}>Medicine</option>
-						<option value="deception" {{isSelected 'deception' system.skill}}>Deception</option>
-						<option value="insight" {{isSelected 'insight' system.skill}}>Insight</option>
-						<option value="leadership" {{isSelected 'leadership' system.skill}}>Leadership</option>
-						<option value="perception" {{isSelected 'perception' system.skill}}>Perception</option>
-						<option value="persuasion" {{isSelected 'persuasion' system.skill}}>Persuasion</option>
-						<option value="survival" {{isSelected 'survival' system.skill}}>Survival</option>
-					</select>
-				</div>
+				{{#if system.isRadiant}}
+					<div class='flexrow'>
+						<label class='resource-label' for='system.skill'>Surge Skill 1</label><br />
+						<select name='system.skill' class='radiant-path-skill-select' data-key="0">
+							<option value="adhesion" {{isSelected 'adhesion' system.skills 0}}>Adhesion</option>
+							<option value="gravitation" {{isSelected 'gravitation' system.skills 0}}>Gravitation
+							</option>
+							<option value="division" {{isSelected 'division' system.skills 0}}>Division</option>
+							<option value="abrasion" {{isSelected 'abrasion' system.skills 0}}>Abrasion</option>
+							<option value="progression" {{isSelected 'progression' system.skills 0}}>Progression
+							</option>
+							<option value="illumination" {{isSelected 'illumination' system.skills 0}}>Illumination
+							</option>
+							<option value="transformation" {{isSelected 'transformation' system.skills 0}}>
+								Transformation
+							</option>
+							<option value="transportation" {{isSelected 'transportation' system.skills 0}}>
+								Transportation
+							</option>
+							<option value="cohesion" {{isSelected 'cohesion' system.skills 0}}>Cohesion</option>
+							<option value="tension" {{isSelected 'tension' system.skills 0}}>Tension</option>
+						</select>
+					</div>
+					<div class='flexrow'>
+						<label class='resource-label' for='system.skill'>Surge Skill 2</label><br />
+						<select name='system.skill' class='radiant-path-skill-select' data-key="1">
+							<option value="adhesion" {{isSelected 'adhesion' system.skills 1}}>Adhesion</option>
+							<option value="gravitation" {{isSelected 'gravitation' system.skills 1}}>Gravitation
+							</option>
+							<option value="division" {{isSelected 'division' system.skills 1}}>Division</option>
+							<option value="abrasion" {{isSelected 'abrasion' system.skills 1}}>Abrasion</option>
+							<option value="progression" {{isSelected 'progression' system.skills 1}}>Progression
+							</option>
+							<option value="illumination" {{isSelected 'illumination' system.skills 1}}>Illumination
+							</option>
+							<option value="transformation" {{isSelected 'transformation' system.skills 1}}>
+								Transformation
+							</option>
+							<option value="transportation" {{isSelected 'transportation' system.skills 1}}>
+								Transportation
+							</option>
+							<option value="cohesion" {{isSelected 'cohesion' system.skills 1}}>Cohesion</option>
+							<option value="tension" {{isSelected 'tension' system.skills 1}}>Tension</option>
+						</select>
+					</div>
+				{{else}}
+					<div class='grid-span-2 flexrow'>
+						<label class='resource-label' for='system.skill'>Starting Skill</label><br />
+						<select name='system.skill' class='path-skill-select'>
+							<option value="athletics" {{isSelected 'athletics' system.skill}}>Athletics</option>
+							<option value="agility" {{isSelected 'agility' system.skill}}>Agility</option>
+							<option value="heavy_weapons" {{isSelected 'heavy_weapons' system.skill}}>Heavy Weapons
+							</option>
+							<option value="light_weapons" {{isSelected 'light_weapons' system.skill}}>Light Weapons
+							</option>
+							<option value="stealth" {{isSelected 'stealth' system.skill}}>Stealth</option>
+							<option value="thievery" {{isSelected 'thievery' system.skill}}>Thievery</option>
+							<option value="crafting" {{isSelected 'crafting' system.skill}}>Crafting</option>
+							<option value="deduction" {{isSelected 'deduction' system.skill}}>Deduction</option>
+							<option value="discipline" {{isSelected 'discipline' system.skill}}>Discipline</option>
+							<option value="intimidation" {{isSelected 'intimidation' system.skill}}>Intimidation
+							</option>
+							<option value="lore" {{isSelected 'lore' system.skill}}>Lore</option>
+							<option value="medicine" {{isSelected 'medicine' system.skill}}>Medicine</option>
+							<option value="deception" {{isSelected 'deception' system.skill}}>Deception</option>
+							<option value="insight" {{isSelected 'insight' system.skill}}>Insight</option>
+							<option value="leadership" {{isSelected 'leadership' system.skill}}>Leadership</option>
+							<option value="perception" {{isSelected 'perception' system.skill}}>Perception</option>
+							<option value="persuasion" {{isSelected 'persuasion' system.skill}}>Persuasion</option>
+							<option value="survival" {{isSelected 'survival' system.skill}}>Survival</option>
+						</select>
+					</div>
+				{{/if}}
 				<div class="grid-span-1 flexrow"><span></span></div>
 			</div>
 			<hr />

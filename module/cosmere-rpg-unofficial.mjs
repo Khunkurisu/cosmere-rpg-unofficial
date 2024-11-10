@@ -109,8 +109,12 @@ Handlebars.registerHelper('toString', function (arr) {
 Handlebars.registerHelper('capacityPct', function (capacityObj) {
 	return (capacityObj.carrying / capacityObj.maxCarry) * 100;
 });
-Handlebars.registerHelper('isSelected', function (arg1, arg2) {
-	return (arg1 == arg2) ? "selected" : "";
+Handlebars.registerHelper('isSelected', function (arg1, arg2, arg3) {
+	let bool = arg1 == arg2;
+	if (arg3 || arg3 === 0) {
+		bool = arg2[arg3] == arg1;
+	}
+	return bool ? "selected" : "";
 });
 Handlebars.registerHelper('pipRank', function (rank, pip) {
 	const pipValue = Number.parseInt(pip, 10);

@@ -210,23 +210,24 @@ export class CosmereUnofficialActor extends Actor {
 			for (let c in systemData.skills) {
 				const category = systemData.skills[c];
 				const pathSkill = path.system.skill;
-				if (pathSkill in category) {
+				if ((pathSkill in category)) {
 					category[pathSkill].bonusRank = 1;
 				}
 			}
 		}
 		for (var category in skills) {
 			for (var key in skills[category]) {
+				if (category === 'surge') {
+					skills[category][key].show = this.isRadiantSkill(key);
+					if (skills[category][key].show) {
+						systemData.hasSurges = true;
+						skills[category][key].bonusRank = 1;
+					}
+				}
 				const attribute = attributes[skills[category][key].attribute].value;
 				skills[category][key].rank = skills[category][key].initialRank + skills[category][key].bonusRank;
 				const rank = skills[category][key].rank;
 				skills[category][key].value = rank + attribute;
-				if (category === 'surge') {
-					skills[category][key].show = this.isRadiantSkill(key);
-					if (show) {
-						systemData.hasSurges = true;
-					}
-				}
 			}
 		}
 	}

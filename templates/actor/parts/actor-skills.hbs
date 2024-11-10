@@ -139,8 +139,8 @@
 									data-label="{{localize (lookup @root.config.skills.surge key)}}">
 									({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
 								</label>
-								<div class="skill-pip flexrow flex-group-right" data-skill="{{key}}"
-									data-skill-branch="surge">
+								<div class="skill-pip flexrow flex-group-right" data-action="skillIncrease"
+									data-skill="{{key}}" data-skill-branch="surge">
 									<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
 									<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
 									<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
