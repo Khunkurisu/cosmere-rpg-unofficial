@@ -6,7 +6,7 @@ import { GoalManager } from "../application/goal-manager.mjs";
  * @param {Event} event   The originating click event
  * @private
  */
-export async function onConnectionManage(event) {
+export async function onConnectionManage(event, target) {
 	event.preventDefault();
 	const system = this.actor.system;
 
@@ -15,13 +15,13 @@ export async function onConnectionManage(event) {
 		connections: [...system.biography.connections],
 		window: {
 			resizable: true,
-			title: "Manage Goal",
+			title: "Manage Connection",
 		},
 	}
 
 	new ConnectionManager(options).render({ force: true });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -29,7 +29,7 @@ export async function onConnectionManage(event) {
  * @param {Event} event   The originating click event
  * @private
  */
-export async function onGoalManage(event) {
+export async function onGoalManage(event, target) {
 	event.preventDefault();
 	const system = this.actor.system;
 
@@ -44,7 +44,7 @@ export async function onGoalManage(event) {
 
 	new GoalManager(options).render({ force: true });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -52,10 +52,9 @@ export async function onGoalManage(event) {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-export function onGoalIncrease(event) {
+export function onGoalIncrease(event, target) {
 	event.preventDefault();
-	const element = event.currentTarget;
-	const data = element.dataset;
+	const data = target.dataset;
 	const system = this.actor.system;
 	let goals = system.biography.goals;
 	const goal = goals[data.index];
@@ -68,7 +67,7 @@ export function onGoalIncrease(event) {
 
 	this.actor.update({ "system.biography.goals": goals });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -92,19 +91,23 @@ export function onGoalDecrease(event) {
 
 	this.actor.update({ "system.biography.goals": goals });
 
-	this.render(false);
+	this._reRender(false);
 };
+
+export function onBackstoryManage(event, target) {
+
+}
 
 export function onBiographyChange(event) {
 	event.preventDefault();
-	const element = event.currentTarget;
-	const data = element.dataset;
+	const target = event.currentTarget;
+	const data = target.dataset;
 
 	const key = `system.biography.${data.target}`;
 	const updateObj = {};
-	updateObj[key] = element.value;
+	updateObj[key] = target.value;
 
 	this.actor.update(updateObj);
 
-	this.render(false);
+	this._reRender(false);
 }

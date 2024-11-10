@@ -1,0 +1,19 @@
+{
+	"_id": "IJawvyLlWEEaXcXz",
+	"name": "Focused",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>You are engaged and intent on your task. Abilities that cost focus to activate have their cost reduced by 1.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

@@ -1,0 +1,35 @@
+.combatant-buttons {
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
+}
+
+.turn-speed-control,
+.activate-control {
+    display: block;
+    width: 40px;
+    height: var(--sidebar-item-height);
+    background-size: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 0.1em;
+}
+
+.turn-speed-control {
+    background-image: url(/icons/svg/clockwork.svg);
+}
+
+.activate-control {
+    background-image: url(/icons/svg/combat.svg);
+}
+
+.activate-control-activated {
+    filter: brightness(40%);
+}
+
+.combat-phase {
+    padding: 0.5rem 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

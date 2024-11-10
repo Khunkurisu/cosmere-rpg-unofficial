@@ -1,0 +1,78 @@
+<header class="sheet-header">
+	<img class="profile-img" src="{{actor.img}}" data-action="onEditImage" data-edit="img" title="{{actor.name}}"
+		height="100" width="100" />
+	<div class="header-fields">
+		{{#if (ifEquals actor.type 'Player')}}
+			<div class="resources grid grid-4col">
+				<section class="main grid-span-2 align-left">
+					<label for="name" class="resource-label">Name</label>
+					<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+				</section>
+				<section class="main align-right">
+					<label for="null" class="resource-label"></label>
+				</section>
+				<section class="main align-right">
+					<label for="system.level" class="resource-label">Level</label>
+					<input name="system.level" type="text" value="{{system.level}}" data-dtype="Number" />
+				</section>
+			</div>
+			<div class="resources grid grid-3col">
+				<div class="resource align-left">
+					<label for="system.ancestry.name" class="resource-label">Ancestry</label>
+					{{#if system.ancestry}}
+						<div class="resource-content flexrow flex-right flex-between">
+							<input type="text" name="system.ancestry.name" value="{{system.ancestry.name}}"
+								data-dtype="string" disabled="true" />
+						</div>
+					{{else}}
+						<div class="resource-content flexrow flex-right flex-between">
+							<input type="text" name="system.ancestry.name" value="" data-dtype="string"
+								disabled="true" />
+						</div>
+					{{/if}}
+				</div>
+				<div class="resource align-left">
+					<label for="system.path.name" class="resource-label">Initial Path</label>
+					{{#if system.path.[0]}}
+						<div class="resource-content flexrow flex-right flex-between">
+							<input type="text" name="system.path.0.name" value="{{system.path.0.name}}"
+								data-dtype="string" disabled="true" />
+						</div>
+					{{else}}
+						<div class="resource-content flexrow flex-right flex-between">
+							<input type="text" name="system.path" value="" data-dtype="string" disabled="true" />
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		{{else}}
+			<div class="resources grid grid-4col">
+				<section class="main grid-span-2 align-left">
+					<label for="name" class="resource-label">Name</label>
+					<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+				</section>
+				<section class="main align-right">
+					<label for="null" class="resource-label"></label>
+				</section>
+				<section class="main align-right">
+					<label for="system.tier" class="resource-label">Tier</label>
+					<input name="system.tier" type="text" value="{{system.tier}}" data-dtype="Number" />
+				</section>
+			</div>
+			<div class="resources grid grid-3col">
+				<div class="resource">
+					<label for="system.role" class="resource-label">Role</label>
+					<div class="item-content flexrow flex-center flex-between">
+						<input type="text" name="system.role" value="{{system.role}}" data-dtype="String" />
+					</div>
+				</div>
+				<div class="resource grid-span-2">
+					<label for="system.type" class="resource-label">Type</label>
+					<div class="item-content flexrow flex-center flex-between">
+						<input type="text" name="system.type" value="{{system.type}}" data-dtype="String" />
+					</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+</header>

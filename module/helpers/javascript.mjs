@@ -11,7 +11,8 @@ export function getByString(o, s) {
 		}
 	}
 	return o;
-}
+};
+
 export function setByString(o, s, v) {
 	s = s.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
 	s = s.replace(/^\./, '');           // strip a leading dot
@@ -28,6 +29,12 @@ export function setByString(o, s, v) {
 	if (f in o) {
 		o[f] = v;
 	}
-}
+};
 
-export function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) };
+export function isNumber(n) { return isFinite(String(n)) };
+
+export function isNumeric(str) {
+	if (typeof str != "string") return false // we only process strings!
+	return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+		!isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+};

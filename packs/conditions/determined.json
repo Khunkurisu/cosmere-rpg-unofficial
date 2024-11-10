@@ -1,0 +1,19 @@
+{
+	"_id": "OMHhncDuQYynfzo6",
+	"name": "Determined",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>When you fail a test, you can add an Opportunity to the results. When you do, remove the Determined condition.</p><p></p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

@@ -1,5 +1,3 @@
-import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
-
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -18,7 +16,6 @@ export class CosmereUnofficialItem extends Item {
 	prepareBaseData() {
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
-		this.system.ver = currentVersion;
 	}
 
 	/**

@@ -1,0 +1,19 @@
+{
+	"_id": "2GGmZoIuDVTDu38c",
+	"name": "Slowed",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>Your movement rate is halved. If you become Slowed in the middle of movement, halve your remaining movement (rounded up).</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

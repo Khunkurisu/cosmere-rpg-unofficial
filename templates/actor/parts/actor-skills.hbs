@@ -1,218 +1,190 @@
-<div class="flexcol flex-group-center" style="width:100%;">
-	<div class="physical-skills flexcol flex-group-center" style="width:75%;">
-		<span class="skill-column-header">
-			{{localize (lookup @root.config.defenses "physical")}}
-		</span>
-		<ol class='physical-skills skills-list'>
-			{{#each system.skills.physical as |skill key|}}
-				<li class="flexrow flex-group-center">
-					<input type="text" name="system.skills.physical.{{key}}.value" value="+{{skill.value}}"
-						disabled="true" data-dtype="Number" />
-					<label for="system.skills.physical.{{key}}.value"
-						class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
-						data-key="{{key}}" data-roll="d20+@skills.physical.{{key}}.value" data-roll-type="skill"
-						data-defense="physical" data-label="{{localize (lookup @root.config.skills.physical key)}}">
-						{{localize (lookup @root.config.skills.physical key)}}
-					</label>
-					<label for="system.skills.physical.{{key}}.value" class="resource-label rollable flex-group-right"
-						style="max-width:min-content;" data-roll="d20+@skills.physical.{{key}}.value" data-key="{{key}}"
-						data-roll-type="skill" data-defense="physical"
-						data-label="{{localize (lookup @root.config.skills.physical key)}}">
-						({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
-					</label>
-					<div class="skill-pip flexrow flex-group-right" data-skill="{{key}}" data-skill-branch="physical">
-						<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
-					</div>
-				</li>
-			{{/each}}
-		</ol>
-	</div>
-</div>
-<hr />
-<div class="flexcol flex-group-center" style="width:100%;">
-	<div class="cognitive-skills flexcol flex-group-center" style="width:75%;">
-		<span class="skill-column-header">
-			{{localize (lookup @root.config.defenses "cognitive")}}
-		</span>
-		<ol class='cognitive-skills skills-list'>
-			{{#each system.skills.cognitive as |skill key|}}
-				<li class="flexrow flex-group-center">
-					<input type="text" name="system.skills.cognitive.{{key}}.value" value="+{{skill.value}}"
-						disabled="true" data-dtype="Number" />
-					<label for="system.skills.cognitive.{{key}}.value"
-						class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
-						data-key="{{key}}" data-roll="d20+@skills.cognitive.{{key}}.value" data-roll-type="skill"
-						data-defense="cognitive" data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
-						{{localize (lookup @root.config.skills.cognitive key)}}
-					</label>
-					<label for="system.skills.cognitive.{{key}}.value" class="resource-label rollable flex-group-right"
-						style="max-width:min-content;" data-roll="d20+@skills.cognitive.{{key}}.value"
-						data-key="{{key}}" data-roll-type="skill" data-defense="cognitive"
-						data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
-						({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
-					</label>
-					<div class="skill-pip flexrow flex-group-right" data-skill="{{key}}" data-skill-branch="cognitive">
-						<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
-					</div>
-				</li>
-			{{/each}}
-		</ol>
-	</div>
-</div>
-<hr />
-<div class="flexcol flex-group-center" style="width:100%;">
-	<div class="spiritual-skills flexcol flex-group-center" style="width:75%;">
-		<span class="skill-column-header">
-			{{localize (lookup @root.config.defenses "spiritual")}}
-		</span>
-		<ol class='spiritual-skills skills-list'>
-			{{#each system.skills.spiritual as |skill key|}}
-				<li class="flexrow flex-group-center">
-					<input type="text" name="system.skills.spiritual.{{key}}.value" value="+{{skill.value}}"
-						disabled="true" data-dtype="Number" />
-					<label for="system.skills.spiritual.{{key}}.value"
-						class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
-						data-key="{{key}}" data-roll="d20+@skills.spiritual.{{key}}.value" data-roll-type="skill"
-						data-defense="spiritual" data-label="{{localize (lookup @root.config.skills.spiritual key)}}">
-						{{localize (lookup @root.config.skills.spiritual key)}}
-					</label>
-					<label for="system.skills.spiritual.{{key}}.value" class="resource-label rollable flex-group-right"
-						style="max-width:min-content;" data-roll="d20+@skills.spiritual.{{key}}.value"
-						data-key="{{key}}" data-roll-type="skill" data-defense="spiritual"
-						data-label="{{localize (lookup @root.config.skills.spiritual key)}}">
-						({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
-					</label>
-					<div class="skill-pip flexrow flex-group-right" data-skill="{{key}}" data-skill-branch="spiritual">
-						<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
-						<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
-					</div>
-				</li>
-			{{/each}}
-		</ol>
-	</div>
-</div>
-{{#if actor.system.hasSurges}}
-	<hr />
-	<div class="flexcol flex-group-center" style="width:100%;">
-		<div class="surge-skills flexcol flex-group-center" style="width:75%;">
+<div>
+	<div class="flexcol flex-group-center">
+		<div class="physical-skills flexcol flex-group-center" style="width:75%;">
 			<span class="skill-column-header">
-				{{localize (lookup @root.config.defenses.surge "plural")}}
+				{{localize (lookup @root.config.defenses "physical")}}
 			</span>
-			<ol class='surge-skills skills-list'>
-				{{#each system.skills.surge as |skill key|}}
-					{{#if skill.show}}
-						<li class="flexrow flex-group-center">
-							<input type="text" name="system.skills.surge.{{key}}.value" value="+{{skill.value}}"
-								disabled="true" data-dtype="Number" />
-							<label for="system.skills.surge.{{key}}.value"
-								class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
-								data-key="{{key}}" data-roll="d20+@skills.surge.{{key}}.value" data-roll-type="skill"
-								data-defense="surge" data-label="{{localize (lookup @root.config.skills.surge key)}}">
-								{{localize (lookup @root.config.skills.surge key)}}
-							</label>
-							<label for="system.skills.surge.{{key}}.value"
-								class="resource-label rollable flex-group-right" style="max-width:min-content;"
-								data-roll="d20+@skills.surge.{{key}}.value" data-key="{{key}}" data-roll-type="skill"
-								data-defense="surge" data-label="{{localize (lookup @root.config.skills.surge key)}}">
-								({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
-							</label>
-							<div class="skill-pip flexrow flex-group-right" data-skill="{{key}}"
-								data-skill-branch="surge">
-								<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
-								<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
-								<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
-								<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
-								<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
-							</div>
-						</li>
-					{{/if}}
+			<ol class='physical-skills skills-list'>
+				{{#each system.skills.physical as |skill key|}}
+					<li class="flexrow flex-group-center">
+						<input type="text" name="system.skills.physical.{{key}}.value" value="+{{skill.value}}"
+							disabled="true" data-dtype="Number" />
+						<label for="system.skills.physical.{{key}}.value"
+							class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
+							data-action="roll" data-key="{{key}}" data-roll="d20+@skills.physical.{{key}}.value"
+							data-roll-type="skill" data-defense="physical"
+							data-label="{{localize (lookup @root.config.skills.physical key)}}">
+							{{localize (lookup @root.config.skills.physical key)}}
+						</label>
+						<label for="system.skills.physical.{{key}}.value"
+							class="resource-label rollable flex-group-right" style="max-width:min-content;"
+							data-action="roll" data-roll="d20+@skills.physical.{{key}}.value" data-key="{{key}}"
+							data-roll-type="skill" data-defense="physical"
+							data-label="{{localize (lookup @root.config.skills.physical key)}}">
+							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
+						</label>
+						<div class="skill-pip flexrow flex-group-right" data-action="skillIncrease" data-skill="{{key}}"
+							data-skill-branch="physical">
+							<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
+						</div>
+					</li>
 				{{/each}}
 			</ol>
 		</div>
 	</div>
-{{/if}}
-<hr />
-<div class="flexcol flex-group-center" style="width:100%;">
-	<div class="expertise flexcol flex-group-center" style="width:75%;">
-		<span class="skill-column-header">
-			{{localize (lookup @root.config.skills.expertise "label")}}
-		</span>
+	<hr />
+	<div class="flexcol flex-group-center">
+		<div class="cognitive-skills flexcol flex-group-center" style="width:75%;">
+			<span class="skill-column-header">
+				{{localize (lookup @root.config.defenses "cognitive")}}
+			</span>
+			<ol class='cognitive-skills skills-list'>
+				{{#each system.skills.cognitive as |skill key|}}
+					<li class="flexrow flex-group-center">
+						<input type="text" name="system.skills.cognitive.{{key}}.value" value="+{{skill.value}}"
+							disabled="true" data-dtype="Number" />
+						<label for="system.skills.cognitive.{{key}}.value"
+							class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
+							data-action="roll" data-key="{{key}}" data-roll="d20+@skills.cognitive.{{key}}.value"
+							data-roll-type="skill" data-defense="cognitive"
+							data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
+							{{localize (lookup @root.config.skills.cognitive key)}}
+						</label>
+						<label for="system.skills.cognitive.{{key}}.value"
+							class="resource-label rollable flex-group-right" style="max-width:min-content;"
+							data-action="roll" data-roll="d20+@skills.cognitive.{{key}}.value" data-key="{{key}}"
+							data-roll-type="skill" data-defense="cognitive"
+							data-label="{{localize (lookup @root.config.skills.cognitive key)}}">
+							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
+						</label>
+						<div class="skill-pip flexrow flex-group-right" data-action="skillIncrease" data-skill="{{key}}"
+							data-skill-branch="cognitive">
+							<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
+						</div>
+					</li>
+				{{/each}}
+			</ol>
+		</div>
 	</div>
-	<div class="flexcol flex-group-left">
-		<div class='manage-expertise grid grid-5col flex-group-right' style="width:150%;">
-			<div class="grid-span-4"><span></span></div>
-			<a class='expertise-manage' title='{{localize (lookup @root.config.skills.expertise "manage")}}'>
-				<i class="fa-solid fa-gear"></i>
-			</a>
+	<hr />
+	<div class="flexcol flex-group-center">
+		<div class="spiritual-skills flexcol flex-group-center" style="width:75%;">
+			<span class="skill-column-header">
+				{{localize (lookup @root.config.defenses "spiritual")}}
+			</span>
+			<ol class='spiritual-skills skills-list'>
+				{{#each system.skills.spiritual as |skill key|}}
+					<li class="flexrow flex-group-center">
+						<input type="text" name="system.skills.spiritual.{{key}}.value" value="+{{skill.value}}"
+							disabled="true" data-dtype="Number" />
+						<label for="system.skills.spiritual.{{key}}.value"
+							class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
+							data-action="roll" data-key="{{key}}" data-roll="d20+@skills.spiritual.{{key}}.value"
+							data-roll-type="skill" data-defense="spiritual"
+							data-label="{{localize (lookup @root.config.skills.spiritual key)}}">
+							{{localize (lookup @root.config.skills.spiritual key)}}
+						</label>
+						<label for="system.skills.spiritual.{{key}}.value"
+							class="resource-label rollable flex-group-right" style="max-width:min-content;"
+							data-action="roll" data-roll="d20+@skills.spiritual.{{key}}.value" data-key="{{key}}"
+							data-roll-type="skill" data-defense="spiritual"
+							data-label="{{localize (lookup @root.config.skills.spiritual key)}}">
+							({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
+						</label>
+						<div class="skill-pip flexrow flex-group-right" data-action="skillIncrease" data-skill="{{key}}"
+							data-skill-branch="spiritual">
+							<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
+							<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
+						</div>
+					</li>
+				{{/each}}
+			</ol>
 		</div>
-		<div class="grid grid-2col" style="width:150%;">
-			<div class="skills-list">
-				<span><label class="resource-label">Cultural</label></span>
-				<ol class="expertise-list">
-					{{#each culturalExpertise as |expertise index|}}
-						<li class="flexrow">
-							<span>{{expertise.text}}</span>
-						</li>
-					{{/each}}
-				</ol>
-			</div>
-			<div class="skills-list">
-				<span><label class="resource-label">Utility</label></span>
-				<ol class="expertise-list">
-					{{#each utilityExpertise as |expertise index|}}
-						<li class="flexrow">
-							<span>{{expertise.text}}</span>
-						</li>
-					{{/each}}
-				</ol>
-			</div>
+	</div>
+	<hr />
+	<div class="flexcol flex-group-center">
+		<div class="expertise flexcol flex-group-center" style="width:75%;">
+			<span class="skill-column-header">
+				{{localize (lookup @root.config.skills.expertise "label")}}
+			</span>
 		</div>
-		<div class="grid grid-2col" style="width:150%;">
-			<div class="skills-list">
-				<span><label class="resource-label">Weapon</label></span>
-				<ol class="expertise-list">
-					{{#each weaponExpertise as |expertise index|}}
-						<li class="flexrow">
-							<span>{{expertise.text}}</span>
-						</li>
-					{{/each}}
-				</ol>
+		<div class="flexcol flex-group-left">
+			<div class='manage-expertise grid grid-5col flex-group-right' style="width:110%;">
+				<div class="grid-span-4"><span></span></div>
+				<a class='expertise-manage' data-action="manageExpertise"
+					title='{{localize (lookup @root.config.skills.expertise "manage")}}'>
+					<i class="fa-solid fa-gear"></i>
+				</a>
 			</div>
-			<div class="skills-list">
-				<span><label class="resource-label">Armor</label></span>
-				<ol class="expertise-list">
-					{{#each armorExpertise as |expertise index|}}
-						<li class="flexrow">
-							<span>{{expertise.text}}</span>
-						</li>
-					{{/each}}
-				</ol>
+			<div class="grid grid-2col" style="width:110%;">
+				<div class="skills-list">
+					<span><label class="resource-label">Cultural</label></span>
+					<ol class="expertise-list">
+						{{#each culturalExpertise as |expertise index|}}
+							<li class="flexrow">
+								<span>{{expertise.text}}</span>
+							</li>
+						{{/each}}
+					</ol>
+				</div>
+				<div class="skills-list">
+					<span><label class="resource-label">Utility</label></span>
+					<ol class="expertise-list">
+						{{#each utilityExpertise as |expertise index|}}
+							<li class="flexrow">
+								<span>{{expertise.text}}</span>
+							</li>
+						{{/each}}
+					</ol>
+				</div>
 			</div>
-		</div>
-		<div class="grid grid-3col" style="width:200%;">
-			<div><span></span></div>
-			<div class="skills-list">
-				<span><label class="resource-label">Special</label></span>
-				<ol class="expertise-list">
-					{{#each specialExpertise as |expertise index|}}
-						<li class="flexrow">
-							<span>{{expertise.text}}</span>
-						</li>
-					{{/each}}
-				</ol>
+			<div class="grid grid-2col" style="width:110%;">
+				<div class="skills-list">
+					<span><label class="resource-label">Weapon</label></span>
+					<ol class="expertise-list">
+						{{#each weaponExpertise as |expertise index|}}
+							<li class="flexrow">
+								<span>{{expertise.text}}</span>
+							</li>
+						{{/each}}
+					</ol>
+				</div>
+				<div class="skills-list">
+					<span><label class="resource-label">Armor</label></span>
+					<ol class="expertise-list">
+						{{#each armorExpertise as |expertise index|}}
+							<li class="flexrow">
+								<span>{{expertise.text}}</span>
+							</li>
+						{{/each}}
+					</ol>
+				</div>
 			</div>
-			<div><span></span></div>
+			<div class="grid grid-3col" style="width:160%;">
+				<div><span></span></div>
+				<div class="skills-list">
+					<span><label class="resource-label">Special</label></span>
+					<ol class="expertise-list">
+						{{#each specialExpertise as |expertise index|}}
+							<li class="flexrow">
+								<span>{{expertise.text}}</span>
+							</li>
+						{{/each}}
+					</ol>
+				</div>
+				<div><span></span></div>
+			</div>
 		</div>
 	</div>
 </div>

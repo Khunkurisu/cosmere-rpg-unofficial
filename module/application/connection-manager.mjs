@@ -20,7 +20,7 @@ export class ConnectionManager extends HandlebarsApplicationMixin(ApplicationV2)
 
 	static PARTS = {
 		form: {
-			template: 'systems/cosmere-rpg-unofficial/templates/actor/parts/actor-connections.hbs'
+			template: 'systems/cosmere-rpg-unofficial/templates/dialogs/actor-connections.hbs'
 		},
 		footer: {
 			template: "templates/generic/form-footer.hbs",
@@ -30,7 +30,6 @@ export class ConnectionManager extends HandlebarsApplicationMixin(ApplicationV2)
 	static #onSubmit(event, form, formData) {
 		const actor = this.options.actor;
 		const connections = this.options.connections;
-		console.log(connections);
 		actor.update({ "system.biography.connections": connections });
 		this.close();
 	}
@@ -71,7 +70,6 @@ export class ConnectionManager extends HandlebarsApplicationMixin(ApplicationV2)
 
 	_onRender(context, options) {
 		const html = $(this.element);
-		console.log(context);
 
 		html.on("change", ".connection-input", this.onConnectionChange.bind(this));
 	}

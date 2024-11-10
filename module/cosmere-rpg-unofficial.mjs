@@ -8,10 +8,12 @@ import { CosmereUnofficialItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { COSMERE_UNOFFICIAL } from './helpers/config.mjs';
 import { registerSettings } from './helpers/settings.mjs';
+import { registerStatusEffects } from './helpers/status-effects.mjs';
+import { CosmereUnofficialCombatant } from './system/combat/combatant.mjs';
+import { CosmereUnofficialCombat } from './documents/combat.mjs';
+import { CosmereUnofficialCombatTracker } from './application/combat-tracker.mjs';
 // Import DataModel classes
 import * as models from './data-models.mjs';
-
-export const version = "0.2.6";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -53,10 +55,9 @@ Hooks.once('init', function () {
 		Ancestry: models.CosmereUnofficialAncestry
 	}
 
-	// Active Effects are never copied to the Actor,
-	// but will still apply to the Actor from within the Item
-	// if the transfer property on the Active Effect is true.
-	CONFIG.ActiveEffect.legacyTransferral = false;
+	CONFIG.Combat.documentClass = CosmereUnofficialCombat;
+	CONFIG.Combatant.documentClass = CosmereUnofficialCombatant;
+	CONFIG.ui.combat = CosmereUnofficialCombatTracker;
 
 	// Register sheet application classes
 	Actors.unregisterSheet('core', ActorSheet);
@@ -70,6 +71,7 @@ Hooks.once('init', function () {
 		label: 'COSMERE_UNOFFICIAL.SheetLabels.Item',
 	});
 	registerSettings();
+	registerStatusEffects();
 
 	// Preload Handlebars templates.
 	return preloadHandlebarsTemplates();
@@ -87,7 +89,7 @@ Handlebars.registerHelper('toUpperCase', function (str) {
 	return str.toUpperCase();
 });
 Handlebars.registerHelper('round', function (n) {
-	return Number((n).toFixed(2));
+	return n ? Number((n).toFixed(2)) : 0;
 });
 /* {{#if (ifEquals sampleString "This is a string")}}	*/
 /*   Your HTML here										*/
@@ -221,19 +223,52 @@ function rollItemMacro(itemUuid) {
 		item.roll();
 	});
 }
+
 function setTheme(i) {
-	i.attr && i.attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	if (i.attr) {
+		i.attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	} else if ($(i).attr) {
+		$(i).attr('data-theme', game.settings.get('cosmere-rpg-unofficial', 'colorTheme'));
+	}
 }
 
 Hooks.on("renderApplication", (function (o, i, n) {
 	setTheme(i);
+	return true;
+}));
+Hooks.on("renderApplicationV2", (function (o, i, n) {
+	setTheme(i);
+	return true;
+}));
+Hooks.on("renderDocumentSheetV2", (function (o, i, n) {
+	setTheme(i);
+	return true;
 }));
 Hooks.on("createProseMirrorEditor", (function (o, i, n) {
 	setTheme(i);
+	return true;
 }));
 Hooks.on("renderActorSheet", (function (o, i, n) {
 	setTheme(i);
+	return true;
 }));
 Hooks.on("renderItemSheet", (function (o, i, n) {
 	setTheme(i);
+	return true;
+}));
+Hooks.on("renderDialog", (function (o, i, n) {
+	setTheme(i);
+	return true;
+}));
+Hooks.on("renderDialogV2", (function (o, i, n) {
+	setTheme(i);
+	return true;
+}));
+Hooks.on("renderDocumentDirectory", (function (o, i, n) {
+	setTheme(i);
+	return true;
+}));
+Hooks.on("renderSidebarTab", (function (o, i, n) {
+	setTheme(i);
+	return true;
 }));

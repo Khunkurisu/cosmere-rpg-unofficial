@@ -1,0 +1,35 @@
+{
+	"_id": "j14OW0YTF3Fy7sYr",
+	"name": "Empowered",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>You gain an advantage on all tests and your Investiture refills to your maximum at the start of each of your turns. This condition is removed at the end of the current scene.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [
+			{
+				"type": "dice",
+				"trigger": "roll",
+				"target": "advantage",
+				"predicate": [],
+				"value": true
+			},
+			{
+				"type": "modifier",
+				"trigger": "load",
+				"target": "system.investiture.value",
+				"predicate": [],
+				"func": "increase",
+				"value": "99999"
+			}
+		],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

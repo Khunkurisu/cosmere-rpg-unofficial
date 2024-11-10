@@ -1,0 +1,19 @@
+{
+	"_id": "tLDGctcznKallUWY",
+	"name": "Stunned",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>In combat, on your turn, you gain two fewer actions and don’t gain a reaction. Out of combat, you are overwhelmed, making you move and react slower to your situation at the GM’s discretion.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

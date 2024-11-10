@@ -1,0 +1,19 @@
+{
+	"_id": "b4Okc6vYCbpzMPsQ",
+	"name": "Prone",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>You are lying flat on the ground. Until you spend 5 feet of movement to stand up and remove the condition, you are Slowed and melee attacks against you gain an advantage. You can use the Brace action without a shield or cover.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

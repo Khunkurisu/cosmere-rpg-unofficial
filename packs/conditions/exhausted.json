@@ -1,0 +1,19 @@
+{
+	"_id": "ryzdml2IDbympRbS",
+	"name": "Exhausted",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>While Exhausted, you feel fatigued and everything increases in difficulty.</p><p>When you gain this condition, it states a negative number in parentheses; each time you make a test, apply a penalty equal to this number. When you finish a long rest, reduce your Exhausted penalty by 1.</p><p>Unlike most conditions, Exhausted has a cumulative effect. When you gain a second instance of this condition, add its listed penalty to your current Exhausted penalty.</p><p>For example, if an effect makes you Exhausted (−2), you subtract 2 from all tests; if a different effect then makes you Exhausted (−1), that increases your Exhausted penalty, so you now subtract 3 from all tests.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

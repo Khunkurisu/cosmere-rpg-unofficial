@@ -1,0 +1,19 @@
+{
+	"_id": "xcifFOEVzRzNqu20",
+	"name": "Immobilized",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>Your movement rate becomes 0 and you can’t move or be moved by other effects.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

@@ -1,13 +1,11 @@
-import { isNumber } from "../helpers/objects.mjs";
 import CosmereUnofficialDataModel from "./base-model.mjs";
-import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
+import { isNumeric, isNumber } from "../helpers/javascript.mjs";
 
 export default class CosmereUnofficialActorBase extends CosmereUnofficialDataModel {
 	static defineSchema() {
 		const fields = foundry.data.fields;
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = {
-			"ver": new fields.StringField({ required: true, nullable: false, initial: currentVersion }),
 			"health": new fields.SchemaField({
 				"value": new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
 				"max": new fields.NumberField({ ...requiredInteger, initial: 10 })
@@ -43,6 +41,7 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 		schema.attributes = new fields.SchemaField(
 			Object.keys(CONFIG.COSMERE_UNOFFICIAL.attributes).reduce((obj, attribute) => {
 				obj[attribute] = new fields.SchemaField({
+					base: new fields.NumberField({ ...requiredInteger, initial: 0 }),
 					value: new fields.NumberField({ ...requiredInteger, initial: 0 }),
 				});
 				return obj;
@@ -267,74 +266,4 @@ export default class CosmereUnofficialActorBase extends CosmereUnofficialDataMod
 
 		return schema;
 	}
-
-	static migrateData(source) {
-		let ver = source.ver ?? "0.2.4";
-		const version = ver.split('.');
-		const release = Number.parseInt(version[0], 10);
-		const update = Number.parseInt(version[1], 10);
-		const revision = Number.parseInt(version[2], 10);
-
-		if (release <= 0 && update <= 2 && revision < 3) {
-			const resources = ["health", "focus", "investiture"];
-			const defenses = ["deflect", "physical", "cognitive", "spiritual"];
-			for (let r in resources) {
-				const resource = resources[r];
-				if (!isNumber(source[resource].value)) {
-					source[resource].value = 0;
-				}
-				if (!isNumber(source[resource].max)) {
-					source[resource].max = 0;
-				}
-			}
-			for (let d in defenses) {
-				const defense = defenses[d];
-				if (!isNumber(source[defense])) {
-					source[defense] = 0;
-				}
-			}
-			const movement = source.movement ?? {};
-			for (let m in movement) {
-				const speed = movement[m];
-				if (typeof speed === 'object') {
-					movement[m] = speed.value;
-				}
-			}
-			const skills = source.skills ?? {};
-			for (let c in skills) {
-				const category = skills[c];
-				for (let s in category) {
-					const skill = category[s];
-					if ("bonus" in skill) {
-						skill.rank = skill.bonus;
-						delete skill["bonus"];
-					}
-				}
-			}
-		} else if (release <= 0 && update <= 2 && revision < 5) {
-			if (!Array.isArray(source.expertise)) {
-				let expertises = [];
-				for (let e in source.expertise) {
-					const oldExpertise = source.expertise[e];
-					let type = 'Utility';
-					if (oldExpertise.toLowerCase().includes('cultural')) type = 'Cultural';
-					else if (oldExpertise.toLowerCase().includes('weapon')) type = 'Weapon';
-					else if (oldExpertise.toLowerCase().includes('armor')) type = 'Armor';
-					else if (oldExpertise.toLowerCase().includes('special')) type = 'Special';
-					const expertise = oldExpertise
-						.replace(/[\(\[\{][a-zA-Z0-9\s]+[\]\)\}]/gm, '')
-						.trim();
-
-					expertises.push({
-						text: expertise,
-						category: type
-					});
-				}
-				source.expertise = expertises;
-			}
-		}
-
-		return source;
-	}
-
 }

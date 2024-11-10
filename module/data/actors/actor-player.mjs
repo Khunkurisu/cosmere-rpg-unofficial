@@ -25,20 +25,4 @@ export default class CosmereUnofficialPlayer extends CosmereUnofficialActorBase 
 
 		return schema;
 	}
-
-	static migrateData(source) {
-		source = super.migrateData(source);
-		let ver = source.ver ?? "0.2.4";
-		const version = ver.split('.');
-		const release = Number.parseInt(version[0], 10);
-		const update = Number.parseInt(version[1], 10);
-		const revision = Number.parseInt(version[2], 10);
-
-		if (release <= 0 && update <= 2 && revision < 4) {
-			const originalPath = { ...(source.path) };
-			source.path = originalPath.hasOwnProperty('talents') ? [originalPath] : [];
-		}
-
-		return source;
-	}
 }

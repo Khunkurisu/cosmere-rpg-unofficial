@@ -3,35 +3,19 @@
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-export function onItemIncrease(event) {
+export function onItemIncrement(event, target) {
 	event.preventDefault();
-	const li = $(event.currentTarget).parents('.item');
+	const li = $(target).parents('.item');
 	const actor = game.actors.get(this.actor._id);
 	const item = actor.items.get(li.data('itemId'));
 
-	const addend = event.ctrlKey ? 10 : event.shiftKey ? 5 : 1;
-	const newVal = item.system.quantity + addend;
+	const mult = Number.parseInt(target.dataset.direction);
+	const addend = (event.ctrlKey ? 10 : event.shiftKey ? 5 : 1) * mult;
+	const newVal = Math.max(item.system.quantity + addend, 0);
+
 	item.update({ "system.quantity": newVal });
 
-	this.render(false);
-};
-/**
-	 * Handle decreasing item quantity.
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-export function onItemDecrease(event) {
-	event.preventDefault();
-	const li = $(event.currentTarget).parents('.item');
-	const item = this.actor.items.get(li.data('itemId'));
-
-	if (item.system.quantity > 0) {
-		const subtrahend = Math.min(item.system.quantity, event.ctrlKey ? 10 : event.shiftKey ? 5 : 1);
-		const newVal = item.system.quantity - subtrahend;
-		return item.update({ "system.quantity": newVal });
-	}
-
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -39,12 +23,14 @@ export function onItemDecrease(event) {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-export function onItemEquip(event) {
+export function onItemEquip(event, target) {
 	event.preventDefault();
-	const li = $(event.currentTarget).parents('.item');
+	const li = $(target).parents('.item');
 	const item = this.actor.items.get(li.data('itemId'));
 
-	if (item.type === "Armor") {
+	const isEquipped = !item.system.isEquipped;
+
+	if (isEquipped && item.type === "Armor") {
 		const items = Array.from(this.actor.items);
 		for (let index in items) {
 			const i = items[index];
@@ -54,24 +40,9 @@ export function onItemEquip(event) {
 		}
 	}
 
-	item.update({ "system.equipped.isEquipped": true });
+	item.update({ "system.equipped.isEquipped": isEquipped });
 
-	this.render(false);
-};
-
-/**
-	 * Handle unequipping item.
-	 * @param {Event} event   The originating click event
-	 * @private
-	 */
-export function onItemUnequip(event) {
-	event.preventDefault();
-	const li = $(event.currentTarget).parents('.item');
-	const item = this.actor.items.get(li.data('itemId'));
-
-	item.update({ "system.equipped.isEquipped": false });
-
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -79,15 +50,13 @@ export function onItemUnequip(event) {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-export function onItemDetails(event) {
+export function onItemDetails(event, target) {
 	event.preventDefault();
-	const li = $(event.currentTarget).parents('.item');
+	const li = $(target).parents('.item');
 	const item = this.actor.items.get(li.data('itemId'));
-	const showDetails = !item.system.showDetails;
+	item.system.showDetails = !item.system.showDetails;
 
-	item.update({ "system.showDetails": showDetails });
-
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -95,9 +64,8 @@ export function onItemDetails(event) {
 	 * @param {Event} event   The originating drag event
 	 * @private
 	 */
-export function onItemDrag(event) {
-	const li = $(event.currentTarget);
-	const item = this.actor.items.get(li.data('itemId'));
+export function onItemDrag(event, target) {
+	const item = this.actor.items.get(target.data('itemId'));
 	if (item && item.type !== 'Container') {
 		this.lastDragged = item._id;
 	}
@@ -108,11 +76,10 @@ export function onItemDrag(event) {
 	 * @param {Event} event   The originating drop event
 	 * @private
 	 */
-export function onItemDrop(event) {
-	const li = $(event.currentTarget);
+export function onItemDrop(event, target) {
 	const items = this.actor.items;
 	const itemId = this.lastDragged;
-	const container = items.get(li.data('itemId'));
+	const container = items.get(target.data('itemId'));
 	if (container.type === 'Container') {
 		event.preventDefault();
 
@@ -120,7 +87,7 @@ export function onItemDrop(event) {
 		containerItems.push(itemId);
 		container.update({ "system.stored": containerItems });
 
-		this.render(false);
+		this._reRender(false);
 		return;
 	}
 	items.forEach(function (item) {
@@ -140,16 +107,38 @@ export function onItemDrop(event) {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-export function onContainerToggle(event) {
+export function onContainerToggle(event, target) {
 	event.preventDefault();
-	const li = $(event.currentTarget).parents('.item');
+	const li = $(target).parents('.item');
 	const item = this.actor.items.get(li.data('itemId'));
 	const showStored = !item.system.showStored;
 
 	item.update({ "system.showStored": showStored });
 
-	this.render(false);
+	this._reRender(false);
 };
+
+/**
+ * Handle weapon actions.
+ * @param {Item} weapon   The weapon to create the action from
+ * @private
+ */
+export function strikeFromWeapon(weapon, context) {
+	const system = context.actor.system;
+	let skill = weapon.system.skill === "heavy" ? "heavy_weapons" : weapon.system.skill === "light" ? "light_weapons" : weapon.system.skill;
+	let mod = system.skills.physical[skill].value;
+
+	return {
+		"name": weapon.name,
+		"_id": weapon._id,
+		"formula": weapon.system.damage.count + "d" + weapon.system.damage.die,
+		"crit": weapon.system.damage.die,
+		"defense": "physical",
+		"skill": weapon.system.skill,
+		"damageType": "[" + weapon.system.damage.type + "]",
+		"modifier": (mod >= 0) ? (`+${mod}`) : (`-${mod}`)
+	};
+}
 
 export async function enrichItemDesc(context, item) {
 	let description = '';
@@ -171,7 +160,7 @@ export async function enrichItemDesc(context, item) {
 			description += `<p><b>Requirements:</b> ${requirementText.join('; ')}</p>`;
 		}
 	}
-	description += `${item.system.description}`;
+	description += `<span>${item.system.description}</span>`;
 	return await TextEditor.enrichHTML(
 		description,
 		{

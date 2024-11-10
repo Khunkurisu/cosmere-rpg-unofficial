@@ -1,6 +1,6 @@
 import * as Effects from '../system/effects.mjs';
-import { getByString, setByString } from "../helpers/objects.mjs";
-import { version as currentVersion } from "../cosmere-rpg-unofficial.mjs";
+import { validateBaseData } from '../helpers/actor-migration.mjs';
+import { getByString, setByString } from "../helpers/javascript.mjs";
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the system.
  * @extends {Actor}
@@ -17,9 +17,19 @@ export class CosmereUnofficialActor extends Actor {
 
 	/** @override */
 	prepareBaseData() {
+		const actorData = this;
+		const attributes = actorData.system.attributes;
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
-		this.system.ver = currentVersion;
+		this.selectedTab ??= 'actions';
+		validateBaseData(this);
+
+		attributes.strength.value = attributes.strength.base;
+		attributes.speed.value = attributes.speed.base;
+		attributes.intellect.value = attributes.intellect.base;
+		attributes.willpower.value = attributes.willpower.base;
+		attributes.awareness.value = attributes.awareness.base;
+		attributes.presence.value = attributes.presence.base;
 	}
 
 	/**
@@ -34,7 +44,7 @@ export class CosmereUnofficialActor extends Actor {
 	prepareDerivedData() {
 		const actorData = this;
 		const systemData = actorData.system;
-		const flags = actorData.flags.boilerplate || {};
+		const flags = actorData.flags['cosmere-rpg-unofficial'] || {};
 
 		// Make separate methods for each Actor type (character, npc, etc.) to keep
 		// things organized.
@@ -61,11 +71,13 @@ export class CosmereUnofficialActor extends Actor {
 		const attributes = actorData.system.attributes;
 		const items = actorData.items._source;
 
-		systemData.capacity = {
-			"maxLift": this.getCarryCapacity(attributes),
-			"maxCarry": this.getCarryCapacity(attributes) / 2,
-			"carrying": 0
-		}
+		this.checkItems(actorData);
+		this.setDeflect(actorData);
+
+		this.getEffectBonuses(actorData);
+
+		systemData.capacity.maxLift = this.getCarryCapacity(attributes);
+		systemData.capacity.maxCarry = systemData.capacity.maxLift / 2
 
 		systemData.senses = this.getSensesRange(attributes);
 
@@ -74,8 +86,6 @@ export class CosmereUnofficialActor extends Actor {
 		systemData.recovery = this.getRecoveryDie(attributes);
 
 		systemData.bonusExpertises = attributes.intellect.value;
-
-		this.checkItems(actorData);
 
 		for (let index in items) {
 			const obj = items[index];
@@ -95,13 +105,12 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.isRadiant = this.isRadiant(systemData);
 
-		this.setDefenses(actorData);
-		this.setResources(actorData);
-		this.setDeflect(actorData);
-
 		this.setSkills(systemData);
 
-		this.getEffectBonuses(actorData);
+		this.setDefenses(actorData);
+		this.setResources(actorData);
+
+		this.getEffectBonuses(actorData, 'derived');
 
 		systemData.health.value = Math.min(
 			Math.max(systemData.health.value, 0), systemData.health.max
@@ -152,7 +161,8 @@ export class CosmereUnofficialActor extends Actor {
 		actorData.items.forEach(function (item) {
 			if (item.type === 'Equipment' || item.type === 'Weapon' || item.type === 'Armor') {
 				systemData.capacity.carrying += item.system.totalWeight;
-				item.system.displayWeight = `${Number((item.system.totalWeight).toFixed(2))} lbs`;
+				item.system.displayWeight = `${item.system.totalWeight ?
+					Number((item.system.totalWeight).toFixed(2)) : 0} lbs`;
 				if (item.system.quantity > 0 && item.system.isEquipped) {
 					equipped.push(item);
 				}
@@ -182,7 +192,8 @@ export class CosmereUnofficialActor extends Actor {
 			});
 			container.system.items = containerItems;
 			systemData.capacity.carrying += container.system.totalWeight;
-			container.system.displayWeight = `${Number((container.system.totalWeight).toFixed(2))} lbs`;
+			container.system.displayWeight = `${container.system.totalWeight ?
+				Number((container.system.totalWeight).toFixed(2)) : 0} lbs`;
 		});
 
 		systemData.effects = effects;
@@ -366,7 +377,7 @@ export class CosmereUnofficialActor extends Actor {
 		}
 	}
 
-	getEffectBonuses(actorData) {
+	getEffectBonuses(actorData, stage = 'base') {
 		const system = actorData.system;
 		system.effects.forEach(activeEffect => {
 			if (!activeEffect.system.active) return;
@@ -379,7 +390,7 @@ export class CosmereUnofficialActor extends Actor {
 							circumstances: [],
 							value: targetVal
 						}
-						data = effect.TryApplyEffect('load', data);
+						data = effect.TryApplyEffect(stage, data);
 						if (data) {
 							this._setValueByString(effect.target, data.value);
 						}
@@ -411,6 +422,9 @@ export class CosmereUnofficialActor extends Actor {
 		const attributes = actorData.system.attributes;
 		const items = actorData.items._source;
 
+		this.checkItems(actorData);
+		this.getEffectBonuses(actorData);
+
 		systemData.capacity = {
 			"maxLift": this.getCarryCapacity(attributes),
 			"maxCarry": this.getCarryCapacity(attributes) / 2,
@@ -425,15 +439,13 @@ export class CosmereUnofficialActor extends Actor {
 
 		systemData.bonusExpertises = attributes.intellect.value;
 
-		this.checkItems(actorData);
-
 		/* this.setDefenses(actorData);
 		this.setResources(actorData);
 		this.setDeflect(actorData); */
 
 		this.setSkills(systemData);
 
-		this.getEffectBonuses(actorData);
+		this.getEffectBonuses(actorData, 'derived');
 
 		systemData.health.value = Math.min(
 			Math.max(systemData.health.value, 0), systemData.health.max

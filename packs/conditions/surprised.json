@@ -1,0 +1,19 @@
+{
+	"_id": "OhVNHTbplUEhTbY1",
+	"name": "Surprised",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>You don’t gain a reaction at the start of combats, and you must take a slow turn and gain one fewer action.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

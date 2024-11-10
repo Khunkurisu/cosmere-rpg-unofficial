@@ -1,0 +1,82 @@
+<nav class='sheet-tabs tabs' data-group='primary'>
+	{{! Default tab is specified in actor-sheet.mjs }}
+	<a class='item' data-tab='actions' data-action='nav'>
+		<div class='tooltip'>
+			<label for='tooltiptext' class='tab-label'>
+				<p><i class='fa-regular fa-play' title='Actions'></i></p>
+				Actions
+			</label>
+			<span class='tooltiptext'>
+				Actions
+			</span>
+		</div>
+	</a>
+	<a class='item' data-tab='items' data-action='nav'>
+		<div class='tooltip'>
+			<label for='tooltiptext' class='tab-label'>
+				<p><i class='fa-regular fa-briefcase' title='Equipment'></i></p>
+				Equipment
+			</label>
+			<span class='tooltiptext'>
+				Equipment
+			</span>
+		</div>
+	</a>
+	<a class='item' data-tab='skills' data-action='nav'>
+		<div class='tooltip'>
+			<label for='tooltiptext' class='tab-label'>
+				<p><i class='fa-regular fa-table-list' title='Skills'></i></p>
+				Skills
+			</label>
+			<span class='tooltiptext'>
+				Skills
+			</span>
+		</div>
+	</a>
+	<a class='item' data-tab='talents' data-action='nav'>
+		<div class='tooltip'>
+			<label for='tooltiptext' class='tab-label'>
+				<p><i class='fa-regular fa-bookmark' title='Talents'></i></p>
+				Talents
+			</label>
+			<span class='tooltiptext'>
+				Talents
+			</span>
+		</div>
+	</a>
+	<a class='item' data-tab='effects' data-action='nav'>
+		<div class='tooltip'>
+			<label for='tooltiptext' class='tab-label'>
+				<p><i class='fa-regular fa-certificate' title='Effects'></i></p>
+				Effects
+			</label>
+			<span class='tooltiptext'>
+				Effects
+			</span>
+		</div>
+	</a>
+	<a class='item' data-tab='biography' data-action='nav'>
+		<div class='tooltip'>
+			{{#if (ifEquals actor.type 'Player')}}
+				<label for='tooltiptext' class='tab-label'>
+					<p><i
+							class='fa-regular fa-book-open'
+							title='Biography'
+						></i></p>
+					Biography
+				</label>
+				<span class='tooltiptext'>
+					Biography
+				</span>
+			{{else}}
+				<label for='tooltiptext' class='tab-label'>
+					<p><i class='fa-regular fa-book-open' title='Notes'></i></p>
+					Notes
+				</label>
+				<span class='tooltiptext'>
+					Notes
+				</span>
+			{{/if}}
+		</div>
+	</a>
+</nav>

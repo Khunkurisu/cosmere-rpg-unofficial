@@ -1,0 +1,19 @@
+{
+	"_id": "xjV9LVLxXSZdVloh",
+	"name": "Restrained",
+	"type": "Effect",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"description": "<p>Your movement rate becomes 0. You gain a disadvantage on all tests other than those to escape your bonds.</p>",
+		"showDetails": false,
+		"active": true,
+		"duration": {
+			"value": 0,
+			"unit": "round"
+		},
+		"hasToggle": false,
+		"effects": [],
+		"effectCreateType": "modifier"
+	},
+	"effects": []
+}

@@ -5,7 +5,7 @@ import { ExpertiseManager } from "../application/expertise-manager.mjs";
  * @param {Event} event   The originating click event
  * @private
  */
-export async function onExpertiseManage(event) {
+export async function onExpertiseManage(event, target) {
 	event.preventDefault();
 	const system = this.actor.system;
 	const expertise = system.expertise;
@@ -21,7 +21,7 @@ export async function onExpertiseManage(event) {
 
 	new ExpertiseManager(options).render({ force: true });
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -51,10 +51,9 @@ export function getExpertiseCategories(expertises) {
 	 * @param {Event} event   The originating click event
 	 * @private
 	 */
-export function onSkillIncrease(event) {
+export function onSkillIncrease(event, target) {
 	event.preventDefault();
-	const element = event.currentTarget;
-	const data = element.dataset;
+	const data = target.dataset;
 	const system = this.actor.system;
 	const skills = system.skills[data.skillBranch];
 	const skill = skills[data.skill];
@@ -69,7 +68,7 @@ export function onSkillIncrease(event) {
 
 	this.actor.update(updateObject);
 
-	this.render(false);
+	this._reRender(false);
 };
 
 /**
@@ -95,5 +94,5 @@ export function onSkillDecrease(event) {
 
 	this.actor.update(updateObject);
 
-	this.render(false);
+	this._reRender(false);
 };

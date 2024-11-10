@@ -25,7 +25,7 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 
 	static PARTS = {
 		form: {
-			template: 'systems/cosmere-rpg-unofficial/templates/chat/roll-popup.hbs'
+			template: 'systems/cosmere-rpg-unofficial/templates/dialogs/roll-popup.hbs'
 		},
 		footer: {
 			template: "templates/generic/form-footer.hbs",
@@ -42,7 +42,6 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 			if (!modifier.enabled) return;
 			let mod = modifier.value > 0 ? ` + ${modifier.value}` : ` - ${modifier.value}`;
 			dice.rollData += `${mod}[${modifier.label}]`;
-			console.log(dice.rollData);
 		});
 
 		if (dice.hasAdvantage) {
@@ -57,12 +56,22 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 		}
 
 		let roll = new Roll(dice.rollData, actor.getRollData());
-		if (Hooks.call("system.preRoll", roll) === false) return;
+		if (Hooks.call("cosmere-rpg-unofficial.preRoll", roll, {
+			...dice,
+			...flags,
+			actor,
+			'modifiers': modifiers
+		}) === false) return;
 
 		if (dice.usePlotDice) {
 			let plotData = "1d6";
 			let plotRoll = new Roll(plotData, actor.getRollData());
-			if (Hooks.call("system.preRoll", roll) === false) return;
+			if (Hooks.call("cosmere-rpg-unofficial.preRoll", roll, {
+				...dice,
+				...flags,
+				actor,
+				'modifiers': modifiers
+			}) === false) return;
 
 			plotRoll.toMessage({
 				flags: { cosmere: flags },
@@ -87,8 +96,6 @@ export class RollManager extends HandlebarsApplicationMixin(ApplicationV2) {
 	}
 
 	static createModifier(event, target) {
-		console.log(event);
-		console.log(target);
 		const parent = $(target).parents('.modifier-fields');
 		const label = $(parent).children()[0];
 		const value = $(parent).children()[1];
