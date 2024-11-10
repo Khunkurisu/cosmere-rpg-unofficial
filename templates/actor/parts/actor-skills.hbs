@@ -112,6 +112,48 @@
 			</ol>
 		</div>
 	</div>
+	{{#if actor.system.hasSurges}}
+		<hr />
+		<div class="flexcol flex-group-center" style="width:100%;">
+			<div class="surge-skills flexcol flex-group-center" style="width:75%;">
+				<span class="skill-column-header">
+					{{localize (lookup @root.config.defenses.surge "plural")}}
+				</span>
+				<ol class='surge-skills skills-list'>
+					{{#each system.skills.surge as |skill key|}}
+						{{#if skill.show}}
+							<li class="flexrow flex-group-center">
+								<input type="text" name="system.skills.surge.{{key}}.value" value="+{{skill.value}}"
+									disabled="true" data-dtype="Number" />
+								<label for="system.skills.surge.{{key}}.value"
+									class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
+									data-key="{{key}}" data-roll="d20+@skills.surge.{{key}}.value"
+									data-roll-type="skill" data-defense="surge"
+									data-label="{{localize (lookup @root.config.skills.surge key)}}">
+									{{localize (lookup @root.config.skills.surge key)}}
+								</label>
+								<label for="system.skills.surge.{{key}}.value"
+									class="resource-label rollable flex-group-right" style="max-width:min-content;"
+									data-roll="d20+@skills.surge.{{key}}.value" data-key="{{key}}"
+									data-roll-type="skill" data-defense="surge"
+									data-label="{{localize (lookup @root.config.skills.surge key)}}">
+									({{toUpperCase (localize (lookup @root.config.attributeAbbreviations skill.attribute))}})
+								</label>
+								<div class="skill-pip flexrow flex-group-right" data-skill="{{key}}"
+									data-skill-branch="surge">
+									<i class="fa-{{pipRank skill.rank 1}} fa-circle"></i>
+									<i class="fa-{{pipRank skill.rank 2}} fa-circle"></i>
+									<i class="fa-{{pipRank skill.rank 3}} fa-circle"></i>
+									<i class="fa-{{pipRank skill.rank 4}} fa-circle"></i>
+									<i class="fa-{{pipRank skill.rank 5}} fa-circle"></i>
+								</div>
+							</li>
+						{{/if}}
+					{{/each}}
+				</ol>
+			</div>
+		</div>
+	{{/if}}
 	<hr />
 	<div class="flexcol flex-group-center">
 		<div class="expertise flexcol flex-group-center" style="width:75%;">
