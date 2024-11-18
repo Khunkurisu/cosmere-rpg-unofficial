@@ -7,8 +7,7 @@ export class CosmereUnofficialCombatTracker extends CombatTracker {
 			classes: ['cosmere-rpg-unofficial', ...super.defaultOptions.classes],
 		});
 	}
-	// Note: lint rules wants this to be exposed as a readonly field, but base class implements a getter.
-	// eslint-disable-next-line @typescript-eslint/class-literal-property-style
+
 	get template() {
 		return 'systems/cosmere-rpg-unofficial/templates/combat/combat-tracker.hbs';
 	}
@@ -47,23 +46,50 @@ export class CosmereUnofficialCombatTracker extends CombatTracker {
 				turn.turnSpeed === 'fast'
 			);
 		});
+		data.fastPlayers.sort((turnA, turnB) => {
+			let val = 0;
+			val += turnA.activated ? 1 : -1;
+			val += turnB.activated ? -1 : 1;
+			return val;
+		});
+
 		data.slowPlayers = data.turns.filter((turn) => {
 			return (
 				turn.type === 'Player' &&
 				turn.turnSpeed === 'slow'
 			);
 		});
+		data.slowPlayers.sort((turnA, turnB) => {
+			let val = 0;
+			val += turnA.activated ? 1 : -1;
+			val += turnB.activated ? -1 : 1;
+			return val;
+		});
+
 		data.fastNPC = data.turns.filter((turn) => {
 			return (
 				turn.type === 'Adversary' &&
 				turn.turnSpeed === 'fast'
 			);
 		});
+		data.fastNPC.sort((turnA, turnB) => {
+			let val = 0;
+			val += turnA.activated ? 1 : -1;
+			val += turnB.activated ? -1 : 1;
+			return val;
+		});
+
 		data.slowNPC = data.turns.filter((turn) => {
 			return (
 				turn.type === 'Adversary' &&
 				turn.turnSpeed === 'slow'
 			);
+		});
+		data.slowNPC.sort((turnA, turnB) => {
+			let val = 0;
+			val += turnA.activated ? 1 : -1;
+			val += turnB.activated ? -1 : 1;
+			return val;
 		});
 
 		return data;
