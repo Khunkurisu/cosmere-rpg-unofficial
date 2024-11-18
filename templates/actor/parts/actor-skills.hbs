@@ -127,7 +127,7 @@
 									disabled="true" data-dtype="Number" />
 								<label for="system.skills.surge.{{key}}.value"
 									class="resource-label rollable flexlarge flex-group-left" style="margin-left:5%;"
-									data-key="{{key}}" data-roll="d20+@skills.surge.{{key}}.value"
+									data-action="roll" data-key="{{key}}" data-roll="d20+@skills.surge.{{key}}.value"
 									data-roll-type="skill" data-defense="surge"
 									data-label="{{localize (lookup @root.config.skills.surge key)}}">
 									{{localize (lookup @root.config.skills.surge key)}}
